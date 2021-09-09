@@ -1357,6 +1357,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-board-samg55-xplained-pro/" class="md-nav__link">
+        :board:samg55-xplained-pro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-board-srxe/" class="md-nav__link">
         :board:srxe
       </a>
@@ -3145,6 +3157,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-platform-clockgen/" class="md-nav__link">
+        :platform:clockgen
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-platform-comp/" class="md-nav__link">
         :platform:comp
       </a>
@@ -3380,6 +3404,26 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_ports" class="md-nav__link">
+    enable_ports
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
@@ -3629,8 +3673,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-uart-sam/" class="md-nav__link">
-        :platform:uart (sam)
+      <a href="../modm-platform-uart-samd/" class="md-nav__link">
+        :platform:uart (samd)
       </a>
     </li>
   
@@ -3677,8 +3721,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-usb-sam/" class="md-nav__link">
-        :platform:usb (sam)
+      <a href="../modm-platform-usb-samd/" class="md-nav__link">
+        :platform:usb (samd)
       </a>
     </li>
   
@@ -4214,6 +4258,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_ports" class="md-nav__link">
+    enable_ports
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -4236,6 +4300,13 @@
                 <h1 id="general-purpose-io-gpio">General Purpose I/O (GPIO)<a class="headerlink" href="#general-purpose-io-gpio" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:gpio</code></p>
 <p><em>This module is only available for sam.</em></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="enable_ports">enable_ports<a class="headerlink" href="#enable_ports" title="Permanent link">&para;</a></h4>
+<p>Enable clock for these GPIO ports during startup</p>
+<p>Default: <code>{A, B}</code> <em>sam</em><br />
+Default: <code>{A}</code> <em>samd</em><br />
+Inputs: <code>[A]</code> <em>samd</em><br />
+Inputs: <code>[A, B]</code> <em>sam</em>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
