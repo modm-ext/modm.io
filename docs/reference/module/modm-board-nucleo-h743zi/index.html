@@ -829,6 +829,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-board-devebox-stm32h750vb/" class="md-nav__link">
+        :board:devebox-stm32h750vb
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-board-disco-f051r8/" class="md-nav__link">
         :board:disco-f051r8
       </a>
@@ -4272,6 +4284,19 @@
                 <h1 id="nucleo-h743zi">NUCLEO-H743ZI<a class="headerlink" href="#nucleo-h743zi" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:board:nucleo-h743zi</code></p>
 <p><a href="https://www.st.com/en/evaluation-tools/nucleo-h743zi.html">Nucleo kit for STM32H743ZI</a></p>
+<p>Please note that this BSP uses the Y revision of the STM32H743, which limits the
+main clock frequency to ≤400MHz and applies an errata bug fix to the SysTick,
+whose reference clock cannot be divided by 8.</p>
+<p>See the <a href="https://www.st.com/resource/en/errata_sheet/es0392-stm32h742xig-and-stm32h743xig-device-limitations-stmicroelectronics.pdf">STM32H743 errata sheet</a>.</p>
+<p>In case you are using the new revision V of STM32H743, you can overwrite the
+target option in your <code>project.xml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
+  <span class="nt">&lt;extends&gt;</span>modm:nucleo-h743zi<span class="nt">&lt;/extends&gt;</span>
+  <span class="nt">&lt;options&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;modm:target&quot;</span><span class="nt">&gt;</span>stm32h743zit6/revV<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/options&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div>
 <p><em>This module is only available for stm32h743zit6.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
