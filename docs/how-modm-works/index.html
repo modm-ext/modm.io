@@ -3355,6 +3355,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/module/modm-platform-exti/" class="md-nav__link">
+        :platform:exti
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/module/modm-platform-extint/" class="md-nav__link">
         :platform:extint
       </a>
@@ -4575,9 +4587,6 @@ dealing with external interrupts or even just toggling a pin is done quite dissi
 <span class="c1">// Depending on your targets, additional functions are available</span>
 <span class="n">Led</span><span class="o">::</span><span class="n">setOutput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">OutputType</span><span class="o">::</span><span class="n">OpenDrain</span><span class="p">);</span>
 <span class="n">Button</span><span class="o">::</span><span class="n">setInput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputType</span><span class="o">::</span><span class="n">PullUp</span><span class="p">);</span>
-<span class="n">Button</span><span class="o">::</span><span class="n">setInputTrigger</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">RisingEdge</span><span class="p">);</span>
-<span class="n">Button</span><span class="o">::</span><span class="n">enableExternalInterrupt</span><span class="p">();</span>
-<span class="n">Button</span><span class="o">::</span><span class="n">acknowledgeExternalInterruptFlag</span><span class="p">();</span>
 </code></pre></div>
 <p>You can use these GPIOs as building blocks for more complex drivers and
 peripherals and still maintain access speed without sacrificing usability:</p>

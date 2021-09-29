@@ -1226,6 +1226,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-platform-exti/</loc>
+         <lastmod>2021-09-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-platform-extint/</loc>
          <lastmod>2021-09-29</lastmod>
          <changefreq>daily</changefreq>

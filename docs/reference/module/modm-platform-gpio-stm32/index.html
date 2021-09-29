@@ -3289,6 +3289,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-platform-exti/" class="md-nav__link">
+        :platform:exti
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-platform-extint/" class="md-nav__link">
         :platform:extint
       </a>
@@ -3428,6 +3440,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alternate-function-signals" class="md-nav__link">
+    Alternate Function Signals
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#options" class="md-nav__link">
@@ -4282,6 +4301,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#alternate-function-signals" class="md-nav__link">
+    Alternate Function Signals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#options" class="md-nav__link">
     Options
   </a>
@@ -4323,6 +4349,107 @@
                 
                 <h1 id="general-purpose-io-gpio">General Purpose I/O (GPIO)<a class="headerlink" href="#general-purpose-io-gpio" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:gpio</code></p>
+<p>This module provides register access to GPIO and connect their signals to the
+respective peripherals in a compile-time verified way. This module also enables
+all GPIO peripheral clocks on startup by default.</p>
+<p>Each GPIO is represented as its own class with only static methods, which
+implement the <code>modm::GpioIO</code> interface and provide additional platform-specific
+methods.</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="k">namespace</span> <span class="nn">modm</span><span class="o">::</span><span class="nn">platform</span><span class="p">;</span>
+
+<span class="k">using</span> <span class="n">Button</span> <span class="o">=</span> <span class="n">GpioA0</span><span class="p">;</span>
+<span class="n">Button</span><span class="o">::</span><span class="n">setInput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputType</span><span class="o">::</span><span class="n">PullUp</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="n">input</span> <span class="o">=</span> <span class="n">Button</span><span class="o">::</span><span class="n">read</span><span class="p">();</span>
+
+<span class="k">using</span> <span class="n">Led</span> <span class="o">=</span> <span class="n">GpioInverted</span><span class="o">&lt;</span><span class="n">GpioB3</span><span class="o">&gt;</span><span class="p">;</span> <span class="c1">// inverts the IO logic of the pin</span>
+
+<span class="n">Led</span><span class="o">::</span><span class="n">setOutput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">OutputType</span><span class="o">::</span><span class="n">OpenDrain</span><span class="p">,</span> <span class="n">Gpio</span><span class="o">::</span><span class="n">OutputSpeed</span><span class="o">::</span><span class="n">MHz2</span><span class="p">);</span>
+<span class="n">Led</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+
+<span class="k">using</span> <span class="n">Analog</span> <span class="o">=</span> <span class="n">GpioC12</span><span class="p">;</span>
+<span class="n">Analog</span><span class="o">::</span><span class="n">setAnalogInput</span><span class="p">();</span> <span class="c1">// Use pin for ADC/DAC/COMP</span>
+<span class="n">Analog</span><span class="o">::</span><span class="n">lock</span><span class="p">();</span> <span class="c1">// this prevents changes until next reboot</span>
+
+<span class="k">using</span> <span class="n">Signal</span> <span class="o">=</span> <span class="n">GpioD9</span><span class="p">;</span>
+<span class="n">Signal</span><span class="o">::</span><span class="n">setAlternateFunction</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span> <span class="c1">// For AF id see datasheet</span>
+<span class="n">Signal</span><span class="o">::</span><span class="n">setAlternateFunction</span><span class="p">();</span> <span class="c1">// STM32F1 has no AF id</span>
+<span class="n">Signal</span><span class="o">::</span><span class="n">disconnect</span><span class="p">();</span> <span class="c1">// Switch back to floating input</span>
+
+<span class="c1">// Some STM32s have remappable pinouts</span>
+<span class="n">GpioA11</span><span class="o">::</span><span class="n">remap</span><span class="p">();</span> <span class="c1">// STM32G0: Remap A9 -&gt; A11.</span>
+</code></pre></div>
+<p>You can also use an unordered set of GPIOs, which is useful when configuring a
+large number of pins, since the register accesses will be bundled and thus less
+code is generated.</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Set</span> <span class="o">=</span> <span class="n">GpioSet</span><span class="o">&lt;</span><span class="n">GpioA0</span><span class="p">,</span> <span class="n">GpioB1</span><span class="p">,</span> <span class="n">GpioC2</span><span class="p">,</span> <span class="n">GpioD3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">Set</span><span class="o">::</span><span class="n">setInput</span><span class="p">();</span>
+</code></pre></div>
+<p>To write and read a set of GPIOs, you need to use an ordered implementation,
+which defines the pins from MSB to LSB, left-to-right. You can also check the
+number of ports in case your use-case requires atomic reads/writes.</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Port</span> <span class="o">=</span> <span class="n">SoftwareGpioPort</span><span class="o">&lt;</span><span class="n">GpioA10</span><span class="p">,</span> <span class="n">GpioA2</span><span class="p">,</span> <span class="n">GpioA6</span><span class="p">,</span> <span class="n">GpioA14</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">Port</span><span class="o">::</span><span class="n">number_of_ports</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;Read/write needs to be atomic&quot;</span><span class="p">);</span>
+<span class="n">Port</span><span class="o">::</span><span class="n">setOutput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">OutputType</span><span class="o">::</span><span class="n">OpenDrain</span><span class="p">);</span>
+<span class="n">Port</span><span class="o">::</span><span class="n">configure</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputType</span><span class="o">::</span><span class="n">PullUp</span><span class="p">);</span>
+<span class="kt">uint8_t</span> <span class="n">nibble</span> <span class="o">=</span> <span class="n">Port</span><span class="o">::</span><span class="n">read</span><span class="p">();</span>
+<span class="n">Port</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="n">nibble</span><span class="p">);</span>
+</code></pre></div>
+<p>For efficient access you can use a strictly-ordered implementation with a start
+pin and width. Note that you can reverse the data order with a negative width.</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Port</span> <span class="o">=</span> <span class="n">GpioPort</span><span class="o">&lt;</span><span class="n">GpioA0</span><span class="p">,</span> <span class="mi">8</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">Port</span><span class="o">::</span><span class="n">setOutput</span><span class="p">();</span>
+<span class="n">Port</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+
+<span class="k">using</span> <span class="n">ReversePort</span> <span class="o">=</span> <span class="n">GpioPort</span><span class="o">&lt;</span><span class="n">GpioB7</span><span class="p">,</span> <span class="mi">-8</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="n">ReversePort</span><span class="o">::</span><span class="n">setInput</span><span class="p">();</span>
+<span class="kt">uint8_t</span> <span class="n">data</span> <span class="o">=</span> <span class="n">ReversePort</span><span class="o">::</span><span class="n">read</span><span class="p">();</span>
+</code></pre></div>
+<p>Finally, you can use an empty GPIO implementation in cases where the API
+requires a GPIO, but you don't need one, for example, a bit-banged SPI without
+MISO pin:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// write only SPI</span>
+<span class="k">using</span> <span class="n">SPI</span> <span class="o">=</span> <span class="n">modm</span><span class="o">::</span><span class="n">platform</span><span class="o">::</span><span class="n">BitBangSpiMaster</span><span class="o">&lt;</span><span class="n">GpioA0</span><span class="p">,</span> <span class="n">GpioA1</span><span class="p">,</span> <span class="n">GpioUnused</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="alternate-function-signals">Alternate Function Signals<a class="headerlink" href="#alternate-function-signals" title="Permanent link">&para;</a></h2>
+<p>To make it easier to connect pins with peripherals, this module implements a
+compile-time map of (pin, signal, peripheral) to Alternate Function ID (AF).
+Note that you must provide both peripherals and signals to be unambiguous.</p>
+<div class="highlight"><pre><span></span><code><span class="n">GpioConnector</span><span class="o">&lt;</span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Usart1</span><span class="p">,</span> <span class="n">GpioD0</span><span class="o">::</span><span class="n">Tx</span><span class="p">,</span> <span class="n">GpioD1</span><span class="o">::</span><span class="n">Rx</span><span class="o">&gt;::</span><span class="n">connect</span><span class="p">();</span>
+</code></pre></div>
+<p>However, it is recommended to wrap this functionality into a separate function
+<code>Driver::connect&lt;Signals...&gt;(config)</code>, so that additional driver specific pin
+configuration can be done:</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span><span class="o">&lt;</span> <span class="k">class</span><span class="p">...</span> <span class="n">Signals</span> <span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">Uart1</span><span class="o">::</span><span class="n">connect</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Connector</span> <span class="o">=</span> <span class="n">GpioConnector</span><span class="o">&lt;</span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Usart1</span><span class="p">,</span> <span class="n">Signals</span><span class="p">...</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">Connector</span><span class="o">::</span><span class="n">disconnect</span><span class="p">();</span> <span class="c1">// reset to floating input</span>
+
+    <span class="c1">// extract pins from signals</span>
+    <span class="k">using</span> <span class="n">Rx</span> <span class="o">=</span> <span class="n">Connector</span><span class="o">::</span><span class="n">GetSignal</span><span class="o">&lt;</span><span class="n">Gpio</span><span class="o">::</span><span class="n">Signal</span><span class="o">::</span><span class="n">Rx</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">using</span> <span class="n">Tx</span> <span class="o">=</span> <span class="n">Connector</span><span class="o">::</span><span class="n">GetSignal</span><span class="o">&lt;</span><span class="n">Gpio</span><span class="o">::</span><span class="n">Signal</span><span class="o">::</span><span class="n">Tx</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="c1">// if not found, returns GpioUnused, you can check for this case</span>
+    <span class="k">static_assert</span><span class="p">(</span><span class="n">not</span> <span class="n">Connector</span><span class="o">::</span><span class="n">isValid</span><span class="o">&lt;</span><span class="n">Tx</span><span class="o">&gt;</span><span class="p">,</span>
+                  <span class="s">&quot;This UART driver requires the Tx signal&quot;</span><span class="p">);</span>
+
+    <span class="c1">// configure both pins</span>
+    <span class="n">Rx</span><span class="o">::</span><span class="n">configure</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputType</span><span class="o">::</span><span class="n">PullUp</span><span class="p">);</span>
+    <span class="n">Tx</span><span class="o">::</span><span class="n">configure</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">OutputType</span><span class="o">::</span><span class="n">PushPull</span><span class="p">);</span>
+
+    <span class="c1">// connect both pins to alternate functions</span>
+    <span class="c1">// This will static assert if signals do not make sense</span>
+    <span class="n">Connector</span><span class="o">::</span><span class="n">connect</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="c1">// Connect these pin signals to Usart1</span>
+<span class="n">Uart1</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioD0</span><span class="o">::</span><span class="n">Tx</span><span class="p">,</span> <span class="n">GpioD1</span><span class="o">::</span><span class="n">Rx</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div>
+<p>Note that you may pass a <em>variable</em> number of signals to this connect function,
+leaving out signals you don't need and adding signals that are not required.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Connect only one signal</span>
+<span class="n">Uart1</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioD0</span><span class="o">::</span><span class="n">Tx</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="c1">// Connect more signals than required</span>
+<span class="n">Uart1</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioD0</span><span class="o">::</span><span class="n">Tx</span><span class="p">,</span> <span class="n">GpioD2</span><span class="o">::</span><span class="n">Cts</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div>
 <p><em>This module is only available for stm32.</em></p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="enable_ports">enable_ports<a class="headerlink" href="#enable_ports" title="Permanent link">&para;</a></h4>

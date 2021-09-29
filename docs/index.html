@@ -3361,6 +3361,18 @@
   
   
     <li class="md-nav__item">
+      <a href="reference/module/modm-platform-exti/" class="md-nav__link">
+        :platform:exti
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="reference/module/modm-platform-extint/" class="md-nav__link">
         :platform:extint
       </a>
@@ -4426,7 +4438,7 @@ back so everyone can benefit.</p>
 <ul>
 <li>✅ Implemented as a software driver in modm.</li>
 <li>○ Available in hardware but missing a software driver in modm.</li>
-<li>✗ Unavailable in hardware or device with that peripheral not supported by modm.</li>
+<li>✕ Unavailable in hardware or device with that peripheral not supported by modm.</li>
 </ul>
 <p>Note that this is a summary overview and your specific device may not have all
 the peripherals in this table.
@@ -4487,34 +4499,34 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">○</td>
 <td align="center">○</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">Comparator</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">○</td>
-<td align="center">✅</td>
-<td align="center">○</td>
-<td align="center">○</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">○</td>
 <td align="center">✅</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">○</td>
+<td align="center">○</td>
+<td align="center">✅</td>
+<td align="center">○</td>
+<td align="center">✕</td>
 <td align="center">○</td>
 <td align="center">○</td>
 <td align="center">○</td>
@@ -4534,11 +4546,11 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">DMA</td>
 <td align="center">✅</td>
@@ -4554,31 +4566,31 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">Ethernet</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">○</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">○</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">External Interrupt</td>
 <td align="center">✅</td>
@@ -4594,31 +4606,31 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">○</td>
+<td align="center">○</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 </tr><tr>
 <td align="left">External Memory</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
 <td align="center">○</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">○</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">GPIO</td>
 <td align="center">✅</td>
@@ -4676,29 +4688,29 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">○</td>
 <td align="center">○</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">Random Generator</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✅</td>
+<td align="center">✕</td>
+<td align="center">✅</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">SPI</td>
 <td align="center">✅</td>
@@ -4734,11 +4746,11 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">Timer</td>
 <td align="center">✅</td>
@@ -4793,12 +4805,12 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr><tr>
 <td align="left">USB</td>
 <td align="center">✅</td>
@@ -4807,7 +4819,7 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
@@ -4816,9 +4828,9 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">○</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
-<td align="center">✗</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
+<td align="center">✕</td>
 </tr>
 </table>
 <!--/alltable-->
