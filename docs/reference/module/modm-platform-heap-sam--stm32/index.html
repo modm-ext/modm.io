@@ -4114,6 +4114,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#providing-operator-delete" class="md-nav__link">
+    Providing operator delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wrapping-malloc" class="md-nav__link">
     Wrapping malloc
   </a>
@@ -5145,6 +5152,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#providing-operator-delete" class="md-nav__link">
+    Providing operator delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wrapping-malloc" class="md-nav__link">
     Wrapping malloc
   </a>
@@ -5339,6 +5353,17 @@ implementation of the <code>sbrk</code> function. A simple implementation for a
 <span class="w">    </span><span class="n">heap_top</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">modm_assert</span><span class="p">(</span><span class="n">heap_top</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">heap_end</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;heap.sbrk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Heap overflowed!&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="providing-operator-delete">Providing operator delete<a class="headerlink" href="#providing-operator-delete" title="Permanent link">&para;</a></h3>
+<p>Unfortunately virtual C++ destructors can emit a call to <code>operator delete</code> even
+for classes with static allocation and also in program without a single call to
+<code>operator new</code> or <code>malloc</code>. Therefore if this module is not included, calls to
+<code>operator delete</code> are ignored and you must overwrite this behavior with this
+function that only points to <code>free</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">operator_delete</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h3 id="wrapping-malloc">Wrapping malloc<a class="headerlink" href="#wrapping-malloc" title="Permanent link">&para;</a></h3>
