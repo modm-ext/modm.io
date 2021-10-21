@@ -13,14 +13,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-vl6180/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-tmp12x/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
     
     
       
-        <title>:driver:vl6180 - modm barebone embedded library</title>
+        <title>:driver:tmp12x - modm barebone embedded library</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vl6180x-proximity-sensor" class="md-skip">
+        <a href="#tmp121123125-thermometer" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :driver:vl6180
+              :driver:tmp12x
             
           </span>
         </div>
@@ -3232,11 +3232,51 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-tmp12x/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:tmp12x
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:tmp12x
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3288,51 +3328,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :driver:vl6180
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-driver-vl6180/" class="md-nav__link">
         :driver:vl6180
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5020,117 +5020,72 @@
               
                 
                 
-                <h1 id="vl6180x-proximity-sensor">VL6180X Proximity Sensor<a class="headerlink" href="#vl6180x-proximity-sensor" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:driver:vl6180</code></p>
+                <h1 id="tmp121123125-thermometer">TMP121/123/125 Thermometer<a class="headerlink" href="#tmp121123125-thermometer" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:tmp12x</code></p>
+<p>TMP121/123/125 temperature sensor driver</p>
+<p>This driver supports the TMP125 device but not its optional shutdown function.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="901pt" height="150pt"
- viewBox="0.00 0.00 900.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="488pt" height="150pt"
+ viewBox="0.00 0.00 487.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:driver:vl6180</title>
+<title>modm:driver:tmp12x</title>
 <g id="node1" class="node">
-<title>modm_driver_vl6180</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="520,-53 455,-53 455,0 520,0 520,-53"/>
-<text text-anchor="middle" x="487.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="487.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="487.5" y="-7.8" font-family="Times,serif" font-size="14.00">vl6180</text>
+<title>modm_driver_tmp12x</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="280,-53 209,-53 209,0 280,0 280,-53"/>
+<text text-anchor="middle" x="244.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="244.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="244.5" y="-7.8" font-family="Times,serif" font-size="14.00">tmp12x</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_accessor</title>
+<title>modm_architecture_gpio</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">accessor</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_architecture_accessor</title>
-<path fill="none" stroke="black" d="M454.81,-30.5C391.31,-36.83 246.98,-53.76 119.18,-88.75"/>
-<polygon fill="black" stroke="black" points="117.92,-85.47 109.23,-91.52 119.8,-92.21 117.92,-85.47"/>
+<title>modm_driver_tmp12x&#45;&gt;modm_architecture_gpio</title>
+<path fill="none" stroke="black" d="M208.76,-43.86C183.34,-55.51 148.48,-71.47 118.33,-85.27"/>
+<polygon fill="black" stroke="black" points="116.78,-82.13 109.14,-89.48 119.69,-88.5 116.78,-82.13"/>
 </g>
 <g id="node3" class="node">
-<title>modm_architecture_i2c_device</title>
+<title>modm_architecture_register</title>
 <polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
 <text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">i2c.device</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_architecture_i2c_device</title>
-<path fill="none" stroke="black" d="M454.87,-34.27C409.68,-43.96 325.45,-63.2 245.98,-88.66"/>
-<polygon fill="black" stroke="black" points="244.74,-85.38 236.31,-91.8 246.9,-92.04 244.74,-85.38"/>
+<title>modm_driver_tmp12x&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M225.94,-53.13C219.71,-61.73 212.67,-71.45 206.06,-80.58"/>
+<polygon fill="black" stroke="black" points="203.18,-78.6 200.15,-88.75 208.85,-82.7 203.18,-78.6"/>
 </g>
 <g id="node4" class="node">
-<title>modm_architecture_register</title>
+<title>modm_architecture_spi_device</title>
 <polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
 <text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi.device</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_architecture_register</title>
-<path fill="none" stroke="black" d="M454.67,-43.46C431.08,-54.92 398.57,-70.72 370.2,-84.51"/>
-<polygon fill="black" stroke="black" points="368.61,-81.39 361.15,-88.91 371.67,-87.69 368.61,-81.39"/>
+<title>modm_driver_tmp12x&#45;&gt;modm_architecture_spi_device</title>
+<path fill="none" stroke="black" d="M263.36,-53.13C269.68,-61.73 276.83,-71.45 283.55,-80.58"/>
+<polygon fill="black" stroke="black" points="280.81,-82.77 289.56,-88.75 286.45,-78.62 280.81,-82.77"/>
 </g>
 <g id="node5" class="node">
-<title>modm_architecture_unaligned</title>
-<polygon fill="lightgrey" stroke="black" points="490,-142 381,-142 381,-89 490,-89 490,-142"/>
-<text text-anchor="middle" x="435.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="435.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="435.5" y="-96.8" font-family="Times,serif" font-size="14.00">unaligned</text>
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="479.5,-142 381.5,-142 381.5,-89 479.5,-89 479.5,-142"/>
+<text text-anchor="middle" x="430.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="430.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="430.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
 </g>
 <g id="edge4" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_architecture_unaligned</title>
-<path fill="none" stroke="black" d="M472.18,-53.13C467.15,-61.55 461.47,-71.05 456.11,-80.02"/>
-<polygon fill="black" stroke="black" points="453.02,-78.37 450.89,-88.75 459.03,-81.96 453.02,-78.37"/>
-</g>
-<g id="node6" class="node">
-<title>modm_debug</title>
-<polygon fill="lightgrey" stroke="black" points="573,-134.5 508,-134.5 508,-96.5 573,-96.5 573,-134.5"/>
-<text text-anchor="middle" x="540.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="540.5" y="-104.3" font-family="Times,serif" font-size="14.00">debug</text>
-</g>
-<g id="edge5" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_debug</title>
-<path fill="none" stroke="black" d="M503.12,-53.13C509.75,-64.02 517.48,-76.71 524.19,-87.72"/>
-<polygon fill="black" stroke="black" points="521.34,-89.77 529.53,-96.49 527.32,-86.13 521.34,-89.77"/>
-</g>
-<g id="node7" class="node">
-<title>modm_math_utils</title>
-<polygon fill="lightgrey" stroke="black" points="656,-142 591,-142 591,-89 656,-89 656,-142"/>
-<text text-anchor="middle" x="623.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="623.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="623.5" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
-</g>
-<g id="edge6" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M520.08,-48.34C538.69,-60.25 562.23,-75.31 582.14,-88.04"/>
-<polygon fill="black" stroke="black" points="580.41,-91.09 590.72,-93.53 584.18,-85.19 580.41,-91.09"/>
-</g>
-<g id="node8" class="node">
-<title>modm_processing_protothread</title>
-<polygon fill="lightgrey" stroke="black" points="776.5,-142 674.5,-142 674.5,-89 776.5,-89 776.5,-142"/>
-<text text-anchor="middle" x="725.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="725.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="725.5" y="-96.8" font-family="Times,serif" font-size="14.00">protothread</text>
-</g>
-<g id="edge7" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_processing_protothread</title>
-<path fill="none" stroke="black" d="M520.23,-38.05C554.16,-49.16 608.9,-67.54 664.55,-88.72"/>
-<polygon fill="black" stroke="black" points="663.62,-92.11 674.21,-92.43 666.12,-85.58 663.62,-92.11"/>
-</g>
-<g id="node9" class="node">
-<title>modm_processing_timer</title>
-<polygon fill="lightgrey" stroke="black" points="892.5,-142 794.5,-142 794.5,-89 892.5,-89 892.5,-142"/>
-<text text-anchor="middle" x="843.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="843.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="843.5" y="-96.8" font-family="Times,serif" font-size="14.00">timer</text>
-</g>
-<g id="edge8" class="edge">
-<title>modm_driver_vl6180&#45;&gt;modm_processing_timer</title>
-<path fill="none" stroke="black" d="M520.27,-31.95C574.03,-39.75 684.22,-57.8 784.72,-89.01"/>
-<polygon fill="black" stroke="black" points="783.82,-92.4 794.41,-92.08 785.93,-85.73 783.82,-92.4"/>
+<title>modm_driver_tmp12x&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M280.36,-44.27C306.38,-56.45 342.15,-73.18 372.25,-87.25"/>
+<polygon fill="black" stroke="black" points="370.85,-90.46 381.39,-91.53 373.81,-84.12 370.85,-90.46"/>
 </g>
 </g>
 </svg></p>
@@ -5154,7 +5109,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../modm-driver-vl53l0/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :driver:vl53l0" rel="prev">
+        <a href="../modm-driver-tmp102/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :driver:tmp102" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5163,20 +5118,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              :driver:vl53l0
+              :driver:tmp102
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-driver-ws2812/" class="md-footer__link md-footer__link--next" aria-label="Next: :driver:ws2812" rel="next">
+        <a href="../modm-driver-tmp175/" class="md-footer__link md-footer__link--next" aria-label="Next: :driver:tmp175" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :driver:ws2812
+              :driver:tmp175
             </div>
           </div>
           <div class="md-footer__button md-icon">
