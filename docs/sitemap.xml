@@ -386,6 +386,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-board-nucleo-l053r8/</loc>
+         <lastmod>2021-10-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-board-nucleo-l152re/</loc>
          <lastmod>2021-10-21</lastmod>
          <changefreq>daily</changefreq>
