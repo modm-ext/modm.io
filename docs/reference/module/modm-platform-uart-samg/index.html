@@ -13,14 +13,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-gpio-hosted-darwin-linux-windows/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-uart-samg/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
     
     
       
-        <title>:platform:gpio (hosted{darwin,linux,windows}) - modm barebone embedded library</title>
+        <title>:platform:uart (samg) - modm barebone embedded library</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hosted-gpio" class="md-skip">
+        <a href="#universal-synchronous-asynchronous-receiver-transmitter-uart" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:gpio (hosted{darwin,linux,windows})
+              :platform:uart (samg)
             
           </span>
         </div>
@@ -3988,51 +3988,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:gpio (hosted{darwin,linux,windows})
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-platform-gpio-hosted-darwin-linux-windows/" class="md-nav__link">
         :platform:gpio (hosted{darwin,linux,windows})
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4350,11 +4310,51 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-uart-samg/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :platform:uart (samg)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :platform:uart (samg)
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5048,35 +5048,83 @@
               
                 
                 
-                <h1 id="hosted-gpio">Hosted GPIO<a class="headerlink" href="#hosted-gpio" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:gpio</code></p>
-<p><em>This module is only available for hosted{darwin,linux,windows}.</em></p>
+                <h1 id="universal-synchronous-asynchronous-receiver-transmitter-uart">Universal Synchronous Asynchronous Receiver Transmitter (UART)<a class="headerlink" href="#universal-synchronous-asynchronous-receiver-transmitter-uart" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:uart</code></p>
+<p><em>This module is only available for samg.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="117pt" height="150pt"
- viewBox="0.00 0.00 117.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="507pt" height="150pt"
+ viewBox="0.00 0.00 507.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:platform:gpio</title>
+<title>modm:platform:uart</title>
 <g id="node1" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="96,-53 13,-53 13,0 96,0 96,-53"/>
-<text text-anchor="middle" x="54.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="54.5" y="-7.8" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_platform_uart</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="295,-53 212,-53 212,0 295,0 295,-53"/>
+<text text-anchor="middle" x="253.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="253.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="253.5" y="-7.8" font-family="Times,serif" font-size="14.00">uart</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_gpio</title>
+<title>modm_architecture_uart</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">uart</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_gpio&#45;&gt;modm_architecture_gpio</title>
-<path fill="none" stroke="black" d="M54.5,-53.13C54.5,-61.11 54.5,-70.07 54.5,-78.62"/>
-<polygon fill="black" stroke="black" points="51,-78.75 54.5,-88.75 58,-78.75 51,-78.75"/>
+<title>modm_platform_uart&#45;&gt;modm_architecture_uart</title>
+<path fill="none" stroke="black" d="M211.78,-45.74C184.72,-57.57 148.93,-73.21 118.33,-86.59"/>
+<polygon fill="black" stroke="black" points="116.78,-83.45 109.02,-90.66 119.58,-89.87 116.78,-83.45"/>
+</g>
+<g id="node3" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-89 192,-89 192,-142"/>
+<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M225.81,-53.13C216.14,-62.08 205.15,-72.25 194.94,-81.7"/>
+<polygon fill="black" stroke="black" points="192.28,-79.39 187.32,-88.75 197.04,-84.53 192.28,-79.39"/>
+</g>
+<g id="node4" class="node">
+<title>modm_math_algorithm</title>
+<polygon fill="lightgrey" stroke="black" points="296.5,-142 210.5,-142 210.5,-89 296.5,-89 296.5,-142"/>
+<text text-anchor="middle" x="253.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="253.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="253.5" y="-96.8" font-family="Times,serif" font-size="14.00">algorithm</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_math_algorithm</title>
+<path fill="none" stroke="black" d="M253.5,-53.13C253.5,-61.11 253.5,-70.07 253.5,-78.62"/>
+<polygon fill="black" stroke="black" points="250,-78.75 253.5,-88.75 257,-78.75 250,-78.75"/>
+</g>
+<g id="node5" class="node">
+<title>modm_platform_clockgen</title>
+<polygon fill="lightgrey" stroke="black" points="398,-142 315,-142 315,-89 398,-89 398,-142"/>
+<text text-anchor="middle" x="356.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="356.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="356.5" y="-96.8" font-family="Times,serif" font-size="14.00">clockgen</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_platform_clockgen</title>
+<path fill="none" stroke="black" d="M283.85,-53.13C294.65,-62.25 306.95,-72.65 318.32,-82.25"/>
+<polygon fill="black" stroke="black" points="316.12,-84.97 326.01,-88.75 320.63,-79.62 316.12,-84.97"/>
+</g>
+<g id="node6" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="499,-142 416,-142 416,-89 499,-89 499,-142"/>
+<text text-anchor="middle" x="457.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="457.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="457.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M295.11,-42.93C324.21,-53.99 364.1,-69.67 406.52,-88.68"/>
+<polygon fill="black" stroke="black" points="405.34,-91.99 415.9,-92.92 408.23,-85.61 405.34,-91.99"/>
 </g>
 </g>
 </svg></p>
@@ -5103,7 +5151,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../modm-platform-gpio-hosted-rpi/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :platform:gpio (hosted-rpi)" rel="prev">
+        <a href="../modm-platform-uart-samd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :platform:uart (samd)" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5112,20 +5160,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              :platform:gpio (hosted-rpi)
+              :platform:uart (samd)
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-platform-gpio-sam/" class="md-footer__link md-footer__link--next" aria-label="Next: :platform:gpio (sam)" rel="next">
+        <a href="../modm-platform-uart-stm32/" class="md-footer__link md-footer__link--next" aria-label="Next: :platform:uart (stm32)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :platform:gpio (sam)
+              :platform:uart (stm32)
             </div>
           </div>
           <div class="md-footer__button md-icon">
