@@ -1798,6 +1798,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scons-openocd" class="md-nav__link">
+    scons openocd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scons-run" class="md-nav__link">
     scons run
   </a>
@@ -1826,8 +1833,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scons-program-remote_1" class="md-nav__link">
-    scons program-remote
+  <a href="#scons-debug-remote" class="md-nav__link">
+    scons debug-remote
   </a>
   
 </li>
@@ -3733,6 +3740,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-ide/" class="md-nav__link">
+        :ide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-ide-vscode/" class="md-nav__link">
+        :ide:vscode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-io/" class="md-nav__link">
         :io
       </a>
@@ -5391,6 +5426,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scons-openocd" class="md-nav__link">
+    scons openocd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scons-run" class="md-nav__link">
     scons run
   </a>
@@ -5419,8 +5461,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scons-program-remote_1" class="md-nav__link">
-    scons program-remote
+  <a href="#scons-debug-remote" class="md-nav__link">
+    scons debug-remote
   </a>
   
 </li>
@@ -5829,7 +5871,14 @@ scons: done building targets.
 <div class="highlight"><pre><span></span><code>scons program-remote profile={debug|release} [host={ip or hostname}] [firmware={hash or file}]
 </code></pre></div>
 <p>Writes the executable onto your target connected to a remote OpenOCD process
-running on your own computer (host=<code>localhost</code>) or somewhere else.</p>
+running on your own computer (host=<code>localhost</code>) or somewhere else.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="scons-openocd">scons openocd<a class="headerlink" href="#scons-openocd" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>scons openocd
+</code></pre></div>
+<p>Starts an OpenOCD process to attach a remote debugger to (e.g. with
+<code>scons program-remote</code> or <code>scons debug-remote</code>).
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-run">scons run<a class="headerlink" href="#scons-run" title="Permanent link">&para;</a></h4>
 <p>Compiles and executes your program on your computer.
 (* <em>only Hosted targets</em>)</p>
@@ -5868,7 +5917,7 @@ program profile=debug</code> and try <code>scons debug profile=debug</code> agai
 <code>coredump={filepath}</code> argument.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <p>See the <code>modm:platform:fault</code> module for details how to receive the coredump data.</p>
-<h4 id="scons-program-remote_1">scons program-remote<a class="headerlink" href="#scons-program-remote_1" title="Permanent link">&para;</a></h4>
+<h4 id="scons-debug-remote">scons debug-remote<a class="headerlink" href="#scons-debug-remote" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons debug-remote profile={debug|release} ui={tui|web} [host={ip or hostname}] [firmware={hash or file}]
 </code></pre></div>
 <p>Debugs the executable via a remote OpenOCD process running on your own computer

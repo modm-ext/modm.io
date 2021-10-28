@@ -1091,6 +1091,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-ide-vscode/</loc>
+         <lastmod>2021-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://modm.io/reference/module/modm-ide/</loc>
+         <lastmod>2021-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-io/</loc>
          <lastmod>2021-10-28</lastmod>
          <changefreq>daily</changefreq>
