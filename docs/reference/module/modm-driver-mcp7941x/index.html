@@ -12,14 +12,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-canusb/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-mcp7941x/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
     
     
       
-        <title>:platform:canusb - modm barebone embedded library</title>
+        <title>:driver:mcp7941x - modm barebone embedded library</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#canusb-driver" class="md-skip">
+        <a href="#mcp79410mcp79411mcp79412" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:canusb
+              :driver:mcp7941x
             
           </span>
         </div>
@@ -2905,11 +2905,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-mcp7941x/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:mcp7941x
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:mcp7941x
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3759,52 +3800,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:canusb
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-platform-canusb/" class="md-nav__link">
         :platform:canusb
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5115,77 +5115,63 @@
               
                 
 
-<h1 id="canusb-driver">CANUSB Driver<a class="headerlink" href="#canusb-driver" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:canusb</code></p>
-<p><em>This module is only available for hosted{darwin,linux}.</em></p>
+<h1 id="mcp79410mcp79411mcp79412">MCP79410/MCP79411/MCP79412<a class="headerlink" href="#mcp79410mcp79411mcp79412" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:mcp7941x</code></p>
+<p>Battery-Backed I2C Real-Time Clock/Calendar with SRAM, EEPROM and Protected EEPROM</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="401pt" height="150pt"
- viewBox="0.00 0.00 400.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="361pt" height="150pt"
+ viewBox="0.00 0.00 360.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:platform:canusb</title>
+<title>modm:driver:mcp7941x</title>
 <g id="node1" class="node">
-<title>modm_platform_canusb</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="243,-53 160,-53 160,0 243,0 243,-53"/>
-<text text-anchor="middle" x="201.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="201.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="201.5" y="-7.8" font-family="Times,serif" font-size="14.00">canusb</text>
+<title>modm_driver_mcp7941x</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="227,-53 136,-53 136,0 227,0 227,-53"/>
+<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">mcp7941x</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_can</title>
+<title>modm_architecture_i2c_device</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">can</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">i2c.device</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_canusb&#45;&gt;modm_architecture_can</title>
-<path fill="none" stroke="black" d="M159.77,-52.2C143.22,-61.99 124,-73.37 106.55,-83.69"/>
-<polygon fill="black" stroke="black" points="104.44,-80.88 97.61,-88.98 108,-86.9 104.44,-80.88"/>
+<title>modm_driver_mcp7941x&#45;&gt;modm_architecture_i2c_device</title>
+<path fill="none" stroke="black" d="M144.08,-53.13C130.38,-62.52 114.72,-73.25 100.37,-83.08"/>
+<polygon fill="black" stroke="black" points="98.36,-80.21 92.09,-88.75 102.32,-85.99 98.36,-80.21"/>
 </g>
 <g id="node3" class="node">
-<title>modm_debug</title>
-<polygon fill="lightgrey" stroke="black" points="192,-134.5 127,-134.5 127,-96.5 192,-96.5 192,-134.5"/>
-<text text-anchor="middle" x="159.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-104.3" font-family="Times,serif" font-size="14.00">debug</text>
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_platform_canusb&#45;&gt;modm_debug</title>
-<path fill="none" stroke="black" d="M189.13,-53.13C183.92,-63.91 177.87,-76.46 172.59,-87.39"/>
-<polygon fill="black" stroke="black" points="169.39,-85.97 168.19,-96.49 175.69,-89.01 169.39,-85.97"/>
+<title>modm_driver_mcp7941x&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
+<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
 </g>
 <g id="node4" class="node">
-<title>modm_driver_lawicel</title>
-<polygon fill="lightgrey" stroke="black" points="276.5,-142 210.5,-142 210.5,-89 276.5,-89 276.5,-142"/>
-<text text-anchor="middle" x="243.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="243.5" y="-111.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="243.5" y="-96.8" font-family="Times,serif" font-size="14.00">lawicel</text>
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="352.5,-142 254.5,-142 254.5,-89 352.5,-89 352.5,-142"/>
+<text text-anchor="middle" x="303.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="303.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="303.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_platform_canusb&#45;&gt;modm_driver_lawicel</title>
-<path fill="none" stroke="black" d="M213.87,-53.13C217.9,-61.47 222.43,-70.86 226.72,-79.74"/>
-<polygon fill="black" stroke="black" points="223.57,-81.27 231.07,-88.75 229.87,-78.22 223.57,-81.27"/>
-</g>
-<g id="node5" class="node">
-<title>modm_processing_timer</title>
-<polygon fill="lightgrey" stroke="black" points="392.5,-142 294.5,-142 294.5,-89 392.5,-89 392.5,-142"/>
-<text text-anchor="middle" x="343.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="343.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="343.5" y="-96.8" font-family="Times,serif" font-size="14.00">timer</text>
-</g>
-<g id="edge4" class="edge">
-<title>modm_platform_canusb&#45;&gt;modm_processing_timer</title>
-<path fill="none" stroke="black" d="M243.34,-53.13C258.8,-62.61 276.49,-73.45 292.67,-83.36"/>
-<polygon fill="black" stroke="black" points="291.12,-86.51 301.47,-88.75 294.77,-80.54 291.12,-86.51"/>
+<title>modm_driver_mcp7941x&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M217.44,-53.13C230.48,-62.43 245.37,-73.05 259.05,-82.8"/>
+<polygon fill="black" stroke="black" points="257.22,-85.79 267.39,-88.75 261.28,-80.09 257.22,-85.79"/>
 </g>
 </g>
 </svg></p>
 <style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
-<div class="admonition warning">
-<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
-</div>
 
               
             </article>
@@ -5199,7 +5185,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../modm-platform-can-common/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :platform:can.common" rel="prev">
+        <a href="../modm-driver-mcp2515/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :driver:mcp2515" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5208,20 +5194,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              :platform:can.common
+              :driver:mcp2515
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-platform-clock-avr/" class="md-footer__link md-footer__link--next" aria-label="Next: :platform:clock (avr)" rel="next">
+        <a href="../modm-driver-memory_bus/" class="md-footer__link md-footer__link--next" aria-label="Next: :driver:memory_bus" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :platform:clock (avr)
+              :driver:memory_bus
             </div>
           </div>
           <div class="md-footer__button md-icon">
