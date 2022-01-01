@@ -1576,6 +1576,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-tinyusb-device-video/</loc>
+         <lastmod>2022-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-tinyusb-device/</loc>
          <lastmod>2022-01-01</lastmod>
          <changefreq>daily</changefreq>

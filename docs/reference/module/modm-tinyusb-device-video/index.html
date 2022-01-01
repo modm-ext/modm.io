@@ -12,14 +12,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-freertos/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-tinyusb-device-video/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
     
     
       
-        <title>:freertos - modm barebone embedded library</title>
+        <title>:tinyusb:device:video - modm barebone embedded library</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#freertos" class="md-skip">
+        <a href="#device-class-video" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :freertos
+              :tinyusb:device:video
             
           </span>
         </div>
@@ -3409,79 +3409,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :freertos
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-freertos/" class="md-nav__link">
         :freertos
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#frequency" class="md-nav__link">
-    frequency
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4863,11 +4795,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-tinyusb-device-video/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :tinyusb:device:video
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :tinyusb:device:video
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5151,33 +5124,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#frequency" class="md-nav__link">
-    frequency
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -5197,131 +5143,35 @@
               
                 
 
-<h1 id="freertos">FreeRTOS<a class="headerlink" href="#freertos" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:freertos</code></p>
-<p>Amazon FreeRTOS is an open source, real-time operating system (RTOS) for
-microcontrollers in small, low-power devices.</p>
-<p>This module provides the latest FreeRTOS LTS release integrated with modm:</p>
-<ul>
-<li>Chooses the right Cortex-M port for the target.</li>
-<li>Variable tick rate integrated with <code>modm::Clock</code> via <code>modm:platform:clock</code>.</li>
-<li>Dynamic memory provided by the <code>modm:platform:heap</code> module with thread-safe
-  locking of Newlib's <code>malloc/free</code>.</li>
-<li>Assertions integrated into the <code>modm:architecture:assert</code> interface.</li>
-<li>Interrupt handling integrated with CMSIS NVIC functions.</li>
-</ul>
-<p>Note that we recommend using the FreeRTOS API directly and only if you write
-threaded code that also runs on other platforms (x86 simulators for example)
-should you consider using the API defined in <code>modm:processing:rtos</code> module.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>This module generates a <code>FreeRTOSConfig.h</code> config file for modm integration with
-these settings:</p>
-<ul>
-<li><code>configASSERT(x)</code> implemented with <code>modm_assert(x, "freertos")</code>.</li>
-<li><code>configCPU_CLOCK_HZ</code> implemented with CMSIS <code>SystemCoreClock</code>.</li>
-<li><code>configTICK_RATE_HZ</code> set to <code>modm:freertos:frequency</code> or 1kHz on Cortex-M0.</li>
-<li><code>configSUPPORT_DYNAMIC_ALLOCATION = 1</code> only if used with <code>modm:platform:heap</code>.</li>
-<li><code>configSUPPORT_STATIC_ALLOCATION = 1</code> only if used without <code>modm:platform:heap</code>.</li>
-<li><code>configUSE_TICK_HOOK = 1</code> used by <code>modm:platform:clock</code> to provide <code>modm::Clock</code>.</li>
-</ul>
-<p>In addition we define these overwritable default settings:</p>
-<ul>
-<li>
-<p><code>configMAX_SYSCALL_INTERRUPT_PRIORITY</code> = <code>(__NVIC_PRIO_BITS &lt;&lt; (8u - __NVIC_PRIO_BITS))</code></p>
-</li>
-<li>
-<p><code>configMINIMAL_STACK_SIZE</code> = 128</p>
-</li>
-<li><code>configMAX_PRIORITIES</code> = 5</li>
-<li><code>configUSE_PREEMPTION</code> = 1</li>
-<li><code>configUSE_IDLE_HOOK</code> = 0</li>
-<li>
-<p><code>configUSE_16_BIT_TICKS</code> = 0</p>
-</li>
-<li>
-<p><code>configUSE_MUTEXES</code> = 1</p>
-</li>
-<li><code>configUSE_RECURSIVE_MUTEXES</code> = 1</li>
-<li><code>configUSE_COUNTING_SEMAPHORES</code> = 1</li>
-<li><code>configQUEUE_REGISTRY_SIZE</code> = 10</li>
-<li><code>configNUM_THREAD_LOCAL_STORAGE_POINTERS</code> = 5</li>
-<li>
-<p><code>configCHECK_FOR_STACK_OVERFLOW</code> = 1</p>
-</li>
-<li>
-<p><code>configUSE_TIMERS</code> = 1</p>
-</li>
-<li><code>configTIMER_TASK_PRIORITY</code> = 3</li>
-<li><code>configTIMER_QUEUE_LENGTH</code> = 10</li>
-<li><code>configTIMER_TASK_STACK_DEPTH</code> = <code>configMINIMAL_STACK_SIZE</code></li>
-</ul>
-<p>All other config settings are unchanged by modm and are defaulted by FreeRTOS
-itself, please refer to the <a href="https://www.freertos.org/a00110.html">FreeRTOS Config documentation</a> to
-understand what each of these do.</p>
-<p>To change a configuration setting, define a <code>&lt;FreeRTOSConfigLocal.h&gt;</code> file,
-which is included <em>before</em> the optional settings, so you can overwrite them
-easily.</p>
-<p>An example <code>&lt;FreeRTOSConfigLocal.h&gt;</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Use a bigger minimal stack size</span>
-<span class="cp">#define configMINIMAL_STACK_SIZE  256</span>
-<span class="c1">// Longer timer queue</span>
-<span class="cp">#define configTIMER_QUEUE_LENGTH  20</span>
-</code></pre></div>
-<p><em>This module is only available for sam, stm32.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="frequency">frequency<a class="headerlink" href="#frequency" title="Permanent link">&para;</a></h4>
-<p>Context switch frequency in Hz</p>
-<p>Default: <code>1000</code><br />
-Inputs: <code>[4 ... 1000]</code>  </p>
+<h1 id="device-class-video">Device class VIDEO<a class="headerlink" href="#device-class-video" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:tinyusb:device:video</code></p>
+<p>Please consult the TinyUSB docs for configuration options.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="301pt" height="135pt"
- viewBox="0.00 0.00 301.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
-<title>modm:freertos</title>
+<p><svg class="deps" width="82pt" height="150pt"
+ viewBox="0.00 0.00 82.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
+<title>modm:tinyusb:device:video</title>
 <g id="node1" class="node">
-<title>modm_freertos</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="196.5,-38 122.5,-38 122.5,0 196.5,0 196.5,-38"/>
-<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">freertos</text>
+<title>modm_tinyusb_device_video</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="74,-68 0,-68 0,0 74,0 74,-68"/>
+<text text-anchor="middle" x="37" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="37" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
+<text text-anchor="middle" x="37" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
+<text text-anchor="middle" x="37" y="-7.8" font-family="Times,serif" font-size="14.00">video</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_assert</title>
-<polygon fill="lightgrey" stroke="black" points="109,-127 0,-127 0,-74 109,-74 109,-127"/>
-<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-81.8" font-family="Times,serif" font-size="14.00">assert</text>
+<title>modm_tinyusb</title>
+<polygon fill="lightgrey" stroke="black" points="72,-142 2,-142 2,-104 72,-104 72,-142"/>
+<text text-anchor="middle" x="37" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="37" y="-111.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_freertos&#45;&gt;modm_architecture_assert</title>
-<path fill="none" stroke="black" d="M135.67,-38.04C124.05,-46.84 109.72,-57.69 96.35,-67.81"/>
-<polygon fill="black" stroke="black" points="94.04,-65.17 88.18,-74 98.27,-70.75 94.04,-65.17"/>
-</g>
-<g id="node3" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="192,-127 127,-127 127,-74 192,-74 192,-127"/>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="159.5" y="-81.8" font-family="Times,serif" font-size="14.00">device</text>
-</g>
-<g id="edge2" class="edge">
-<title>modm_freertos&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M159.5,-38.04C159.5,-45.68 159.5,-54.86 159.5,-63.77"/>
-<polygon fill="black" stroke="black" points="156,-64 159.5,-74 163,-64 156,-64"/>
-</g>
-<g id="node4" class="node">
-<title>modm_platform_clock</title>
-<polygon fill="lightgrey" stroke="black" points="293,-127 210,-127 210,-74 293,-74 293,-127"/>
-<text text-anchor="middle" x="251.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="251.5" y="-96.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="251.5" y="-81.8" font-family="Times,serif" font-size="14.00">clock</text>
-</g>
-<g id="edge3" class="edge">
-<title>modm_freertos&#45;&gt;modm_platform_clock</title>
-<path fill="none" stroke="black" d="M180.38,-38.04C190.37,-46.68 202.65,-57.28 214.17,-67.24"/>
-<polygon fill="black" stroke="black" points="212.13,-70.11 221.99,-74 216.71,-64.81 212.13,-70.11"/>
+<title>modm_tinyusb_device_video&#45;&gt;modm_tinyusb</title>
+<path fill="none" stroke="black" d="M37,-68.39C37,-76.78 37,-85.71 37,-93.83"/>
+<polygon fill="black" stroke="black" points="33.5,-93.91 37,-103.91 40.5,-93.91 33.5,-93.91"/>
 </g>
 </g>
 </svg></p>
@@ -5342,7 +5192,7 @@ Inputs: <code>[4 ... 1000]</code>  </p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../modm-fatfs-petit/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :fatfs.petit" rel="prev">
+        <a href="../modm-tinyusb-device-vendor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :tinyusb:device:vendor" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5351,20 +5201,20 @@ Inputs: <code>[4 ... 1000]</code>  </p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              :fatfs.petit
+              :tinyusb:device:vendor
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-freertos-tcp/" class="md-footer__link md-footer__link--next" aria-label="Next: :freertos:tcp" rel="next">
+        <a href="../modm-tinyusb-host/" class="md-footer__link md-footer__link--next" aria-label="Next: :tinyusb:host" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :freertos:tcp
+              :tinyusb:host
             </div>
           </div>
           <div class="md-footer__button md-icon">
