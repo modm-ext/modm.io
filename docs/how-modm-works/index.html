@@ -15,7 +15,7 @@
         <link rel="canonical" href="http://modm.io/how-modm-works/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.2a4617e2.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bb3983ee.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,7 +42,7 @@
     
       <link rel="stylesheet" href="../extra.css">
     
-    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"..":".."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -5315,24 +5315,24 @@ Consider this data from the GPIO peripheral, which shows the signal map for the
 signal connections, which will then assert that the signal you want to connect
 actually exists on this pin and even gives you a helpful (!) error message at
 compile time.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">GpioA0</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">GpioA0</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="p">...</span><span class="w"></span>
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Peripheral</span><span class="w"> </span><span class="n">peripheral</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">Tx</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Tx</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="w"></span>
 <span class="w">            </span><span class="p">(</span><span class="n">peripheral</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Uart4</span><span class="p">),</span><span class="w"></span>
 <span class="w">            </span><span class="s">&quot;GpioA0::Tx only connects to Uart4!&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Peripheral</span><span class="w"> </span><span class="n">peripheral</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">Ch1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Ch1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="w"></span>
 <span class="w">            </span><span class="p">(</span><span class="n">peripheral</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Tim2</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
 <span class="w">            </span><span class="p">(</span><span class="n">peripheral</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Tim5</span><span class="p">),</span><span class="w"></span>
 <span class="w">            </span><span class="s">&quot;GpioA0::Ch1 only connects to Tim2 or Tim5!&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 <span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Peripheral</span><span class="w"> </span><span class="n">peripheral</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">In0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">In0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">static_assert</span><span class="p">(</span><span class="w"></span>
 <span class="w">            </span><span class="p">(</span><span class="n">peripheral</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Adc1</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
 <span class="w">            </span><span class="p">(</span><span class="n">peripheral</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Peripheral</span><span class="o">::</span><span class="n">Adc2</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"></span>
@@ -5519,7 +5519,7 @@ requires 2 bytes of static RAM!</p>
 <p>All our IC drivers are implemented using resumable functions, which can be
 called from within protothreads or explicitly blocking outside of them.
 Here is an example of <a href="https://github.com/modm-io/modm/blob/develop/examples/stm32f4_discovery/accelerometer/main.cpp">reading out the accelerometer</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ReaderThread</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">pt</span><span class="o">::</span><span class="n">Protothread</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ReaderThread</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">pt</span><span class="o">::</span><span class="n">Protothread</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">run</span><span class="p">()</span><span class="w"></span>
@@ -5659,10 +5659,10 @@ Here is an example of <a href="https://github.com/modm-io/modm/blob/develop/exam
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.ca141e46.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="../assets/javascripts/bundle.6baa0517.min.js"></script>
+      <script src="../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
     
   </body>

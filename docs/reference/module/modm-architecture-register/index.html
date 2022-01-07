@@ -15,7 +15,7 @@
         <link rel="canonical" href="http://modm.io/reference/module/modm-architecture-register/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2a4617e2.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bb3983ee.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -42,7 +42,7 @@
     
       <link rel="stylesheet" href="../../../extra.css">
     
-    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../../..":"../../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -5214,7 +5214,7 @@ bit groups and bit configurations in registers with type-safe access.</p>
 </ul>
 <h2 id="register-bits">Register Bits<a class="headerlink" href="#register-bits" title="Permanent link">&para;</a></h2>
 <p>The bits can be modelled using strongly-typed enums and the Flags template class as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"></span>
 <span class="nc">Control</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">EN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bit7</span><span class="p">,</span><span class="w">  </span><span class="c1">///&lt; bit documentation</span>
@@ -5251,7 +5251,7 @@ bit groups and bit configurations in registers with type-safe access.</p>
 <span class="n">control</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x24</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>The access is type-safe, you cannot use bits from two different registers:</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">Control2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Control2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">DIS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bit4</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="n">HS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bit3</span><span class="p">,</span><span class="w"></span>
@@ -5269,7 +5269,7 @@ bit groups and bit configurations in registers with type-safe access.</p>
 </code></pre></div>
 <h2 id="register-configurations">Register Configurations<a class="headerlink" href="#register-configurations" title="Permanent link">&para;</a></h2>
 <p>Configurations are also described as a strongly-typed enum and then wrapped into the Configuration template class.</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"></span>
 <span class="nc">Prescaler</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Div1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">               </span><span class="c1">///&lt; configuration documentation</span>
@@ -5280,7 +5280,7 @@ bit groups and bit configurations in registers with type-safe access.</p>
 <span class="k">typedef</span><span class="w"> </span><span class="n">Configuration</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Control_t</span><span class="p">,</span><span class="w"> </span><span class="n">Prescaler</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">Bit5</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Bit4</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="n">Prescaler_t</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <p>The <code>Prescaler</code> enum values are already shifted in this example (hence the <code>(Bit5 | Bit4)</code> mask), however you can also declare the prescaler values non-shifted and let the wrapper shift it:</p>
-<div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span><span class="w"> </span><span class="nc">Prescaler</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Prescaler</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">Div1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="n">Div2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
@@ -5437,10 +5437,10 @@ for a more detailed background on this implementation.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.ca141e46.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.6baa0517.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.289a2a4b.min.js"></script>
       
     
   </body>
