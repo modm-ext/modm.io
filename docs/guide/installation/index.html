@@ -5404,10 +5404,15 @@ up-to-date version of OpenOCD by <a href="https://github.com/rleh/openocd-build"
 </div>
 <h4 id="microchip-avr">Microchip AVR<a class="headerlink" href="#microchip-avr" title="Permanent link">&para;</a></h4>
 <p>Download and extract the <a href="https://github.com/modm-io/avr-gcc">pre-built AVR toolchain</a>:</p>
-<div class="highlight"><pre><span></span><code>wget -O- https://github.com/modm-io/avr-gcc/releases/download/v10.2.0/avr-gcc.tar.bz2 <span class="p">|</span> sudo tar xj -C /opt
+<div class="highlight"><pre><span></span><code>wget -O- https://github.com/modm-io/avr-gcc/releases/download/v11.2.0/modm-avr-gcc.tar.bz2 <span class="p">|</span> sudo tar xj -C /opt
 </code></pre></div>
-<p>Add the <code>bin</code> directories to your <code>PATH</code> variable in <code>~/.bashrc</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/avr-gcc/avr-gcc/bin:/opt/avr-gcc/avr-binutils/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<div class="admonition warning">
+<p class="admonition-title">AVR toolchain install directory</p>
+<p>It is unfortunately not possible to install the AVR toolchain into a
+directory other than directly into <code>/opt</code>.</p>
+</div>
+<p>Add the <code>bin</code> directory to your <code>PATH</code> variable in <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/avr-gcc/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </code></pre></div>
 <p>Install the AvrDude tool:</p>
 <div class="highlight"><pre><span></span><code>sudo apt install avrdude
