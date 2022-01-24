@@ -666,6 +666,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-driver-adis16470/</loc>
+         <lastmod>2022-01-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-driver-adns9800/</loc>
          <lastmod>2022-01-24</lastmod>
          <changefreq>daily</changefreq>

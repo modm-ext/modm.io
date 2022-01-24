@@ -12,14 +12,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-architecture-block-device/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-adis16470/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
-        <title>:architecture:block.device - modm barebone embedded library</title>
+        <title>:driver:adis16470 - modm barebone embedded library</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#block-devices" class="md-skip">
+        <a href="#adis16470-inertial-measurement-unit" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :architecture:block.device
+              :driver:adis16470
             
           </span>
         </div>
@@ -567,52 +567,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :architecture:block.device
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-architecture-block-device/" class="md-nav__link">
         :architecture:block.device
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2274,11 +2233,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-adis16470/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:adis16470
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:adis16470
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5311,34 +5311,95 @@
               
                 
 
-<h1 id="block-devices">Block Devices<a class="headerlink" href="#block-devices" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:architecture:block.device</code></p>
+<h1 id="adis16470-inertial-measurement-unit">ADIS16470 Inertial Measurement Unit<a class="headerlink" href="#adis16470-inertial-measurement-unit" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:adis16470</code></p>
+<p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ADIS16470.pdf">Datasheet</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="117pt" height="150pt"
- viewBox="0.00 0.00 117.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="687pt" height="150pt"
+ viewBox="0.00 0.00 686.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:architecture:block.device</title>
+<title>modm:driver:adis16470</title>
 <g id="node1" class="node">
-<title>modm_architecture_block_device</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="109,-53 0,-53 0,0 109,0 109,-53"/>
-<text text-anchor="middle" x="54.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-22.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-7.8" font-family="Times,serif" font-size="14.00">block.device</text>
+<title>modm_driver_adis16470</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="406,-53 315,-53 315,0 406,0 406,-53"/>
+<text text-anchor="middle" x="360.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="360.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="360.5" y="-7.8" font-family="Times,serif" font-size="14.00">adis16470</text>
 </g>
 <g id="node2" class="node">
-<title>modm_processing_resumable</title>
-<polygon fill="lightgrey" stroke="black" points="103.5,-142 5.5,-142 5.5,-89 103.5,-89 103.5,-142"/>
+<title>modm_architecture_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_architecture_block_device&#45;&gt;modm_processing_resumable</title>
-<path fill="none" stroke="black" d="M54.5,-53.13C54.5,-61.11 54.5,-70.07 54.5,-78.62"/>
-<polygon fill="black" stroke="black" points="51,-78.75 54.5,-88.75 58,-78.75 51,-78.75"/>
+<title>modm_driver_adis16470&#45;&gt;modm_architecture_gpio</title>
+<path fill="none" stroke="black" d="M314.74,-37.12C267.6,-47.46 191.97,-65.26 119.11,-88.62"/>
+<polygon fill="black" stroke="black" points="117.74,-85.38 109.31,-91.8 119.9,-92.04 117.74,-85.38"/>
+</g>
+<g id="node3" class="node">
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_driver_adis16470&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M314.87,-49.68C293.1,-60.26 266.74,-73.07 243.22,-84.5"/>
+<polygon fill="black" stroke="black" points="241.49,-81.45 234.02,-88.97 244.55,-87.75 241.49,-81.45"/>
+</g>
+<g id="node4" class="node">
+<title>modm_architecture_spi_device</title>
+<polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
+<text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi.device</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_driver_adis16470&#45;&gt;modm_architecture_spi_device</title>
+<path fill="none" stroke="black" d="M345.18,-53.13C340.15,-61.55 334.47,-71.05 329.11,-80.02"/>
+<polygon fill="black" stroke="black" points="326.02,-78.37 323.89,-88.75 332.03,-81.96 326.02,-78.37"/>
+</g>
+<g id="node5" class="node">
+<title>modm_math_utils</title>
+<polygon fill="lightgrey" stroke="black" points="446,-142 381,-142 381,-89 446,-89 446,-142"/>
+<text text-anchor="middle" x="413.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="413.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="413.5" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_driver_adis16470&#45;&gt;modm_math_utils</title>
+<path fill="none" stroke="black" d="M376.12,-53.13C381.24,-61.55 387.03,-71.05 392.5,-80.02"/>
+<polygon fill="black" stroke="black" points="389.62,-82.03 397.81,-88.75 395.6,-78.39 389.62,-82.03"/>
+</g>
+<g id="node6" class="node">
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="562.5,-142 464.5,-142 464.5,-89 562.5,-89 562.5,-142"/>
+<text text-anchor="middle" x="513.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="513.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="513.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_driver_adis16470&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M405.58,-53.13C422.47,-62.74 441.83,-73.75 459.45,-83.76"/>
+<polygon fill="black" stroke="black" points="458.06,-87 468.48,-88.9 461.52,-80.92 458.06,-87"/>
+</g>
+<g id="node7" class="node">
+<title>modm_processing_timer</title>
+<polygon fill="lightgrey" stroke="black" points="678.5,-142 580.5,-142 580.5,-89 678.5,-89 678.5,-142"/>
+<text text-anchor="middle" x="629.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="629.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="629.5" y="-96.8" font-family="Times,serif" font-size="14.00">timer</text>
+</g>
+<g id="edge6" class="edge">
+<title>modm_driver_adis16470&#45;&gt;modm_processing_timer</title>
+<path fill="none" stroke="black" d="M406.33,-39.01C447.34,-49.71 509.16,-66.87 570.82,-88.92"/>
+<polygon fill="black" stroke="black" points="569.72,-92.24 580.32,-92.35 572.1,-85.66 569.72,-92.24"/>
 </g>
 </g>
 </svg></p>
@@ -5356,7 +5417,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../modm-architecture-atomic/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :architecture:atomic" rel="prev">
+        <a href="../modm-driver-adc_sampler/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :driver:adc_sampler" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -5365,20 +5426,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              :architecture:atomic
+              :driver:adc_sampler
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-architecture-build_id/" class="md-footer__link md-footer__link--next" aria-label="Next: :architecture:build_id" rel="next">
+        <a href="../modm-driver-adns9800/" class="md-footer__link md-footer__link--next" aria-label="Next: :driver:adns9800" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :architecture:build_id
+              :driver:adns9800
             </div>
           </div>
           <div class="md-footer__button md-icon">
