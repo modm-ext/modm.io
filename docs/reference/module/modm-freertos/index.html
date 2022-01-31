@@ -5389,7 +5389,7 @@ these settings:</p>
 <li><code>configCPU_CLOCK_HZ</code> implemented with CMSIS <code>SystemCoreClock</code>.</li>
 <li><code>configTICK_RATE_HZ</code> set to <code>modm:freertos:frequency</code> or 1kHz on Cortex-M0.</li>
 <li><code>configSUPPORT_DYNAMIC_ALLOCATION = 1</code> only if used with <code>modm:platform:heap</code>.</li>
-<li><code>configSUPPORT_STATIC_ALLOCATION = 1</code> only if used without <code>modm:platform:heap</code>.</li>
+<li><code>configSUPPORT_STATIC_ALLOCATION = 1</code> always.</li>
 <li><code>configUSE_TICK_HOOK = 1</code> used by <code>modm:platform:clock</code> to provide <code>modm::Clock</code>.</li>
 </ul>
 <p>In addition we define these overwritable default settings:</p>
