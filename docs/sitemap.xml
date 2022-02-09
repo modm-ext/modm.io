@@ -1466,7 +1466,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://modm.io/reference/module/modm-platform-timer/</loc>
+         <loc>http://modm.io/reference/module/modm-platform-timer-samg/</loc>
+         <lastmod>2022-02-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://modm.io/reference/module/modm-platform-timer-stm32/</loc>
          <lastmod>2022-02-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
