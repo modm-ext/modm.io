@@ -5432,12 +5432,14 @@ discover all of modm yet. You can now choose from two levels of customization:</
 </li>
 </ol>
 <h2 id="using-a-board-support-package">Using a Board Support Package<a class="headerlink" href="#using-a-board-support-package" title="Permanent link">&para;</a></h2>
-<p>Use lbuild to discover the specific BSP configuration you want to use:</p>
+<p>Use lbuild to discover the specific BSP configuration you want to use.
+Some board configurations support different hardware revisions, so check your
+hardware to select the right one:</p>
 <div class="highlight"><pre><span></span><code> $ lbuild discover
 Parser(lbuild)
 ╰── Repository(modm @ ../../ext/modm)   modm: a barebone embedded library generator
     ├── Option(target) = REQUIRED in [stm32f469ngh6, stm32f469nih6, stm32f469vet6, ...
-    ├── Config(modm:disco-f469ni)   STM32F469IDISCOVERY
+    ├── Config(modm:disco-f469ni:b-03) in [b-01, b-03]   STM32F469IDISCOVERY
    ...
 </code></pre></div>
 <p>Then inherit from this configuration in your <code>project.xml</code>. This will add the
@@ -5447,7 +5449,7 @@ cannot remove any inherited modules.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
   <span class="nt">&lt;repositories&gt;</span>...<span class="nt">&lt;/repositories&gt;</span>
 
-  <span class="nt">&lt;extends&gt;</span>modm:disco-f469ni<span class="nt">&lt;/extends&gt;</span>
+  <span class="nt">&lt;extends&gt;</span>modm:disco-f469ni:b-03<span class="nt">&lt;/extends&gt;</span>
 
   <span class="nt">&lt;options&gt;</span>...<span class="nt">&lt;/options&gt;</span>
   <span class="nt">&lt;modules&gt;</span>...<span class="nt">&lt;/modules&gt;</span>

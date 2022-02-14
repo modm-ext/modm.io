@@ -1065,6 +1065,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hardware-revisions" class="md-nav__link">
+    Hardware Revisions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -5306,6 +5313,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hardware-revisions" class="md-nav__link">
+    Hardware Revisions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -5352,6 +5366,14 @@ update the display fast enough.</p>
 <p>Access to the capacitive touchscreen is provided in the <code>Board::ft6</code> namespace.
 Call <code>Board::initializeTouchscreen()</code> to setup the peripherals.</p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f469idiscovery.html">Product Link</a></p>
+<h2 id="hardware-revisions">Hardware Revisions<a class="headerlink" href="#hardware-revisions" title="Permanent link">&para;</a></h2>
+<p>The revision B-03 has a different touch sensor address from B-01, which is
+provided as <code>Board::ft6::TouchAddress</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">Touch</span><span class="o">::</span><span class="n">Data</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">Touch</span><span class="w"> </span><span class="nf">touchSensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">TouchAddress</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>If you have an earlier revision, you can extend your configuration from
+<code>modm:disco-f469ni:b-01</code>.</p>
 <p><em>This module is only available for stm32f469nih6.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
