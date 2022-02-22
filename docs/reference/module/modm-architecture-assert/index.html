@@ -6463,6 +6463,23 @@ just as above:</p>
 <li><code>bool modm_assert_continue_fail_debug()</code></li>
 <li><code>bool modm_assert_continue_ignore_debug()</code></li>
 </ol>
+<p>Alternatively, you can guard the entire assertion statement with the
+<code>MODM_BUILD_DEBUG</code> macro if you only want to execute the check and branch in
+debug profile:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// The check is always performed, but only raises an assertion in debug profile!</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">not</span><span class="w"> </span><span class="n">modm_assert_continue_ignore_debug</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="p">...))</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// if the check fails, this branch is executed in release profile too!</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cp">#ifdef MODM_DEBUG_BUILD</span>
+<span class="c1">// This check if only performed in debug profile</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">not</span><span class="w"> </span><span class="n">modm_assert_continue_ignore</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="p">...))</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// if the check fails, this branch is executed only in debug profile!</span>
+<span class="p">}</span><span class="w"></span>
+<span class="cp">#endif</span>
+</code></pre></div>
 <h3 id="when-to-use-what">When to use what?<a class="headerlink" href="#when-to-use-what" title="Permanent link">&para;</a></h3>
 <p>Here are some guidelines for choosing the best assertion type:</p>
 <ol>
