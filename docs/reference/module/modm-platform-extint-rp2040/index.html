@@ -12,14 +12,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-extint/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-extint-rp2040/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
     
     
       
-        <title>:platform:extint - modm barebone embedded library</title>
+        <title>:platform:extint (rp2040) - modm barebone embedded library</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#external-interrupt" class="md-skip">
+        <a href="#external-interrupt-handler" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:extint
+              :platform:extint (rp2040)
             
           </span>
         </div>
@@ -4953,12 +4953,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:extint
+          :platform:extint (rp2040)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        :platform:extint
+        :platform:extint (rp2040)
       </a>
       
         
@@ -4977,6 +4977,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#multicore-mode" class="md-nav__link">
+    Multicore mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irq-types" class="md-nav__link">
+    IRQ Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    gpio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qspi" class="md-nav__link">
+    qspi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -4987,6 +5035,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-platform-extint-samd/" class="md-nav__link">
+        :platform:extint (samd)
+      </a>
     </li>
   
 
@@ -6194,6 +6256,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#multicore-mode" class="md-nav__link">
+    Multicore mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callbacks" class="md-nav__link">
+    Callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irq-types" class="md-nav__link">
+    IRQ Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    gpio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qspi" class="md-nav__link">
+    qspi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6214,59 +6324,106 @@
                 
 
 
-<h1 id="external-interrupt">External Interrupt<a class="headerlink" href="#external-interrupt" title="Permanent link">&para;</a></h1>
+<h1 id="external-interrupt-handler">External Interrupt Handler<a class="headerlink" href="#external-interrupt-handler" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:extint</code></p>
-<p><em>This module is only available for samd.</em></p>
+<p>This driver provides an API for configuring all IRQ lines via register access.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Powers on the LED on the low-&gt;high transition, and off on high-&gt;low.</span>
+<span class="n">GpioInput0</span><span class="o">::</span><span class="n">setInput</span><span class="p">();</span><span class="w"></span>
+<span class="n">IntHandler</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioInput0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">BothEdges</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                </span><span class="p">[](</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger_t</span><span class="w"> </span><span class="n">triggers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="n">Led</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="o">!!</span><span class="p">(</span><span class="n">triggers</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">RisingEdge</span><span class="p">));</span><span class="w"></span>
+<span class="w">                                </span><span class="p">});</span><span class="w"></span>
+
+<span class="c1">// Toggles LED each time gpio input is at the high level.</span>
+<span class="n">GpioInput1</span><span class="o">::</span><span class="n">setInput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputType</span><span class="o">::</span><span class="n">PullDown</span><span class="p">);</span><span class="w"></span>
+<span class="n">IntHandler</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioInput1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                </span><span class="p">[](</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Led</span><span class="o">::</span><span class="n">toggle</span><span class="p">();</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<h2 id="multicore-mode">Multicore mode<a class="headerlink" href="#multicore-mode" title="Permanent link">&para;</a></h2>
+<p>Each core can register callbacks in the same IntHandler,
+but for the different pins (current implementation's constraint).</p>
+<p>Also, enable/disable and connect/disconnect calls
+affect the NVIC of the executing core only.</p>
+<h2 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h2>
+<p>The callback is implemented using <code>modm::inplace_function</code>, therefore uses no
+heap, but has a fixed storage size of <code>sizeof(void*)</code> by default.
+You can increase this storage size by defining a new global storage size
+<code>MODM_EXTINT_HANDLER_STORAGE=bytes</code> in your <code>project.xml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
+  <span class="nt">&lt;collectors&gt;</span>
+    <span class="nt">&lt;collect</span> <span class="na">name=</span><span class="s">&quot;modm:build:cppdefines&quot;</span><span class="nt">&gt;</span>MODM_EXTINT_HANDLER_STORAGE=12<span class="nt">&lt;/collect&gt;</span>
+  <span class="nt">&lt;/collectors&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div>
+<h2 id="irq-types">IRQ Types<a class="headerlink" href="#irq-types" title="Permanent link">&para;</a></h2>
+<p>You can explicitly enable or disable handling of the specific IRQ type in your <code>project.xml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
+  <span class="nt">&lt;options&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;modm:platform:extint:gpio&quot;</span><span class="nt">&gt;</span>no<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">name=</span><span class="s">&quot;modm:platform:extint:qspi&quot;</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/options&gt;</span>
+<span class="nt">&lt;/library&gt;</span>
+</code></pre></div>
+<p><em>This module is only available for rp2040.</em></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="gpio">gpio<a class="headerlink" href="#gpio" title="Permanent link">&para;</a></h4>
+<p>Enable IRQ support for GPIO</p>
+<p>Default: <code>yes</code><br />
+Inputs: <code>[yes, no]</code>  </p>
+<h4 id="qspi">qspi<a class="headerlink" href="#qspi" title="Permanent link">&para;</a></h4>
+<p>Enable IRQ support for QSPI</p>
+<p>Default: <code>no</code><br />
+Inputs: <code>[yes, no]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="275pt" height="150pt"
- viewBox="0.00 0.00 275.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="301pt" height="150pt"
+ viewBox="0.00 0.00 301.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:platform:extint</title>
 <g id="node1" class="node">
 <title>modm_platform_extint</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="166,-53 83,-53 83,0 166,0 166,-53"/>
-<text text-anchor="middle" x="124.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="124.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="124.5" y="-7.8" font-family="Times,serif" font-size="14.00">extint</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="201,-53 118,-53 118,0 201,0 201,-53"/>
+<text text-anchor="middle" x="159.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">extint</text>
 </g>
 <g id="node2" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="65,-142 0,-142 0,-89 65,-89 65,-142"/>
-<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="32.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_interrupt</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">interrupt</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_extint&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M97.39,-53.13C87.93,-62.08 77.18,-72.25 67.19,-81.7"/>
-<polygon fill="black" stroke="black" points="64.59,-79.34 59.73,-88.75 69.4,-84.42 64.59,-79.34"/>
+<title>modm_platform_extint&#45;&gt;modm_architecture_interrupt</title>
+<path fill="none" stroke="black" d="M128.56,-53.13C117.55,-62.25 105.01,-72.65 93.42,-82.25"/>
+<polygon fill="black" stroke="black" points="91.04,-79.67 85.58,-88.75 95.51,-85.07 91.04,-79.67"/>
 </g>
 <g id="node3" class="node">
-<title>modm_platform_gclk</title>
-<polygon fill="lightgrey" stroke="black" points="166,-142 83,-142 83,-89 166,-89 166,-142"/>
-<text text-anchor="middle" x="124.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="124.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="124.5" y="-96.8" font-family="Times,serif" font-size="14.00">gclk</text>
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-89 192,-89 192,-142"/>
+<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_platform_extint&#45;&gt;modm_platform_gclk</title>
-<path fill="none" stroke="black" d="M124.5,-53.13C124.5,-61.11 124.5,-70.07 124.5,-78.62"/>
-<polygon fill="black" stroke="black" points="121,-78.75 124.5,-88.75 128,-78.75 121,-78.75"/>
+<title>modm_platform_extint&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M159.5,-53.13C159.5,-61.11 159.5,-70.07 159.5,-78.62"/>
+<polygon fill="black" stroke="black" points="156,-78.75 159.5,-88.75 163,-78.75 156,-78.75"/>
 </g>
 <g id="node4" class="node">
 <title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="267,-142 184,-142 184,-89 267,-89 267,-142"/>
-<text text-anchor="middle" x="225.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="225.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="225.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+<polygon fill="lightgrey" stroke="black" points="293,-142 210,-142 210,-89 293,-89 293,-142"/>
+<text text-anchor="middle" x="251.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="251.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="251.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge3" class="edge">
 <title>modm_platform_extint&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M154.26,-53.13C164.75,-62.17 176.68,-72.45 187.74,-81.97"/>
-<polygon fill="black" stroke="black" points="185.75,-84.88 195.61,-88.75 190.31,-79.57 185.75,-84.88"/>
+<path fill="none" stroke="black" d="M186.61,-53.13C196.07,-62.08 206.82,-72.25 216.81,-81.7"/>
+<polygon fill="black" stroke="black" points="214.6,-84.42 224.27,-88.75 219.41,-79.34 214.6,-84.42"/>
 </g>
 </g>
 </svg></p>
@@ -6303,13 +6460,13 @@
       
       
         
-        <a href="../modm-platform-fault/" class="md-footer__link md-footer__link--next" aria-label="Next: :platform:fault" rel="next">
+        <a href="../modm-platform-extint-samd/" class="md-footer__link md-footer__link--next" aria-label="Next: :platform:extint (samd)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :platform:fault
+              :platform:extint (samd)
             </div>
           </div>
           <div class="md-footer__button md-icon">
