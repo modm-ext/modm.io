@@ -12,14 +12,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-tinyusb-device-net/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-max31855/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
     
     
       
-        <title>:tinyusb:device:net - modm barebone embedded library</title>
+        <title>:driver:max31855 - modm barebone embedded library</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#device-class-net" class="md-skip">
+        <a href="#max31855-thermocouple-to-digital-converter" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :tinyusb:device:net
+              :driver:max31855
             
           </span>
         </div>
@@ -3793,11 +3793,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-max31855/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:max31855
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:max31855
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5851,52 +5892,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :tinyusb:device:net
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-net/" class="md-nav__link">
         :tinyusb:device:net
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6242,42 +6242,63 @@
                 
 
 
-<h1 id="device-class-net">Device class NET<a class="headerlink" href="#device-class-net" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:tinyusb:device:net</code></p>
-<p>Please consult the TinyUSB docs for configuration options.</p>
+<h1 id="max31855-thermocouple-to-digital-converter">MAX31855 Thermocouple-to-Digital Converter<a class="headerlink" href="#max31855-thermocouple-to-digital-converter" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:max31855</code></p>
+<p><a href="https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf">Datasheet</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="82pt" height="150pt"
- viewBox="0.00 0.00 82.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="361pt" height="150pt"
+ viewBox="0.00 0.00 360.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:tinyusb:device:net</title>
+<title>modm:driver:max31855</title>
 <g id="node1" class="node">
-<title>modm_tinyusb_device_net</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="74,-68 0,-68 0,0 74,0 74,-68"/>
-<text text-anchor="middle" x="37" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="37" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
-<text text-anchor="middle" x="37" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
-<text text-anchor="middle" x="37" y="-7.8" font-family="Times,serif" font-size="14.00">net</text>
+<title>modm_driver_max31855</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="227.5,-53 135.5,-53 135.5,0 227.5,0 227.5,-53"/>
+<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">max31855</text>
 </g>
 <g id="node2" class="node">
-<title>modm_tinyusb</title>
-<polygon fill="lightgrey" stroke="black" points="72,-142 2,-142 2,-104 72,-104 72,-142"/>
-<text text-anchor="middle" x="37" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="37" y="-111.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
+<title>modm_architecture_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_tinyusb_device_net&#45;&gt;modm_tinyusb</title>
-<path fill="none" stroke="black" d="M37,-68.39C37,-76.78 37,-85.71 37,-93.83"/>
-<polygon fill="black" stroke="black" points="33.5,-93.91 37,-103.91 40.5,-93.91 33.5,-93.91"/>
+<title>modm_driver_max31855&#45;&gt;modm_architecture_gpio</title>
+<path fill="none" stroke="black" d="M144.08,-53.13C130.38,-62.52 114.72,-73.25 100.37,-83.08"/>
+<polygon fill="black" stroke="black" points="98.36,-80.21 92.09,-88.75 102.32,-85.99 98.36,-80.21"/>
+</g>
+<g id="node3" class="node">
+<title>modm_architecture_spi_device</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi.device</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_driver_max31855&#45;&gt;modm_architecture_spi_device</title>
+<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
+<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
+</g>
+<g id="node4" class="node">
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="352.5,-142 254.5,-142 254.5,-89 352.5,-89 352.5,-142"/>
+<text text-anchor="middle" x="303.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="303.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="303.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_driver_max31855&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M217.44,-53.13C230.48,-62.43 245.37,-73.05 259.05,-82.8"/>
+<polygon fill="black" stroke="black" points="257.22,-85.79 267.39,-88.75 261.28,-80.09 257.22,-85.79"/>
 </g>
 </g>
 </svg></p>
 <style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
-<div class="admonition warning">
-<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
-</div>
 
               
             </article>
@@ -6291,7 +6312,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../modm-tinyusb-device-msc/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :tinyusb:device:msc" rel="prev">
+        <a href="../modm-driver-ltc2984/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :driver:ltc2984" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -6300,20 +6321,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              :tinyusb:device:msc
+              :driver:ltc2984
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-tinyusb-device-usbtmc/" class="md-footer__link md-footer__link--next" aria-label="Next: :tinyusb:device:usbtmc" rel="next">
+        <a href="../modm-driver-max6966/" class="md-footer__link md-footer__link--next" aria-label="Next: :driver:max6966" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :tinyusb:device:usbtmc
+              :driver:max6966
             </div>
           </div>
           <div class="md-footer__button md-icon">
