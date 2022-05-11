@@ -6312,7 +6312,7 @@ update the display fast enough.</p>
 Call <code>Board::initializeTouchscreen()</code> to setup the peripherals.</p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f469idiscovery.html">Product Link</a></p>
 <h2 id="hardware-revisions">Hardware Revisions<a class="headerlink" href="#hardware-revisions" title="Permanent link">&para;</a></h2>
-<p>The revision B-03 has a different touch sensor address from B-01, which is
+<p>The revision B-03 has a different touch sensor address from B-01 and B-02, which is
 provided as <code>Board::ft6::TouchAddress</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">Touch</span><span class="o">::</span><span class="n">Data</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
 <span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">Touch</span><span class="w"> </span><span class="nf">touchSensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">TouchAddress</span><span class="p">);</span><span class="w"></span>
@@ -6320,7 +6320,7 @@ provided as <code>Board::ft6::TouchAddress</code>:</p>
 <p>If you have an earlier revision, you can extend your configuration from
 <code>modm:disco-f469ni:b-01</code>.</p>
 <p>Default: <code>b-03</code><br />
-Revisions: <code>[b-01, b-03]</code></p>
+Revisions: <code>[b-01, b-02, b-03]</code></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
   <span class="nt">&lt;options&gt;</span>
