@@ -6083,6 +6083,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mode-1" class="md-nav__link">
+    Mode 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-2" class="md-nav__link">
+    Mode 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-buttons" class="md-nav__link">
+    Naming Buttons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6250,6 +6271,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#mode-1" class="md-nav__link">
+    Mode 1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-2" class="md-nav__link">
+    Mode 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-buttons" class="md-nav__link">
+    Naming Buttons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6275,12 +6317,11 @@
 <p>The <code>modm::ButtonGroup</code> class is able to debounce eight buttons at the same time.
 The buttons have to be low-active. If this isn't the case invert their signal
 before passing it to the <code>update()</code> method.</p>
-<p>The <code>update()</code> method needs to be called periodically for example
-every 10ms. Preferred in a timer interrupt function.</p>
-<p>The detection for long or repeated presses works only correctly for
-one key at a time. This constraint only applies to buttons listed in the
-<code>mask</code> variable.</p>
-<p>Mode 1:</p>
+<p>The <code>update()</code> method needs to be called periodically for example every 10ms.
+Preferred in a timer interrupt function.</p>
+<p>The detection for long or repeated presses works only correctly for one key at a
+time. This constraint only applies to buttons listed in the <code>mask</code> variable.</p>
+<h2 id="mode-1">Mode 1<a class="headerlink" href="#mode-1" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>                 Timeline ----&gt;
                       __      _________________      __
 getState()       ____/  \____/                 \____/  \____
@@ -6292,15 +6333,39 @@ isReleased()     -------X----------------------X-------X----
                                   \    interval
                                   timeout
 </code></pre></div>
-<p>Mode 2:</p>
-<div class="highlight"><pre><span></span><code>                      __      _________________      __
+<h2 id="mode-2">Mode 2<a class="headerlink" href="#mode-2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>                 Timeline ----&gt;
+                      __      _________________      __
 getState()       ____/  \____/                 \____/  \____
 isPressedShort() -------X------------------------------X----
 isPressedLong()  --------------------X----------------------
 isReleased()     -------X----------------------X-------X----
 </code></pre></div>
-<p>This implementation is based on the C functions written
-by Peter Dannegger (see <a href="http://www.mikrocontroller.net/topic/48465">http://www.mikrocontroller.net/topic/48465</a>).</p>
+<h2 id="naming-buttons">Naming Buttons<a class="headerlink" href="#naming-buttons" title="Permanent link">&para;</a></h2>
+<p>To name buttons, declare an enum with a bitmask for each button:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;modm/math/utils/bit_constants.hpp&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="nc">ButtonIdentifier</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit3</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit4</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit5</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit6</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">BUTTON7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Bit7</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ALL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+<p>Pass a <code>ButtonIdentifier</code> to any of <code>ButtonGroup::is**()</code> like so</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">buttongroup_instance</span><span class="p">.</span><span class="n">isPressed</span><span class="p">(</span><span class="n">BUTTON0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do stuff</span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>This implementation is based on the C functions written by Peter Dannegger
+(see <a href="http://www.mikrocontroller.net/topic/48465">http://www.mikrocontroller.net/topic/48465</a>).</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
