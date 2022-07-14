@@ -6379,7 +6379,7 @@ opens each RTT channel as a TCP port starting at 9090 (ie. 9090=channel 0,
 </code></pre></div>
 <p>You can also call this from inside GDB via the <code>monitor</code> command:</p>
 <div class="highlight"><pre><span></span><code>(gdb) monitor modm_rtt
-rtt: Searching for control block &#39;modm.rtt.modm&#39;
+rtt: Searching for control block &#39;SEGGER RTT&#39;
 rtt: Control block found at 0x20001024
 Listening on port 9090 for rtt connections
 (gdb)
@@ -6392,7 +6392,7 @@ it can only connect to one stream at a time (disconnect with Ctrl+D).</p>
 <div class="highlight"><pre><span></span><code> $ scons log-rtt
 ╭───OpenOCD───&gt; Real Time Transfer
 ╰─────RTT────── stm32f103rbt
-Info : rtt: Searching for control block &#39;modm.rtt.modm&#39;
+Info : rtt: Searching for control block &#39;SEGGER RTT&#39;
 Info : rtt: Control block found at 0x20000008
 Listening on port 9090 for rtt connections
 loop 51
@@ -6401,7 +6401,7 @@ loop 53
 ^D
 
  $ make log-rtt channel=0
-Info : rtt: Searching for control block &#39;modm.rtt.modm&#39;
+Info : rtt: Searching for control block &#39;SEGGER RTT&#39;
 Info : rtt: Control block found at 0x20000008
 Listening on port 9090 for rtt connections
 loop 58
@@ -6414,11 +6414,11 @@ you should implement the OpenOCD config yourself (with different ports).</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="bufferrx">buffer.rx<a class="headerlink" href="#bufferrx" title="Permanent link">&para;</a></h4>
 <p>Receive buffer sizes</p>
-<p>Default: <code>{0}</code><br />
+<p>Default: <code>[0]</code><br />
 Inputs: <code>[0 ... 65536]</code>  </p>
 <h4 id="buffertx">buffer.tx<a class="headerlink" href="#buffertx" title="Permanent link">&para;</a></h4>
 <p>Transmit buffer sizes</p>
-<p>Default: <code>{512}</code><br />
+<p>Default: <code>[512]</code><br />
 Inputs: <code>[0 ... 65536]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
