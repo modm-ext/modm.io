@@ -1876,6 +1876,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-printf/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-processing-protothread/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>

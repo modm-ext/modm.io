@@ -4502,67 +4502,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-printf" class="md-nav__link">
-    Using printf
-  </a>
-  
-    <nav class="md-nav" aria-label="Using printf">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#format-specifiers" class="md-nav__link">
-    Format Specifiers
-  </a>
-  
-    <nav class="md-nav" aria-label="Format Specifiers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-types" class="md-nav__link">
-    Supported Types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-flags" class="md-nav__link">
-    Supported Flags
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-width" class="md-nav__link">
-    Supported Width
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-precision" class="md-nav__link">
-    Supported Precision
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-length" class="md-nav__link">
-    Supported Length
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#redirecting-iostreams" class="md-nav__link">
     Redirecting IOStreams
   </a>
@@ -4594,13 +4533,6 @@
           <li class="md-nav__item">
   <a href="#with_printf" class="md-nav__link">
     with_printf
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with_ptrdiff" class="md-nav__link">
-    with_ptrdiff
   </a>
   
 </li>
@@ -5794,6 +5726,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-printf/" class="md-nav__link">
+        :printf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-processing/" class="md-nav__link">
         :processing
       </a>
@@ -6374,67 +6320,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#using-printf" class="md-nav__link">
-    Using printf
-  </a>
-  
-    <nav class="md-nav" aria-label="Using printf">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#format-specifiers" class="md-nav__link">
-    Format Specifiers
-  </a>
-  
-    <nav class="md-nav" aria-label="Format Specifiers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-types" class="md-nav__link">
-    Supported Types
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-flags" class="md-nav__link">
-    Supported Flags
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-width" class="md-nav__link">
-    Supported Width
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-precision" class="md-nav__link">
-    Supported Precision
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-length" class="md-nav__link">
-    Supported Length
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#redirecting-iostreams" class="md-nav__link">
     Redirecting IOStreams
   </a>
@@ -6470,13 +6355,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#with_ptrdiff" class="md-nav__link">
-    with_ptrdiff
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6507,7 +6385,7 @@
 <p>lbuild module: <code>modm:io</code></p>
 <p>The <code>modm::IOStream</code> class contains efficient formatting that supports both
 C++ <code>std::basic_ostream</code>-like formatting via <code>operator &lt;&lt;</code> as well as
-implementing a reasonably large subset of <code>printf</code>.</p>
+implementing <code>printf</code> via the <code>modm:printf</code> module.</p>
 <div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="n">device</span><span class="p">);</span><span class="w"></span>
 <span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;format number 8: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">uint8_t</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; or as signed -100: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">int8_t</span><span class="p">(</span><span class="mi">-100</span><span class="p">);</span><span class="w"></span>
 <span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -6516,203 +6394,14 @@ implementing a reasonably large subset of <code>printf</code>.</p>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">AVR supported features</p>
-<p>All expensive features incl. printf are disabled by default! Check the options.</p>
+<p>All expensive features including <code>printf</code> are disabled by default to reduce
+firmware size! Please check the options.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title"><code>modm::endl</code> does NOT implicitly flush!</p>
 <p>Flushing is <em>extremely expensive</em> on embedded systems, therefore <code>modm::endl</code>
 does not implicitly flush the stream. Please call <code>modm::flush</code> explicitly.</p>
 </div>
-<h2 id="using-printf">Using printf<a class="headerlink" href="#using-printf" title="Permanent link">&para;</a></h2>
-<p>This module uses the printf implementation from <a href="https://github.com/mpaland/printf"><code>mpaland/printf</code></a>.</p>
-<h3 id="format-specifiers">Format Specifiers<a class="headerlink" href="#format-specifiers" title="Permanent link">&para;</a></h3>
-<p>A format specifier follows this prototype: <code>%[flags][width][.precision][length]type</code>
-The following format specifiers are supported:</p>
-<h4 id="supported-types">Supported Types<a class="headerlink" href="#supported-types" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Output</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>d or i</td>
-<td>Signed decimal integer</td>
-</tr>
-<tr>
-<td>u</td>
-<td>Unsigned decimal integer</td>
-</tr>
-<tr>
-<td>b</td>
-<td>Unsigned binary</td>
-</tr>
-<tr>
-<td>o</td>
-<td>Unsigned octal</td>
-</tr>
-<tr>
-<td>x</td>
-<td>Unsigned hexadecimal integer (lowercase)</td>
-</tr>
-<tr>
-<td>X</td>
-<td>Unsigned hexadecimal integer (uppercase)</td>
-</tr>
-<tr>
-<td>f or F</td>
-<td>Decimal floating point (<code>with_float</code> option)</td>
-</tr>
-<tr>
-<td>e or E</td>
-<td>Scientific-notation (exponential) floating point (<code>with_float</code> option)</td>
-</tr>
-<tr>
-<td>g or G</td>
-<td>Scientific or decimal floating point (<code>with_float</code> option)</td>
-</tr>
-<tr>
-<td>c</td>
-<td>Single character</td>
-</tr>
-<tr>
-<td>s</td>
-<td>String of characters</td>
-</tr>
-<tr>
-<td>p</td>
-<td>Pointer address</td>
-</tr>
-<tr>
-<td>%</td>
-<td>A % followed by another % character will write a single %</td>
-</tr>
-</tbody>
-</table>
-<h4 id="supported-flags">Supported Flags<a class="headerlink" href="#supported-flags" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Flags</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>Left-justify within the given field width; Right justification is the default.</td>
-</tr>
-<tr>
-<td>+</td>
-<td>Forces to precede the result with a plus or minus sign (+ or -) even for positive numbers.<br>By default, only negative numbers are preceded with a - sign.</td>
-</tr>
-<tr>
-<td>(space)</td>
-<td>If no sign is going to be written, a blank space is inserted before the value.</td>
-</tr>
-<tr>
-<td>#</td>
-<td>Used with o, b, x or X specifiers the value is preceded with 0, 0b, 0x or 0X respectively for values different than zero.<br>Used with f, F it forces the written output to contain a decimal point even if no more digits follow. By default, if no digits follow, no decimal point is written.</td>
-</tr>
-<tr>
-<td>0</td>
-<td>Left-pads the number with zeros (0) instead of spaces when padding is specified (see width sub-specifier).</td>
-</tr>
-</tbody>
-</table>
-<h4 id="supported-width">Supported Width<a class="headerlink" href="#supported-width" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Width</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(number)</td>
-<td>Minimum number of characters to be printed. If the value to be printed is shorter than this number, the result is padded with blank spaces. The value is not truncated even if the result is larger.</td>
-</tr>
-<tr>
-<td>*</td>
-<td>The width is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="supported-precision">Supported Precision<a class="headerlink" href="#supported-precision" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Precision</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>.number</td>
-<td>For integer specifiers (d, i, o, u, x, X): precision specifies the minimum number of digits to be written. If the value to be written is shorter than this number, the result is padded with leading zeros. The value is not truncated even if the result is longer. A precision of 0 means that no character is written for the value 0.<br>For f and F specifiers: this is the number of digits to be printed after the decimal point. <strong>By default, this is 6, maximum is 9</strong>.<br>For s: this is the maximum number of characters to be printed. By default all characters are printed until the ending null character is encountered.<br>If the period is specified without an explicit value for precision, 0 is assumed.</td>
-</tr>
-<tr>
-<td>.*</td>
-<td>The precision is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="supported-length">Supported Length<a class="headerlink" href="#supported-length" title="Permanent link">&para;</a></h4>
-<p>The length sub-specifier modifies the length of the data type.</p>
-<table>
-<thead>
-<tr>
-<th>Length</th>
-<th>d i</th>
-<th>u o x X</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>(none)</td>
-<td>int</td>
-<td>unsigned int</td>
-</tr>
-<tr>
-<td>hh</td>
-<td>char</td>
-<td>unsigned char</td>
-</tr>
-<tr>
-<td>h</td>
-<td>short int</td>
-<td>unsigned short int</td>
-</tr>
-<tr>
-<td>l</td>
-<td>long int</td>
-<td>unsigned long int</td>
-</tr>
-<tr>
-<td>ll</td>
-<td>long long int</td>
-<td>unsigned long long int (<code>with_long_long</code> option)</td>
-</tr>
-<tr>
-<td>j</td>
-<td>intmax_t</td>
-<td>uintmax_t</td>
-</tr>
-<tr>
-<td>z</td>
-<td>size_t</td>
-<td>size_t</td>
-</tr>
-<tr>
-<td>t</td>
-<td>ptrdiff_t</td>
-<td>ptrdiff_t (<code>with_ptrdiff</code> option)</td>
-</tr>
-</tbody>
-</table>
 <h2 id="redirecting-iostreams">Redirecting IOStreams<a class="headerlink" href="#redirecting-iostreams" title="Permanent link">&para;</a></h2>
 <p>The <code>modm::IODeviceWrapper</code> transforms any peripheral device that provides static
 <code>write()</code> and <code>read()</code> functions into an <code>IODevice</code>.</p>
@@ -6764,30 +6453,27 @@ Inputs: <code>[yes, no]</code>  </p>
 <p>Support for 64-bit integer formatting</p>
 <p>Default: <code>no</code> <em>avr</em><br />
 Default: <code>yes</code> <em>hosted, rp, sam, stm32</em><br />
-Inputs: <code>[yes, no]</code>  </p>
+Inputs: <code>[yes, no]</code><br />
+Input Dependency: <code>yes -&gt; modm:printf</code>  </p>
 <h4 id="with_printf">with_printf<a class="headerlink" href="#with_printf" title="Permanent link">&para;</a></h4>
 <p>Support for printf-style formatting</p>
 <p>Default: <code>no</code> <em>avr</em><br />
 Default: <code>yes</code> <em>hosted, rp, sam, stm32</em><br />
-Inputs: <code>[yes, no]</code>  </p>
-<h4 id="with_ptrdiff">with_ptrdiff<a class="headerlink" href="#with_ptrdiff" title="Permanent link">&para;</a></h4>
-<p>Support for pointer difference formatting</p>
-<p>Default: <code>no</code> <em>avr</em><br />
-Default: <code>yes</code> <em>hosted, rp, sam, stm32</em><br />
-Inputs: <code>[yes, no]</code>  </p>
+Inputs: <code>[yes, no]</code><br />
+Input Dependency: <code>yes -&gt; modm:printf</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="200pt" height="135pt"
- viewBox="0.00 0.00 200.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="283pt" height="135pt"
+ viewBox="0.00 0.00 283.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
 <title>modm:io</title>
 <g id="node1" class="node">
 <title>modm_io</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="139,-38 74,-38 74,0 139,0 139,-38"/>
-<text text-anchor="middle" x="106.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="106.5" y="-7.8" font-family="Times,serif" font-size="14.00">io</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="192,-38 127,-38 127,0 192,0 192,-38"/>
+<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">io</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_accessor</title>
@@ -6798,8 +6484,8 @@ Inputs: <code>[yes, no]</code>  </p>
 </g>
 <g id="edge1" class="edge">
 <title>modm_io&#45;&gt;modm_architecture_accessor</title>
-<path fill="none" stroke="black" d="M94.7,-38.04C89.38,-46.18 82.91,-56.07 76.73,-65.51"/>
-<polygon fill="black" stroke="black" points="73.73,-63.71 71.18,-74 79.58,-67.54 73.73,-63.71"/>
+<path fill="none" stroke="black" d="M135.67,-38.04C124.05,-46.84 109.72,-57.69 96.35,-67.81"/>
+<polygon fill="black" stroke="black" points="94.04,-65.17 88.18,-74 98.27,-70.75 94.04,-65.17"/>
 </g>
 <g id="node3" class="node">
 <title>modm_math_utils</title>
@@ -6810,8 +6496,19 @@ Inputs: <code>[yes, no]</code>  </p>
 </g>
 <g id="edge2" class="edge">
 <title>modm_io&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M118.53,-38.04C123.95,-46.18 130.54,-56.07 136.84,-65.51"/>
-<polygon fill="black" stroke="black" points="134.04,-67.62 142.5,-74 139.86,-63.74 134.04,-67.62"/>
+<path fill="none" stroke="black" d="M159.5,-38.04C159.5,-45.68 159.5,-54.86 159.5,-63.77"/>
+<polygon fill="black" stroke="black" points="156,-64 159.5,-74 163,-64 156,-64"/>
+</g>
+<g id="node4" class="node">
+<title>modm_printf</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="275,-119.5 210,-119.5 210,-81.5 275,-81.5 275,-119.5"/>
+<text text-anchor="middle" x="242.5" y="-104.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="242.5" y="-89.3" font-family="Times,serif" font-size="14.00">printf</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_io&#45;&gt;modm_printf</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M178.33,-38.04C189.5,-48.74 203.83,-62.46 216.12,-74.23"/>
+<polygon fill="black" stroke="black" points="213.81,-76.87 223.45,-81.26 218.65,-71.81 213.81,-76.87"/>
 </g>
 </g>
 </svg></p>
