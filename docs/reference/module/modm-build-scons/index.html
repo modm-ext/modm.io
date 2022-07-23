@@ -2849,6 +2849,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#protobuf-generator-tool" class="md-nav__link">
+    Protobuf Generator Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#xpcc-generator-tool" class="md-nav__link">
     XPCC Generator Tool
   </a>
@@ -4954,6 +4961,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-nanopb/" class="md-nav__link">
+        :nanopb
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-platform/" class="md-nav__link">
         :platform
       </a>
@@ -6779,6 +6800,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#protobuf-generator-tool" class="md-nav__link">
+    Protobuf Generator Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#xpcc-generator-tool" class="md-nav__link">
     XPCC Generator Tool
   </a>
@@ -7298,6 +7326,18 @@ are supported, this is only meant for using the IDE as an editor.</p>
 <div class="admonition warning">
 <p class="admonition-title">Consider this an unstable feature</p>
 </div>
+<h2 id="protobuf-generator-tool">Protobuf Generator Tool<a class="headerlink" href="#protobuf-generator-tool" title="Permanent link">&para;</a></h2>
+<p>The <code>modm:nanopb</code> module contains a Python generator to translate the messages
+defined in <code>*.proto</code> files by the <code>modm:nanopb:source</code> option into <code>*.pb.cpp</code>
+and <code>*.pb.hpp</code> files.
+This module contains a SCons wrapper tool that automatically updates the
+generated files when it becomes necessary:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cpp_sources</span> <span class="o">+=</span> <span class="n">env</span><span class="o">.</span><span class="n">NanopbProtofile</span><span class="p">(</span>
+    <span class="n">sources</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;:nanopb:sources&quot;</span><span class="p">],</span>
+    <span class="n">path</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;:nanopb:path&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>The generated files are available as a top-level <code>#include &lt;protofile.pb.hpp&gt;</code>.</p>
 <h2 id="xpcc-generator-tool">XPCC Generator Tool<a class="headerlink" href="#xpcc-generator-tool" title="Permanent link">&para;</a></h2>
 <p>The <code>modm:communication:xpcc:generator</code> module contains the Python tools to
 translate the XPCC XML declarations into various language implementations.
@@ -7305,7 +7345,7 @@ This module contains a SCons wrapper tool, that understands the XML dependencies
 and automatically updates the generated files when it becomes necessary.</p>
 <p>The wrapper tool is automatically used when the generator module is detected,
 and its options are evaluated for the wrapper as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="n">env</span><span class="o">.</span><span class="n">XpccCommunication</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">cpp_sources</span> <span class="o">+=</span> <span class="n">env</span><span class="o">.</span><span class="n">XpccCommunication</span><span class="p">(</span>
     <span class="n">xmlfile</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;::xpcc:generator:source&quot;</span><span class="p">],</span>
     <span class="n">container</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;::xpcc:generator:container&quot;</span><span class="p">],</span>
     <span class="n">path</span><span class="o">=</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;::xpcc:generator:path&quot;</span><span class="p">],</span>
