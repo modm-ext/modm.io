@@ -12,14 +12,14 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-ide-vscode/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-adc-rp2040/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
     
     
       
-        <title>:ide:vscode - modm barebone embedded library</title>
+        <title>:platform:adc (rp2040) - modm barebone embedded library</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#visual-studio-code-vscode" class="md-skip">
+        <a href="#analog-to-digital-converter-adc" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :ide:vscode
+              :platform:adc (rp2040)
             
           </span>
         </div>
@@ -4494,52 +4494,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :ide:vscode
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-ide-vscode/" class="md-nav__link">
         :ide:vscode
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4759,11 +4718,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-adc-rp2040/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :platform:adc (rp2040)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :platform:adc (rp2040)
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6369,59 +6369,66 @@
                 
 
 
-<h1 id="visual-studio-code-vscode">Visual Studio Code (VSCode)<a class="headerlink" href="#visual-studio-code-vscode" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:ide:vscode</code></p>
-<p><a href="https://code.visualstudio.com/">Visual Studio Code (VSCode)</a> is a popular IDE with an integrated
-debugger UI.</p>
-<p>This module provides configuration files to integrate building, debugging,
-uploading and code completion into the IDE:</p>
-<ul>
-<li><code>.vscode/tasks.json</code>: If the <code>modm:build:scons</code> and <code>modm:build:make</code> module
-  are included, this file wraps the building and uploading commands by profile.
-  You can invoke them by Ctl+Shift+B (macOS: Cmd+Shift+B).</li>
-<li><code>.vscode/c_cpp_properties.json</code>: Configures IntelliSense for better code
-  completion and for using the correct system headers. You need the
-  <a href="https://github.com/Microsoft/vscode-cpptools">C/C++ extension</a> installed.</li>
-<li><code>.vscode/launch.json</code>: Configures the <a href="https://github.com/Marus/cortex-debug#readme">Cortex-Debug</a> extension to start the
-  debugger with a single click from the IDE.</li>
-</ul>
-<p>Note that not all build system features are provided in the IDE, only the most
-common. You can call all build system tools from the command line.
-In addition, the <code>modm:build:cmake</code> module is supported natively by the
-<a href="https://github.com/microsoft/vscode-cmake-tools">CMake Tools</a> extension and is therefore not wrapped.</p>
-<p>We recommend adding this module from the command line so that you don't
-accidentally overwrite your modified files later: <code>lbuild build -m ::vscode</code>.</p>
-<p>Note that some configuration options may be specific to your environment (such
-as the compiler path) and may not work in other environments.</p>
+<h1 id="analog-to-digital-converter-adc">Analog-to-Digital Converter (ADC)<a class="headerlink" href="#analog-to-digital-converter-adc" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:adc</code></p>
+<p><em>This module is only available for rp2040.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="73pt" height="135pt"
- viewBox="0.00 0.00 73.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
-<title>modm:ide:vscode</title>
+<p><svg class="deps" width="301pt" height="150pt"
+ viewBox="0.00 0.00 301.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
+<title>modm:platform:adc</title>
 <g id="node1" class="node">
-<title>modm_ide_vscode</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="65,-53 0,-53 0,0 65,0 65,-53"/>
-<text text-anchor="middle" x="32.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-22.8" font-family="Times,serif" font-size="14.00">ide:</text>
-<text text-anchor="middle" x="32.5" y="-7.8" font-family="Times,serif" font-size="14.00">vscode</text>
+<title>modm_platform_adc</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="201,-53 118,-53 118,0 201,0 201,-53"/>
+<text text-anchor="middle" x="159.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">adc</text>
 </g>
 <g id="node2" class="node">
-<title>modm_build</title>
-<polygon fill="lightgrey" stroke="black" points="65,-127 0,-127 0,-89 65,-89 65,-127"/>
-<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-96.8" font-family="Times,serif" font-size="14.00">build</text>
+<title>modm_architecture_adc</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">adc</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_ide_vscode&#45;&gt;modm_build</title>
-<path fill="none" stroke="black" d="M32.5,-53.09C32.5,-61.26 32.5,-70.35 32.5,-78.7"/>
-<polygon fill="black" stroke="black" points="29,-78.76 32.5,-88.76 36,-78.76 29,-78.76"/>
+<title>modm_platform_adc&#45;&gt;modm_architecture_adc</title>
+<path fill="none" stroke="black" d="M128.56,-53.13C117.55,-62.25 105.01,-72.65 93.42,-82.25"/>
+<polygon fill="black" stroke="black" points="91.04,-79.67 85.58,-88.75 95.51,-85.07 91.04,-79.67"/>
+</g>
+<g id="node3" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-89 192,-89 192,-142"/>
+<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_platform_adc&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M159.5,-53.13C159.5,-61.11 159.5,-70.07 159.5,-78.62"/>
+<polygon fill="black" stroke="black" points="156,-78.75 159.5,-88.75 163,-78.75 156,-78.75"/>
+</g>
+<g id="node4" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="293,-142 210,-142 210,-89 293,-89 293,-142"/>
+<text text-anchor="middle" x="251.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="251.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="251.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_adc&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M186.61,-53.13C196.07,-62.08 206.82,-72.25 216.81,-81.7"/>
+<polygon fill="black" stroke="black" points="214.6,-84.42 224.27,-88.75 219.41,-79.34 214.6,-84.42"/>
 </g>
 </g>
 </svg></p>
 <style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
+<div class="admonition warning">
+<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
+</div>
 
 
 
@@ -6440,7 +6447,7 @@ as the compiler path) and may not work in other environments.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../modm-ide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :ide" rel="prev">
+        <a href="../modm-platform-adc-avr-mega-tiny/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :platform:adc (avr{mega,tiny})" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -6449,20 +6456,20 @@ as the compiler path) and may not work in other environments.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              :ide
+              :platform:adc (avr{mega,tiny})
             </div>
           </div>
         </a>
       
       
         
-        <a href="../modm-io/" class="md-footer__link md-footer__link--next" aria-label="Next: :io" rel="next">
+        <a href="../modm-platform-adc-samg/" class="md-footer__link md-footer__link--next" aria-label="Next: :platform:adc (samg)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              :io
+              :platform:adc (samg)
             </div>
           </div>
           <div class="md-footer__button md-icon">
