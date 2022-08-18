@@ -356,6 +356,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/config/modm-thingplus-rp2040/</loc>
+         <lastmod>2022-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-architecture-1-wire/</loc>
          <lastmod>2022-08-18</lastmod>
          <changefreq>daily</changefreq>
@@ -772,6 +777,11 @@
     </url>
     <url>
          <loc>http://modm.io/reference/module/modm-board-stm32f030_demo/</loc>
+         <lastmod>2022-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://modm.io/reference/module/modm-board-thingplus-rp2040/</loc>
          <lastmod>2022-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
