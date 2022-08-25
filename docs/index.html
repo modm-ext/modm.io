@@ -6485,7 +6485,7 @@
 <p>modm (pronounced like dial-up "modem") is a toolbox for
 building custom C++20 libraries tailored to your embedded device.
 modm generates startup code, HALs and their implementations, communication
-protocols, drivers for external devices, BSPs, etc… in a modular, customizable
+protocols, drivers for external devices, and BSPs in a modular, customizable
 process that you can fine-tune to your needs.</p>
 <ul>
 <li><a href="https://modm.io/guide/installation">Install the toolchain</a> and <a href="https://github.com/modm-io/modm/tree/develop/examples">explore our examples</a>.</li>
@@ -6539,13 +6539,15 @@ back so everyone can benefit.</p>
 <li>Lightweight unit testing system (suitable for AVRs).</li>
 <li>Hundreds of tests to ensure correct functionality.</li>
 <li>Integration of useful third-party software:<ul>
-<li><a href="https://www.freertos.org">FreeRTOS</a> and <a href="https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/index.html">FreeRTOS+TCP</a>.</li>
-<li><a href="https://www.keil.com/pack/doc/CMSIS/General/html/index.html">CMSIS</a> and <a href="https://www.keil.com/pack/doc/CMSIS/DSP/html/index.html">CMSIS-DSP</a>.</li>
-<li><a href="https://www.etlcpp.com">ETL</a>.</li>
-<li><a href="https://github.com/hathach/tinyusb">TinyUSB</a>.</li>
-<li><a href="http://elm-chan.org/fsw/ff/00index_e.html">FatFS</a>.</li>
-<li><a href="https://wiki.ros.org/rosserial">ROSserial</a>.</li>
-<li><a href="https://github.com/adamgreen/CrashCatcher">CrashCatcher</a>.</li>
+<li><a href="https://www.freertos.org">FreeRTOS</a> and <a href="https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/index.html">FreeRTOS+TCP</a> operating system.</li>
+<li><a href="https://www.keil.com/pack/doc/CMSIS/General/html/index.html">CMSIS</a> and <a href="https://www.keil.com/pack/doc/CMSIS/DSP/html/index.html">CMSIS-DSP</a> interfaces.</li>
+<li><a href="https://www.etlcpp.com">ETL</a>: Embedded Template Library.</li>
+<li><a href="https://github.com/hathach/tinyusb">TinyUSB</a>: USB Host/Device stack.</li>
+<li><a href="http://elm-chan.org/fsw/ff/00index_e.html">FatFS</a>: FAT/exFAT filesystem.</li>
+<li><a href="https://wiki.ros.org/rosserial">ROSserial</a>: Embedded ROS client.</li>
+<li><a href="https://github.com/adamgreen/CrashCatcher">CrashCatcher</a>: Crash reports for HardFaults.</li>
+<li><a href="https://github.com/eyalroz/printf">printf</a>: Small printf implementation.</li>
+<li><a href="https://github.com/nanopb/nanopb">Nanopb</a>: Embedded Protocol Buffers.</li>
 </ul>
 </li>
 </ul>
@@ -6997,8 +6999,8 @@ Please <a href="https://modm.io/guide/discover">discover modm's peripheral drive
 
 <p></center></p>
 <p>We are only a small team of developers and are limited in the amount of devices
-we can support and test in hardware. <a href="https://github.com/modm-io/modm/issues">Open an issue</a> to ask if your
-specific device is supported out-of-the-box and what you can do if it is not.</p>
+we can support and test in hardware. <a href="https://github.com/modm-io/modm/discussions">Open a discussion</a> to ask if
+your specific device is supported out-of-the-box and how you can add it otherwise.</p>
 <h3 id="boards">Boards<a class="headerlink" href="#boards" title="Permanent link">&para;</a></h3>
 <p>We have out-of-box support for many development boards including documentation.</p>
 <p><center></p>

@@ -7174,8 +7174,8 @@ main stack, an alignment buffer up to 1kB is added to the main stack.</p>
 |   (overwritten by main stack!)  |
 &#39;---------------------------------&#39; &lt;-- RAM origin
 </code></pre></div>
-<p>Default: <code>3*1024 (3072)</code><br />
-Inputs: <code>[256 .. 3*1024 .. 65536]</code>  </p>
+<p>Default: <code>3Ki (3072)</code><br />
+Inputs: <code>[256 .. 3Ki .. 64Ki]</code>  </p>
 <h4 id="vector_table_location">vector_table_location<a class="headerlink" href="#vector_table_location" title="Permanent link">&para;</a></h4>
 <p>Vector table location in ROM or RAM</p>
 <p>The vector table is always stored in ROM and copied to RAM by the startup script
