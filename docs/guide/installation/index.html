@@ -471,6 +471,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#windows-with-wsl2" class="md-nav__link">
+    Windows with WSL2
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6671,6 +6678,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#windows-with-wsl2" class="md-nav__link">
+    Windows with WSL2
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6719,7 +6733,7 @@ lack of commitment from Atmel on keeping their AVR toolchain up-to-date.</p>
 <p>Please help us <a href="https://github.com/modm-io/modm/blob/develop/CONTRIBUTING.md">keep these instructions up-to-date</a>!</p>
 <h2 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h2>
 <p>For Ubuntu 20.04LTS, these commands install the minimal build system:</p>
-<div class="highlight"><pre><span></span><code>sudo apt install python3 python3-pip scons git
+<div class="highlight"><pre><span></span><code>sudo apt install python3 python3-pip scons git libncurses5
 pip3 install modm
 </code></pre></div>
 <p>We recommend using a graphical frontend for GDB called <a href="https://www.gdbgui.com">gdbgui</a>:</p>
@@ -6824,7 +6838,8 @@ brew link --force avr-gcc@10
 </code></pre></div>
 <h2 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
 <p>In general, Windows is not a great fit for the command line tools that modm is
-built on. Consider using the <a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows subsystem for Linux (WSL)</a> instead.
+built on. Consider using the <a href="#windows-with-wsl2">Windows subsystem for Linux 2 (WSL2)</a>
+instead.
 Alternatively consider using a better terminal emulator than command prompt
 (<code>cmd</code>) or PowerShell, perhaps use the official <a href="https://github.com/Microsoft/Terminal">Windows Terminal</a>.</p>
 <div class="admonition warning">
@@ -6896,6 +6911,60 @@ be issues related to this. <a href="https://github.com/modm-io/modm/issues/new">
 <p class="admonition-title">Dear Windows users</p>
 <p>We don't regularly use Windows with modm, so please <a href="https://github.com/modm-io/modm/issues/new">give us some feedback</a>
 about the quality of these instructions.</p>
+</div>
+<h2 id="windows-with-wsl2">Windows with WSL2<a class="headerlink" href="#windows-with-wsl2" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://docs.microsoft.com/en-us/windows/wsl/about#what-is-wsl-2">Windows Subsystem for Linux 2</a> allows you to run a Linux distribution
+in parallel to Windows. For a pure Windows installation see <a href="#windows">above</a>.</p>
+<p>Install Ubuntu-22.04 LTS as WSL2 distribution:
+See the <a href="https://docs.microsoft.com/en-us/windows/wsl/install">general WSL doc</a>, but as of this writing
+<code>wsl --list --online</code> will not list Ubuntu 22.04.1 LTS, but it is
+<a href="https://www.microsoft.com/store/productId/9PN20MSR04DW">available in the Microsoft Store</a>.
+Install it from there via mouse clicks.
+Make sure the WSL2 instance is running by opening a terminal via start menu.</p>
+<p>Physically attach your microcontroller development board or your debugger to a
+USB port and <a href="https://docs.microsoft.com/en-us/windows/wsl/connect-usb">bridge the USB hub to which the device is attached</a>.
+Also <a href="https://docs.microsoft.com/en-us/windows/wsl/connect-usb">bridge the USB device to Linux</a> using <a href="https://github.com/dorssel/usbipd-win">usbipd</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">usbipd</span> <span class="n">wsl</span> <span class="n">list</span>
+<span class="n">BUSID</span>  <span class="n">VID</span><span class="p">:</span><span class="n">PID</span>    <span class="n">DEVICE</span>                                <span class="n">STATE</span>
+<span class="n">3</span><span class="p">-</span><span class="n">2</span>    <span class="n">1bcf</span><span class="p">:</span><span class="n">0005</span>  <span class="n">USB-Eingabegerät</span>                      <span class="n">Not</span> <span class="n">attached</span>
+<span class="n">3</span><span class="p">-</span><span class="n">3</span>    <span class="n">0483</span><span class="p">:</span><span class="n">374b</span>  <span class="n">ST-Link</span> <span class="n">Debug</span><span class="p">,</span> <span class="n">USB</span><span class="p">-...</span>                <span class="n">Attached</span> <span class="p">-</span> <span class="n">Ubuntu</span><span class="p">-</span><span class="n">22</span><span class="p">.</span><span class="n">04</span>
+<span class="n">4</span><span class="p">-</span><span class="n">1</span>    <span class="n">138a</span><span class="p">:</span><span class="n">003d</span>  <span class="n">Synaptics</span> <span class="n">FP</span> <span class="n">Sensors</span> <span class="p">(</span><span class="n">WBF</span><span class="p">)</span> <span class="p">(</span><span class="n">PID</span><span class="p">=</span><span class="n">003d</span><span class="p">)</span> <span class="n">Not</span> <span class="n">attached</span>
+<span class="n">4</span><span class="p">-</span><span class="n">3</span>    <span class="n">04f2</span><span class="p">:</span><span class="n">b370</span>  <span class="n">HP</span> <span class="n">HD</span> <span class="n">Webcam</span> <span class="no">[Fixed]</span>                  <span class="n">Not</span> <span class="n">attached</span>
+</code></pre></div>
+<p>Check the BUSID parameter and use the one that corresponds to your device in
+further commands. In this example it is the <code>3-3</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">usbipd</span> <span class="n">wsl</span> <span class="n">attach</span> <span class="p">-</span><span class="n">-busid</span> <span class="n">3</span><span class="p">-</span><span class="n">3</span>
+<span class="n">usbipd</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="n">Using</span> <span class="k">default</span> <span class="n">distribution</span> <span class="s1">&#39;Ubuntu-22.04&#39;</span><span class="p">.</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Unreliable connection</p>
+<p>If the connection is not reliable, it might be necessary to detach/attach
+several times until the connection is established:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">usbipd</span> <span class="n">wsl</span> <span class="n">detach</span> <span class="p">-</span><span class="n">-busid</span> <span class="n">3</span><span class="p">-</span><span class="n">3</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">usbipd</span> <span class="n">wsl</span> <span class="n">attach</span> <span class="p">-</span><span class="n">-busid</span> <span class="n">3</span><span class="p">-</span><span class="n">3</span>
+<span class="n">usbipd</span><span class="p">:</span> <span class="n">info</span><span class="p">:</span> <span class="n">Using</span> <span class="k">default</span> <span class="n">distribution</span> <span class="s1">&#39;Ubuntu-22.04&#39;</span><span class="p">.</span>
+</code></pre></div>
+</div>
+<p>Either reboot the machine or be lucky that a combination of the following
+commands is sufficient:</p>
+<div class="highlight"><pre><span></span><code>sudo udevadm trigger
+sudo udevadm control --reload
+</code></pre></div>
+<p>Remove the USB connector, reattach it, then issue the command
+<code>usbipd wsl attach --busid 3-3</code>.</p>
+<p>On WSL2 Linux follow the <a href="#linux">Linux installation instructions</a> and
+additionally install a terminal emulator such as <em>picocom</em>:</p>
+<div class="highlight"><pre><span></span><code>sudo apt install picocom
+</code></pre></div>
+<p><a href="https://github.com/modm-io/modm/tree/develop/examples">Explore the examples</a> and compile and upload a suitable one with
+<code>scons program</code>. Try to debug it with GDB using <code>scons debug</code> and listen on
+the serial output:</p>
+<div class="highlight"><pre><span></span><code>picocom --baud <span class="m">115200</span> --imap lfcrlf --echo /dev/ttyACM0
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">VSCode support</p>
+<p>You can also install the <a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode">remote extensions for WSL</a> and use the
+<a href="https://code.visualstudio.com/docs/remote/wsl-tutorial#_integrated-terminal">VSCode integrated terminal</a> to access WSL2.</p>
 </div>
 
 
