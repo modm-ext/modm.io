@@ -2967,9 +2967,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :cmsis:dsp:matrix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         :cmsis:dsp:matrix
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6453,6 +6484,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6468,6 +6514,51 @@
 
 <h1 id="dsp-matrix">DSP Matrix<a class="headerlink" href="#dsp-matrix" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:cmsis:dsp:matrix</code></p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<p><svg class="deps" width="210pt" height="180pt"
+ viewBox="0.00 0.00 210.00 180.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 176)">
+<title>modm:cmsis:dsp:matrix</title>
+<g id="node1" class="node">
+<title>modm_cmsis_dsp_matrix</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="136,-68 71,-68 71,0 136,0 136,-68"/>
+<text text-anchor="middle" x="103.5" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="103.5" y="-37.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="103.5" y="-22.8" font-family="Times,serif" font-size="14.00">dsp:</text>
+<text text-anchor="middle" x="103.5" y="-7.8" font-family="Times,serif" font-size="14.00">matrix</text>
+</g>
+<g id="node2" class="node">
+<title>modm_cmsis_dsp_basic_math</title>
+<polygon fill="lightgrey" stroke="black" points="97,-172 0,-172 0,-104 97,-104 97,-172"/>
+<text text-anchor="middle" x="48.5" y="-156.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="48.5" y="-141.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="48.5" y="-126.8" font-family="Times,serif" font-size="14.00">dsp:</text>
+<text text-anchor="middle" x="48.5" y="-111.8" font-family="Times,serif" font-size="14.00">basic_math</text>
+</g>
+<g id="edge1" class="edge">
+<title>modm_cmsis_dsp_matrix&#45;&gt;modm_cmsis_dsp_basic_math</title>
+<path fill="none" stroke="black" d="M85.64,-68.12C81.08,-76.58 76.11,-85.79 71.34,-94.65"/>
+<polygon fill="black" stroke="black" points="68.12,-93.24 66.46,-103.7 74.28,-96.56 68.12,-93.24"/>
+</g>
+<g id="node3" class="node">
+<title>modm_cmsis_dsp_fast_math</title>
+<polygon fill="lightgrey" stroke="black" points="202,-172 115,-172 115,-104 202,-104 202,-172"/>
+<text text-anchor="middle" x="158.5" y="-156.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="158.5" y="-141.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="158.5" y="-126.8" font-family="Times,serif" font-size="14.00">dsp:</text>
+<text text-anchor="middle" x="158.5" y="-111.8" font-family="Times,serif" font-size="14.00">fast_math</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_cmsis_dsp_matrix&#45;&gt;modm_cmsis_dsp_fast_math</title>
+<path fill="none" stroke="black" d="M121.36,-68.12C125.92,-76.58 130.89,-85.79 135.66,-94.65"/>
+<polygon fill="black" stroke="black" points="132.72,-96.56 140.54,-103.7 138.88,-93.24 132.72,-96.56"/>
+</g>
+</g>
+</svg></p>
+<style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
 <div class="admonition warning">
 <p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
 </div>
