@@ -1831,6 +1831,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-platform-pwm/</loc>
+         <lastmod>2023-02-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-platform-random/</loc>
          <lastmod>2023-02-07</lastmod>
          <changefreq>daily</changefreq>
