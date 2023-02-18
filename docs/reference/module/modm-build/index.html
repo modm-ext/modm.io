@@ -14,8 +14,14 @@
       
         <link rel="canonical" href="http://modm.io/reference/module/modm-build/">
       
+      
+        <link rel="prev" href="../modm-board-thingplus-rp2040/">
+      
+      
+        <link rel="next" href="../modm-build-cmake/">
+      
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
     
     
       
@@ -23,11 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -117,7 +122,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
           <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -125,7 +129,6 @@
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -176,7 +179,7 @@
         <a href="https://github.com/modm-io/modm" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     modm-io/modm
@@ -221,7 +224,7 @@
       <a href="https://github.com/modm-io/modm" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     modm-io/modm
@@ -242,12 +245,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_1">
+        <label class="md-nav__link" for="__nav_1" tabindex="0" aria-expanded="false">
           Home
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -318,12 +322,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
           Guide
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -410,12 +415,13 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
           Reference
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -478,12 +484,13 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3_4">
+        <label class="md-nav__link" for="__nav_3_4" tabindex="0" aria-expanded="false">
           Configurations
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1423,12 +1430,13 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3_5">
+        <label class="md-nav__link" for="__nav_3_5" tabindex="0" aria-expanded="true">
           Modules
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -7768,6 +7776,7 @@
                   
 
 
+
 <h1 id="build-system-generators">Build System Generators<a class="headerlink" href="#build-system-generators" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:build</code></p>
 <p>This parent module defines a common set of functionality that is independent of
@@ -7832,7 +7841,7 @@ generate a <code>modm/openocd.cfg</code> file with the target specific configura
   Your custom <code>modm:build:openocd.cfg</code> is added here too.</li>
 </ul>
 <p>You need to start openocd with this configuration file:</p>
-<div class="highlight"><pre><span></span><code>openocd -f modm/openocd.cfg
+<div class="highlight"><pre><span></span><code>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Be careful attaching to a running target</p>
@@ -7856,7 +7865,7 @@ line.</p>
 <p>GDB continues running the target after attaching, but <em>does not</em> load an ELF
 file! Please pass the ELF file as a command line argument.</p>
 <p>You can start your GDB session like so:</p>
-<div class="highlight"><pre><span></span><code>arm-none-eabi-gdb -x modm/gdbinit path/to/project.elf
+<div class="highlight"><pre><span></span><code>arm-none-eabi-gdb<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>path/to/project.elf
 </code></pre></div>
 <h2 id="generic-python-tools">Generic Python Tools<a class="headerlink" href="#generic-python-tools" title="Permanent link">&para;</a></h2>
 <p>We have written a number of pure Python tools to provide common functionality
@@ -7871,37 +7880,37 @@ a look in your generated <code>modm/modm_tools</code> folder.</p>
 <li>guessing the serial port when a baudrate was set.</li>
 <li>inspecting the ELF file to decide whether EEPROM needs to be programmed.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/avrdude.py -p m328p -c arduino -P auto -b <span class="m">57600</span> <span class="se">\\</span>
-                                   path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/avrdude.py<span class="w"> </span>-p<span class="w"> </span>m328p<span class="w"> </span>-c<span class="w"> </span>arduino<span class="w"> </span>-P<span class="w"> </span>auto<span class="w"> </span>-b<span class="w"> </span><span class="m">57600</span><span class="w"> </span><span class="se">\\</span>
+<span class="w">                                   </span>path/to/project.elf
 </code></pre></div>
 <p><a href="http://avr-libc.nongnu.org/user-manual/group__avr__fuse.html">Fuses stored in the ELF file</a>
 can be programmed by passing <code>--fuse</code> arguments:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/avrdude.py -p m328p -c stk500v2 path/to/project.elf <span class="se">\\</span>
-                                   --fuse hfuse --fuse lfuse --fuse efuse
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/avrdude.py<span class="w"> </span>-p<span class="w"> </span>m328p<span class="w"> </span>-c<span class="w"> </span>stk500v2<span class="w"> </span>path/to/project.elf<span class="w"> </span><span class="se">\\</span>
+<span class="w">                                   </span>--fuse<span class="w"> </span>hfuse<span class="w"> </span>--fuse<span class="w"> </span>lfuse<span class="w"> </span>--fuse<span class="w"> </span>efuse
 </code></pre></div>
 <p>(* <em>only AVR targets</em>)</p>
 <h3 id="openocd_1">OpenOCD<a class="headerlink" href="#openocd_1" title="Permanent link">&para;</a></h3>
 <p>Simply wraps OpenOCD and issues the right command to program the target.</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/openocd.py -f modm/openocd.cfg path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/openocd.py<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>path/to/project.elf
 </code></pre></div>
 <p>You can also reset the target:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/openocd.py -f modm/openocd.cfg --reset
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/openocd.py<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--reset
 </code></pre></div>
 <p>You can use a different OpenOCD binary by setting the <code>MODM_OPENOCD_BINARY</code>
 environment variable before calling this script. This can be useful when
 using a custom OpenOCD build for specific targets.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">MODM_OPENOCD_BINARY</span><span class="o">=</span>/path/to/other/openocd
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MODM_OPENOCD_BINARY</span><span class="o">=</span>/path/to/other/openocd
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="black-magic-probe">Black Magic Probe<a class="headerlink" href="#black-magic-probe" title="Permanent link">&para;</a></h3>
 <p>This tool wraps GDB to program an ELF file onto a target connected to a BMP.
 You can explictly pass the serial port, or let the tool guess it.</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/bmp.py path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>path/to/project.elf
 <span class="c1"># or choose the port explicitly</span>
-python3 modm/modm_tools/bmp.py path/to/project.elf -p /dev/tty.usbserial-123
+python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-p<span class="w"> </span>/dev/tty.usbserial-123
 </code></pre></div>
 <p>You can also reset the target:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/bmp.py --reset
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>--reset
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="gdb_1">GDB<a class="headerlink" href="#gdb_1" title="Permanent link">&para;</a></h3>
@@ -7910,9 +7919,9 @@ python3 modm/modm_tools/bmp.py path/to/project.elf -p /dev/tty.usbserial-123
 background or remotely.</p>
 <p>The tool can be called from the command line. Here is a typical use-case using
 the openocd backend with the common configuration files:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/gdb.py path/to/project.elf --ui<span class="o">=</span>tui <span class="se">\</span>
-        -x modm/gdbinit -x modm/openocd_gdbinit <span class="se">\</span>
-        openocd -f modm/openocd.cfg
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>-x<span class="w"> </span>modm/openocd_gdbinit<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg
 </code></pre></div>
 <p>Or you can call the Python API directly:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
@@ -7928,17 +7937,17 @@ the openocd backend with the common configuration files:</p>
 however, if you want to connect to an already running process, you can use the
 remote backend with the <code>--host={ip or hostname}</code> via the command line:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Extended-Remote running remotely</span>
-python3 modm/modm_tools/gdb.py path/to/project.elf -x modm/gdbinit --ui<span class="o">=</span>tui <span class="se">\</span>
-        remote --host <span class="m">123</span>.45.67.89
+python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>remote<span class="w"> </span>--host<span class="w"> </span><span class="m">123</span>.45.67.89
 </code></pre></div>
 <p>Note that you can use different programmer backends to GDB:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Black Magic Probe</span>
-python3 modm/modm_tools/gdb.py path/to/project.elf -x modm/gdbinit --ui<span class="o">=</span>tui <span class="se">\</span>
-        bmp --port /dev/tty.usbserial-123
+python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>bmp<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-123
 
 <span class="c1"># CrashDebug for Post-Mortem debugging</span>
-python3 modm/modm_tools/gdb.py path/to/project.elf -x modm/gdbinit --ui<span class="o">=</span>tui <span class="se">\</span>
-        crashdebug --binary-path modm/ext/crashcatcher/bins --dump coredump.txt
+python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>crashdebug<span class="w"> </span>--binary-path<span class="w"> </span>modm/ext/crashcatcher/bins<span class="w"> </span>--dump<span class="w"> </span>coredump.txt
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <p>Currently two UIs are implemented for debugging:</p>
@@ -7983,18 +7992,18 @@ IDE-independent debugging solution.</p>
 <p>Inspects the ELF file and generates a size report of the static usage of the
 device's memories. You must pass the available memory segments as a Python
 dictionary:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/size.py path/to/project.elf <span class="se">\\</span>
-    <span class="s2">&quot;[{&#39;name&#39;: &#39;flash&#39;, &#39;access&#39;: &#39;rx&#39;, &#39;start&#39;: 134217728, &#39;size&#39;: 65536}, \\</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/size.py<span class="w"> </span>path/to/project.elf<span class="w"> </span><span class="se">\\</span>
+<span class="w">    </span><span class="s2">&quot;[{&#39;name&#39;: &#39;flash&#39;, &#39;access&#39;: &#39;rx&#39;, &#39;start&#39;: 134217728, &#39;size&#39;: 65536}, \\</span>
 <span class="s2">    {&#39;name&#39;: &#39;sram1&#39;, &#39;access&#39;: &#39;rwx&#39;, &#39;start&#39;: 536870912, &#39;size&#39;: 20480}]&quot;</span>
 
-Program:   <span class="m">1</span>.4 KiB /  <span class="m">64</span>.0 KiB <span class="o">(</span><span class="m">2</span>.2% used<span class="o">)</span>
-<span class="o">(</span>.build_id + .fastcode + .fastdata + .hardware_init + .rodata +
- .table.copy.intern + .table.heap + .table.zero.intern + .text + .vector_rom<span class="o">)</span>
+Program:<span class="w">   </span><span class="m">1</span>.4<span class="w"> </span>KiB<span class="w"> </span>/<span class="w">  </span><span class="m">64</span>.0<span class="w"> </span>KiB<span class="w"> </span><span class="o">(</span><span class="m">2</span>.2%<span class="w"> </span>used<span class="o">)</span>
+<span class="o">(</span>.build_id<span class="w"> </span>+<span class="w"> </span>.fastcode<span class="w"> </span>+<span class="w"> </span>.fastdata<span class="w"> </span>+<span class="w"> </span>.hardware_init<span class="w"> </span>+<span class="w"> </span>.rodata<span class="w"> </span>+
+<span class="w"> </span>.table.copy.intern<span class="w"> </span>+<span class="w"> </span>.table.heap<span class="w"> </span>+<span class="w"> </span>.table.zero.intern<span class="w"> </span>+<span class="w"> </span>.text<span class="w"> </span>+<span class="w"> </span>.vector_rom<span class="o">)</span>
 
-Data:      <span class="m">3</span>.0 KiB /  <span class="m">20</span>.0 KiB <span class="o">(</span><span class="m">15</span>.1% used<span class="o">)</span> <span class="o">=</span> <span class="m">20</span> B static <span class="o">(</span><span class="m">0</span>.1%<span class="o">)</span> + <span class="m">3072</span> B stack <span class="o">(</span><span class="m">15</span>.0%<span class="o">)</span>
-<span class="o">(</span>.bss + .fastdata + .stack<span class="o">)</span>
+Data:<span class="w">      </span><span class="m">3</span>.0<span class="w"> </span>KiB<span class="w"> </span>/<span class="w">  </span><span class="m">20</span>.0<span class="w"> </span>KiB<span class="w"> </span><span class="o">(</span><span class="m">15</span>.1%<span class="w"> </span>used<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="w"> </span>B<span class="w"> </span>static<span class="w"> </span><span class="o">(</span><span class="m">0</span>.1%<span class="o">)</span><span class="w"> </span>+<span class="w"> </span><span class="m">3072</span><span class="w"> </span>B<span class="w"> </span>stack<span class="w"> </span><span class="o">(</span><span class="m">15</span>.0%<span class="o">)</span>
+<span class="o">(</span>.bss<span class="w"> </span>+<span class="w"> </span>.fastdata<span class="w"> </span>+<span class="w"> </span>.stack<span class="o">)</span>
 
-Heap:     <span class="m">17</span>.0 KiB /  <span class="m">20</span>.0 KiB <span class="o">(</span><span class="m">84</span>.9% available<span class="o">)</span>
+Heap:<span class="w">     </span><span class="m">17</span>.0<span class="w"> </span>KiB<span class="w"> </span>/<span class="w">  </span><span class="m">20</span>.0<span class="w"> </span>KiB<span class="w"> </span><span class="o">(</span><span class="m">84</span>.9%<span class="w"> </span>available<span class="o">)</span>
 <span class="o">(</span>.heap1<span class="o">)</span>
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
@@ -8011,8 +8020,8 @@ as soon as it is uploaded to your target. Make sure you only use the
 information you absolutely need!</p>
 </div>
 <h4 id="git-information">Git Information<a class="headerlink" href="#git-information" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/info.py -o git_info.c -t git        <span class="o">[</span>--check-rebuild<span class="o">]</span>
-python3 modm/modm_tools/info.py -o git_info.c -t git_status <span class="o">[</span>--check-rebuild<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/info.py<span class="w"> </span>-o<span class="w"> </span>git_info.c<span class="w"> </span>-t<span class="w"> </span>git<span class="w">        </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
+python3<span class="w"> </span>modm/modm_tools/info.py<span class="w"> </span>-o<span class="w"> </span>git_info.c<span class="w"> </span>-t<span class="w"> </span>git_status<span class="w"> </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
 </code></pre></div>
 <p>The <code>git_info(directory)</code> function returns a dictionary with these values:</p>
 <ul>
@@ -8071,7 +8080,7 @@ Copied:    0
 Untracked: 6
 </code></pre></div>
 <h4 id="build-information">Build Information<a class="headerlink" href="#build-information" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/info.py -o build_info.c -t build --compiler<span class="o">=</span>gcc <span class="o">[</span>--check-rebuild<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/info.py<span class="w"> </span>-o<span class="w"> </span>build_info.c<span class="w"> </span>-t<span class="w"> </span>build<span class="w"> </span>--compiler<span class="o">=</span>gcc<span class="w"> </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
 </code></pre></div>
 <p>Generates a files with these values defined as <code>const char *</code> strings:</p>
 <ul>
@@ -8091,17 +8100,17 @@ Compiler: g++-10 10.2.0
 <h3 id="unittest">Unittest<a class="headerlink" href="#unittest" title="Permanent link">&para;</a></h3>
 <p>This tools scans a directory for files ending in <code>_test.hpp</code>, extracts their
 test cases and generates a source file containing the test runner.</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/unit_test.py path/containing/tests <span class="se">\\</span>
-                                    path/to/generated_runner.cpp
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/unit_test.py<span class="w"> </span>path/containing/tests<span class="w"> </span><span class="se">\\</span>
+<span class="w">                                    </span>path/to/generated_runner.cpp
 </code></pre></div>
 <p>Note that the files containing unittests must contain <em>one</em> class that inherits
 from the <code>unittest::TestSuite</code> class, and test case names must begin with
 <code>test</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TestClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">unittest</span><span class="o">::</span><span class="n">TestSuite</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">testCase1</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TestClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">unittest</span><span class="o">::</span><span class="n">TestSuite</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">testCase1</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h3>
 <p>Usually logging is done simply via a serial port and only a USB-Serial adapter
@@ -8110,35 +8119,35 @@ host support or additional processing steps.</p>
 <h4 id="itm">ITM<a class="headerlink" href="#itm" title="Permanent link">&para;</a></h4>
 <p>Logging via the SWO trace pin is supported via OpenOCD and the
 <code>modm:platform:itm</code> module:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/log.py itm openocd -f modm/openocd.cfg --fcpu <span class="m">64000000</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/log.py<span class="w"> </span>itm<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--fcpu<span class="w"> </span><span class="m">64000000</span>
 </code></pre></div>
 <h4 id="rtt">RTT<a class="headerlink" href="#rtt" title="Permanent link">&para;</a></h4>
 <p>Logging via the RTT protocol is supported via OpenOCD and the
 <code>modm:platform:rtt</code> module:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/log.py rtt openocd -f modm/openocd.cfg --channel <span class="m">0</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/log.py<span class="w"> </span>rtt<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--channel<span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="gnu-build-id">GNU Build-ID<a class="headerlink" href="#gnu-build-id" title="Permanent link">&para;</a></h3>
 <p>To extract the build ID from an ELF file:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/build_id.py path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/build_id.py<span class="w"> </span>path/to/project.elf
 fa8918e6971ed783b25bff0ad11a0541be47a933
 </code></pre></div>
 <p>To copy the ELF file to a artifact cache:</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/build_id.py path/to/project.elf --cache path/to/folder
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/build_id.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>--cache<span class="w"> </span>path/to/folder
 <span class="c1"># copies to `path/to/folder/fa8918e6971ed783b25bff0ad11a0541be47a933.elf`</span>
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="bitmap">Bitmap<a class="headerlink" href="#bitmap" title="Permanent link">&para;</a></h3>
 <p>This tool can convert P1 <code>.pbm</code> files into C++ source code.</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/bitmap.py image.pbm --outpath .
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/bitmap.py<span class="w"> </span>image.pbm<span class="w"> </span>--outpath<span class="w"> </span>.
 <span class="c1"># creates `image.hpp` and `image.cpp` in the CWD</span>
 </code></pre></div>
 <h3 id="uf2-converter">UF2 Converter<a class="headerlink" href="#uf2-converter" title="Permanent link">&para;</a></h3>
 <p>UF2 is a <a href="https://github.com/microsoft/uf2">Microsoft file format</a> to pass
 to a on-device bootloader.</p>
-<div class="highlight"><pre><span></span><code>python3 modm/modm_tools/elf2uf2.py firmware.elf -o firmware.uf2 --target rp2040 <span class="se">\</span>
-    --range 0x10000000:0x15000000:CONTENTS <span class="se">\</span>
-    --range 0x20000000:0x20042000:NO_CONTENTS
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/elf2uf2.py<span class="w"> </span>firmware.elf<span class="w"> </span>-o<span class="w"> </span>firmware.uf2<span class="w"> </span>--target<span class="w"> </span>rp2040<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--range<span class="w"> </span>0x10000000:0x15000000:CONTENTS<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--range<span class="w"> </span>0x20000000:0x20042000:NO_CONTENTS
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
@@ -8452,42 +8461,6 @@ A memory region is a dictionary containing:</p>
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../modm-board-thingplus-rp2040/" class="md-footer__link md-footer__link--prev" aria-label="Previous: :board:thingplus-rp2040" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              :board:thingplus-rp2040
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../modm-build-cmake/" class="md-footer__link md-footer__link--next" aria-label="Next: :build:cmake" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              :build:cmake
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -8512,7 +8485,7 @@ A memory region is a dictionary containing:</p>
       
     
     <a href="https://github.com/modm-io" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
     </a>
   
     
@@ -8521,7 +8494,7 @@ A memory region is a dictionary containing:</p>
       
     
     <a href="https://twitter.com/modm_embedded" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
 </div>
@@ -8535,10 +8508,10 @@ A memory region is a dictionary containing:</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
       
     
   </body>
