@@ -2868,6 +2868,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-coredump" class="md-nav__link">
+    make coredump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-coredump-bmp" class="md-nav__link">
+    make coredump-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-reset" class="md-nav__link">
     make reset
   </a>
@@ -6861,6 +6875,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-coredump" class="md-nav__link">
+    make coredump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-coredump-bmp" class="md-nav__link">
+    make coredump-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-reset" class="md-nav__link">
     make reset
   </a>
@@ -7232,6 +7260,19 @@ program profile=debug</code> and try <code>make debug profile=debug</code> again
 from the <code>coredump={filepath}</code> argument.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <p>See the <code>modm:platform:fault</code> module for details how to receive the coredump data.</p>
+<h4 id="make-coredump">make coredump<a class="headerlink" href="#make-coredump" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make coredump
+</code></pre></div>
+<p>Launches GDB via OpenOCD and creates a <code>coredump.txt</code> file containing all
+volatile memories and prints the GNU build ID of the firmware under debug.
+Note that this command does not require an ELF file, so it can be used to
+coredump any firmware whose ELF file is currently unavailable.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="make-coredump-bmp">make coredump-bmp<a class="headerlink" href="#make-coredump-bmp" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make coredump-bmp
+</code></pre></div>
+<p>Creates a coredump via Black Magic Probe.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-reset">make reset<a class="headerlink" href="#make-reset" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make reset
 </code></pre></div>

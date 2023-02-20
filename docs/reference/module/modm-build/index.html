@@ -2859,6 +2859,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7280,6 +7287,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -7919,7 +7933,7 @@ python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>pat
 background or remotely.</p>
 <p>The tool can be called from the command line. Here is a typical use-case using
 the openocd backend with the common configuration files:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>-x<span class="w"> </span>modm/openocd_gdbinit<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg
 </code></pre></div>
@@ -7937,17 +7951,20 @@ the openocd backend with the common configuration files:</p>
 however, if you want to connect to an already running process, you can use the
 remote backend with the <code>--host={ip or hostname}</code> via the command line:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Extended-Remote running remotely</span>
-python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>remote<span class="w"> </span>--host<span class="w"> </span><span class="m">123</span>.45.67.89
 </code></pre></div>
-<p>Note that you can use different programmer backends to GDB:</p>
+<p>Note that you can use different programmer backends to GDB, for example the
+Black Magic Probe:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Black Magic Probe</span>
-python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
 <span class="w">        </span>bmp<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-123
-
-<span class="c1"># CrashDebug for Post-Mortem debugging</span>
-python3<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>crashdebug<span class="w"> </span>--binary-path<span class="w"> </span>modm/ext/crashcatcher/bins<span class="w"> </span>--dump<span class="w"> </span>coredump.txt
+</code></pre></div>
+<p>To analyze a core dump, you can use the <code>CrashDebug</code> GDB backend.
+See the <code>modm:crashcatcher</code> module for details.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Using CrashDebug for Post-Mortem debugging</span>
+python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>crashdebug<span class="w"> </span>--dump<span class="w"> </span>coredump.txt
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <p>Currently two UIs are implemented for debugging:</p>
@@ -7988,6 +8005,16 @@ Program received signal SIGINT, Interrupt.
 <p>This UI simply uses the <a href="https://www.gdbgui.com">gdbgui</a> project and works very well as an advanced
 IDE-independent debugging solution.</p>
 <p><img alt="" src="https://github.com/cs01/gdbgui/raw/master/screenshots/gdbgui_animation.gif" /></p>
+<h4 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h4>
+<p>modm configures GDB using the generated <code>modm/gdbinit</code> file which provides
+these convenience methods:</p>
+<ul>
+<li><code>restart</code>: Resets the device and halts.</li>
+<li><code>rerun</code>: Resets the device and continues.</li>
+<li><code>modm_coredump</code>: Dumps all volatile memories into a <code>coredump.txt</code> file.
+                   See the <code>modm:platform:fault</code> module for details.</li>
+<li><code>print_build_id</code>: Finds and prints the GNU build id of the firmware.</li>
+</ul>
 <h3 id="size-report">Size Report<a class="headerlink" href="#size-report" title="Permanent link">&para;</a></h3>
 <p>Inspects the ELF file and generates a size report of the static usage of the
 device's memories. You must pass the available memory segments as a Python

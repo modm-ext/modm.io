@@ -6534,11 +6534,23 @@
 <h1 id="crashcatcher">CrashCatcher<a class="headerlink" href="#crashcatcher" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:crashcatcher</code></p>
 <p>CrashCatcher hooks into the ARM Cortex-M HardFault handler and generates a coredump
-that can be used with CrashDebug for post-mortem debugging.</p>
+that can be used with CrashDebug for post-mortem debugging.
+You must place the <code>CrashDebug</code> binary in your path or alternatively set the
+environment variable <code>MODM_CRASHDEBUG_PATH</code> to point to the enclosing folder:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MODM_CRASHDEBUG_PATH</span><span class="o">=</span>/path/to/crashdebug/bin
+</code></pre></div>
 <ul>
 <li><a href="https://github.com/adamgreen/CrashCatcher">https://github.com/adamgreen/CrashCatcher</a></li>
 <li><a href="https://github.com/adamgreen/CrashDebug">https://github.com/adamgreen/CrashDebug</a></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">The debugger can generate coredumps too</p>
+<p>In case you encounter a hardfault while debugging or you simply want to
+store the current system state for later analysis or to share with other
+developers, you can simply call the <code>modm_coredump</code> function in GDB and it
+will generate a <code>coredump.txt</code> file. Consult your chosen build system module
+for additional integration.</p>
+</div>
 <p><em>This module is only available for rp, sam, stm32.</em></p>
 <div class="admonition warning">
 <p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>

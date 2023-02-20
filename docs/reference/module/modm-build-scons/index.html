@@ -2882,6 +2882,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scons-debug-remote" class="md-nav__link">
+    scons debug-remote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scons-debug-bmp" class="md-nav__link">
     scons debug-bmp
   </a>
@@ -2896,8 +2903,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scons-debug-remote" class="md-nav__link">
-    scons debug-remote
+  <a href="#scons-coredump" class="md-nav__link">
+    scons coredump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scons-coredump-bmp" class="md-nav__link">
+    scons coredump-bmp
   </a>
   
 </li>
@@ -6945,6 +6959,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scons-debug-remote" class="md-nav__link">
+    scons debug-remote
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scons-debug-bmp" class="md-nav__link">
     scons debug-bmp
   </a>
@@ -6959,8 +6980,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#scons-debug-remote" class="md-nav__link">
-    scons debug-remote
+  <a href="#scons-coredump" class="md-nav__link">
+    scons coredump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scons-coredump-bmp" class="md-nav__link">
+    scons coredump-bmp
   </a>
   
 </li>
@@ -7417,6 +7445,12 @@ with the release profile, since that's the default. First try to <code>scons
 debug profile=release</code>, and if that doesn't help, compile and <code>scons
 program profile=debug</code> and try <code>scons debug profile=debug</code> again.</p>
 </div>
+<h4 id="scons-debug-remote">scons debug-remote<a class="headerlink" href="#scons-debug-remote" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>scons debug-remote profile={debug|release} ui={tui|web} [host={ip or hostname}] [firmware={hash or file}]
+</code></pre></div>
+<p>Debugs the executable via a remote OpenOCD process running on your own computer
+(localhost is default) or somewhere else.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-debug-bmp">scons debug-bmp<a class="headerlink" href="#scons-debug-bmp" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons debug-bmp profile={debug|release} ui={tui|web} port={serial-port} [firmware={hash or file}]
 </code></pre></div>
@@ -7429,14 +7463,27 @@ program profile=debug</code> and try <code>scons debug profile=debug</code> agai
 </code></pre></div>
 <p>Launches GDB for post-mortem debugging with the firmware identified by the
 (optional) <code>firmware={hash or filepath}</code> argument using the data from the
-<code>coredump={filepath}</code> argument.
+<code>coredump={filepath}</code> argument. Note that CrashDebug must be in your path, see
+the <code>modm:crashcatcher</code> module for details.
 (* <em>only ARM Cortex-M targets</em>)</p>
-<p>See the <code>modm:platform:fault</code> module for details how to receive the coredump data.</p>
-<h4 id="scons-debug-remote">scons debug-remote<a class="headerlink" href="#scons-debug-remote" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons debug-remote profile={debug|release} ui={tui|web} [host={ip or hostname}] [firmware={hash or file}]
+<p>Use the <code>scons coredump</code> method to generate a coredump with a debugger attached,
+otherwise see the <code>modm:platform:fault</code> module for details how to generate and
+receive the coredump data from the device itself.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="scons-coredump">scons coredump<a class="headerlink" href="#scons-coredump" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>scons coredump
 </code></pre></div>
-<p>Debugs the executable via a remote OpenOCD process running on your own computer
-(localhost is default) or somewhere else.
+<p>Launches GDB via OpenOCD and creates a <code>coredump.txt</code> file containing all
+volatile memories and prints the GNU build ID of the firmware under debug.
+Note that this command does not require an ELF file, so it can be used to
+coredump any firmware whose ELF file is currently unavailable.
+You can use the GNU build ID to find the corresponding ELF file in your
+artifact store (see <code>scons artifact</code>).
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="scons-coredump-bmp">scons coredump-bmp<a class="headerlink" href="#scons-coredump-bmp" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>scons coredump-bmp
+</code></pre></div>
+<p>Creates a coredump via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-reset">scons reset<a class="headerlink" href="#scons-reset" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons reset
