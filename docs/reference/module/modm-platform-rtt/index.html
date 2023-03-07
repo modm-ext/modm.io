@@ -6688,7 +6688,7 @@ opens each RTT channel as a TCP port starting at 9090 (ie. 9090=channel 0,
 rtt: Searching for control block &#39;SEGGER RTT&#39;
 rtt: Control block found at 0x20001024
 Listening on port 9090 for rtt connections
-(gdb)
+(gdb) continue&amp;
 </code></pre></div>
 <p>You can then use for example <code>telnet 127.0.0.1 9090</code> to connect to the stream.</p>
 <p>Note that this connection does not halt the target, you should therefore be able
@@ -6716,6 +6716,23 @@ loop 61
 </code></pre></div>
 <p>If you want to use this as a proper communication channel with a custom protocol
 you should implement the OpenOCD config yourself (with different ports).</p>
+<p>You can also use JLink to access the RTT data, which may be significantly faster
+than OpenOCD if the debug probe has hardware support for the protocol.</p>
+<div class="highlight"><pre><span></span><code> $ scons log-rtt-jlink
+╭────JLink────&gt; Real Time Transfer
+╰─────RTT────── stm32l476rgt6
+
+SEGGER J-Link V7.84f - Real time terminal output
+RTT Demo on Nucleo-64
+loop: 0
+loop: 1
+loop: 2
+loop: 3
+loop: 4
+loop: 5
+loop: 6
+loop: 7
+</code></pre></div>
 <p><em>This module is only available for rp, sam, stm32.</em></p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="bufferrx">buffer.rx<a class="headerlink" href="#bufferrx" title="Permanent link">&para;</a></h4>

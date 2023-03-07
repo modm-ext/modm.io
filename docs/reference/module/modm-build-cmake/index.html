@@ -2777,8 +2777,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#program-jlink" class="md-nav__link">
+    program-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     debug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-bmp" class="md-nav__link">
+    debug-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-jlink" class="md-nav__link">
+    debug-jlink
   </a>
   
 </li>
@@ -2791,6 +2812,48 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#coredump" class="md-nav__link">
+    coredump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coredump-bmp" class="md-nav__link">
+    coredump-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coredump-jlink" class="md-nav__link">
+    coredump-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-bmp" class="md-nav__link">
+    reset-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-jlink" class="md-nav__link">
+    reset-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#log-itm" class="md-nav__link">
     log-itm
   </a>
@@ -2798,8 +2861,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#log-itm-jlink" class="md-nav__link">
+    log-itm-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#log-rtt" class="md-nav__link">
     log-rtt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-rtt-jlink" class="md-nav__link">
+    log-rtt-jlink
   </a>
   
 </li>
@@ -6679,8 +6756,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#program-jlink" class="md-nav__link">
+    program-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     debug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-bmp" class="md-nav__link">
+    debug-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-jlink" class="md-nav__link">
+    debug-jlink
   </a>
   
 </li>
@@ -6693,6 +6791,48 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#coredump" class="md-nav__link">
+    coredump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coredump-bmp" class="md-nav__link">
+    coredump-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coredump-jlink" class="md-nav__link">
+    coredump-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-bmp" class="md-nav__link">
+    reset-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-jlink" class="md-nav__link">
+    reset-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#log-itm" class="md-nav__link">
     log-itm
   </a>
@@ -6700,8 +6840,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#log-itm-jlink" class="md-nav__link">
+    log-itm-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#log-rtt" class="md-nav__link">
     log-rtt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-rtt-jlink" class="md-nav__link">
+    log-rtt-jlink
   </a>
   
 </li>
@@ -6801,9 +6955,12 @@ your IDE.</p>
 </ul>
 <p>Writes the executable onto your target via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="program-jlink">program-jlink<a class="headerlink" href="#program-jlink" title="Permanent link">&para;</a></h4>
+<p>Writes the executable onto your target via JLink.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="debug">debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h4>
 <ul>
-<li>option <code>MODM_DBG_UI</code>=tui in {<code>tui</code>, <code>gdbgui</code>}.</li>
+<li>option <code>MODM_DBG_UI=tui</code> in {<code>tui</code>, <code>gdbgui</code>}.</li>
 </ul>
 <p>Launches OpenOCD in the background, then launches GDB in foreground with the
 correct executable with text-based or <a href="https://www.gdbgui.com">web-based gdbgui</a> UI. When GDB
@@ -6811,6 +6968,15 @@ exits, it stops the OpenOCD process.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <p>To use gdbgui you must have it installed via <code>pip install gdbgui</code>.</p>
 <p><strong>We recommend using the IDE provided debug interface instead of this!</strong></p>
+<h4 id="debug-bmp">debug-bmp<a class="headerlink" href="#debug-bmp" title="Permanent link">&para;</a></h4>
+<ul>
+<li>option <code>MODM_BMP_PORT=auto</code> as string.</li>
+</ul>
+<p>Launches GDB via Black Magic Probe.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="debug-jlink">debug-jlink<a class="headerlink" href="#debug-jlink" title="Permanent link">&para;</a></h4>
+<p>Launches GDB via JLink.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="debug-coredump">debug-coredump<a class="headerlink" href="#debug-coredump" title="Permanent link">&para;</a></h4>
 <ul>
 <li>option <code>MODM_DBG_UI=tui</code> in {<code>tui</code>, <code>gdbgui</code>}.</li>
@@ -6818,15 +6984,45 @@ exits, it stops the OpenOCD process.
 <p>Launches GDB for post-mortem debugging with the using the data in the
 <code>coredump.txt</code> argument.
 (* <em>only ARM Cortex-M targets</em>)</p>
-<p>See the <code>:platform:fault</code> module for details how to receive the coredump data.</p>
+<p>Use the <code>coredump</code> method to generate a coredump with a debugger attached,
+otherwise see the <code>modm:platform:fault</code> module for details how to generate and
+receive the coredump data from the device itself.</p>
+<h4 id="coredump">coredump<a class="headerlink" href="#coredump" title="Permanent link">&para;</a></h4>
+<p>Launches GDB via OpenOCD and creates a <code>coredump.txt</code> file containing all
+volatile memories and prints the GNU build ID of the firmware under debug.
+Note that this command does not require an ELF file, so it can be used to
+coredump any firmware whose ELF file is currently unavailable.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="coredump-bmp">coredump-bmp<a class="headerlink" href="#coredump-bmp" title="Permanent link">&para;</a></h4>
+<p>Creates a coredump via Black Magic Probe.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="coredump-jlink">coredump-jlink<a class="headerlink" href="#coredump-jlink" title="Permanent link">&para;</a></h4>
+<p>Creates a coredump via JLink.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="reset">reset<a class="headerlink" href="#reset" title="Permanent link">&para;</a></h4>
+<p>Resets the executable via OpenOCD.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="reset-bmp">reset-bmp<a class="headerlink" href="#reset-bmp" title="Permanent link">&para;</a></h4>
+<p>Resets the executable via Black Magic Probe.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="reset-jlink">reset-jlink<a class="headerlink" href="#reset-jlink" title="Permanent link">&para;</a></h4>
+<p>Resets the executable via JLink.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="log-itm">log-itm<a class="headerlink" href="#log-itm" title="Permanent link">&para;</a></h4>
 <ul>
 <li>option <code>MODM_ITM_FCPU</code> in Hz</li>
 </ul>
 <p>Configures OpenOCD in tracing mode to output ITM channel 0 on SWO pin and
-displays the serial output stream.</p>
+displays the serial output stream.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <p>See the <code>modm:platform:itm</code> module for details how to use the ITM as a logging
 output.</p>
+<h4 id="log-itm-jlink">log-itm-jlink<a class="headerlink" href="#log-itm-jlink" title="Permanent link">&para;</a></h4>
+<ul>
+<li>option <code>MODM_ITM_FCPU</code> in Hz</li>
+</ul>
+<p>Outputs ITM channel 0 via JLinkSWOViewer.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="log-rtt">log-rtt<a class="headerlink" href="#log-rtt" title="Permanent link">&para;</a></h4>
 <ul>
 <li>option <code>MODM_RTT_CHANNEL=0</code> as integer.</li>
@@ -6835,6 +7031,13 @@ output.</p>
 simple telnet client. Disconnect with Ctrl+D.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <p>See the <code>modm:platform:rtt</code> module for details how to use RTT for data transfer.</p>
+<h4 id="log-rtt-jlink">log-rtt-jlink<a class="headerlink" href="#log-rtt-jlink" title="Permanent link">&para;</a></h4>
+<ul>
+<li>option <code>MODM_RTT_CHANNEL=0</code> as integer.</li>
+</ul>
+<p>Configures JLink in RTT mode to output the chosen channel (default 0) via a
+simple telnet client. Disconnect with Ctrl+D.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="include_cmakelists">include_cmakelists<a class="headerlink" href="#include_cmakelists" title="Permanent link">&para;</a></h4>
 <p>Generate a CMakeLists.txt</p>

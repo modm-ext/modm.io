@@ -6694,12 +6694,34 @@ for an advanced use-case (like de-multiplexing data streams).</p>
 <p>You must provide the CPU/HCLK frequency of your target, so that
 OpenOCD can correctly set the prescaler for the asynchronous SWO output.</p>
 </div>
-<p>When using the <code>modm:build:scons</code> module, you can also use the convenience
-wrapper, which logs to a temporary file and displays it's contents on the
-terminal</p>
+<p>When using the <code>modm:build:scons</code> or <code>modm:build:make</code> modules, you can also use
+the convenience wrapper, which logs to a temporary file and displays its
+contents on the terminal:</p>
 <div class="highlight"><pre><span></span><code> $ scons log-itm fcpu=64000000
 ╭───OpenOCD───&gt; Single Wire Viewer
 ╰─────SWO────── stm32f103rbt
+Hello from the SWO.
+debug
+info
+warning
+error
+loop 0
+loop 1
+loop 2
+loop 3
+loop 4
+loop 5
+</code></pre></div>
+<p>Alternatively you can also use a JLink debug probe which auto-detects the CPU
+frequency:</p>
+<div class="highlight"><pre><span></span><code>  $ scons log-itm-jlink
+╭────JLink────&gt; Single Wire Viewer
+╰─────SWO────── stm32l476rgt6
+
+Target CPU (stm32l476rg) is running @ 48251 kHz.
+Receiving SWO data @ 4500 kHz.
+Showing data from stimulus port(s): 0
+-----------------------------------------------
 Hello from the SWO.
 debug
 info

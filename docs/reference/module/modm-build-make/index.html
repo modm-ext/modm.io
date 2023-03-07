@@ -2847,6 +2847,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-program-jlink" class="md-nav__link">
+    make program-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-debug" class="md-nav__link">
     make debug
   </a>
@@ -2856,6 +2863,13 @@
           <li class="md-nav__item">
   <a href="#make-debug-bmp" class="md-nav__link">
     make debug-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-debug-jlink" class="md-nav__link">
+    make debug-jlink
   </a>
   
 </li>
@@ -2882,6 +2896,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-coredump-jlink" class="md-nav__link">
+    make coredump-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-reset" class="md-nav__link">
     make reset
   </a>
@@ -2896,6 +2917,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-reset-jlink" class="md-nav__link">
+    make reset-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-log-itm" class="md-nav__link">
     make log-itm
   </a>
@@ -2903,8 +2931,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-log-itm-jlink" class="md-nav__link">
+    make log-itm-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-log-rtt" class="md-nav__link">
     make log-rtt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-log-rtt-jlink" class="md-nav__link">
+    make log-rtt-jlink
   </a>
   
 </li>
@@ -6854,6 +6896,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-program-jlink" class="md-nav__link">
+    make program-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-debug" class="md-nav__link">
     make debug
   </a>
@@ -6863,6 +6912,13 @@
           <li class="md-nav__item">
   <a href="#make-debug-bmp" class="md-nav__link">
     make debug-bmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-debug-jlink" class="md-nav__link">
+    make debug-jlink
   </a>
   
 </li>
@@ -6889,6 +6945,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-coredump-jlink" class="md-nav__link">
+    make coredump-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-reset" class="md-nav__link">
     make reset
   </a>
@@ -6903,6 +6966,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-reset-jlink" class="md-nav__link">
+    make reset-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-log-itm" class="md-nav__link">
     make log-itm
   </a>
@@ -6910,8 +6980,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-log-itm-jlink" class="md-nav__link">
+    make log-itm-jlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-log-rtt" class="md-nav__link">
     make log-rtt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-log-rtt-jlink" class="md-nav__link">
+    make log-rtt-jlink
   </a>
   
 </li>
@@ -7121,7 +7205,7 @@ Heap:     16.4 MiB
 (.heap0 + .heap1 + .heap2 + .heap3 + .heap5 + .heap_extern)
 </code></pre></div>
 <h4 id="make-program">make program<a class="headerlink" href="#make-program" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make program profile={debug|release} [port={serial-port}]
+<div class="highlight"><pre><span></span><code>make program profile={debug|release} port={serial-port}
 </code></pre></div>
 <p>Writes the executable onto your target via Avrdude or OpenOCD.
 This is a convenience wrapper around the programming options and methods
@@ -7163,7 +7247,7 @@ and can be accessed by pressing the BOOT0-Button during startup.</p>
 <p>Some DFU devices require additional delay to re-enumerate, which you can specify
 with the <code>delay</code> parameter (default is 5 seconds).
 (* <em>only ARM Cortex-M targets</em>)</p>
-<div class="highlight"><pre><span></span><code>$ make program-dfu
+<div class="highlight"><pre><span></span><code> $ make program-dfu
 Binary File···· /build/{debug|release}/blink.bin
 dfu_stm32_programmer: program /build/{debug|release}/blink.bin
 dfu-util 0.9
@@ -7194,7 +7278,7 @@ File downloaded successfully
 Transitioning to dfuMANIFEST state
 </code></pre></div>
 <h4 id="make-program-bmp">make program-bmp<a class="headerlink" href="#make-program-bmp" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make program-bmp profile={debug|release} [port={serial-port}]
+<div class="highlight"><pre><span></span><code>make program-bmp profile={debug|release} port={serial-port}
 </code></pre></div>
 <p><a href="https://github.com/blacksphere/blackmagic">Black Magic Probe</a> is convenient tool to convert cheap USB ST-LINK V2 clones
 to a fully functional GDB compatible debug adaptor for ARM Cortex microcontrollers.
@@ -7208,7 +7292,7 @@ crw-rw-rw-  1 root  wheel   21, 104 Feb 19 09:46 /dev/tty.usbmodemDEADBEEF
 crw-rw-rw-  1 root  wheel   21, 106 Feb 19 09:46 /dev/tty.usbmodemDEADBEF1
 </code></pre></div>
 <p>You can let the tool guess the port or explicitly specify it:</p>
-<div class="highlight"><pre><span></span><code>$ make program-bmp port=/dev/tty.usbmodemDEADBEEF
+<div class="highlight"><pre><span></span><code> $ make program-bmp port=/dev/tty.usbmodemDEADBEEF
 Remote debugging using /dev/tty.usbmodemDEADBEEF
 Target voltage: unknown
 Available Targets:
@@ -7227,8 +7311,56 @@ Detaching from program: , Remote target
 [Inferior 1 (Remote target) detached]
 make: done building targets.
 </code></pre></div>
+<h4 id="make-program-jlink">make program-jlink<a class="headerlink" href="#make-program-jlink" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make program-jlink profile={debug|release}
+</code></pre></div>
+<p>Writes the executable onto your target via JLink.
+This is a convenience wrapper around the programming options and methods
+defined in the <code>modm:build</code> module.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<div class="highlight"><pre><span></span><code> $ make program-jlink
+SEGGER J-Link GDB Server V7.84f Command Line Version
+
+JLinkARM.dll V7.84f (DLL compiled Feb  7 2023 16:45:51)
+
+-----GDB Server start settings-----
+GDBInit file:                  none
+GDB Server Listening port:     2331
+SWO raw output listening port: 2332
+Terminal I/O port:             2333
+Accept remote connection:      yes
+Generate logfile:              off
+Verify download:               off
+Init regs on start:            off
+Silent mode:                   on
+Single run mode:               off
+Target connection timeout:     0 ms
+------J-Link related settings------
+J-Link Host interface:         USB
+J-Link script:                 none
+J-Link settings file:          none
+------Target related settings------
+Target device:                 stm32l476rg
+Target device parameters:      none
+Target interface:              SWD
+Target interface speed:        4000kHz
+Target endian:                 little
+
+modm::delay_us (us=&lt;optimized out&gt;) at modm/src/modm/platform/core/delay.cpp:33
+33          if (now - start &gt;= cycles) break;
+Loading section .text, size 0x188 lma 0x8000000
+Loading section .build_id, size 0x24 lma 0x8000188
+Loading section .text, size 0xe7c lma 0x80001b0
+Loading section .rodata, size 0x6c lma 0x800102c
+Loading section .data, size 0x4 lma 0x8001098
+Loading section .fastdata, size 0x8 lma 0x800109c
+Loading section .rodata, size 0x70 lma 0x80010a4
+Start address 0x08000a50, load size 4368
+Transfer rate: 4265 KB/sec, 624 bytes/write.
+Resetting target
+</code></pre></div>
 <h4 id="make-debug">make debug<a class="headerlink" href="#make-debug" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make debug profile={debug|release} ui={tui|web}
+<div class="highlight"><pre><span></span><code>make debug profile={debug|release} ui={tui|gdbgui}
 </code></pre></div>
 <p>Launches OpenOCD in the background, then launches GDB in foreground with the
 correct executable with text-based or <a href="https://www.gdbgui.com">web-based GDBGUI</a> UI. When GDB
@@ -7248,12 +7380,17 @@ debug profile=release</code>, and if that doesn't help, compile and <code>make
 program profile=debug</code> and try <code>make debug profile=debug</code> again.</p>
 </div>
 <h4 id="make-debug-bmp">make debug-bmp<a class="headerlink" href="#make-debug-bmp" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make debug-bmp profile={debug|release} ui={tui|web} port={serial-port}
+<div class="highlight"><pre><span></span><code>make debug-bmp profile={debug|release} ui={tui|gdbgui} port={serial-port}
 </code></pre></div>
 <p>Launches GDB to debug via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="make-debug-jlink">make debug-jlink<a class="headerlink" href="#make-debug-jlink" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make debug-jlink profile={debug|release} ui={tui|gdbgui}
+</code></pre></div>
+<p>Launches GDB to debug via JLink.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-debug-coredump">make debug-coredump<a class="headerlink" href="#make-debug-coredump" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make debug-coredump profile={debug|release} ui={tui|web} \
+<div class="highlight"><pre><span></span><code>make debug-coredump profile={debug|release} ui={tui|gdbgui} \
                     coredump={path/to/coredump.txt}
 </code></pre></div>
 <p>Launches GDB for post-mortem debugging with the latest firmware using the data
@@ -7269,9 +7406,14 @@ Note that this command does not require an ELF file, so it can be used to
 coredump any firmware whose ELF file is currently unavailable.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-coredump-bmp">make coredump-bmp<a class="headerlink" href="#make-coredump-bmp" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make coredump-bmp
+<div class="highlight"><pre><span></span><code>make coredump-bmp port={serial-port}
 </code></pre></div>
 <p>Creates a coredump via Black Magic Probe.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="make-coredump-jlink">make coredump-jlink<a class="headerlink" href="#make-coredump-jlink" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make coredump-jlink
+</code></pre></div>
+<p>Creates a coredump via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-reset">make reset<a class="headerlink" href="#make-reset" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make reset
@@ -7279,9 +7421,14 @@ coredump any firmware whose ELF file is currently unavailable.
 <p>Resets the executable via OpenOCD.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-reset-bmp">make reset-bmp<a class="headerlink" href="#make-reset-bmp" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make reset-bmp [port={serial}]
+<div class="highlight"><pre><span></span><code>make reset-bmp port={serial-port}
 </code></pre></div>
 <p>Resets the executable via Black Magic Probe.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="make-reset-jlink">make reset-jlink<a class="headerlink" href="#make-reset-jlink" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make reset-jlink
+</code></pre></div>
+<p>Resets the executable via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-log-itm">make log-itm<a class="headerlink" href="#make-log-itm" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make log-itm fcpu={HCLK in Hz}
@@ -7301,6 +7448,12 @@ loop: 61
 </code></pre></div>
 <p>See the <code>modm:platform:itm</code> module for details how to use the ITM as a logging
 output.</p>
+<h4 id="make-log-itm-jlink">make log-itm-jlink<a class="headerlink" href="#make-log-itm-jlink" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make log-itm-jlink [channel={int}]
+</code></pre></div>
+<p>Outputs the ITM channel via JLinkSWOViewer. Note that JLink auto-detects the
+CPU frequency.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-log-rtt">make log-rtt<a class="headerlink" href="#make-log-rtt" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make log-rtt [channel={int}]
 </code></pre></div>
@@ -7317,6 +7470,12 @@ loop: 60
 loop: 61
 </code></pre></div>
 <p>See the <code>modm:platform:rtt</code> module for details how to use RTT for data transfer.</p>
+<h4 id="make-log-rtt-jlink">make log-rtt-jlink<a class="headerlink" href="#make-log-rtt-jlink" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make log-rtt-jlink [channel={int}]
+</code></pre></div>
+<p>Configures JLink in RTT mode to output the chosen channel (default 0) via a
+simple telnet client. Disconnect with Ctrl+D.
+(* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-library">make library<a class="headerlink" href="#make-library" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make library profile={debug|release}
 </code></pre></div>

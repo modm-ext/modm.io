@@ -2859,13 +2859,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configuration_1" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2906,6 +2899,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#jlink" class="md-nav__link">
+    JLink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#unittest" class="md-nav__link">
     Unittest
   </a>
@@ -2913,29 +2913,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
-    Logging
-  </a>
-  
-    <nav class="md-nav" aria-label="Logging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#itm" class="md-nav__link">
-    ITM
+  <a href="#logging-via-single-wire-output-swo" class="md-nav__link">
+    Logging via Single-Wire Output (SWO)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rtt" class="md-nav__link">
-    RTT
+  <a href="#logging-via-real-time-transport-rtt" class="md-nav__link">
+    Logging via Real-Time Transport (RTT)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -7287,13 +7274,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#configuration_1" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -7334,6 +7314,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#jlink" class="md-nav__link">
+    JLink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#unittest" class="md-nav__link">
     Unittest
   </a>
@@ -7341,29 +7328,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#logging" class="md-nav__link">
-    Logging
-  </a>
-  
-    <nav class="md-nav" aria-label="Logging">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#itm" class="md-nav__link">
-    ITM
+  <a href="#logging-via-single-wire-output-swo" class="md-nav__link">
+    Logging via Single-Wire Output (SWO)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rtt" class="md-nav__link">
-    RTT
+  <a href="#logging-via-real-time-transport-rtt" class="md-nav__link">
+    Logging via Real-Time Transport (RTT)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -7871,10 +7845,13 @@ is no convenient one-line command to issue. You have to use the wrapper support
 of the specific build system or simply call AvrDude yourself via its command
 line.</p>
 <h3 id="gdb">GDB<a class="headerlink" href="#gdb" title="Permanent link">&para;</a></h3>
-<p>Two commands are provided for convenience via the <code>modm/gdbinit</code> configuration:</p>
+<p>A few commands are provided for convenience via the <code>modm/gdbinit</code> configuration:</p>
 <ul>
-<li><code>restart</code> resets the device and halts.</li>
-<li><code>rerun</code> resets the device and continues execution.</li>
+<li><code>reset</code>: resets the device and halts.</li>
+<li><code>rerun</code>: resets the device and continues execution.</li>
+<li><code>modm_coredump</code>: Dumps all volatile memories into a <code>coredump.txt</code> file.
+                   See the <code>modm:platform:fault</code> module for details.</li>
+<li><code>modm_build_id</code>: Finds and prints the GNU build id of the firmware.</li>
 </ul>
 <p>GDB continues running the target after attaching, but <em>does not</em> load an ELF
 file! Please pass the ELF file as a command line argument.</p>
@@ -7888,27 +7865,33 @@ that get wrapped by the build system.</p>
 them even without build system support in case you have a special setup.
 Note that there are even more tools that can be called in Python only, so have
 a look in your generated <code>modm/modm_tools</code> folder.</p>
+<div class="admonition tip">
+<p class="admonition-title">Add <code>modm_tools</code> to your Python path</p>
+<p>To call <code>modm_tools</code> via module syntax, you need to add the generated modm
+folder to your Python path: <code>export PYTHONPATH=path/to/generated/modm</code>.
+You can also use the module in this repository directly.</p>
+</div>
 <h3 id="avrdude_1">AvrDude<a class="headerlink" href="#avrdude_1" title="Permanent link">&para;</a></h3>
 <p>This tool simply wraps the <code>avrdude</code> command to provide two features:</p>
 <ul>
 <li>guessing the serial port when a baudrate was set.</li>
 <li>inspecting the ELF file to decide whether EEPROM needs to be programmed.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/avrdude.py<span class="w"> </span>-p<span class="w"> </span>m328p<span class="w"> </span>-c<span class="w"> </span>arduino<span class="w"> </span>-P<span class="w"> </span>auto<span class="w"> </span>-b<span class="w"> </span><span class="m">57600</span><span class="w"> </span><span class="se">\\</span>
-<span class="w">                                   </span>path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.avrdude<span class="w"> </span>-p<span class="w"> </span>m328p<span class="w"> </span>-c<span class="w"> </span>arduino<span class="w"> </span>-P<span class="w"> </span>auto<span class="w"> </span>-b<span class="w"> </span><span class="m">57600</span><span class="w"> </span><span class="se">\\</span>
+<span class="w">                              </span>path/to/project.elf
 </code></pre></div>
 <p><a href="http://avr-libc.nongnu.org/user-manual/group__avr__fuse.html">Fuses stored in the ELF file</a>
 can be programmed by passing <code>--fuse</code> arguments:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/avrdude.py<span class="w"> </span>-p<span class="w"> </span>m328p<span class="w"> </span>-c<span class="w"> </span>stk500v2<span class="w"> </span>path/to/project.elf<span class="w"> </span><span class="se">\\</span>
-<span class="w">                                   </span>--fuse<span class="w"> </span>hfuse<span class="w"> </span>--fuse<span class="w"> </span>lfuse<span class="w"> </span>--fuse<span class="w"> </span>efuse
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.avrdude<span class="w"> </span>-p<span class="w"> </span>m328p<span class="w"> </span>-c<span class="w"> </span>stk500v2<span class="w"> </span>path/to/project.elf<span class="w"> </span><span class="se">\\</span>
+<span class="w">                              </span>--fuse<span class="w"> </span>hfuse<span class="w"> </span>--fuse<span class="w"> </span>lfuse<span class="w"> </span>--fuse<span class="w"> </span>efuse
 </code></pre></div>
 <p>(* <em>only AVR targets</em>)</p>
 <h3 id="openocd_1">OpenOCD<a class="headerlink" href="#openocd_1" title="Permanent link">&para;</a></h3>
 <p>Simply wraps OpenOCD and issues the right command to program the target.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/openocd.py<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>path/to/project.elf
 </code></pre></div>
 <p>You can also reset the target:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/openocd.py<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--reset
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--reset
 </code></pre></div>
 <p>You can use a different OpenOCD binary by setting the <code>MODM_OPENOCD_BINARY</code>
 environment variable before calling this script. This can be useful when
@@ -7919,12 +7902,12 @@ using a custom OpenOCD build for specific targets.</p>
 <h3 id="black-magic-probe">Black Magic Probe<a class="headerlink" href="#black-magic-probe" title="Permanent link">&para;</a></h3>
 <p>This tool wraps GDB to program an ELF file onto a target connected to a BMP.
 You can explictly pass the serial port, or let the tool guess it.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.bmp<span class="w"> </span>path/to/project.elf
 <span class="c1"># or choose the port explicitly</span>
-python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-p<span class="w"> </span>/dev/tty.usbserial-123
+python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.bmp<span class="w"> </span>path/to/project.elf<span class="w"> </span>-p<span class="w"> </span>/dev/tty.usbserial-123
 </code></pre></div>
 <p>You can also reset the target:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>--reset
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.bmp<span class="w"> </span>--reset
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="gdb_1">GDB<a class="headerlink" href="#gdb_1" title="Permanent link">&para;</a></h3>
@@ -7933,9 +7916,9 @@ python3<span class="w"> </span>modm/modm_tools/bmp.py<span class="w"> </span>pat
 background or remotely.</p>
 <p>The tool can be called from the command line. Here is a typical use-case using
 the openocd backend with the common configuration files:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>-x<span class="w"> </span>modm/openocd_gdbinit<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.gdb<span class="w"> </span>--elf<span class="w"> </span>path/to/project.elf<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">                          </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>-x<span class="w"> </span>modm/openocd_gdbinit<span class="w"> </span><span class="se">\</span>
+<span class="w">                          </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg
 </code></pre></div>
 <p>Or you can call the Python API directly:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
@@ -7951,26 +7934,26 @@ the openocd backend with the common configuration files:</p>
 however, if you want to connect to an already running process, you can use the
 remote backend with the <code>--host={ip or hostname}</code> via the command line:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Extended-Remote running remotely</span>
-python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>remote<span class="w"> </span>--host<span class="w"> </span><span class="m">123</span>.45.67.89
+python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.gdb<span class="w"> </span>--elf<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">                          </span>remote<span class="w"> </span>--host<span class="w"> </span><span class="m">123</span>.45.67.89
 </code></pre></div>
 <p>Note that you can use different programmer backends to GDB, for example the
 Black Magic Probe:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Black Magic Probe</span>
-python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>bmp<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-123
+python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.gdb<span class="w"> </span>--elf<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">                          </span>bmp<span class="w"> </span>--port<span class="w"> </span>/dev/tty.usbserial-123
 </code></pre></div>
 <p>To analyze a core dump, you can use the <code>CrashDebug</code> GDB backend.
 See the <code>modm:crashcatcher</code> module for details.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Using CrashDebug for Post-Mortem debugging</span>
-python3<span class="w"> </span>--elf<span class="w"> </span>modm/modm_tools/gdb.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span>crashdebug<span class="w"> </span>--dump<span class="w"> </span>coredump.txt
+python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.gdb<span class="w"> </span>--elf<span class="w"> </span>path/to/project.elf<span class="w"> </span>-x<span class="w"> </span>modm/gdbinit<span class="w"> </span>--ui<span class="o">=</span>tui<span class="w"> </span><span class="se">\</span>
+<span class="w">                          </span>crashdebug<span class="w"> </span>--dump<span class="w"> </span>coredump.txt
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <p>Currently two UIs are implemented for debugging:</p>
 <ul>
 <li><code>--ui=tui</code>: Text-based UI in your shell.</li>
-<li><code>--ui=web</code>: Web-based UI in your browser, based on <a href="https://www.gdbgui.com">gdbgui</a>.</li>
+<li><code>--ui=gdbgui</code>: Web-based UI in your browser, based on <a href="https://www.gdbgui.com">gdbgui</a>.</li>
 </ul>
 <h4 id="text-ui">Text UI<a class="headerlink" href="#text-ui" title="Permanent link">&para;</a></h4>
 <p>This UI is builtin to GDB and is therefore always available.</p>
@@ -8001,25 +7984,22 @@ Program received signal SIGINT, Interrupt.
 0x080017a0 in drawPixel (color=&lt;optimized out&gt;, y=42, x=578) at main.c
 (gdb)
 </code></pre></div>
+<div class="admonition bug">
+<p class="admonition-title">GDB can change terminal configuration</p>
+<p>Sometimes GDB quits uncleanly and a part of the TUI configuration is not
+reset, in particular, the terminal may not display carriage returns
+correctly anymore. In this case, calling <code>stty sane</code> can reset the terminal
+to its correct rendering state.</p>
+</div>
 <h4 id="web-ui">Web UI<a class="headerlink" href="#web-ui" title="Permanent link">&para;</a></h4>
 <p>This UI simply uses the <a href="https://www.gdbgui.com">gdbgui</a> project and works very well as an advanced
 IDE-independent debugging solution.</p>
 <p><img alt="" src="https://github.com/cs01/gdbgui/raw/master/screenshots/gdbgui_animation.gif" /></p>
-<h4 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h4>
-<p>modm configures GDB using the generated <code>modm/gdbinit</code> file which provides
-these convenience methods:</p>
-<ul>
-<li><code>restart</code>: Resets the device and halts.</li>
-<li><code>rerun</code>: Resets the device and continues.</li>
-<li><code>modm_coredump</code>: Dumps all volatile memories into a <code>coredump.txt</code> file.
-                   See the <code>modm:platform:fault</code> module for details.</li>
-<li><code>print_build_id</code>: Finds and prints the GNU build id of the firmware.</li>
-</ul>
 <h3 id="size-report">Size Report<a class="headerlink" href="#size-report" title="Permanent link">&para;</a></h3>
 <p>Inspects the ELF file and generates a size report of the static usage of the
 device's memories. You must pass the available memory segments as a Python
 dictionary:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/size.py<span class="w"> </span>path/to/project.elf<span class="w"> </span><span class="se">\\</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.size<span class="w"> </span>path/to/project.elf<span class="w"> </span><span class="se">\\</span>
 <span class="w">    </span><span class="s2">&quot;[{&#39;name&#39;: &#39;flash&#39;, &#39;access&#39;: &#39;rx&#39;, &#39;start&#39;: 134217728, &#39;size&#39;: 65536}, \\</span>
 <span class="s2">    {&#39;name&#39;: &#39;sram1&#39;, &#39;access&#39;: &#39;rwx&#39;, &#39;start&#39;: 536870912, &#39;size&#39;: 20480}]&quot;</span>
 
@@ -8047,8 +8027,8 @@ as soon as it is uploaded to your target. Make sure you only use the
 information you absolutely need!</p>
 </div>
 <h4 id="git-information">Git Information<a class="headerlink" href="#git-information" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/info.py<span class="w"> </span>-o<span class="w"> </span>git_info.c<span class="w"> </span>-t<span class="w"> </span>git<span class="w">        </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
-python3<span class="w"> </span>modm/modm_tools/info.py<span class="w"> </span>-o<span class="w"> </span>git_info.c<span class="w"> </span>-t<span class="w"> </span>git_status<span class="w"> </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.info<span class="w"> </span>-o<span class="w"> </span>git_info.c<span class="w"> </span>-t<span class="w"> </span>git<span class="w">        </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
+python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.info<span class="w"> </span>-o<span class="w"> </span>git_info.c<span class="w"> </span>-t<span class="w"> </span>git_status<span class="w"> </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
 </code></pre></div>
 <p>The <code>git_info(directory)</code> function returns a dictionary with these values:</p>
 <ul>
@@ -8107,7 +8087,7 @@ Copied:    0
 Untracked: 6
 </code></pre></div>
 <h4 id="build-information">Build Information<a class="headerlink" href="#build-information" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/info.py<span class="w"> </span>-o<span class="w"> </span>build_info.c<span class="w"> </span>-t<span class="w"> </span>build<span class="w"> </span>--compiler<span class="o">=</span>gcc<span class="w"> </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.info<span class="w"> </span>-o<span class="w"> </span>build_info.c<span class="w"> </span>-t<span class="w"> </span>build<span class="w"> </span>--compiler<span class="o">=</span>gcc<span class="w"> </span><span class="o">[</span>--check-rebuild<span class="o">]</span>
 </code></pre></div>
 <p>Generates a files with these values defined as <code>const char *</code> strings:</p>
 <ul>
@@ -8124,11 +8104,22 @@ User:     user
 OS:       macOS 10.14.6 (x86_64)
 Compiler: g++-10 10.2.0
 </code></pre></div>
+<h3 id="jlink">JLink<a class="headerlink" href="#jlink" title="Permanent link">&para;</a></h3>
+<p>Simply wraps JLinkGDBServer and issues the right command to program the target.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.jlink<span class="w"> </span>-device<span class="w"> </span>STM32F469NI<span class="w"> </span>path/to/project.elf
+</code></pre></div>
+<p>You can also reset the target:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.jlink<span class="w"> </span>-device<span class="w"> </span>STM32F469NI<span class="w"> </span>--reset
+</code></pre></div>
+<p>You can set the <code>MODM_JLINK_BINARY</code> environment variable to point this script to
+a specific <code>JLinkGDBServer</code> binary:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MODM_JLINK_BINARY</span><span class="o">=</span>/path/to/other/JLinkGDBServer
+</code></pre></div>
+<p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="unittest">Unittest<a class="headerlink" href="#unittest" title="Permanent link">&para;</a></h3>
 <p>This tools scans a directory for files ending in <code>_test.hpp</code>, extracts their
 test cases and generates a source file containing the test runner.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/unit_test.py<span class="w"> </span>path/containing/tests<span class="w"> </span><span class="se">\\</span>
-<span class="w">                                    </span>path/to/generated_runner.cpp
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.unit_test<span class="w"> </span>path/containing/tests<span class="w"> </span>path/to/generated_runner.cpp
 </code></pre></div>
 <p>Note that the files containing unittests must contain <em>one</em> class that inherits
 from the <code>unittest::TestSuite</code> class, and test case names must begin with
@@ -8139,40 +8130,45 @@ from the <code>unittest::TestSuite</code> class, and test case names must begin 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">testCase1</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h3>
-<p>Usually logging is done simply via a serial port and only a USB-Serial adapter
-is necessary to read the device output. However, some forms of logging require
-host support or additional processing steps.</p>
-<h4 id="itm">ITM<a class="headerlink" href="#itm" title="Permanent link">&para;</a></h4>
-<p>Logging via the SWO trace pin is supported via OpenOCD and the
-<code>modm:platform:itm</code> module:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/log.py<span class="w"> </span>itm<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--fcpu<span class="w"> </span><span class="m">64000000</span>
+<h3 id="logging-via-single-wire-output-swo">Logging via Single-Wire Output (SWO)<a class="headerlink" href="#logging-via-single-wire-output-swo" title="Permanent link">&para;</a></h3>
+<p>Logging using the SWO protocol is supported by the <code>modm:platform:itm</code> module.
+You can use OpenOCD to receive the output, but you must manually supply the
+CPU frequency:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.itm<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--fcpu<span class="w"> </span><span class="m">48000000</span>
 </code></pre></div>
-<h4 id="rtt">RTT<a class="headerlink" href="#rtt" title="Permanent link">&para;</a></h4>
-<p>Logging via the RTT protocol is supported via OpenOCD and the
-<code>modm:platform:rtt</code> module:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/log.py<span class="w"> </span>rtt<span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>--channel<span class="w"> </span><span class="m">0</span>
+<p>JLink is also supported and can determine the CPU frequency automatically:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.itm<span class="w"> </span>jlink<span class="w"> </span>-device<span class="w"> </span>STM32F469NI
+</code></pre></div>
+<p>(* <em>only ARM Cortex-M targets</em>)</p>
+<h3 id="logging-via-real-time-transport-rtt">Logging via Real-Time Transport (RTT)<a class="headerlink" href="#logging-via-real-time-transport-rtt" title="Permanent link">&para;</a></h3>
+<p>Logging using the RTT protocol is supported by the <code>modm:platform:rtt</code> module.
+You can use OpenOCD to send and receive on a channel of your choice using the
+built-in Python telnet client:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.rtt<span class="w"> </span>--channel<span class="w"> </span><span class="m">0</span><span class="w"> </span>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg
+</code></pre></div>
+<p>JLink is also supported and may have faster transfer rates:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.rtt<span class="w"> </span>--channel<span class="w"> </span><span class="m">0</span><span class="w"> </span>jlink<span class="w"> </span>-device<span class="w"> </span>STM32F469NI
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="gnu-build-id">GNU Build-ID<a class="headerlink" href="#gnu-build-id" title="Permanent link">&para;</a></h3>
 <p>To extract the build ID from an ELF file:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/build_id.py<span class="w"> </span>path/to/project.elf
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.build_id<span class="w"> </span>path/to/project.elf
 fa8918e6971ed783b25bff0ad11a0541be47a933
 </code></pre></div>
 <p>To copy the ELF file to a artifact cache:</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/build_id.py<span class="w"> </span>path/to/project.elf<span class="w"> </span>--cache<span class="w"> </span>path/to/folder
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.build_id<span class="w"> </span>path/to/project.elf<span class="w"> </span>--cache<span class="w"> </span>path/to/folder
 <span class="c1"># copies to `path/to/folder/fa8918e6971ed783b25bff0ad11a0541be47a933.elf`</span>
 </code></pre></div>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="bitmap">Bitmap<a class="headerlink" href="#bitmap" title="Permanent link">&para;</a></h3>
 <p>This tool can convert P1 <code>.pbm</code> files into C++ source code.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/bitmap.py<span class="w"> </span>image.pbm<span class="w"> </span>--outpath<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.bitmap<span class="w"> </span>image.pbm<span class="w"> </span>--outpath<span class="w"> </span>.
 <span class="c1"># creates `image.hpp` and `image.cpp` in the CWD</span>
 </code></pre></div>
 <h3 id="uf2-converter">UF2 Converter<a class="headerlink" href="#uf2-converter" title="Permanent link">&para;</a></h3>
 <p>UF2 is a <a href="https://github.com/microsoft/uf2">Microsoft file format</a> to pass
 to a on-device bootloader.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>modm/modm_tools/elf2uf2.py<span class="w"> </span>firmware.elf<span class="w"> </span>-o<span class="w"> </span>firmware.uf2<span class="w"> </span>--target<span class="w"> </span>rp2040<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.elf2uf2<span class="w"> </span>firmware.elf<span class="w"> </span>-o<span class="w"> </span>firmware.uf2<span class="w"> </span>--target<span class="w"> </span>rp2040<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--range<span class="w"> </span>0x10000000:0x15000000:CONTENTS<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--range<span class="w"> </span>0x20000000:0x20042000:NO_CONTENTS
 </code></pre></div>
