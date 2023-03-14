@@ -351,6 +351,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/config/modm-same70-xplained/</loc>
+         <lastmod>2023-03-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/config/modm-samg55-xplained-pro/</loc>
          <lastmod>2023-03-14</lastmod>
          <changefreq>daily</changefreq>
@@ -792,6 +797,11 @@
     </url>
     <url>
          <loc>http://modm.io/reference/module/modm-board-same54-xplained-pro/</loc>
+         <lastmod>2023-03-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://modm.io/reference/module/modm-board-same70-xplained/</loc>
          <lastmod>2023-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
