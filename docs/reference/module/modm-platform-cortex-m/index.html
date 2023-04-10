@@ -18,7 +18,7 @@
         <link rel="prev" href="../modm-platform-core-stm32/">
       
       
-        <link rel="next" href="../modm-platform-dac/">
+        <link rel="next" href="../modm-platform-dac-same7x-s7x-v7x/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
@@ -5482,8 +5482,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-dac/" class="md-nav__link">
-        :platform:dac
+      <a href="../modm-platform-dac-same7x-s7x-v7x/" class="md-nav__link">
+        :platform:dac (same7x/s7x/v7x)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-platform-dac-stm32/" class="md-nav__link">
+        :platform:dac (stm32)
       </a>
     </li>
   
@@ -5498,6 +5512,20 @@
     <li class="md-nav__item">
       <a href="../modm-platform-dma-rp2040/" class="md-nav__link">
         :platform:dma (rp2040)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-platform-dma-same7x-s7x-v7x/" class="md-nav__link">
+        :platform:dma (same7x/s7x/v7x)
       </a>
     </li>
   
@@ -7388,14 +7416,14 @@ Inputs: <code>[0 ... 0x100000]</code> <em>sam{d5x/e5x,e7x/s7x/v7x}, stm32{f4,f7,
 Inputs: <code>[0 ... 0x1000000]</code> <em>rp2040</em><br />
 Inputs: <code>[0 ... 0x180000]</code> <em>stm32f4</em><br />
 Inputs: <code>[0 ... 0x2000]</code> <em>stm32l0</em><br />
-Inputs: <code>[0 ... 0x20000]</code> <em>samd1x/d2x/dax, stm32{f0,f1,f2,f3,f4,g0,g4,h7,l0,l4}</em><br />
+Inputs: <code>[0 ... 0x20000]</code> <em>samd1x/d2x/dax, stm32{f0,f1,f2,f3,f4,g0,g4,h7,l0,l4,u5}</em><br />
 Inputs: <code>[0 ... 0x200000]</code> <em>same7x/s7x/v7x, stm32{f4,f7,h7,l4,u5}</em><br />
 Inputs: <code>[0 ... 0x30000]</code> <em>stm32l0</em><br />
 Inputs: <code>[0 ... 0x4000]</code> <em>stm32{f0,f1,f3,g0,l0}</em><br />
-Inputs: <code>[0 ... 0x40000]</code> <em>sam{d1x/d2x/dax,d5x/e5x}, stm32{f0,f1,f2,f3,f4,f7,g4,l1,l4,l5}</em><br />
+Inputs: <code>[0 ... 0x40000]</code> <em>sam{d1x/d2x/dax,d5x/e5x}, stm32{f0,f1,f2,f3,f4,f7,g4,l1,l4,l5,u5}</em><br />
 Inputs: <code>[0 ... 0x60000]</code> <em>stm32{f3,l1}</em><br />
 Inputs: <code>[0 ... 0x8000]</code> <em>samd1x/d2x/dax, stm32{f0,f3,g0,g4,l0,l1}</em><br />
-Inputs: <code>[0 ... 0x80000]</code> <em>sam{d5x/e5x,e7x/s7x/v7x,g5x}, stm32{f2,f3,f4,f7,g4,h7,l1,l4,l5}</em>  </p>
+Inputs: <code>[0 ... 0x80000]</code> <em>sam{d5x/e5x,e7x/s7x/v7x,g5x}, stm32{f2,f3,f4,f7,g4,h7,l1,l4,l5,u5}</em>  </p>
 <h4 id="linkerscriptoverride">linkerscript.override<a class="headerlink" href="#linkerscriptoverride" title="Permanent link">&para;</a></h4>
 <p>Path to project provided linkerscript</p>
 <p>Default: <code>[]</code><br />

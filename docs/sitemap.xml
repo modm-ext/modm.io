@@ -1721,12 +1721,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://modm.io/reference/module/modm-platform-dac/</loc>
+         <loc>http://modm.io/reference/module/modm-platform-dac-same7x-s7x-v7x/</loc>
+         <lastmod>2023-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://modm.io/reference/module/modm-platform-dac-stm32/</loc>
          <lastmod>2023-04-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://modm.io/reference/module/modm-platform-dma-rp2040/</loc>
+         <lastmod>2023-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://modm.io/reference/module/modm-platform-dma-same7x-s7x-v7x/</loc>
          <lastmod>2023-04-10</lastmod>
          <changefreq>daily</changefreq>
     </url>

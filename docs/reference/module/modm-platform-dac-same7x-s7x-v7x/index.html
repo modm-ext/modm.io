@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-dac/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-dac-same7x-s7x-v7x/">
       
       
         <link rel="prev" href="../modm-platform-cortex-m/">
       
       
-        <link rel="next" href="../modm-platform-dma-rp2040/">
+        <link rel="next" href="../modm-platform-dac-stm32/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:platform:dac - modm barebone embedded library</title>
+        <title>:platform:dac (same7x/s7x/v7x) - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digital-to-analog-converter-dac" class="md-skip">
+        <a href="#da-converter-dacc" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:dac
+              :platform:dac (same7x/s7x/v7x)
             
           </span>
         </div>
@@ -5246,12 +5246,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:dac
+          :platform:dac (same7x/s7x/v7x)
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        :platform:dac
+        :platform:dac (same7x/s7x/v7x)
       </a>
       
         
@@ -5291,8 +5291,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-platform-dac-stm32/" class="md-nav__link">
+        :platform:dac (stm32)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-platform-dma-rp2040/" class="md-nav__link">
         :platform:dma (rp2040)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-platform-dma-same7x-s7x-v7x/" class="md-nav__link">
+        :platform:dma (same7x/s7x/v7x)
       </a>
     </li>
   
@@ -6662,35 +6690,71 @@
                   
 
 
-<h1 id="digital-to-analog-converter-dac">Digital-to-Analog Converter (DAC)<a class="headerlink" href="#digital-to-analog-converter-dac" title="Permanent link">&para;</a></h1>
+<h1 id="da-converter-dacc">D/A converter (DACC)<a class="headerlink" href="#da-converter-dacc" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:dac</code></p>
-<p><em>This module is only available for stm32.</em></p>
+<p><em>This module is only available for same7x/s7x/v7x.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="91pt" height="150pt"
- viewBox="0.00 0.00 91.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="406pt" height="150pt"
+ viewBox="0.00 0.00 406.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:platform:dac</title>
 <g id="node1" class="node">
 <title>modm_platform_dac</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="83,-53 0,-53 0,0 83,0 83,-53"/>
-<text text-anchor="middle" x="41.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="41.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="41.5" y="-7.8" font-family="Times,serif" font-size="14.00">dac</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="248,-53 165,-53 165,0 248,0 248,-53"/>
+<text text-anchor="middle" x="206.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="206.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="206.5" y="-7.8" font-family="Times,serif" font-size="14.00">dac</text>
 </g>
 <g id="node2" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="74,-142 9,-142 9,-89 74,-89 74,-142"/>
-<text text-anchor="middle" x="41.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="41.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="41.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
 </g>
 <g id="edge1" class="edge">
+<title>modm_platform_dac&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M164.97,-51.27C147.36,-61.35 126.63,-73.22 107.9,-83.93"/>
+<polygon fill="black" stroke="black" points="106.12,-80.92 99.18,-88.93 109.6,-87 106.12,-80.92"/>
+</g>
+<g id="node3" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-89 192,-89 192,-142"/>
+<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge2" class="edge">
 <title>modm_platform_dac&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M41.5,-53.13C41.5,-61.11 41.5,-70.07 41.5,-78.62"/>
-<polygon fill="black" stroke="black" points="38,-78.75 41.5,-88.75 45,-78.75 38,-78.75"/>
+<path fill="none" stroke="black" d="M192.65,-53.13C188.15,-61.47 183.08,-70.86 178.28,-79.74"/>
+<polygon fill="black" stroke="black" points="175.08,-78.29 173.41,-88.75 181.24,-81.62 175.08,-78.29"/>
+</g>
+<g id="node4" class="node">
+<title>modm_math_algorithm</title>
+<polygon fill="lightgrey" stroke="black" points="296.5,-142 210.5,-142 210.5,-89 296.5,-89 296.5,-142"/>
+<text text-anchor="middle" x="253.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="253.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="253.5" y="-96.8" font-family="Times,serif" font-size="14.00">algorithm</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_dac&#45;&gt;modm_math_algorithm</title>
+<path fill="none" stroke="black" d="M220.35,-53.13C224.85,-61.47 229.92,-70.86 234.72,-79.74"/>
+<polygon fill="black" stroke="black" points="231.76,-81.62 239.59,-88.75 237.92,-78.29 231.76,-81.62"/>
+</g>
+<g id="node5" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="398,-142 315,-142 315,-89 398,-89 398,-142"/>
+<text text-anchor="middle" x="356.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="356.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="356.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_platform_dac&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M248.28,-51.73C266.24,-62.15 287.39,-74.42 306.2,-85.33"/>
+<polygon fill="black" stroke="black" points="304.53,-88.41 314.94,-90.4 308.05,-82.35 304.53,-88.41"/>
 </g>
 </g>
 </svg></p>
