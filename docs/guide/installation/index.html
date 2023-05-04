@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A modular C++20 library generator for barebone embedded programming">
+        <meta name="description" content="A modular C++23 library generator for barebone embedded programming">
       
       
         <meta name="author" content="Niklas Hauser">
@@ -6923,7 +6923,7 @@ you are not <em>required</em> to use it. See <a href="../../reference/build-syst
 for additional build system documentation.</p>
 <div class="admonition info">
 <p class="admonition-title">Use GCC 12 or newer</p>
-<p>modm uses C++20, so you need <em>at least</em> GCC 10. However, we recommend using GCC12.</p>
+<p>modm uses C++23, so you need <em>at least</em> GCC 12.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Beware of AVRs</p>
@@ -6965,7 +6965,7 @@ running SCons with Python 3!</p>
 </div>
 <p>We use <a href="https://download.copperspice.com/doxypress/binary/">Doxypress</a> to generate the API documentation:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/opt/doxypress
-wget<span class="w"> </span>-O-<span class="w"> </span>https://github.com/copperspice/doxypress/releases/download/dp-1.5.0/doxypress-1.5.0-ubuntu22.04-x64.tar.bz2<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>xj<span class="w"> </span>-C<span class="w"> </span>/opt/doxypress
+wget<span class="w"> </span>-O-<span class="w"> </span>https://github.com/copperspice/doxypress/releases/download/dp-1.5.1/doxypress-1.5.1-ubuntu22.04-x64.tar.bz2<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>xj<span class="w"> </span>-C<span class="w"> </span>/opt/doxypress
 </code></pre></div>
 <p>Add the directory to your <code>PATH</code> variable in <code>~/.bashrc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/doxypress:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
