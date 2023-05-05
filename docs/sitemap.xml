@@ -1876,6 +1876,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>http://modm.io/reference/module/modm-platform-iwdg/</loc>
+         <lastmod>2023-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>http://modm.io/reference/module/modm-platform-multicore/</loc>
          <lastmod>2023-05-05</lastmod>
          <changefreq>daily</changefreq>

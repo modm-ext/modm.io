@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-architecture-delay/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-iwdg/">
       
       
-        <link rel="prev" href="../modm-architecture-clock/">
+        <link rel="prev" href="../modm-platform-itm/">
       
       
-        <link rel="next" href="../modm-architecture-gpio/">
+        <link rel="next" href="../modm-platform-multicore/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:architecture:delay - modm barebone embedded library</title>
+        <title>:platform:iwdg - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#blocking-delays" class="md-skip">
+        <a href="#independent-watchdog" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :architecture:delay
+              :platform:iwdg
             
           </span>
         </div>
@@ -1622,52 +1622,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :architecture:delay
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-architecture-delay/" class="md-nav__link">
         :architecture:delay
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5709,11 +5668,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-iwdg/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :platform:iwdg
       </a>
+      
     </li>
   
 
@@ -6704,21 +6673,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -6732,62 +6686,12 @@
                   
 
 
-<h1 id="blocking-delays">Blocking Delays<a class="headerlink" href="#blocking-delays" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:architecture:delay</code></p>
-<p>These functions allow you to spin for a short time using only the CPU.</p>
-<p>In general it is recommended to use the <code>std::chrono</code> duration types to allow
-the compiler to choose the optimal implementation for you:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
-
-<span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">DELAY_TIME</span><span class="p">{</span><span class="mi">100</span><span class="p">};</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="n">DELAY_TIME</span><span class="p">);</span>
-
-<span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">microseconds</span><span class="w"> </span><span class="n">DELAY_TIME2</span><span class="p">{</span><span class="mi">200</span><span class="p">};</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="n">DELAY_TIME2</span><span class="p">);</span><span class="w"> </span><span class="c1">// same signature, different implementation</span>
-</code></pre></div>
-<p>In your code you can also use the <code>std::chrono</code> literals:</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono_literals</span><span class="p">;</span>
-
-<span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="n">ns</span><span class="p">);</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">200u</span><span class="n">s</span><span class="p">);</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">300</span><span class="n">ms</span><span class="p">);</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="mi">400</span><span class="n">s</span><span class="p">);</span>
-</code></pre></div>
-<p>In order to not require wild casting around of values, there are also three
-overloads for (unsigned) integer values. These are particularly useful for when
-you do not want to or cannot use chrono literals.</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">delay_ns</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay_us</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">delay_ms</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
-</code></pre></div>
-<p>Note that these delay functions work at any CPU clock speed, even if changed
-dynamically at runtime and are available very early in the startup process at
-hardware-init time.</p>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
-<p>The main limitations are accuracy and length of delay. The only guarantee given
-to you is to delay for <em>at least</em> the specified time. Note that invocation of
-interrupts during spinning may add delay too.</p>
-<ul>
-<li><code>modm::delay(ns)</code> guarantees at most 1'000'000ns = 1ms delay.</li>
-<li><code>modm::delay(us)</code> guarantees at most 1'000'000µs = 1s delay.</li>
-<li><code>modm::delay(ms)</code> is limited to 49 days.</li>
-</ul>
-<p>Please note that the delay these functions provide is defined as the time from
-invocation to the time of execution return. Obviously no delay beyond that is
-considered, which may require you to use shorter delays to compensate for the
-overhead of your code:</p>
-<div class="highlight"><pre><span></span><code><span class="k">do</span><span class="w"> </span><span class="c1">// GpioA4 toggling takes longer than 500ns because:</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">delay_ns</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"> </span><span class="c1">// takes ~500ns</span>
-<span class="w">    </span><span class="n">GpioA4</span><span class="o">::</span><span class="n">toggle</span><span class="p">();</span><span class="w">    </span><span class="c1">// takes a few cycles</span>
-<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">              </span><span class="c1">// jump back to loop also takes a few cycles</span>
-</code></pre></div>
-<p>You should always prefer Software Timers (see <code>modm:processing:timer</code>) over
-these <em>blocking</em> delay functions. However, when <code>modm::Clock</code> is not set up yet,
-or when you need very small delays (for example to bit-bang a protocol), you
-need to use these delay functions.</p>
-<p>For the technical details on the delay implementations you can <a href="https://blog.salkinium.com/modm-delay">read "Accurate
-Micro- and Nanosecond Delay in modm"</a>.</p>
+<h1 id="independent-watchdog">Independent watchdog<a class="headerlink" href="#independent-watchdog" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:iwdg</code></p>
+<p><em>This module is only available for stm32{f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5,u5}.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
+</div>
 
 
 
