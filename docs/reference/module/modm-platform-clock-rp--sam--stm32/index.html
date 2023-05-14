@@ -3612,6 +3612,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-driver-cycle_counter/" class="md-nav__link">
+        :driver:cycle_counter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-driver-drv832x_spi/" class="md-nav__link">
         :driver:drv832x_spi
       </a>
@@ -5172,6 +5186,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference_clock" class="md-nav__link">
+    reference_clock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6159,6 +6193,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-processing-fiber/" class="md-nav__link">
+        :processing:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-processing-protothread/" class="md-nav__link">
         :processing:protothread
       </a>
@@ -6725,6 +6773,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference_clock" class="md-nav__link">
+    reference_clock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6781,6 +6849,13 @@ accuracy. This computation is very, very fast on ARMv7-M.</p>
 runs at 1ms, thus eliminating the multiplication for the millisecond clock,
 and allowing to fit into a 32-bit multiplication for the microsecond clock.</p>
 <p><em>This module is only available for rp, sam, stm32.</em></p>
+<h2 id="queries">Queries<a class="headerlink" href="#queries" title="Permanent link">&para;</a></h2>
+<h4 id="reference_clock">reference_clock<a class="headerlink" href="#reference_clock" title="Permanent link">&para;</a></h4>
+<p>The SysTick can be clocked from two sources controlled by the CLKSOURCE bit:
+1=processor clock, or 0=reference clock. Since the reference clock is
+implementation defined, this query returns the prescaler of the reference
+clock or 1 if it does not exist.</p>
+<p>:returns: Divider of the processor clock.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"

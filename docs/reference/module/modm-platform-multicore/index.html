@@ -3612,6 +3612,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-driver-cycle_counter/" class="md-nav__link">
+        :driver:cycle_counter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-driver-drv832x_spi/" class="md-nav__link">
         :driver:drv832x_spi
       </a>
@@ -6128,6 +6142,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-processing-fiber/" class="md-nav__link">
+        :processing:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-processing-protothread/" class="md-nav__link">
         :processing:protothread
       </a>
@@ -6735,14 +6763,6 @@ running on CPU1 needs to be explicitly started:</p>
 <span class="w">    </span><span class="c1">// set a custom vector table for CPU1</span>
 <span class="w">    </span><span class="n">SCB</span><span class="o">-&gt;</span><span class="n">VTOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">custom_vector_table</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>When using the <code>modm:processing:fiber</code> module you can now schedule fibers on
-both cores, each with their own scheduler:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm_core0_noinit</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Stack</span><span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack0</span><span class="p">;</span>
-<span class="n">modm_core0_data</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber0</span><span class="p">(</span><span class="n">stack0</span><span class="p">,</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">function</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="cm">/* core= */</span><span class="mi">0</span><span class="p">);</span>
-
-<span class="n">modm_core1_noinit</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Stack</span><span class="o">&lt;</span><span class="mi">256</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack1</span><span class="p">;</span>
-<span class="n">modm_core1_data</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber1</span><span class="p">(</span><span class="n">stack1</span><span class="p">,</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">function</span><span class="p">();</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="cm">/* core= */</span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
 <p><em>This module is only available for rp2040.</em></p>
 <div class="admonition warning">

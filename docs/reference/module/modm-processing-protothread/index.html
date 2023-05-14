@@ -15,7 +15,7 @@
         <link rel="canonical" href="http://modm.io/reference/module/modm-processing-protothread/">
       
       
-        <link rel="prev" href="../modm-processing/">
+        <link rel="prev" href="../modm-processing-fiber/">
       
       
         <link rel="next" href="../modm-processing-resumable/">
@@ -3612,6 +3612,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-driver-cycle_counter/" class="md-nav__link">
+        :driver:cycle_counter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-driver-drv832x_spi/" class="md-nav__link">
         :driver:drv832x_spi
       </a>
@@ -6116,6 +6130,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../modm-processing-fiber/" class="md-nav__link">
+        :processing:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -6155,6 +6183,46 @@
   <a href="#example" class="md-nav__link">
     Example
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-fibers" class="md-nav__link">
+    Using Fibers
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Fibers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restrictions" class="md-nav__link">
+    Restrictions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use_fiber" class="md-nav__link">
+    use_fiber
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6739,6 +6807,46 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-fibers" class="md-nav__link">
+    Using Fibers
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Fibers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restrictions" class="md-nav__link">
+    Restrictions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use_fiber" class="md-nav__link">
+    use_fiber
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6826,31 +6934,89 @@ Ben Hoyt, but stripped down for public release.</p>
 <span class="w">    </span><span class="n">light</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="using-fibers">Using Fibers<a class="headerlink" href="#using-fibers" title="Permanent link">&para;</a></h2>
+<p>Protothreads can be implemented using stackful fibers by setting the <code>use_fiber</code>
+option, which replaces the preprocessor macros and C++ implementations of this
+and the <code>modm:processing:resumable</code> module with a fiber version.</p>
+<p>Specifically, the <code>PT_*</code> and <code>RF_*</code> macros are now forwarding their arguments
+unmodified and instead relying on <code>modm::fiber::yield()</code> for context switching:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define PT_YIELD() modm::fiber::yield()</span>
+<span class="cp">#define PT_WAIT_WHILE(cond) while(cond) { modm::fiber::yield(); }</span>
+<span class="cp">#define PT_CALL(func) func</span>
+</code></pre></div>
+<p>The <code>modm::pt::Protothread</code> class is implemented using <code>modm::Fiber&lt;&gt;</code> with the
+default stack size <code>MODM_PROTOTHREAD_STACK_SIZE</code>. It automatically runs the two
+virtual methods <code>bool run()</code> and <code>bool update()</code> if they are defined in the
+protothread class.</p>
+<p>There should be no modification of the existing code necessary with the
+exception that you must replace the main loop calling all protothreads with the
+fiber scheduler:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">    while(true)</span>
+<span class="cm">    {</span>
+<span class="cm">        protothread1.update();</span>
+<span class="cm">        protothread2.update();</span>
+<span class="cm">    }</span>
+<span class="cm">    */</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="restrictions">Restrictions<a class="headerlink" href="#restrictions" title="Permanent link">&para;</a></h3>
+<p>If the default stack size is too low, you can set <code>MODM_PROTOTHREAD_STACK_SIZE</code>
+to a higher value, however, this will apply to <em>all</em> protothreads, consuming a
+lot more memory. Instead, we recommend refactoring the protothread into a fiber
+function.</p>
+<p>All functions and macros work as expected, except for the  <code>Protothread::stop()</code>
+function, which not implementable using fibers. It is left unimplemented,
+so that you may define it with the behavior most suitable to your use case.</p>
+<p>See the <code>modm:processing:resumable</code> module for additional restrictions when
+calling resumable functions from a protothread.</p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="use_fiber">use_fiber<a class="headerlink" href="#use_fiber" title="Permanent link">&para;</a></h4>
+<p>Implement via Fibers</p>
+<p>Default: <code>no</code><br />
+Inputs: <code>[yes, no]</code><br />
+Input Dependency: <code>yes -&gt; modm:processing:fiber</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="112pt" height="135pt"
- viewBox="0.00 0.00 112.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
+<p><svg class="deps" width="228pt" height="150pt"
+ viewBox="0.00 0.00 228.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:processing:protothread</title>
 <g id="node1" class="node">
 <title>modm_processing_protothread</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="103,-53 1,-53 1,0 103,0 103,-53"/>
-<text text-anchor="middle" x="52" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="52" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="52" y="-7.8" font-family="Times,serif" font-size="14.00">protothread</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="162,-53 60,-53 60,0 162,0 162,-53"/>
+<text text-anchor="middle" x="111" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="111" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="111" y="-7.8" font-family="Times,serif" font-size="14.00">protothread</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture</title>
-<polygon fill="lightgrey" stroke="black" points="104,-127 0,-127 0,-89 104,-89 104,-127"/>
-<text text-anchor="middle" x="52" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="52" y="-96.8" font-family="Times,serif" font-size="14.00">architecture</text>
+<polygon fill="lightgrey" stroke="black" points="104,-134.5 0,-134.5 0,-96.5 104,-96.5 104,-134.5"/>
+<text text-anchor="middle" x="52" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="52" y="-104.3" font-family="Times,serif" font-size="14.00">architecture</text>
 </g>
 <g id="edge1" class="edge">
 <title>modm_processing_protothread&#45;&gt;modm_architecture</title>
-<path fill="none" stroke="black" d="M52,-53.09C52,-61.26 52,-70.35 52,-78.7"/>
-<polygon fill="black" stroke="black" points="48.5,-78.76 52,-88.76 55.5,-78.76 48.5,-78.76"/>
+<path fill="none" stroke="black" d="M93.62,-53.13C86.16,-64.13 77.45,-76.97 69.94,-88.05"/>
+<polygon fill="black" stroke="black" points="66.93,-86.25 64.21,-96.49 72.72,-90.18 66.93,-86.25"/>
+</g>
+<g id="node3" class="node">
+<title>modm_processing_fiber</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="220,-142 122,-142 122,-89 220,-89 220,-142"/>
+<text text-anchor="middle" x="171" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="171" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="171" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_processing_protothread&#45;&gt;modm_processing_fiber</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M128.68,-53.13C134.55,-61.64 141.17,-71.25 147.41,-80.3"/>
+<polygon fill="black" stroke="black" points="144.68,-82.51 153.24,-88.75 150.45,-78.53 144.68,-82.51"/>
 </g>
 </g>
 </svg></p>
