@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-hx711/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-mcp3008/">
       
       
-        <link rel="prev" href="../modm-driver-hmc6343/">
+        <link rel="prev" href="../modm-driver-mcp2515/">
       
       
-        <link rel="next" href="../modm-driver-i2c-eeprom/">
+        <link rel="next" href="../modm-driver-mcp7941x/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:driver:hx711 - modm barebone embedded library</title>
+        <title>:driver:mcp3008 - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hx711-load-cell-amplifier-and-adc" class="md-skip">
+        <a href="#mcp3004mcp3008-adc" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :driver:hx711
+              :driver:mcp3008
             
           </span>
         </div>
@@ -3834,52 +3834,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :driver:hx711
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-driver-hx711/" class="md-nav__link">
         :driver:hx711
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4211,11 +4170,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-mcp3008/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:mcp3008
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:mcp3008
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6788,62 +6788,47 @@
                   
 
 
-<h1 id="hx711-load-cell-amplifier-and-adc">HX711 Load Cell Amplifier and ADC<a class="headerlink" href="#hx711-load-cell-amplifier-and-adc" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:driver:hx711</code></p>
-<p>The HX711 is an integrated load cell amplifier designed for weight scales and
-industrial control applications to interface directly with a bridge sensor.
-The interface is bit-bang and timing based, so only GPIO is needed.
-In a complete system the SCK pin's timing while reading must be met.</p>
+<h1 id="mcp3004mcp3008-adc">MCP3004/MCP3008 ADC<a class="headerlink" href="#mcp3004mcp3008-adc" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:mcp3008</code></p>
+<p>MCP3004/3008 are 10-bit 200 ksps SAR ADCs with SPI interface and 4/8 channels.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="361pt" height="150pt"
- viewBox="0.00 0.00 360.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="234pt" height="150pt"
+ viewBox="0.00 0.00 233.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:driver:hx711</title>
+<title>modm:driver:mcp3008</title>
 <g id="node1" class="node">
-<title>modm_driver_hx711</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="214,-53 149,-53 149,0 214,0 214,-53"/>
-<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">hx711</text>
+<title>modm_driver_mcp3008</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="157,-53 74,-53 74,0 157,0 157,-53"/>
+<text text-anchor="middle" x="115.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="115.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="115.5" y="-7.8" font-family="Times,serif" font-size="14.00">mcp3008</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_delay</title>
+<title>modm_architecture_spi_device</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">delay</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi.device</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_driver_hx711&#45;&gt;modm_architecture_delay</title>
-<path fill="none" stroke="black" d="M148.79,-49.9C134.16,-59.93 116.65,-71.93 100.71,-82.85"/>
-<polygon fill="black" stroke="black" points="98.31,-80.24 92.04,-88.78 102.27,-86.02 98.31,-80.24"/>
+<title>modm_driver_mcp3008&#45;&gt;modm_architecture_spi_device</title>
+<path fill="none" stroke="black" d="M97.53,-53.13C91.56,-61.64 84.82,-71.25 78.48,-80.3"/>
+<polygon fill="black" stroke="black" points="75.43,-78.55 72.55,-88.75 81.16,-82.57 75.43,-78.55"/>
 </g>
 <g id="node3" class="node">
-<title>modm_architecture_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
-<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="225.5,-142 127.5,-142 127.5,-89 225.5,-89 225.5,-142"/>
+<text text-anchor="middle" x="176.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="176.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="176.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_driver_hx711&#45;&gt;modm_architecture_gpio</title>
-<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
-<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
-</g>
-<g id="node4" class="node">
-<title>modm_processing_resumable</title>
-<polygon fill="lightgrey" stroke="black" points="352.5,-142 254.5,-142 254.5,-89 352.5,-89 352.5,-142"/>
-<text text-anchor="middle" x="303.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="303.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="303.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
-</g>
-<g id="edge3" class="edge">
-<title>modm_driver_hx711&#45;&gt;modm_processing_resumable</title>
-<path fill="none" stroke="black" d="M214.19,-50.81C228,-60.66 244.29,-72.28 259.16,-82.88"/>
-<polygon fill="black" stroke="black" points="257.54,-86.02 267.71,-88.98 261.6,-80.32 257.54,-86.02"/>
+<title>modm_driver_mcp3008&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M133.47,-53.13C139.44,-61.64 146.18,-71.25 152.52,-80.3"/>
+<polygon fill="black" stroke="black" points="149.84,-82.57 158.45,-88.75 155.57,-78.55 149.84,-82.57"/>
 </g>
 </g>
 </svg></p>
