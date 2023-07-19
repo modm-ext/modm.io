@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-platform-uart-lpuart1/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-ixm42xxx/">
       
       
-        <link rel="prev" href="../modm-platform-uart-spi/">
+        <link rel="prev" href="../modm-driver-itg3200/">
       
       
-        <link rel="next" href="../modm-platform-uart-lpuart2/">
+        <link rel="next" href="../modm-driver-l3gd20/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:platform:uart:lpuart1 - modm barebone embedded library</title>
+        <title>:driver:ixm42xxx - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#instance-1" class="md-skip">
+        <a href="#invensense-6-axis-imu" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:uart:lpuart1
+              :driver:ixm42xxx
             
           </span>
         </div>
@@ -3932,11 +3932,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-ixm42xxx/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:ixm42xxx
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:ixm42xxx
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6060,79 +6101,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:uart:lpuart1
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-platform-uart-lpuart1/" class="md-nav__link">
         :platform:uart:lpuart1
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bufferrx" class="md-nav__link">
-    buffer.rx
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffertx" class="md-nav__link">
-    buffer.tx
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6850,33 +6823,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bufferrx" class="md-nav__link">
-    buffer.rx
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffertx" class="md-nav__link">
-    buffer.tx
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6898,50 +6844,109 @@
                   
 
 
-<h1 id="instance-1">Instance 1<a class="headerlink" href="#instance-1" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:uart:lpuart1</code></p>
-<p><em>This module is only available for stm32{g0,g4,h7,l0,l4,l5,u5}.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="bufferrx">buffer.rx<a class="headerlink" href="#bufferrx" title="Permanent link">&para;</a></h4>
-<p>Default: <code>0</code><br />
-Inputs: <code>[0 ... 64Ki-2]</code>  </p>
-<h4 id="buffertx">buffer.tx<a class="headerlink" href="#buffertx" title="Permanent link">&para;</a></h4>
-<p>Default: <code>0</code><br />
-Inputs: <code>[0 ... 64Ki-2]</code>  </p>
+<h1 id="invensense-6-axis-imu">InvenSense 6-Axis IMU<a class="headerlink" href="#invensense-6-axis-imu" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:ixm42xxx</code></p>
+<p>High Precision 6-Axis MEMS MotionTracking Device</p>
+<div class="admonition note">
+<p class="admonition-title">The registers in user bank 1, 2, 3 and 4 are currently not mapped out</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">The IXM-42xxx driver has been developed for IIM-42652</p>
+<p>Some functionality may not be implemented or may not be applicable for other InvenSense 6-Axis IMU</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">The IXM-42xxx driver I2C transport layer is untested</p>
+</div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="91pt" height="165pt"
- viewBox="0.00 0.00 91.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
-<title>modm:platform:uart:lpuart1</title>
+<p><svg class="deps" width="674pt" height="150pt"
+ viewBox="0.00 0.00 673.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
+<title>modm:driver:ixm42xxx</title>
 <g id="node1" class="node">
-<title>modm_platform_uart_lpuart1</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="83,-68 0,-68 0,0 83,0 83,-68"/>
-<text text-anchor="middle" x="41.5" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="41.5" y="-37.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="41.5" y="-22.8" font-family="Times,serif" font-size="14.00">uart:</text>
-<text text-anchor="middle" x="41.5" y="-7.8" font-family="Times,serif" font-size="14.00">lpuart1</text>
+<title>modm_driver_ixm42xxx</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="408.5,-53 322.5,-53 322.5,0 408.5,0 408.5,-53"/>
+<text text-anchor="middle" x="365.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="365.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="365.5" y="-7.8" font-family="Times,serif" font-size="14.00">ixm42xxx</text>
 </g>
 <g id="node2" class="node">
-<title>modm_platform_uart</title>
-<polygon fill="lightgrey" stroke="black" points="83,-157 0,-157 0,-104 83,-104 83,-157"/>
-<text text-anchor="middle" x="41.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="41.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="41.5" y="-111.8" font-family="Times,serif" font-size="14.00">uart</text>
+<title>modm_architecture_i2c_device</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">i2c.device</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_uart_lpuart1&#45;&gt;modm_platform_uart</title>
-<path fill="none" stroke="black" d="M41.5,-68.05C41.5,-76.28 41.5,-85.15 41.5,-93.52"/>
-<polygon fill="black" stroke="black" points="38,-93.76 41.5,-103.76 45,-93.76 38,-93.76"/>
+<title>modm_driver_ixm42xxx&#45;&gt;modm_architecture_i2c_device</title>
+<path fill="none" stroke="black" d="M322.41,-36.24C274.58,-46.38 195.04,-64.5 119.04,-88.65"/>
+<polygon fill="black" stroke="black" points="117.75,-85.39 109.31,-91.78 119.9,-92.05 117.75,-85.39"/>
+</g>
+<g id="node3" class="node">
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_driver_ixm42xxx&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M322.36,-47.9C299.28,-58.81 270.41,-72.46 244.83,-84.55"/>
+<polygon fill="black" stroke="black" points="243.12,-81.49 235.58,-88.93 246.11,-87.82 243.12,-81.49"/>
+</g>
+<g id="node4" class="node">
+<title>modm_architecture_spi_device</title>
+<polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
+<text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi.device</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_driver_ixm42xxx&#45;&gt;modm_architecture_spi_device</title>
+<path fill="none" stroke="black" d="M348.71,-53.13C343.13,-61.64 336.83,-71.25 330.91,-80.3"/>
+<polygon fill="black" stroke="black" points="327.92,-78.47 325.37,-88.75 333.78,-82.3 327.92,-78.47"/>
+</g>
+<g id="node5" class="node">
+<title>modm_math_geometry</title>
+<polygon fill="lightgrey" stroke="black" points="466,-142 381,-142 381,-89 466,-89 466,-142"/>
+<text text-anchor="middle" x="423.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="423.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="423.5" y="-96.8" font-family="Times,serif" font-size="14.00">geometry</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_driver_ixm42xxx&#45;&gt;modm_math_geometry</title>
+<path fill="none" stroke="black" d="M382.59,-53.13C388.26,-61.64 394.67,-71.25 400.7,-80.3"/>
+<polygon fill="black" stroke="black" points="397.87,-82.37 406.33,-88.75 403.7,-78.49 397.87,-82.37"/>
+</g>
+<g id="node6" class="node">
+<title>modm_math_utils</title>
+<polygon fill="lightgrey" stroke="black" points="549,-142 484,-142 484,-89 549,-89 549,-142"/>
+<text text-anchor="middle" x="516.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="516.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="516.5" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_driver_ixm42xxx&#45;&gt;modm_math_utils</title>
+<path fill="none" stroke="black" d="M408.6,-50.99C427.01,-61.16 448.87,-73.42 475.2,-88.9"/>
+<polygon fill="black" stroke="black" points="473.52,-91.97 483.91,-94.04 477.08,-85.94 473.52,-91.97"/>
+</g>
+<g id="node7" class="node">
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="665.5,-142 567.5,-142 567.5,-89 665.5,-89 665.5,-142"/>
+<text text-anchor="middle" x="616.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="616.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="616.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
+</g>
+<g id="edge6" class="edge">
+<title>modm_driver_ixm42xxx&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M408.87,-39.89C446.21,-50.88 501.62,-67.94 557.88,-88.9"/>
+<polygon fill="black" stroke="black" points="556.69,-92.19 567.29,-92.44 559.16,-85.64 556.69,-92.19"/>
 </g>
 </g>
 </svg></p>
 <style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
-<div class="admonition warning">
-<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
-</div>
 
 
 
