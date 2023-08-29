@@ -7026,7 +7026,7 @@ corresponding flag to determine which pin triggered the collective interrupt.</p
 <span class="n">MODM_ISR</span><span class="p">(</span><span class="n">PCINT0</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GpioB1</span><span class="o">::</span><span class="n">getPcInterruptFlag</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GpioB2</span><span class="o">::</span><span class="n">read</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GpioB1</span><span class="o">::</span><span class="n">read</span><span class="p">();</span>
 <span class="w">        </span><span class="c1">// your code</span>
 <span class="w">        </span><span class="n">GpioB1</span><span class="o">::</span><span class="n">acknowledgePcInterruptFlag</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
