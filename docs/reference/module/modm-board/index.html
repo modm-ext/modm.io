@@ -6981,7 +6981,8 @@ development boards. There are two main components to the BPSs:</p>
   <code>modm::platform::Gpio{port}{pin}</code>.</li>
 </ul>
 <p>If the board supports a dedicated serial logging output the BSP redirects the
-<code>modm:debug</code> module debug stream <code>MODM_LOG_INFO</code> etc.</p>
+<code>modm:debug</code> module debug stream <code>MODM_LOG_INFO</code> as well as the output of the
+standalone <code>printf</code> function.</p>
 <p>Please note that YOU must explicitly call the <code>Board</code> functions to initialize
 your hardware, just including the board module is not enough.
 Here is an example using the <code>modm:disco-f469ni</code> BSP:</p>
