@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-lsm6dso/">
+        <link rel="canonical" href="http://modm.io/reference/module/modm-driver-qmc5883l/">
       
       
-        <link rel="prev" href="../modm-driver-lsm6ds33/">
+        <link rel="prev" href="../modm-driver-pca9685/">
       
       
-        <link rel="next" href="../modm-driver-ltc2984/">
+        <link rel="next" href="../modm-driver-sh1106/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:driver:lsm6dso - modm barebone embedded library</title>
+        <title>:driver:qmc5883l - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lsm6dso-3d-accelerometer-and-3d-gyroscope" class="md-skip">
+        <a href="#qmc5883l-3-axis-digital-magnetometer" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :driver:lsm6dso
+              :driver:qmc5883l
             
           </span>
         </div>
@@ -4128,52 +4128,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :driver:lsm6dso
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-driver-lsm6dso/" class="md-nav__link">
         :driver:lsm6dso
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4491,11 +4450,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-qmc5883l/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:qmc5883l
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:qmc5883l
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6900,73 +6900,68 @@
                   
 
 
-<h1 id="lsm6dso-3d-accelerometer-and-3d-gyroscope">LSM6DSO 3D accelerometer and 3D gyroscope<a class="headerlink" href="#lsm6dso-3d-accelerometer-and-3d-gyroscope" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:driver:lsm6dso</code></p>
-<p>iNEMO inertial module: always-on 3D accelerometer and 3D gyroscope</p>
-<p>The LSM6DSO is a system-in-package featuring a 3D digital accelerometer and a
-3D digital gyroscope boosting performance at 0.55 mA in high-performance mode
-and enabling always-on low-power features for an optimal motion experience for
-the consumer. The LSM6DSO supports main OS requirements, offering real,
-virtual and batch sensors with 9 kbytes for dynamic data batching.
-ST's family of MEMS sensor modules leverages the robust and mature
-manufacturing processes already used for the production of micromachined
-accelerometers and gyroscopes. The various sensing elements are manufactured
-using specialized micromachining processes, while the IC interfaces are
-developed using CMOS technology that allows the design of a dedicated circuit
-which is trimmed to better match the characteristics of the sensing element.</p>
-<p>The LSM6DSO has a full-scale acceleration range of ±2/±4/±8/±16 g and an
-angular rate range of ±125/±250/±500/±1000/±2000 dps.</p>
-<p>This driver currently only implements parts of the device functionality.</p>
+<h1 id="qmc5883l-3-axis-digital-magnetometer">QMC5883L 3-Axis Digital Magnetometer<a class="headerlink" href="#qmc5883l-3-axis-digital-magnetometer" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:qmc5883l</code></p>
+<p>The QMC5883L is a multi-chip three-axis magnetic sensor. This surface-mount,
+small sized chip has integrated magnetic sensors with signal condition ASIC,
+targeted for high precision applications such as compassing, navigation and
+gaming in drone, robot, mobile and personal hand-held devices.</p>
+<p>The QMC5883L is based on state-of-the-art, high resolution, magneto-resistive
+technology licensed from Honeywell AMR technology.  Along with custom-designed
+16-bit ADC ASIC, it offers the advantages of low noise, high accuracy, low
+power consumption, offset cancellation and temperature compensation. QMC5883L
+enables 1° to 2° compass heading accuracy. The I²C serial bus allows for easy
+interface.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="289pt" height="150pt"
- viewBox="0.00 0.00 288.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="327pt" height="150pt"
+ viewBox="0.00 0.00 327.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:driver:lsm6dso</title>
+<title>modm:driver:qmc5883l</title>
 <g id="node1" class="node">
-<title>modm_driver_lsm6dso</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="203,-53 127,-53 127,0 203,0 203,-53"/>
-<text text-anchor="middle" x="165" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="165" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="165" y="-7.8" font-family="Times,serif" font-size="14.00">lsm6dso</text>
+<title>modm_driver_qmc5883l</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="225,-53 138,-53 138,0 225,0 225,-53"/>
+<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">qmc5883l</text>
 </g>
 <g id="node2" class="node">
-<title>modm_driver_lis3_transport</title>
-<polygon fill="lightgrey" stroke="black" points="114,-142 0,-142 0,-89 114,-89 114,-142"/>
-<text text-anchor="middle" x="57" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="57" y="-111.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="57" y="-96.8" font-family="Times,serif" font-size="14.00">lis3.transport</text>
+<title>modm_architecture_i2c_device</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">i2c.device</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_driver_lsm6dso&#45;&gt;modm_driver_lis3_transport</title>
-<path fill="none" stroke="black" d="M133.18,-53.13C121.86,-62.25 108.96,-72.65 97.03,-82.25"/>
-<polygon fill="black" stroke="black" points="94.56,-79.75 88.97,-88.75 98.95,-85.2 94.56,-79.75"/>
+<title>modm_driver_qmc5883l&#45;&gt;modm_architecture_i2c_device</title>
+<path fill="none" stroke="black" d="M144.08,-53.13C130.38,-62.52 114.72,-73.25 100.37,-83.08"/>
+<polygon fill="black" stroke="black" points="98.36,-80.21 92.09,-88.75 102.32,-85.99 98.36,-80.21"/>
 </g>
 <g id="node3" class="node">
-<title>modm_math_units</title>
-<polygon fill="lightgrey" stroke="black" points="197.5,-142 132.5,-142 132.5,-89 197.5,-89 197.5,-142"/>
-<text text-anchor="middle" x="165" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="165" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="165" y="-96.8" font-family="Times,serif" font-size="14.00">units</text>
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_driver_lsm6dso&#45;&gt;modm_math_units</title>
-<path fill="none" stroke="black" d="M165,-53.13C165,-61.11 165,-70.07 165,-78.62"/>
-<polygon fill="black" stroke="black" points="161.5,-78.75 165,-88.75 168.5,-78.75 161.5,-78.75"/>
+<title>modm_driver_qmc5883l&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
+<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
 </g>
 <g id="node4" class="node">
 <title>modm_math_utils</title>
-<polygon fill="lightgrey" stroke="black" points="280.5,-142 215.5,-142 215.5,-89 280.5,-89 280.5,-142"/>
-<text text-anchor="middle" x="248" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="248" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="248" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
+<polygon fill="lightgrey" stroke="black" points="319,-142 254,-142 254,-89 319,-89 319,-142"/>
+<text text-anchor="middle" x="286.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="286.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="286.5" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_driver_lsm6dso&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M189.45,-53.13C197.91,-61.99 207.5,-72.05 216.44,-81.42"/>
-<polygon fill="black" stroke="black" points="214,-83.93 223.43,-88.75 219.06,-79.1 214,-83.93"/>
+<title>modm_driver_qmc5883l&#45;&gt;modm_math_utils</title>
+<path fill="none" stroke="black" d="M212.44,-53.13C223.45,-62.25 235.99,-72.65 247.58,-82.25"/>
+<polygon fill="black" stroke="black" points="245.49,-85.07 255.42,-88.75 249.96,-79.67 245.49,-85.07"/>
 </g>
 </g>
 </svg></p>
