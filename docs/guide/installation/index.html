@@ -7195,6 +7195,14 @@ directory other than directly into <code>/opt</code>.</p>
 brew<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>scons<span class="w"> </span>git<span class="w"> </span>doxygen
 pip3<span class="w"> </span>install<span class="w"> </span>modm
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Missing pyelftools</p>
+<p>If you get errors about missing <code>pyelftools</code> when calling <code>scons</code>, you may
+be using the system Python, rather than the Homebrew Python.
+In that case, you can add this line to your <code>.bashrc</code> or <code>.zshrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">scons</span><span class="o">=</span><span class="s2">&quot;/usr/bin/env python3 </span><span class="k">$(</span>which<span class="w"> </span>scons<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+</div>
 <p>We recommend using a graphical frontend for GDB called <a href="https://www.gdbgui.com">gdbgui</a>:</p>
 <div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>gdbgui
 </code></pre></div>
@@ -7205,8 +7213,8 @@ brew<span class="w"> </span>install<span class="w"> </span>doxypress
 <h4 id="arm-cortex-m_1">ARM Cortex-M<a class="headerlink" href="#arm-cortex-m_1" title="Permanent link">&para;</a></h4>
 <p>Install the <a href="https://github.com/osx-cross/homebrew-arm">pre-built ARM toolchain</a>:</p>
 <div class="highlight"><pre><span></span><code>brew<span class="w"> </span>tap<span class="w"> </span>osx-cross/arm
-brew<span class="w"> </span>install<span class="w"> </span>arm-gcc-bin@12
-brew<span class="w"> </span>install<span class="w"> </span>openocd<span class="w"> </span>--HEAD
+brew<span class="w"> </span>install<span class="w"> </span>arm-gcc-bin@12<span class="w"> </span>openocd
+brew<span class="w"> </span>link<span class="w"> </span>--force<span class="w"> </span>arm-gcc-bin@12
 </code></pre></div>
 <p>To program Microchip SAM devices via the bootloader, install the <code>bossac</code> tool:</p>
 <div class="highlight"><pre><span></span><code>brew<span class="w"> </span>cask<span class="w"> </span>install<span class="w"> </span>bossa
