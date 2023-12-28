@@ -1146,11 +1146,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://modm.io/reference/module/modm-driver-bmi088/</loc>
-         <lastmod>2023-12-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>http://modm.io/reference/module/modm-driver-bmp085/</loc>
          <lastmod>2023-12-28</lastmod>
          <changefreq>daily</changefreq>
@@ -1992,11 +1987,6 @@
     </url>
     <url>
          <loc>http://modm.io/reference/module/modm-platform-spi-stm32-f0-f1-f2-f3-f4-f7-g0-g4-l0-l1-l4-l5/</loc>
-         <lastmod>2023-12-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>http://modm.io/reference/module/modm-platform-spi-stm32h7/</loc>
          <lastmod>2023-12-28</lastmod>
          <changefreq>daily</changefreq>
     </url>

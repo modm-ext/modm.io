@@ -3626,20 +3626,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-driver-bmi088/" class="md-nav__link">
-        :driver:bmi088
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../modm-driver-bmp085/" class="md-nav__link">
         :driver:bmp085
       </a>
@@ -5487,13 +5473,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#main_stack_location" class="md-nav__link">
-    main_stack_location
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#vector_table_location" class="md-nav__link">
     vector_table_location
   </a>
@@ -6089,20 +6068,6 @@
     <li class="md-nav__item">
       <a href="../modm-platform-spi-samg5x/" class="md-nav__link">
         :platform:spi (samg5x)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../modm-platform-spi-stm32h7/" class="md-nav__link">
-        :platform:spi (stm32h7)
       </a>
     </li>
   
@@ -7052,13 +7017,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#main_stack_location" class="md-nav__link">
-    main_stack_location
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#vector_table_location" class="md-nav__link">
     vector_table_location
   </a>
@@ -7552,11 +7510,6 @@ devices in case the platform-specific vector table relocation option
 </code></pre></div>
 <p><em>This module is only available for stm32.</em></p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="main_stack_location">main_stack_location<a class="headerlink" href="#main_stack_location" title="Permanent link">&para;</a></h4>
-<p>SRAM (default) or DTCM (faster, but not DMA-capable)</p>
-<p><em>This option is only available for stm32h7.</em></p>
-<p>Default: <code>sram</code><br />
-Inputs: <code>[dtcm, sram]</code>  </p>
 <h4 id="vector_table_location">vector_table_location<a class="headerlink" href="#vector_table_location" title="Permanent link">&para;</a></h4>
 <p>Vector table location in ROM or RAM on F0 devices</p>
 <p>STM32 devices with a Cortex-M0 core provide a platform-specific method to place
