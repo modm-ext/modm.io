@@ -3679,6 +3679,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../reference/module/modm-driver-bmi088/" class="md-nav__link">
+        :driver:bmi088
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../reference/module/modm-driver-bmp085/" class="md-nav__link">
         :driver:bmp085
       </a>
@@ -6017,6 +6031,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../reference/module/modm-platform-spi-stm32h7/" class="md-nav__link">
+        :platform:spi (stm32h7)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../reference/module/modm-platform-spi-stm32-f0-f1-f2-f3-f4-f7-g0-g4-l0-l1-l4-l5/" class="md-nav__link">
         :platform:spi (stm32{f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5})
       </a>
@@ -7048,7 +7076,7 @@ logging functions.</p>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Board</span><span class="o">::</span><span class="n">Leds</span><span class="o">::</span><span class="n">toggle</span><span class="p">();</span>
-<span class="w">        </span><span class="n">modm</span><span class="o">::</span><span class="n">delayMilliseconds</span><span class="p">(</span><span class="n">Board</span><span class="o">::</span><span class="n">Button</span><span class="o">::</span><span class="n">read</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">250</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span>
+<span class="w">        </span><span class="n">modm</span><span class="o">::</span><span class="n">delay</span><span class="p">(</span><span class="n">Board</span><span class="o">::</span><span class="n">Button</span><span class="o">::</span><span class="n">read</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">250</span><span class="n">ms</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">500</span><span class="n">ms</span><span class="p">);</span>
 <span class="cp">#ifdef MODM_BOARD_HAS_LOGGER</span>
 <span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">counter</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 <span class="w">        </span><span class="n">MODM_LOG_INFO</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Loop counter: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">counter</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
