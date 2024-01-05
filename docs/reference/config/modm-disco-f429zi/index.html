@@ -756,6 +756,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tinyusb" class="md-nav__link">
+    TinyUSB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
@@ -6565,6 +6579,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../module/modm-tinyusb-device-dfu_rt/" class="md-nav__link">
+        :tinyusb:device:dfu_rt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module/modm-tinyusb-device-ecm_rndis/" class="md-nav__link">
+        :tinyusb:device:ecm_rndis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../module/modm-tinyusb-device-hid/" class="md-nav__link">
         :tinyusb:device:hid
       </a>
@@ -6607,8 +6649,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module/modm-tinyusb-device-net/" class="md-nav__link">
-        :tinyusb:device:net
+      <a href="../../module/modm-tinyusb-device-ncm/" class="md-nav__link">
+        :tinyusb:device:ncm
       </a>
     </li>
   
@@ -6679,6 +6721,20 @@
     <li class="md-nav__item">
       <a href="../../module/modm-tinyusb-host-cdc/" class="md-nav__link">
         :tinyusb:host:cdc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module/modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
+        :tinyusb:host:cdc_rndis
       </a>
     </li>
   
@@ -6935,6 +6991,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tinyusb" class="md-nav__link">
+    TinyUSB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
@@ -6959,6 +7029,16 @@
 <h1 id="stm32f429idiscovery">STM32F429IDISCOVERY<a class="headerlink" href="#stm32f429idiscovery" title="Permanent link">&para;</a></h1>
 <p>lbuild config: <code>modm:disco-f429zi</code></p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f429idiscovery.html">Discovery kit for STM32F429</a></p>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>To use the logging, you need to close SB11 and SB15 and upgrade the STLINK/V2-B
+firmware! See Section 6.3 "Embedded ST-LINK/V2-B" of UM1670.</p>
+<h2 id="tinyusb">TinyUSB<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
+<p>To use the USB port, you must configure TinyUSB to use the HS port in FS mode:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:max-speed&quot;</span><span class="nt">&gt;</span>full<span class="nt">&lt;/option&gt;</span>
+<span class="cm">&lt;!-- place either the device or host classes on the HS port --&gt;</span>
+<span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:device:port&quot;</span><span class="nt">&gt;</span>hs<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:host:port&quot;</span><span class="nt">&gt;</span>hs<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>

@@ -3017,6 +3017,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#peripherals" class="md-nav__link">
+    peripherals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rcc-map" class="md-nav__link">
     rcc-map
   </a>
@@ -6606,6 +6613,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-dfu_rt/" class="md-nav__link">
+        :tinyusb:device:dfu_rt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-ecm_rndis/" class="md-nav__link">
+        :tinyusb:device:ecm_rndis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-tinyusb-device-hid/" class="md-nav__link">
         :tinyusb:device:hid
       </a>
@@ -6648,8 +6683,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-device-net/" class="md-nav__link">
-        :tinyusb:device:net
+      <a href="../modm-tinyusb-device-ncm/" class="md-nav__link">
+        :tinyusb:device:ncm
       </a>
     </li>
   
@@ -6720,6 +6755,20 @@
     <li class="md-nav__item">
       <a href="../modm-tinyusb-host-cdc/" class="md-nav__link">
         :tinyusb:host:cdc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
+        :tinyusb:host:cdc_rndis
       </a>
     </li>
   
@@ -7005,6 +7054,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#peripherals" class="md-nav__link">
+    peripherals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rcc-map" class="md-nav__link">
     rcc-map
   </a>
@@ -7114,6 +7170,9 @@ a hardware FIFO buffer may pop the queue if your read the top of it.</p>
 <li>device_header: <code>stm32f469xx.h</code></li>
 </ul>
 <p>:returns: a dictionary with the above keys</p>
+<h4 id="peripherals">peripherals<a class="headerlink" href="#peripherals" title="Permanent link">&para;</a></h4>
+<p>All peripherals translated to the modm naming convention.</p>
+<p>:returns: a sorted list of all peripheral names.</p>
 <h4 id="rcc-map">rcc-map<a class="headerlink" href="#rcc-map" title="Permanent link">&para;</a></h4>
 <p>Finds all CMSIS bit fields related to enabling and resetting peripherals
 in the RCC of the format <code>RCC_(REGISTER)_(PERIPHERAL)_(TYPE)</code> where:</p>

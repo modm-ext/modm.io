@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-tinyusb-device-net/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-tinyusb-device-ecm_rndis/">
       
       
-        <link rel="prev" href="../modm-tinyusb-device-msc/">
+        <link rel="prev" href="../modm-tinyusb-device-dfu_rt/">
       
       
-        <link rel="next" href="../modm-tinyusb-device-usbtmc/">
+        <link rel="next" href="../modm-tinyusb-device-hid/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:tinyusb:device:net - modm barebone embedded library</title>
+        <title>:tinyusb:device:ecm_rndis - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#device-class-net" class="md-skip">
+        <a href="#device-class-ecm_rndis" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :tinyusb:device:net
+              :tinyusb:device:ecm_rndis
             
           </span>
         </div>
@@ -6524,6 +6524,75 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-dfu_rt/" class="md-nav__link">
+        :tinyusb:device:dfu_rt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :tinyusb:device:ecm_rndis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        :tinyusb:device:ecm_rndis
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-tinyusb-device-hid/" class="md-nav__link">
         :tinyusb:device:hid
       </a>
@@ -6564,52 +6633,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :tinyusb:device:net
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        :tinyusb:device:net
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-ncm/" class="md-nav__link">
+        :tinyusb:device:ncm
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -6679,6 +6707,20 @@
     <li class="md-nav__item">
       <a href="../modm-tinyusb-host-cdc/" class="md-nav__link">
         :tinyusb:host:cdc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
+        :tinyusb:host:cdc_rndis
       </a>
     </li>
   
@@ -6956,35 +6998,35 @@
                   
 
 
-<h1 id="device-class-net">Device class NET<a class="headerlink" href="#device-class-net" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:tinyusb:device:net</code></p>
+<h1 id="device-class-ecm_rndis">Device class ECM_RNDIS<a class="headerlink" href="#device-class-ecm_rndis" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:tinyusb:device:ecm_rndis</code></p>
 <p>Please consult the TinyUSB docs for configuration options.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="82pt" height="150pt"
- viewBox="0.00 0.00 82.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="97pt" height="150pt"
+ viewBox="0.00 0.00 97.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:tinyusb:device:net</title>
+<title>modm:tinyusb:device:ecm_rndis</title>
 <g id="node1" class="node">
-<title>modm_tinyusb_device_net</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="74,-68 0,-68 0,0 74,0 74,-68"/>
-<text text-anchor="middle" x="37" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="37" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
-<text text-anchor="middle" x="37" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
-<text text-anchor="middle" x="37" y="-7.8" font-family="Times,serif" font-size="14.00">net</text>
+<title>modm_tinyusb_device_ecm_rndis</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="89,-68 0,-68 0,0 89,0 89,-68"/>
+<text text-anchor="middle" x="44.5" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="44.5" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
+<text text-anchor="middle" x="44.5" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
+<text text-anchor="middle" x="44.5" y="-7.8" font-family="Times,serif" font-size="14.00">ecm_rndis</text>
 </g>
 <g id="node2" class="node">
 <title>modm_tinyusb</title>
-<polygon fill="lightgrey" stroke="black" points="72,-142 2,-142 2,-104 72,-104 72,-142"/>
-<text text-anchor="middle" x="37" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="37" y="-111.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
+<polygon fill="lightgrey" stroke="black" points="79.5,-142 9.5,-142 9.5,-104 79.5,-104 79.5,-142"/>
+<text text-anchor="middle" x="44.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="44.5" y="-111.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_tinyusb_device_net&#45;&gt;modm_tinyusb</title>
-<path fill="none" stroke="black" d="M37,-68.39C37,-76.78 37,-85.71 37,-93.83"/>
-<polygon fill="black" stroke="black" points="33.5,-93.91 37,-103.91 40.5,-93.91 33.5,-93.91"/>
+<title>modm_tinyusb_device_ecm_rndis&#45;&gt;modm_tinyusb</title>
+<path fill="none" stroke="black" d="M44.5,-68.39C44.5,-76.78 44.5,-85.71 44.5,-93.83"/>
+<polygon fill="black" stroke="black" points="41,-93.91 44.5,-103.91 48,-93.91 41,-93.91"/>
 </g>
 </g>
 </svg></p>

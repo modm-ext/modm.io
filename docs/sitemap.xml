@@ -2176,6 +2176,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-tinyusb-device-dfu_rt/</loc>
+         <lastmod>2024-01-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-tinyusb-device-ecm_rndis/</loc>
+         <lastmod>2024-01-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-tinyusb-device-hid/</loc>
          <lastmod>2024-01-05</lastmod>
          <changefreq>daily</changefreq>
@@ -2191,7 +2201,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-tinyusb-device-net/</loc>
+         <loc>https://modm.io/reference/module/modm-tinyusb-device-ncm/</loc>
          <lastmod>2024-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2217,6 +2227,11 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-tinyusb-host-cdc/</loc>
+         <lastmod>2024-01-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-tinyusb-host-cdc_rndis/</loc>
          <lastmod>2024-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>

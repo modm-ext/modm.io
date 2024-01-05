@@ -6524,6 +6524,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-dfu_rt/" class="md-nav__link">
+        :tinyusb:device:dfu_rt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-ecm_rndis/" class="md-nav__link">
+        :tinyusb:device:ecm_rndis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-tinyusb-device-hid/" class="md-nav__link">
         :tinyusb:device:hid
       </a>
@@ -6566,8 +6594,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-device-net/" class="md-nav__link">
-        :tinyusb:device:net
+      <a href="../modm-tinyusb-device-ncm/" class="md-nav__link">
+        :tinyusb:device:ncm
       </a>
     </li>
   
@@ -6631,9 +6659,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :tinyusb:host
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         :tinyusb:host
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6648,6 +6727,20 @@
     <li class="md-nav__item">
       <a href="../modm-tinyusb-host-cdc/" class="md-nav__link">
         :tinyusb:host:cdc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
+        :tinyusb:host:cdc_rndis
       </a>
     </li>
   
@@ -6897,6 +6990,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6919,6 +7047,58 @@
 <li><code>CFG_TUH_ENUMERATION_BUFSZIE</code> [sic] = 256</li>
 </ul>
 <p><em>This module is only available for samg5x, stm32{f1,f2,f4,f7,h7,l4,u5}.</em></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="port">port<a class="headerlink" href="#port" title="Permanent link">&para;</a></h4>
+<p>USB Port selection</p>
+<p><em>This option is only available for stm32{f2,f4,f7,h7}.</em></p>
+<p>Default: <code>hs</code><br />
+Inputs: <code>[fs, hs]</code><br />
+Input Dependency: <code>fs -&gt; modm:platform:usb:fs</code><br />
+Input Dependency: <code>hs -&gt; modm:platform:usb:hs</code>  </p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<p><svg class="deps" width="192pt" height="165pt"
+ viewBox="0.00 0.00 192.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
+<title>modm:tinyusb:host</title>
+<g id="node1" class="node">
+<title>modm_tinyusb_host</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="128.5,-53 54.5,-53 54.5,0 128.5,0 128.5,-53"/>
+<text text-anchor="middle" x="91.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="91.5" y="-22.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
+<text text-anchor="middle" x="91.5" y="-7.8" font-family="Times,serif" font-size="14.00">host</text>
+</g>
+<g id="node2" class="node">
+<title>modm_platform_usb_fs</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="83,-157 0,-157 0,-89 83,-89 83,-157"/>
+<text text-anchor="middle" x="41.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="41.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="41.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb:</text>
+<text text-anchor="middle" x="41.5" y="-96.8" font-family="Times,serif" font-size="14.00">fs</text>
+</g>
+<g id="edge1" class="edge">
+<title>modm_tinyusb_host&#45;&gt;modm_platform_usb_fs</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M77.84,-53.32C73.5,-61.52 68.59,-70.81 63.8,-79.85"/>
+<polygon fill="black" stroke="black" points="60.68,-78.27 59.09,-88.75 66.86,-81.55 60.68,-78.27"/>
+</g>
+<g id="node3" class="node">
+<title>modm_platform_usb_hs</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="184,-157 101,-157 101,-89 184,-89 184,-157"/>
+<text text-anchor="middle" x="142.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="142.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="142.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb:</text>
+<text text-anchor="middle" x="142.5" y="-96.8" font-family="Times,serif" font-size="14.00">hs</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_tinyusb_host&#45;&gt;modm_platform_usb_hs</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M105.44,-53.32C109.86,-61.52 114.87,-70.81 119.75,-79.85"/>
+<polygon fill="black" stroke="black" points="116.73,-81.61 124.56,-88.75 122.89,-78.29 116.73,-81.61"/>
+</g>
+</g>
+</svg></p>
+<style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
 <div class="admonition warning">
 <p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
 </div>

@@ -2526,6 +2526,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tinyusb" class="md-nav__link">
+    TinyUSB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6565,6 +6572,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-dfu_rt/" class="md-nav__link">
+        :tinyusb:device:dfu_rt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-ecm_rndis/" class="md-nav__link">
+        :tinyusb:device:ecm_rndis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-tinyusb-device-hid/" class="md-nav__link">
         :tinyusb:device:hid
       </a>
@@ -6607,8 +6642,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-device-net/" class="md-nav__link">
-        :tinyusb:device:net
+      <a href="../modm-tinyusb-device-ncm/" class="md-nav__link">
+        :tinyusb:device:ncm
       </a>
     </li>
   
@@ -6679,6 +6714,20 @@
     <li class="md-nav__item">
       <a href="../modm-tinyusb-host-cdc/" class="md-nav__link">
         :tinyusb:host:cdc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
+        :tinyusb:host:cdc_rndis
       </a>
     </li>
   
@@ -6935,6 +6984,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tinyusb" class="md-nav__link">
+    TinyUSB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6959,21 +7015,25 @@
 <h1 id="nucleo-h723zg">NUCLEO-H723ZG<a class="headerlink" href="#nucleo-h723zg" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:board:nucleo-h723zg</code></p>
 <p><a href="https://www.st.com/en/evaluation-tools/nucleo-h723zg.html">Nucleo kit for STM32H723ZG</a></p>
+<h2 id="tinyusb">TinyUSB<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
+<p>To use the USB port, you must configure TinyUSB to use the HS port in FS mode:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:max-speed&quot;</span><span class="nt">&gt;</span>full<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
 <p><em>This module is only available for stm32h723zgt6.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="604pt" height="165pt"
- viewBox="0.00 0.00 604.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="705pt" height="165pt"
+ viewBox="0.00 0.00 705.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
 <title>modm:board:nucleo&#45;h723zg</title>
 <g id="node1" class="node">
 <title>modm_board_nucleo_h723zg</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="361.5,-53 241.5,-53 241.5,0 361.5,0 361.5,-53"/>
-<text text-anchor="middle" x="301.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="301.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
-<text text-anchor="middle" x="301.5" y="-7.8" font-family="Times,serif" font-size="14.00">nucleo&#45;h723zg</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="412.5,-53 292.5,-53 292.5,0 412.5,0 412.5,-53"/>
+<text text-anchor="middle" x="352.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="352.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
+<text text-anchor="middle" x="352.5" y="-7.8" font-family="Times,serif" font-size="14.00">nucleo&#45;h723zg</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_clock</title>
@@ -6984,8 +7044,8 @@
 </g>
 <g id="edge1" class="edge">
 <title>modm_board_nucleo_h723zg&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M241.35,-44.93C204.97,-56.14 157.94,-71.78 117.5,-89 115.16,-89.99 112.8,-91.04 110.42,-92.13"/>
-<polygon fill="black" stroke="black" points="108.78,-89.03 101.23,-96.47 111.77,-95.36 108.78,-89.03"/>
+<path fill="none" stroke="black" d="M292.41,-39.29C244.22,-49.67 175.32,-66.63 117.5,-89 114.86,-90.02 112.18,-91.13 109.49,-92.29"/>
+<polygon fill="black" stroke="black" points="108.04,-89.11 100.39,-96.45 110.94,-95.48 108.04,-89.11"/>
 </g>
 <g id="node3" class="node">
 <title>modm_debug</title>
@@ -6995,8 +7055,8 @@
 </g>
 <g id="edge2" class="edge">
 <title>modm_board_nucleo_h723zg&#45;&gt;modm_debug</title>
-<path fill="none" stroke="black" d="M256.7,-53.07C238.88,-63.68 218.39,-76.43 200.5,-89 196.59,-91.74 192.57,-94.74 188.65,-97.78"/>
-<polygon fill="black" stroke="black" points="186.47,-95.04 180.8,-103.99 190.81,-100.53 186.47,-95.04"/>
+<path fill="none" stroke="black" d="M292.49,-47.15C263.73,-57.71 229.34,-72.06 200.5,-89 196.08,-91.59 191.63,-94.64 187.38,-97.8"/>
+<polygon fill="black" stroke="black" points="185.22,-95.05 179.5,-103.96 189.53,-100.56 185.22,-95.05"/>
 </g>
 <g id="node4" class="node">
 <title>modm_platform_clock</title>
@@ -7007,8 +7067,8 @@
 </g>
 <g id="edge3" class="edge">
 <title>modm_board_nucleo_h723zg&#45;&gt;modm_platform_clock</title>
-<path fill="none" stroke="black" d="M287.84,-53.32C282.33,-63.74 275.88,-75.92 269.96,-87.11"/>
-<polygon fill="black" stroke="black" points="266.73,-85.73 265.15,-96.21 272.92,-89.01 266.73,-85.73"/>
+<path fill="none" stroke="black" d="M325.17,-53.07C313.15,-64.31 298.91,-77.64 286.16,-89.57"/>
+<polygon fill="black" stroke="black" points="283.76,-87.02 278.85,-96.41 288.55,-92.13 283.76,-87.02"/>
 </g>
 <g id="node5" class="node">
 <title>modm_platform_core</title>
@@ -7019,8 +7079,8 @@
 </g>
 <g id="edge4" class="edge">
 <title>modm_board_nucleo_h723zg&#45;&gt;modm_platform_core</title>
-<path fill="none" stroke="black" d="M315.44,-53.32C321.06,-63.74 327.63,-75.92 333.67,-87.11"/>
-<polygon fill="black" stroke="black" points="330.75,-89.07 338.58,-96.21 336.91,-85.75 330.75,-89.07"/>
+<path fill="none" stroke="black" d="M352.5,-53.32C352.5,-63.43 352.5,-75.19 352.5,-86.1"/>
+<polygon fill="black" stroke="black" points="349,-86.21 352.5,-96.21 356,-86.21 349,-86.21"/>
 </g>
 <g id="node6" class="node">
 <title>modm_platform_gpio</title>
@@ -7031,8 +7091,8 @@
 </g>
 <g id="edge5" class="edge">
 <title>modm_board_nucleo_h723zg&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M344.92,-53.15C363.12,-64.04 384.44,-76.97 403.5,-89 404.45,-89.6 405.4,-90.2 406.36,-90.81"/>
-<polygon fill="black" stroke="black" points="404.81,-93.98 415.11,-96.44 408.59,-88.09 404.81,-93.98"/>
+<path fill="none" stroke="black" d="M379.83,-53.07C391.85,-64.31 406.09,-77.64 418.84,-89.57"/>
+<polygon fill="black" stroke="black" points="416.45,-92.13 426.15,-96.41 421.24,-87.02 416.45,-92.13"/>
 </g>
 <g id="node7" class="node">
 <title>modm_platform_uart_3</title>
@@ -7044,8 +7104,21 @@
 </g>
 <g id="edge6" class="edge">
 <title>modm_board_nucleo_h723zg&#45;&gt;modm_platform_uart_3</title>
-<path fill="none" stroke="black" d="M361.81,-40.89C400.76,-50.64 452.27,-65.6 503.5,-88.91"/>
-<polygon fill="black" stroke="black" points="502.18,-92.15 512.72,-93.2 505.13,-85.81 502.18,-92.15"/>
+<path fill="none" stroke="black" d="M412.56,-48.64C438.69,-58.56 469.58,-71.28 503.65,-88.83"/>
+<polygon fill="black" stroke="black" points="502.37,-92.11 512.86,-93.65 505.62,-85.91 502.37,-92.11"/>
+</g>
+<g id="node8" class="node">
+<title>modm_platform_usb_hs</title>
+<polygon fill="lightgrey" stroke="black" points="697,-157 614,-157 614,-89 697,-89 697,-157"/>
+<text text-anchor="middle" x="655.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="655.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="655.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb:</text>
+<text text-anchor="middle" x="655.5" y="-96.8" font-family="Times,serif" font-size="14.00">hs</text>
+</g>
+<g id="edge7" class="edge">
+<title>modm_board_nucleo_h723zg&#45;&gt;modm_platform_usb_hs</title>
+<path fill="none" stroke="black" d="M412.65,-36.11C462.87,-44.64 535.91,-60.15 604.58,-89.04"/>
+<polygon fill="black" stroke="black" points="603.23,-92.27 613.8,-93.02 606,-85.84 603.23,-92.27"/>
 </g>
 </g>
 </svg></p>

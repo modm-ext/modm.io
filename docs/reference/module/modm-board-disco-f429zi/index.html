@@ -2106,6 +2106,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tinyusb" class="md-nav__link">
+    TinyUSB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6565,6 +6579,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-dfu_rt/" class="md-nav__link">
+        :tinyusb:device:dfu_rt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-ecm_rndis/" class="md-nav__link">
+        :tinyusb:device:ecm_rndis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-tinyusb-device-hid/" class="md-nav__link">
         :tinyusb:device:hid
       </a>
@@ -6607,8 +6649,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-device-net/" class="md-nav__link">
-        :tinyusb:device:net
+      <a href="../modm-tinyusb-device-ncm/" class="md-nav__link">
+        :tinyusb:device:ncm
       </a>
     </li>
   
@@ -6679,6 +6721,20 @@
     <li class="md-nav__item">
       <a href="../modm-tinyusb-host-cdc/" class="md-nav__link">
         :tinyusb:host:cdc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
+        :tinyusb:host:cdc_rndis
       </a>
     </li>
   
@@ -6935,6 +6991,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tinyusb" class="md-nav__link">
+    TinyUSB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6959,21 +7029,31 @@
 <h1 id="stm32f429idiscovery">STM32F429IDISCOVERY<a class="headerlink" href="#stm32f429idiscovery" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:board:disco-f429zi</code></p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f429idiscovery.html">Discovery kit for STM32F429</a></p>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>To use the logging, you need to close SB11 and SB15 and upgrade the STLINK/V2-B
+firmware! See Section 6.3 "Embedded ST-LINK/V2-B" of UM1670.</p>
+<h2 id="tinyusb">TinyUSB<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
+<p>To use the USB port, you must configure TinyUSB to use the HS port in FS mode:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:max-speed&quot;</span><span class="nt">&gt;</span>full<span class="nt">&lt;/option&gt;</span>
+<span class="cm">&lt;!-- place either the device or host classes on the HS port --&gt;</span>
+<span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:device:port&quot;</span><span class="nt">&gt;</span>hs<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:host:port&quot;</span><span class="nt">&gt;</span>hs<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
 <p><em>This module is only available for stm32f429zit6.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="606pt" height="165pt"
- viewBox="0.00 0.00 606.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="891pt" height="165pt"
+ viewBox="0.00 0.00 891.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
 <title>modm:board:disco&#45;f429zi</title>
 <g id="node1" class="node">
 <title>modm_board_disco_f429zi</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="354.5,-53 252.5,-53 252.5,0 354.5,0 354.5,-53"/>
-<text text-anchor="middle" x="303.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="303.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
-<text text-anchor="middle" x="303.5" y="-7.8" font-family="Times,serif" font-size="14.00">disco&#45;f429zi</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="488.5,-53 386.5,-53 386.5,0 488.5,0 488.5,-53"/>
+<text text-anchor="middle" x="437.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="437.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
+<text text-anchor="middle" x="437.5" y="-7.8" font-family="Times,serif" font-size="14.00">disco&#45;f429zi</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_clock</title>
@@ -6984,69 +7064,106 @@
 </g>
 <g id="edge1" class="edge">
 <title>modm_board_disco_f429zi&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M252.47,-42.13C214.87,-53.47 162.8,-70.35 118.5,-89 116.05,-90.03 113.56,-91.12 111.06,-92.25"/>
-<polygon fill="black" stroke="black" points="109.57,-89.08 101.99,-96.49 112.53,-95.43 109.57,-89.08"/>
+<path fill="none" stroke="black" d="M386.42,-32.65C322.23,-40.17 209.36,-56.9 117.5,-89 114.62,-90.01 111.71,-91.13 108.8,-92.33"/>
+<polygon fill="black" stroke="black" points="107.3,-89.17 99.56,-96.4 110.12,-95.57 107.3,-89.17"/>
 </g>
 <g id="node3" class="node">
-<title>modm_driver_l3gd20</title>
-<polygon fill="lightgrey" stroke="black" points="193.5,-149.5 127.5,-149.5 127.5,-96.5 193.5,-96.5 193.5,-149.5"/>
-<text text-anchor="middle" x="160.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="160.5" y="-119.3" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="160.5" y="-104.3" font-family="Times,serif" font-size="14.00">l3gd20</text>
+<title>modm_debug</title>
+<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-104 192,-104 192,-142"/>
+<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">debug</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_board_disco_f429zi&#45;&gt;modm_driver_l3gd20</title>
-<path fill="none" stroke="black" d="M259.03,-53.03C241.16,-63.68 220.55,-76.48 202.5,-89 201.87,-89.44 201.24,-89.88 200.61,-90.33"/>
-<polygon fill="black" stroke="black" points="198.33,-87.66 192.31,-96.37 202.45,-93.31 198.33,-87.66"/>
+<title>modm_board_disco_f429zi&#45;&gt;modm_debug</title>
+<path fill="none" stroke="black" d="M386.1,-34.65C336.8,-42.92 261.24,-59.37 201.5,-89 196.74,-91.36 192.01,-94.32 187.53,-97.48"/>
+<polygon fill="black" stroke="black" points="185.14,-94.9 179.29,-103.73 189.37,-100.48 185.14,-94.9"/>
 </g>
 <g id="node4" class="node">
-<title>modm_platform_clock</title>
-<polygon fill="lightgrey" stroke="black" points="295,-149.5 212,-149.5 212,-96.5 295,-96.5 295,-149.5"/>
-<text text-anchor="middle" x="253.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="253.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="253.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
+<title>modm_driver_l3gd20</title>
+<polygon fill="lightgrey" stroke="black" points="276.5,-149.5 210.5,-149.5 210.5,-96.5 276.5,-96.5 276.5,-149.5"/>
+<text text-anchor="middle" x="243.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="243.5" y="-119.3" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="243.5" y="-104.3" font-family="Times,serif" font-size="14.00">l3gd20</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_board_disco_f429zi&#45;&gt;modm_platform_clock</title>
-<path fill="none" stroke="black" d="M289.84,-53.32C284.33,-63.74 277.88,-75.92 271.96,-87.11"/>
-<polygon fill="black" stroke="black" points="268.73,-85.73 267.15,-96.21 274.92,-89.01 268.73,-85.73"/>
+<title>modm_board_disco_f429zi&#45;&gt;modm_driver_l3gd20</title>
+<path fill="none" stroke="black" d="M386.2,-44.17C355.92,-55 317.4,-70.52 285.5,-89 284.54,-89.56 283.57,-90.14 282.61,-90.73"/>
+<polygon fill="black" stroke="black" points="280.38,-88.01 274,-96.47 284.26,-93.84 280.38,-88.01"/>
 </g>
 <g id="node5" class="node">
-<title>modm_platform_core</title>
-<polygon fill="lightgrey" stroke="black" points="396,-149.5 313,-149.5 313,-96.5 396,-96.5 396,-149.5"/>
-<text text-anchor="middle" x="354.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="354.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="354.5" y="-104.3" font-family="Times,serif" font-size="14.00">core</text>
+<title>modm_platform_clock</title>
+<polygon fill="lightgrey" stroke="black" points="378,-149.5 295,-149.5 295,-96.5 378,-96.5 378,-149.5"/>
+<text text-anchor="middle" x="336.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="336.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="336.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
 </g>
 <g id="edge4" class="edge">
-<title>modm_board_disco_f429zi&#45;&gt;modm_platform_core</title>
-<path fill="none" stroke="black" d="M317.44,-53.32C323.06,-63.74 329.63,-75.92 335.67,-87.11"/>
-<polygon fill="black" stroke="black" points="332.75,-89.07 340.58,-96.21 338.91,-85.75 332.75,-89.07"/>
+<title>modm_board_disco_f429zi&#45;&gt;modm_platform_clock</title>
+<path fill="none" stroke="black" d="M410.17,-53.07C398.15,-64.31 383.91,-77.64 371.16,-89.57"/>
+<polygon fill="black" stroke="black" points="368.76,-87.02 363.85,-96.41 373.55,-92.13 368.76,-87.02"/>
 </g>
 <g id="node6" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="497,-149.5 414,-149.5 414,-96.5 497,-96.5 497,-149.5"/>
-<text text-anchor="middle" x="455.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="455.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="455.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_platform_core</title>
+<polygon fill="lightgrey" stroke="black" points="479,-149.5 396,-149.5 396,-96.5 479,-96.5 479,-149.5"/>
+<text text-anchor="middle" x="437.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="437.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="437.5" y="-104.3" font-family="Times,serif" font-size="14.00">core</text>
 </g>
 <g id="edge5" class="edge">
-<title>modm_board_disco_f429zi&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M346.92,-53.15C365.12,-64.04 386.44,-76.97 405.5,-89 406.45,-89.6 407.4,-90.2 408.36,-90.81"/>
-<polygon fill="black" stroke="black" points="406.81,-93.98 417.11,-96.44 410.59,-88.09 406.81,-93.98"/>
+<title>modm_board_disco_f429zi&#45;&gt;modm_platform_core</title>
+<path fill="none" stroke="black" d="M437.5,-53.32C437.5,-63.43 437.5,-75.19 437.5,-86.1"/>
+<polygon fill="black" stroke="black" points="434,-86.21 437.5,-96.21 441,-86.21 434,-86.21"/>
 </g>
 <g id="node7" class="node">
-<title>modm_platform_spi_5</title>
-<polygon fill="lightgrey" stroke="black" points="598,-157 515,-157 515,-89 598,-89 598,-157"/>
-<text text-anchor="middle" x="556.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="556.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="556.5" y="-111.8" font-family="Times,serif" font-size="14.00">spi:</text>
-<text text-anchor="middle" x="556.5" y="-96.8" font-family="Times,serif" font-size="14.00">5</text>
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="580,-149.5 497,-149.5 497,-96.5 580,-96.5 580,-149.5"/>
+<text text-anchor="middle" x="538.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="538.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="538.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge6" class="edge">
+<title>modm_board_disco_f429zi&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M464.83,-53.07C476.85,-64.31 491.09,-77.64 503.84,-89.57"/>
+<polygon fill="black" stroke="black" points="501.45,-92.13 511.15,-96.41 506.24,-87.02 501.45,-92.13"/>
+</g>
+<g id="node8" class="node">
+<title>modm_platform_spi_5</title>
+<polygon fill="lightgrey" stroke="black" points="681,-157 598,-157 598,-89 681,-89 681,-157"/>
+<text text-anchor="middle" x="639.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="639.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="639.5" y="-111.8" font-family="Times,serif" font-size="14.00">spi:</text>
+<text text-anchor="middle" x="639.5" y="-96.8" font-family="Times,serif" font-size="14.00">5</text>
+</g>
+<g id="edge7" class="edge">
 <title>modm_board_disco_f429zi&#45;&gt;modm_platform_spi_5</title>
-<path fill="none" stroke="black" d="M354.64,-38.64C394.4,-48.26 450.68,-64 505.57,-88.94"/>
-<polygon fill="black" stroke="black" points="504.18,-92.16 514.72,-93.2 507.13,-85.81 504.18,-92.16"/>
+<path fill="none" stroke="black" d="M488.61,-45.28C516.42,-55.6 551.35,-69.64 588.8,-88.91"/>
+<polygon fill="black" stroke="black" points="587.37,-92.11 597.86,-93.65 590.62,-85.91 587.37,-92.11"/>
+</g>
+<g id="node9" class="node">
+<title>modm_platform_uart_1</title>
+<polygon fill="lightgrey" stroke="black" points="782,-157 699,-157 699,-89 782,-89 782,-157"/>
+<text text-anchor="middle" x="740.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="740.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="740.5" y="-111.8" font-family="Times,serif" font-size="14.00">uart:</text>
+<text text-anchor="middle" x="740.5" y="-96.8" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<g id="edge8" class="edge">
+<title>modm_board_disco_f429zi&#45;&gt;modm_platform_uart_1</title>
+<path fill="none" stroke="black" d="M488.6,-34.61C538.77,-42.75 617.04,-58.56 689.53,-89.03"/>
+<polygon fill="black" stroke="black" points="688.23,-92.28 698.8,-93.02 691,-85.85 688.23,-92.28"/>
+</g>
+<g id="node10" class="node">
+<title>modm_platform_usb_hs</title>
+<polygon fill="lightgrey" stroke="black" points="883,-157 800,-157 800,-89 883,-89 883,-157"/>
+<text text-anchor="middle" x="841.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="841.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="841.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb:</text>
+<text text-anchor="middle" x="841.5" y="-96.8" font-family="Times,serif" font-size="14.00">hs</text>
+</g>
+<g id="edge9" class="edge">
+<title>modm_board_disco_f429zi&#45;&gt;modm_platform_usb_hs</title>
+<path fill="none" stroke="black" d="M488.51,-29.82C556.94,-34.34 681.56,-47.51 790.42,-89.09"/>
+<polygon fill="black" stroke="black" points="789.3,-92.41 799.89,-92.8 791.86,-85.89 789.3,-92.41"/>
 </g>
 </g>
 </svg></p>
