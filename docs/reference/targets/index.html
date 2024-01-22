@@ -3049,20 +3049,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../config/modm-raspberrypi/" class="md-nav__link">
-        :raspberrypi
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../config/modm-rp-pico/" class="md-nav__link">
         :rp-pico
       </a>
@@ -4387,20 +4373,6 @@
     <li class="md-nav__item">
       <a href="../module/modm-board-olimexino-stm32/" class="md-nav__link">
         :board:olimexino-stm32
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module/modm-board-raspberrypi/" class="md-nav__link">
-        :board:raspberrypi
       </a>
     </li>
   
@@ -7381,22 +7353,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../module/modm-platform-gpio-hosted-rpi/" class="md-nav__link">
-        :platform:gpio (hosted-rpi)
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../module/modm-platform-gpio-hosted-darwin-linux-windows/" class="md-nav__link">
-        :platform:gpio (hosted{darwin,linux,windows})
+      <a href="../module/modm-platform-gpio-hosted/" class="md-nav__link">
+        :platform:gpio (hosted)
       </a>
     </li>
   
@@ -7829,8 +7787,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../module/modm-platform-uart-hosted-darwin-linux-rpi/" class="md-nav__link">
-        :platform:uart (hosted{darwin,linux,rpi})
+      <a href="../module/modm-platform-uart-hosted-darwin-linux/" class="md-nav__link">
+        :platform:uart (hosted{darwin,linux})
       </a>
     </li>
   
@@ -10397,7 +10355,7 @@
 
 
 <h1 id="supported-targets">Supported Targets<a class="headerlink" href="#supported-targets" title="Permanent link">&para;</a></h1>
-<p>modm supports a total of 3738 targets by setting the <code>modm:target</code>
+<p>modm supports a total of 3739 targets by setting the <code>modm:target</code>
 repository option with the device identifier string.</p>
 <p>This is the long string written on your microcontroller that uniquely identifies
 the target device for which to generate the modm HAL.</p>
@@ -10411,7 +10369,7 @@ our unit tests locally or in the CI.</p>
 <div class="highlight"><pre><span></span><code>  hosted    linux
 {platform}-{family}
 </code></pre></div>
-<p><code>hosted-darwin</code>, <code>hosted-linux</code>, <code>hosted-rpi</code>, <code>hosted-windows</code>.</p>
+<p><code>hosted-darwin</code>, <code>hosted-darwin-arm64</code>, <code>hosted-linux</code>, <code>hosted-linux-arm64</code>, <code>hosted-windows</code>.</p>
 <h2 id="microchip-avr">Microchip AVR<a class="headerlink" href="#microchip-avr" title="Permanent link">&para;</a></h2>
 <p>Identifier format example for <code>ATmega328P-AU</code>:
 <div class="highlight"><pre><span></span><code>    avr     mega   328    p              au
