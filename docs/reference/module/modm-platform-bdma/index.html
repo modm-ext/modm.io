@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-platform-cortex-m/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-platform-bdma/">
       
       
-        <link rel="prev" href="../modm-platform-core-stm32/">
+        <link rel="prev" href="../modm-platform-adc-stm32-f3-g4-h7-l4-l5/">
       
       
-        <link rel="next" href="../modm-platform-dac-same7x-s7x-v7x/">
+        <link rel="next" href="../modm-platform-can-same7x-s7x-v7x/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:platform:cortex-m - modm barebone embedded library</title>
+        <title>:platform:bdma - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arm-cortex-m-core" class="md-skip">
+        <a href="#basic-direct-memory-access-controller-bdma" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:cortex-m
+              :platform:bdma
             
           </span>
         </div>
@@ -5192,11 +5192,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-bdma/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :platform:bdma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :platform:bdma
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5416,257 +5457,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:cortex-m
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-platform-cortex-m/" class="md-nav__link">
         :platform:cortex-m
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#startup" class="md-nav__link">
-    Startup
-  </a>
-  
-    <nav class="md-nav" aria-label="Startup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#device-initialization" class="md-nav__link">
-    Device Initialization
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-initialization" class="md-nav__link">
-    Additional Initialization
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interrupt-vector-table" class="md-nav__link">
-    Interrupt Vector Table
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkerscript" class="md-nav__link">
-    Linkerscript
-  </a>
-  
-    <nav class="md-nav" aria-label="Linkerscript">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#section-fastdata" class="md-nav__link">
-    Section .fastdata
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#section-fastcode" class="md-nav__link">
-    Section .fastcode
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-sections" class="md-nav__link">
-    Adding Sections
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blocking-delay" class="md-nav__link">
-    Blocking Delay
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compiler-options" class="md-nav__link">
-    Compiler Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#float-abi" class="md-nav__link">
-    float-abi
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptflash_offset" class="md-nav__link">
-    linkerscript.flash_offset
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptoverride" class="md-nav__link">
-    linkerscript.override
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#main_stack_size" class="md-nav__link">
-    main_stack_size
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vector_table_location" class="md-nav__link">
-    vector_table_location
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#collectors" class="md-nav__link">
-    Collectors
-  </a>
-  
-    <nav class="md-nav" aria-label="Collectors">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptmemory" class="md-nav__link">
-    linkerscript.memory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptsections" class="md-nav__link">
-    linkerscript.sections
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscripttable_externcopy" class="md-nav__link">
-    linkerscript.table_extern.copy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscripttable_externheap" class="md-nav__link">
-    linkerscript.table_extern.heap
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscripttable_externzero" class="md-nav__link">
-    linkerscript.table_extern.zero
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#queries" class="md-nav__link">
-    Queries
-  </a>
-  
-    <nav class="md-nav" aria-label="Queries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linkerscript_1" class="md-nav__link">
-    linkerscript
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vector_table" class="md-nav__link">
-    vector_table
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -7154,211 +6949,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#startup" class="md-nav__link">
-    Startup
-  </a>
-  
-    <nav class="md-nav" aria-label="Startup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#device-initialization" class="md-nav__link">
-    Device Initialization
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#additional-initialization" class="md-nav__link">
-    Additional Initialization
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interrupt-vector-table" class="md-nav__link">
-    Interrupt Vector Table
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkerscript" class="md-nav__link">
-    Linkerscript
-  </a>
-  
-    <nav class="md-nav" aria-label="Linkerscript">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#section-fastdata" class="md-nav__link">
-    Section .fastdata
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#section-fastcode" class="md-nav__link">
-    Section .fastcode
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-sections" class="md-nav__link">
-    Adding Sections
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blocking-delay" class="md-nav__link">
-    Blocking Delay
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compiler-options" class="md-nav__link">
-    Compiler Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#float-abi" class="md-nav__link">
-    float-abi
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptflash_offset" class="md-nav__link">
-    linkerscript.flash_offset
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptoverride" class="md-nav__link">
-    linkerscript.override
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#main_stack_size" class="md-nav__link">
-    main_stack_size
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vector_table_location" class="md-nav__link">
-    vector_table_location
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#collectors" class="md-nav__link">
-    Collectors
-  </a>
-  
-    <nav class="md-nav" aria-label="Collectors">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptmemory" class="md-nav__link">
-    linkerscript.memory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscriptsections" class="md-nav__link">
-    linkerscript.sections
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscripttable_externcopy" class="md-nav__link">
-    linkerscript.table_extern.copy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscripttable_externheap" class="md-nav__link">
-    linkerscript.table_extern.heap
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linkerscripttable_externzero" class="md-nav__link">
-    linkerscript.table_extern.zero
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#queries" class="md-nav__link">
-    Queries
-  </a>
-  
-    <nav class="md-nav" aria-label="Queries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linkerscript_1" class="md-nav__link">
-    linkerscript
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vector_table" class="md-nav__link">
-    vector_table
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -7380,502 +6970,47 @@
                   
 
 
-<h1 id="arm-cortex-m-core">ARM Cortex-M Core<a class="headerlink" href="#arm-cortex-m-core" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:cortex-m</code></p>
-<p>This module generates the startup code, vector table, linkerscript as well as
-initialize the heap, deal with assertions, provide blocking delay functions,
-atomic and unaligned access and the GNU build ID.</p>
-<p>Since this is only initializes the generic ARM Cortex-M parts, it delegates
-device-specific initialization to the <code>modm:platform:core</code> module. Please depend
-on that module directly instead of this one.</p>
-<h2 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h2>
-<p>After reset, the ARM Cortex-M hardware jumps to the <code>Reset_Handler()</code>, which is
-implemented as follows:</p>
-<ol>
-<li>The main stack pointer (MSP) is initialized by software.</li>
-<li>Call <code>__modm_initialize_platform()</code> to initialize the device hardware.</li>
-<li>Call <code>modm_initialize_platform()</code> to initialize the custom device hardware.</li>
-<li>Copy data to internal RAM.</li>
-<li>Zero sections in internal RAM.</li>
-<li>Initialize ARM Cortex-M core: enable FPU and relocate vector table.</li>
-<li>Execute shared hardware initialization functions.</li>
-<li>Copy data to <em>external</em> RAM.</li>
-<li>Zero sections in <em>external</em> RAM.</li>
-<li>Initialize heap via <code>__modm_initialize_memory()</code> (implemented by the
-    <code>modm:platform:heap</code> module).</li>
-<li>Call static constructors.</li>
-<li>Call <code>main()</code> application entry point.</li>
-<li>If <code>main()</code> returns, assert on <code>main.exit</code> (only in debug profile).</li>
-<li>Reboot if assertion returns.</li>
-</ol>
-<h3 id="device-initialization">Device Initialization<a class="headerlink" href="#device-initialization" title="Permanent link">&para;</a></h3>
-<p>The <code>__modm_initialize_platform()</code> function is called <em>directly</em> after reset,
-and its purpose is to initialize the device specific hardware, such as enable
-internal memories or disable the hardware watchdog timer. You can provide
-additional application-specific initialization by overwriting the weakly linked
-<code>modm_initialize_platform()</code> function:</p>
-<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">modm_initialize_platform</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// Configure power settings before accessing SRAM</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>It's important to understand that because the <code>.data</code> section has not yet been
-copied and the <code>.bss</code> section has not yet been zeroed, <strong>there exists no valid C
-environment yet in this function context</strong>! This means you cannot use any global
-variables, not even "local" static  ones defined in your function, and depending
-on your hardware you may not even access read-only data (<code>const</code> variables,
-global OR local). In addition, if your linkerscript places the main stack
-pointer into a memory that is disabled on reset, you cannot even access the
-stack until you've enabled its backing memory. The <code>Reset_Handler</code> therefore
-calls this function in Assembly without accessing the stack.</p>
-<p>It is strongly recommended to only read/write registers in this function, and
-perhaps even write this function in Assembly if deemed necessary.</p>
-<h3 id="additional-initialization">Additional Initialization<a class="headerlink" href="#additional-initialization" title="Permanent link">&para;</a></h3>
-<p>A few modules need to initialize additional hardware during booting. For
-example: your device has external memories connected that you want to use for
-the heap. You can create a function that configures the peripherals for these
-external memories and place <em>a pointer to this function</em> into a special linker
-section and the startup script will then call this function before heap
-initialization.</p>
-<p>Since the hardware init functions are called <em>after</em> internal data
-initialization, you have a valid C environment and thus can access the device
-normally, but since the calls happen <em>before</em> external data and heap
-initialization <strong>you cannot use the heap in these functions</strong>!</p>
-<p>You can give a relative global order to your init functions. Ordered init
-functions are called first, then unordered init functions are called in any
-order. Please note that order numbers 0 - 999 are reserved for use by modm or
-other libraries!</p>
-<div class="admonition bug">
-<p class="admonition-title">Unique init function names</p>
-<p>Init function names need to be globally unique for linking. Unfortunately
-there is no simple way of stringifying C++ functions, so you have to provide
-a name manually for now.</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">init_external_sdram</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// configure the hardware here</span>
-<span class="p">}</span>
-<span class="c1">// Startup script calls this function in any order, *after* prioritized functions!</span>
-<span class="n">MODM_HARDWARE_INIT</span><span class="p">(</span><span class="n">init_external_sdram</span><span class="p">);</span>
-<span class="c1">// If you need to pass a C++ function, you need to declare</span>
-<span class="n">MODM_HARDWARE_INIT_NAME</span><span class="p">(</span><span class="n">init_function_name</span><span class="p">,</span><span class="w"> </span><span class="k">namespace</span><span class="o">::</span><span class="nn">init_function</span><span class="p">);</span>
-
-<span class="c1">// If you need to initialize in a certain order use numbers &gt;= 1000</span>
-<span class="n">MODM_HARDWARE_INIT_ORDER</span><span class="p">(</span><span class="n">init_before_sdram1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
-<span class="c1">// called after init_before_sdram1, since it has a higher order number</span>
-<span class="n">MODM_HARDWARE_INIT_NAME_ORDER</span><span class="p">(</span><span class="n">init_before_sdram2</span><span class="p">,</span><span class="w"> </span><span class="k">namespace</span><span class="o">::</span><span class="nn">function</span><span class="p">,</span><span class="w"> </span><span class="mi">1001</span><span class="p">);</span>
-</code></pre></div>
-<h2 id="interrupt-vector-table">Interrupt Vector Table<a class="headerlink" href="#interrupt-vector-table" title="Permanent link">&para;</a></h2>
-<p>The Cortex-M vector table (VTOR) is target-specific and generated using data
-from modm-devices. The main stack pointer is allocated according to the
-linkerscript and the <code>Reset_Handler</code> is defined by the startup script.</p>
-<p>All handlers are weakly aliased to <code>Undefined_Handler</code>, which is called if an
-IRQ is enabled, but no handler is defined for it. This default handler
-determines the currectly active IRQ, sets its priority to the lowest level, and
-disables the IRQ from firing again and then asserts on <code>nvic.undef</code>
-with the (signed) IRQ number as context.</p>
-<p>The lowering of the priority is necessary, since the assertion handlers (see
-<code>modm:architecture:assert</code>) are called from within this active IRQ and its
-priority should not prevent logging functionality (which might require a UART
-interrupt to flush data out) from working correctly.</p>
-<h2 id="linkerscript">Linkerscript<a class="headerlink" href="#linkerscript" title="Permanent link">&para;</a></h2>
-<p>This module provides building blocks for GNU ld linkerscripts in the form of
-Jinja macros that the <code>modm:platform:core</code> module <em>assembles</em> into a
-linkerscript, depending on the memory architecture of the target chosen.</p>
-<p>The following macros are available:</p>
-<ul>
-<li>
-<p><code>copyright()</code>: Copyright notice.</p>
-</li>
-<li>
-<p><code>prefix()</code>: Contains <code>MEMORY</code> sections, output format and entry symbol and
-  stack size definitions.</p>
-</li>
-<li>
-<p><code>section_vector_rom(memory)</code>: places the read-only vector table into ROM
-  <code>memory</code>.</p>
-</li>
-<li>
-<p><code>section_vector_ram(memory, table_copy)</code>: places the volatile vector table
-  into RAM <code>memory</code> and add it to the copy table. You must satisfy alignment
-  requirements externally.</p>
-</li>
-<li>
-<p><code>section_load(memory, table_copy, sections)</code>: place each <code>.{section}</code> in
-  <code>sections</code> into <code>memory</code> and add them the copy table.</p>
-</li>
-<li>
-<p><code>section_stack(memory, start=None, suffix="")</code>: place the main stack into
-  <code>memory</code> after moving the location counter to <code>start</code>. <code>suffix</code> can be used
-  to add multiple <code>.stack{suffix}</code> sections.</p>
-</li>
-<li>
-<p><code>section_heap(memory, name, placement=None, sections=[])</code>: Add the noload
-  <code>sections</code> to <code>memory</code> and fill up remaining space in <code>memory</code> with heap
-  section <code>.{name}</code>. Argument <code>placement</code> can be used to place the section into
-  a larger continuous section of which <code>memory</code> is just a subsection. The
-  <code>__{name}_end</code> will be the maximum of the location counter and the <code>memory</code>
-  section end address, so that previous sections will push this section back.</p>
-</li>
-<li>
-<p><code>all_heap_sections(table_copy, table_zero, table_heap, props={})</code>: places the
-  heap sections as described by <code>cont_ram_regions</code> of the <code>linkerscript</code> query.
-  This also adds bss and noinit sections into each region. The <code>props</code> key can
-  be used to override the default <code>0x001f</code> memory properties.</p>
-</li>
-<li>
-<p><code>section_rom(memory)</code>: place all read-only sections (<code>.text</code>, <code>.rodata</code> etc)
-  into <code>memory</code>.</p>
-</li>
-<li>
-<p><code>section_ram(memory, rom, table_copy, table_zero,
-  sections_data=[], sections_bss=[], sections_noinit=[])</code>: place all volatile
-  sections (<code>.data</code>, <code>.bss</code> etc) into <code>memory</code> and load from <code>rom</code>. Additional
-  sections can be added.</p>
-</li>
-<li>
-<p><code>section_tables(memory, copy, zero, heap)</code>: place the zero, copy and heap
-  table into <code>memory</code>.</p>
-</li>
-<li>
-<p><code>section_rom_start(memory)</code>: place at ROM start.</p>
-</li>
-<li>
-<p><code>section_rom_end(memory)</code>: place at ROM end.</p>
-</li>
-<li>
-<p><code>section_debug()</code>: place debug sections at the very end.</p>
-</li>
-</ul>
-<p>Please consult the <code>modm:platform:core</code> documentation for the target-specific
-arrangement of these section macros and for potential limitations that the
-target's memory architecture poses.</p>
-<h3 id="section-fastdata">Section <code>.fastdata</code><a class="headerlink" href="#section-fastdata" title="Permanent link">&para;</a></h3>
-<p>The <code>.fastdata</code> section is placed into a device specific data cache or into the
-fastest RAM. Please note that the <code>.fastdata</code> section may be placed into RAM
-that is only accessable to the Cortex-M core (via the Data-Bus), which can cause
-issues with DMA access. However, the <code>.fastdata</code> section is not required to be
-DMA-able and in such a case the developer needs to place the data into the
-generic <code>.data</code> section or choose a device with a DMA-able fast RAM.</p>
-<h3 id="section-fastcode">Section <code>.fastcode</code><a class="headerlink" href="#section-fastcode" title="Permanent link">&para;</a></h3>
-<p>The <code>.fastcode</code> section is placed into a device specific instruction cache (via
-I-Code bus) or into the fastest executable RAM (via S-Bus).</p>
-<p>From the Cortex-M3 Technical Reference Manual:</p>
-<blockquote>
-<p>14.5 System Interface:</p>
-<p>The system interface is a 32-bit AHB-Lite bus. Instruction and vector fetches,
-and data and debug accesses to the System memory space, 0x20000000 - 0xDFFFFFFF,
-0xE0100000 - 0xFFFFFFFF, are performed over this bus.</p>
-<p>14.5.6 Pipelined instruction fetches:</p>
-<p>To provide a clean timing interface on the System bus, instruction and vector
-fetch requests to this bus are registered. This results in an additional cycle
-of latency because instructions fetched from the System bus take two cycles.
-This also means that back-to-back instruction fetches from the System bus are
-not possible.</p>
-<p>Note:
-  Instruction fetch requests to the ICode bus are not registered.
-  Performance critical code must run from the ICode interface.</p>
-</blockquote>
-<h3 id="adding-sections">Adding Sections<a class="headerlink" href="#adding-sections" title="Permanent link">&para;</a></h3>
-<p>The default linkerscripts only describe the internal memory, however, they can
-be extended for external memories using the <code>linkerscript.*</code> collectors of this
-module. For example, to add an external 16MB SDRAM to your device and place a
-static data section there that is copied from flash and use the remainder for
-heap access, these steps need to be performed:</p>
-<p>Add the external SDRAM to the linkerscript's <code>MEMORY</code> statements in the
-<code>project.xml</code> configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
-<span class="w">  </span><span class="nt">&lt;collectors&gt;</span>
-<span class="w">    </span><span class="nt">&lt;collect</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:platform:cortex-m:linkerscript.memory&quot;</span><span class="nt">&gt;</span>
-<span class="w">       </span>SDRAM<span class="w"> </span>(rwx)<span class="w"> </span>:<span class="w"> </span>ORIGIN<span class="w"> </span>=<span class="w"> </span>0xC0000000,<span class="w"> </span>LENGTH<span class="w"> </span>=<span class="w"> </span>16M
-<span class="w">    </span><span class="nt">&lt;/collect&gt;</span>
-<span class="w">  </span><span class="nt">&lt;collectors&gt;</span>
-<span class="nt">&lt;/library&gt;</span>
-</code></pre></div>
-<p>You can also declare this as Python code in a lbuild <code>module.lb</code> file (useful
-for board support packages modules, see <code>modm:board</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="n">env</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s2">&quot;:platform:cortex-m:linkerscript.memory&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;SDRAM (rwx) : ORIGIN = 0xC0000000, LENGTH = 16M&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Add a partition of the new memory to the linkerscripts <code>SECTION</code> statements.
-Since collectors order is only preserved locally, make sure to add the sections
-that depend on this order in <em>one value</em>. Here the previous value of the SDRAM
-location counter is required to "fill up" the remaining memory with the external
-heap section:</p>
-<div class="highlight"><pre><span></span><code><span class="n">linkerscript_sections</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">.data_sdram :</span>
-<span class="s2">{</span>
-<span class="s2">    __data_sdram_load = LOADADDR(.data_sdram);</span>
-<span class="s2">    __data_sdram_start = .;</span>
-
-<span class="s2">    *(.data_sdram)</span>
-
-<span class="s2">    . = ALIGN(4);</span>
-<span class="s2">    __data_sdram_end = .;</span>
-<span class="s2">} &gt;SDRAM AT &gt;FLASH</span>
-
-<span class="s2">.heap_sdram (NOLOAD) :</span>
-<span class="s2">{</span>
-<span class="s2">    __heap_sdram_start = .;</span>
-<span class="s2">    . = ORIGIN(SDRAM) + LENGTH(SDRAM);</span>
-<span class="s2">    __heap_sdram_end = .;</span>
-<span class="s2">} &gt;SDRAM</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">env</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s2">&quot;:platform:cortex-m:linkerscript.sections&quot;</span><span class="p">,</span> <span class="n">linkerscript_sections</span><span class="p">)</span>
-</code></pre></div>
-<p>Next, add the sections that need to be copied from ROM to RAM, here the contents
-of the <code>.data_sdram</code> section is stored in the internal <code>FLASH</code> memory and needs
-to be copied into SDRAM during the startup:</p>
-<div class="highlight"><pre><span></span><code><span class="n">linkerscript_copy</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">LONG(__data_sdram_load)</span>
-<span class="s2">LONG(__data_sdram_start)</span>
-<span class="s2">LONG(__data_sdram_end)</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">env</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s2">&quot;:platform:cortex-m:linkerscript.table_extern.copy&quot;</span><span class="p">,</span> <span class="n">linkerscript_copy</span><span class="p">)</span>
-</code></pre></div>
-<p>And finally, to register the remaining memory in SDRAM with the allocator, add
-the memory range to the heap table. Remember to use the correct memory traits
-for this memory, see <code>modm:architecture:memory</code> for the trait definitions:</p>
-<div class="highlight"><pre><span></span><code><span class="n">linkerscript_heap</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">LONG(0x801f)</span>
-<span class="s2">LONG(__heap_sdram_start)</span>
-<span class="s2">LONG(__heap_sdram_end)</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">env</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="s2">&quot;:platform:cortex-m:linkerscript.table_extern.heap&quot;</span><span class="p">,</span> <span class="n">linkerscript_heap</span><span class="p">)</span>
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Linkerscript collectors are plain text</p>
-<p>The collectors here only strip the leading/trailing whitespace and newlines
-and paste the result <em>as is</em> into the linkerscripts. No input validation is
-performed, so if you receive linker errors with your additions, please check
-the GNU LD documentation first.</p>
-</div>
-<h2 id="blocking-delay">Blocking Delay<a class="headerlink" href="#blocking-delay" title="Permanent link">&para;</a></h2>
-<p>The delay functions as defined by <code>modm:architecture:delay</code> are implemented via
-software loop (ARMv6-M devices) or hardware cycle counter (via <code>DWT-&gt;CYCCNT</code> on
-ARMv7-M device) and have the following limitations expressed in cycles, which
-depends on the configured CPU frequency:</p>
-<ul>
-<li>nanosecond delay is implemented as a tight loop with a minimum delay of &lt;20
-  cycles, a resolution of 1-4 cycles and a maximum delay of 32-bit cycles.</li>
-<li>microsecond delay has a maximum delay of 32-bit cycles.</li>
-</ul>
-<h2 id="compiler-options">Compiler Options<a class="headerlink" href="#compiler-options" title="Permanent link">&para;</a></h2>
-<p>This module adds these architecture specific <a href="https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html">compiler options</a>:</p>
-<ul>
-<li><code>-mcpu=cortex-m{type}</code>: the target to compile for.</li>
-<li><code>-mthumb</code>: only Thumb2 instruction set is supported.</li>
-<li><code>-mfloat-abi={soft, softfp, hard}</code>: the FPU ABI: <code>hard</code> is fastest.</li>
-<li><code>-mfpu=fpv{4, 5}-{sp}-d16</code>: single or double precision FPU.</li>
-<li><code>-Wdouble-promotion</code>: if SP-FPU, warn if FPs are promoted to doubles. Note
-  that unless you use the <code>.f</code> suffix or explicitly cast floating point
-  operations to <code>float</code>, floating point constants are of <code>double</code> type, whose
-  storage can result in an increased binary size. While you can add the
-  <code>-fsingle-precision-constant</code> compiler flag to implicitly cast all doubles to
-  floats, this also impacts compile time computations and may reduce accuracy.
-  Therefore it is not enabled by default and you should carefully watch for any
-  unwanted numeric side effects if you use this compiler option.
-  See <a href="https://gcc.gnu.org/wiki/FloatingPointMath">Semantics of Floating Point Math in GCC</a>.</li>
-</ul>
-<p>In addition, these linker options are added:</p>
-<ul>
-<li><code>-nostartfiles</code>: modm implements its own startup script.</li>
-<li><code>-wrap,_{calloc, malloc, realloc, free}_r</code>: reimplemented Newlib with our own allocator.</li>
-</ul>
-<p><em>This module is only available for rp, sam, stm32.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="float-abi">float-abi<a class="headerlink" href="#float-abi" title="Permanent link">&para;</a></h4>
-<p>Floating point ABI</p>
-<p><em>This option is only available for sam{d5x/e5x,e7x/s7x/v7x,g5x}, stm32{f3,f4,f7,g4,h7,l4,l5,u5}.</em></p>
-<p>Default: <code>hard</code><br />
-Inputs: <code>[hard, soft, softfp]</code>  </p>
-<h4 id="linkerscriptflash_offset">linkerscript.flash_offset<a class="headerlink" href="#linkerscriptflash_offset" title="Permanent link">&para;</a></h4>
-<p>Offset of FLASH Section Origin</p>
-<p>Add an offset to the default start address of the flash memory. This might be
-required for bootloaders located there.</p>
-<div class="admonition warning">
-<p class="admonition-title">Vector Table Relocation</p>
-<p>Not all offsets are compatible with the vector table relocation.</p>
-</div>
-<p>Default: <code>0</code><br />
-Inputs: <code>[0 ... 0x10000]</code> <em>samd1x/d2x/dax, stm32{f0,f1,f3,f4,f7,g0,l0,l1,l4}</em><br />
-Inputs: <code>[0 ... 0x100000]</code> <em>sam{d5x/e5x,e7x/s7x/v7x}, stm32{f4,f7,h7,l4,u5}</em><br />
-Inputs: <code>[0 ... 0x1000000]</code> <em>rp2040</em><br />
-Inputs: <code>[0 ... 0x180000]</code> <em>stm32f4</em><br />
-Inputs: <code>[0 ... 0x2000]</code> <em>stm32l0</em><br />
-Inputs: <code>[0 ... 0x20000]</code> <em>samd1x/d2x/dax, stm32{f0,f1,f2,f3,f4,g0,g4,h7,l0,l4,u5}</em><br />
-Inputs: <code>[0 ... 0x200000]</code> <em>same7x/s7x/v7x, stm32{f4,f7,h7,l4,u5}</em><br />
-Inputs: <code>[0 ... 0x30000]</code> <em>stm32l0</em><br />
-Inputs: <code>[0 ... 0x4000]</code> <em>stm32{f0,f1,f3,g0,l0}</em><br />
-Inputs: <code>[0 ... 0x40000]</code> <em>sam{d1x/d2x/dax,d5x/e5x}, stm32{f0,f1,f2,f3,f4,f7,g0,g4,l1,l4,l5,u5}</em><br />
-Inputs: <code>[0 ... 0x400000]</code> <em>stm32u5</em><br />
-Inputs: <code>[0 ... 0x60000]</code> <em>stm32{f3,l1}</em><br />
-Inputs: <code>[0 ... 0x8000]</code> <em>samd1x/d2x/dax, stm32{f0,f3,g0,g4,l0,l1}</em><br />
-Inputs: <code>[0 ... 0x80000]</code> <em>sam{d5x/e5x,e7x/s7x/v7x,g5x}, stm32{f2,f3,f4,f7,g0,g4,h7,l1,l4,l5,u5}</em>  </p>
-<h4 id="linkerscriptoverride">linkerscript.override<a class="headerlink" href="#linkerscriptoverride" title="Permanent link">&para;</a></h4>
-<p>Path to project provided linkerscript</p>
-<p>Default: <code>[]</code><br />
-Inputs: <code>[Path]</code>  </p>
-<h4 id="main_stack_size">main_stack_size<a class="headerlink" href="#main_stack_size" title="Permanent link">&para;</a></h4>
-<p>Minimum size of the application main stack</p>
-<p>The ARM Cortex-M uses a descending stack mechanism which is placed so that it
-grows towards the beginning of RAM. In case of a stack overflow the hardware
-then attempts to stack into invalid memory which triggers a HardFault. A stack
-overflow will therefore never overwrite any static or heap memory and this
-protection works without the MPU and therefore also on ARM Cortex-M0 devices.</p>
-<p>If the vector table is relocated into RAM, the start address needs to be aligned
-to the next highest power-of-two word depending on the total number of device
-interrupts. On devices where the table is relocated into the same memory as the
-main stack, an alignment buffer up to 1kB is added to the main stack.</p>
-<div class="highlight"><pre><span></span><code>|              ...                |
-|---------------------------------|
-|    Interrupt Vectors (in RAM)   |
-|        (if re-mapped)           | &lt;-- vector table origin
-|---------------------------------| &lt;-- main stack top
-|           Main Stack            |
-|       (grows downwards)         |
-|               |                 |
-|               v                 |
-|---------------------------------|
-|  Alignment buffer for vectors   |
-|   (overwritten by main stack!)  |
-&#39;---------------------------------&#39; &lt;-- RAM origin
-</code></pre></div>
-<p>Default: <code>3Ki (3072)</code><br />
-Inputs: <code>[256 .. 3Ki .. 64Ki]</code>  </p>
-<h4 id="vector_table_location">vector_table_location<a class="headerlink" href="#vector_table_location" title="Permanent link">&para;</a></h4>
-<p>Vector table location in ROM or RAM</p>
-<p>The vector table is always stored in ROM and copied to RAM by the startup script
-if required. You can modify the RAM vector table using the CMSIS NVIC functions:</p>
-<ul>
-<li><code>void NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)</code></li>
-<li><code>uint32_t NVIC_GetVector(IRQn_Type IRQn)</code></li>
-</ul>
-<p>For applications that do not modify the vector table at runtime, relocation to
-RAM is not necessary and can save a few hundred bytes of static memory.</p>
-<p>By default, the fastest option is chosen depending on the target memory
-architecture. This does not always mean the table is copied into RAM, and
-therefore may not be modifiable with this option!</p>
-<p>From the ARM Cortex-M4 Technical Reference Manual on exception handling:</p>
-<blockquote>
-<ul>
-<li>Processor state is automatically stored to the stack on an exception, and
-  automatically restored from the stack at the end of the Interrupt Service
-  Routine.</li>
-<li>The vector is fetched in parallel to the state saving, enabling efficient
-  interrupt entry.</li>
-</ul>
-</blockquote>
-<div class="admonition warning">
-<p class="admonition-title">On Interrupt Latency</p>
-<p>Placing main stack and vector table into the same memory can significantly
-slow down interrupt latency, since both I-Code and D-Code memory interface
-need to fetch from the same access port.</p>
-</div>
-<p><em>This option is only available for rp, sam, stm32{f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u5}.</em></p>
-<p>Default: <code>ram</code> <em>stm32{f3,f7,g4,h7,l4}</em><br />
-Default: <code>rom</code> <em>rp, sam, stm32{f1,f2,f3,f4,g0,l0,l1,l4,l5,u5}</em><br />
-Inputs: <code>[ram, rom]</code>  </p>
-<h2 id="collectors">Collectors<a class="headerlink" href="#collectors" title="Permanent link">&para;</a></h2>
-<h4 id="linkerscriptmemory">linkerscript.memory<a class="headerlink" href="#linkerscriptmemory" title="Permanent link">&para;</a></h4>
-<p>Additions to the linkerscript's 'MEMORY'</p>
-<p>Inputs: <code>[String]</code></p>
-<h4 id="linkerscriptsections">linkerscript.sections<a class="headerlink" href="#linkerscriptsections" title="Permanent link">&para;</a></h4>
-<p>Additions to the linkerscript's 'SECTIONS'</p>
-<p>Inputs: <code>[String]</code></p>
-<h4 id="linkerscripttable_externcopy">linkerscript.table_extern.copy<a class="headerlink" href="#linkerscripttable_externcopy" title="Permanent link">&para;</a></h4>
-<p>Additions to the linkerscript's '.table.copy.extern' section</p>
-<p>Inputs: <code>[String]</code></p>
-<h4 id="linkerscripttable_externheap">linkerscript.table_extern.heap<a class="headerlink" href="#linkerscripttable_externheap" title="Permanent link">&para;</a></h4>
-<p>Additions to the linkerscript's '.table.heap' section</p>
-<p>Inputs: <code>[String]</code></p>
-<h4 id="linkerscripttable_externzero">linkerscript.table_extern.zero<a class="headerlink" href="#linkerscripttable_externzero" title="Permanent link">&para;</a></h4>
-<p>Additions to the linkerscript's '.table.zero.extern' section</p>
-<p>Inputs: <code>[String]</code></p>
-<h2 id="queries">Queries<a class="headerlink" href="#queries" title="Permanent link">&para;</a></h2>
-<h4 id="linkerscript_1">linkerscript<a class="headerlink" href="#linkerscript_1" title="Permanent link">&para;</a></h4>
-<p>Computes linkerscript properties
-(* <em>post-build only</em>):</p>
-<ul>
-<li><code>vector_table_location</code>: ram or rom</li>
-</ul>
-<p>Stripped and newline-joined collector values of:</p>
-<ul>
-<li><code>linkerscript_memory</code></li>
-<li><code>linkerscript_sections</code></li>
-<li><code>linkerscript_extern_zero</code></li>
-<li><code>linkerscript_extern_copy</code></li>
-<li><code>linkerscript_extern_heap</code></li>
-</ul>
-<p>Additional memory properties:</p>
-<ul>
-<li><code>memories</code>: unfiltered memory regions</li>
-<li><code>ram_regions</code>: memory region name with <code>ram</code> in their names</li>
-<li><code>regions</code>: memory region names</li>
-<li><code>cont_ram_regions</code>: all continuous internal SRAM sections</li>
-<li><code>cont_ram</code>: largest continuous internal SRAM section</li>
-</ul>
-<p>:returns: dictionary of linkerscript properties</p>
-<h4 id="vector_table">vector_table<a class="headerlink" href="#vector_table" title="Permanent link">&para;</a></h4>
-<p>Computes vector table properties:</p>
-<ul>
-<li><code>vector_table</code>: [position] = Full vector name (ie. <em>with</em> <code>_Handler</code> or <code>_IRQHandler</code> suffix)</li>
-<li><code>vector_table_location</code>: rom or ram</li>
-<li><code>highest_irq</code>: highest IRQ number + 1</li>
-<li><code>core</code>: cortex-m{0,3,4,7}{,+,f,fd}</li>
-</ul>
-<p>The system vectors start at -16, so you must add 16 to <code>highest_irq</code> to get
-the total number of vectors in the table!</p>
-<p>:returns: a dictionary of vector table properties</p>
+<h1 id="basic-direct-memory-access-controller-bdma">Basic Direct Memory Access Controller (BDMA)<a class="headerlink" href="#basic-direct-memory-access-controller-bdma" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:bdma</code></p>
+<p><em>This module is only available for stm32h7.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="289pt" height="150pt"
- viewBox="0.00 0.00 289.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="174pt" height="150pt"
+ viewBox="0.00 0.00 174.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:platform:cortex&#45;m</title>
+<title>modm:platform:bdma</title>
 <g id="node1" class="node">
-<title>modm_platform_cortex_m</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="201,-53 118,-53 118,0 201,0 201,-53"/>
-<text text-anchor="middle" x="159.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">cortex&#45;m</text>
+<title>modm_platform_bdma</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="120,-53 37,-53 37,0 120,0 120,-53"/>
+<text text-anchor="middle" x="78.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="78.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="78.5" y="-7.8" font-family="Times,serif" font-size="14.00">bdma</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_interrupt</title>
-<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
-<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">interrupt</text>
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="65,-142 0,-142 0,-89 65,-89 65,-142"/>
+<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="32.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_cortex_m&#45;&gt;modm_architecture_interrupt</title>
-<path fill="none" stroke="black" d="M128.56,-53.13C117.55,-62.25 105.01,-72.65 93.42,-82.25"/>
-<polygon fill="black" stroke="black" points="91.04,-79.67 85.58,-88.75 95.51,-85.07 91.04,-79.67"/>
+<title>modm_platform_bdma&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M64.95,-53.13C60.54,-61.47 55.58,-70.86 50.88,-79.74"/>
+<polygon fill="black" stroke="black" points="47.69,-78.27 46.11,-88.75 53.88,-81.55 47.69,-78.27"/>
 </g>
 <g id="node3" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-89 192,-89 192,-142"/>
-<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_platform_rcc</title>
+<polygon fill="lightgrey" stroke="black" points="166,-142 83,-142 83,-89 166,-89 166,-142"/>
+<text text-anchor="middle" x="124.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="124.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="124.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_platform_cortex_m&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M159.5,-53.13C159.5,-61.11 159.5,-70.07 159.5,-78.62"/>
-<polygon fill="black" stroke="black" points="156,-78.75 159.5,-88.75 163,-78.75 156,-78.75"/>
-</g>
-<g id="node4" class="node">
-<title>modm_stdc++</title>
-<polygon fill="lightgrey" stroke="black" points="281,-134.5 210,-134.5 210,-96.5 281,-96.5 281,-134.5"/>
-<text text-anchor="middle" x="245.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="245.5" y="-104.3" font-family="Times,serif" font-size="14.00">stdc++</text>
-</g>
-<g id="edge3" class="edge">
-<title>modm_platform_cortex_m&#45;&gt;modm_stdc++</title>
-<path fill="none" stroke="black" d="M184.84,-53.13C196.14,-64.56 209.4,-77.99 220.65,-89.36"/>
-<polygon fill="black" stroke="black" points="218.18,-91.84 227.7,-96.49 223.16,-86.92 218.18,-91.84"/>
+<title>modm_platform_bdma&#45;&gt;modm_platform_rcc</title>
+<path fill="none" stroke="black" d="M92.05,-53.13C96.46,-61.47 101.42,-70.86 106.12,-79.74"/>
+<polygon fill="black" stroke="black" points="103.12,-81.55 110.89,-88.75 109.31,-78.27 103.12,-81.55"/>
 </g>
 </g>
 </svg></p>
