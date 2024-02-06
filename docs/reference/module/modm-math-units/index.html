@@ -5102,8 +5102,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#integral-percentages" class="md-nav__link">
-    Integral Percentages
+  <a href="#percentages" class="md-nav__link">
+    Percentages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
   </a>
   
 </li>
@@ -6984,8 +6991,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#integral-percentages" class="md-nav__link">
-    Integral Percentages
+  <a href="#percentages" class="md-nav__link">
+    Percentages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    Time
   </a>
   
 </li>
@@ -7040,23 +7054,30 @@ directly to <code>uint32_t</code> type, so they can be used as a non-type templa
 
 <span class="n">frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4295</span><span class="n">_MHz</span><span class="p">;</span><span class="w"> </span><span class="c1">// OVERFLOW at 2^32 units!</span>
 </code></pre></div>
-<h2 id="integral-percentages">Integral Percentages<a class="headerlink" href="#integral-percentages" title="Permanent link">&para;</a></h2>
-<p>Since <code>float</code> cannot be used as a non-type template argument, an integer type
-for providing tolerances in <code>percent_t</code> is available.
-Note that <code>percent_t</code> is implemented as an enum class, which prevents implicit
-conversions, since the base for this is not 1.
-You must therefore use the <code>modm::pct(T value)</code> or <code>_pct</code> constructors.</p>
+<h2 id="percentages">Percentages<a class="headerlink" href="#percentages" title="Permanent link">&para;</a></h2>
+<p>Percentages are stored as normalized floating point numbers and can be converted
+using these convenience constructors:</p>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">modm</span><span class="o">::</span><span class="nn">literals</span><span class="p">;</span>
 
 <span class="n">percent_t</span><span class="w"> </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">pct</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="w">          </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="n">_pct</span><span class="p">;</span>
-
-<span class="c1">// convert back to float. *internal use only*</span>
-<span class="kt">float</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">pct2f</span><span class="p">(</span><span class="n">tolerance</span><span class="p">);</span>
+<span class="w">          </span><span class="n">tolerance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">;</span>
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">This type is not guaranteed to hold more than 100 percent!</p>
-</div>
+<h2 id="time">Time<a class="headerlink" href="#time" title="Permanent link">&para;</a></h2>
+<p>Simplified types allow passing <code>std::chrono::duration</code> values as template
+parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="n">seconds_t</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="n">s</span><span class="p">;</span>
+<span class="n">milliseconds_t</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="n">ms</span><span class="p">;</span>
+<span class="n">microseconds_t</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10u</span><span class="n">s</span><span class="p">;</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duration</span><span class="p">.</span><span class="n">count</span><span class="p">();</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="n">milliseconds_t</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">setPeriod</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">period</span><span class="p">.</span><span class="n">count</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"

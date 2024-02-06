@@ -5861,9 +5861,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :platform:iwdg
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         :platform:iwdg
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6939,6 +6970,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6955,6 +7001,48 @@
 <h1 id="independent-watchdog">Independent watchdog<a class="headerlink" href="#independent-watchdog" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:iwdg</code></p>
 <p><em>This module is only available for stm32{f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5,u5}.</em></p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<p><svg class="deps" width="178pt" height="150pt"
+ viewBox="0.00 0.00 177.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
+<title>modm:platform:iwdg</title>
+<g id="node1" class="node">
+<title>modm_platform_iwdg</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="121,-53 38,-53 38,0 121,0 121,-53"/>
+<text text-anchor="middle" x="79.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="79.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="79.5" y="-7.8" font-family="Times,serif" font-size="14.00">iwdg</text>
+</g>
+<g id="node2" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="65,-142 0,-142 0,-89 65,-89 65,-142"/>
+<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="32.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge1" class="edge">
+<title>modm_platform_iwdg&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M65.65,-53.13C61.15,-61.47 56.08,-70.86 51.28,-79.74"/>
+<polygon fill="black" stroke="black" points="48.08,-78.29 46.41,-88.75 54.24,-81.62 48.08,-78.29"/>
+</g>
+<g id="node3" class="node">
+<title>modm_math_algorithm</title>
+<polygon fill="lightgrey" stroke="black" points="169.5,-142 83.5,-142 83.5,-89 169.5,-89 169.5,-142"/>
+<text text-anchor="middle" x="126.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="126.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="126.5" y="-96.8" font-family="Times,serif" font-size="14.00">algorithm</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_platform_iwdg&#45;&gt;modm_math_algorithm</title>
+<path fill="none" stroke="black" d="M93.35,-53.13C97.85,-61.47 102.92,-70.86 107.72,-79.74"/>
+<polygon fill="black" stroke="black" points="104.76,-81.62 112.59,-88.75 110.92,-78.29 104.76,-81.62"/>
+</g>
+</g>
+</svg></p>
+<style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
 <div class="admonition warning">
 <p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
 </div>

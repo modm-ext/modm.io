@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#math-algorithms" class="md-skip">
+        <a href="#algorithms" class="md-skip">
           Skip to content
         </a>
       
@@ -5018,6 +5018,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#convenience-iterators" class="md-nav__link">
+    Convenience Iterators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prescaler-calculators" class="md-nav__link">
+    Prescaler Calculators
+  </a>
+  
+    <nav class="md-nav" aria-label="Prescaler Calculators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prescalers-with-counters" class="md-nav__link">
+    Prescalers with Counters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolerance-of-prescaler-error" class="md-nav__link">
+    Tolerance of Prescaler Error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6977,6 +7011,40 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#convenience-iterators" class="md-nav__link">
+    Convenience Iterators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prescaler-calculators" class="md-nav__link">
+    Prescaler Calculators
+  </a>
+  
+    <nav class="md-nav" aria-label="Prescaler Calculators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prescalers-with-counters" class="md-nav__link">
+    Prescalers with Counters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolerance-of-prescaler-error" class="md-nav__link">
+    Tolerance of Prescaler Error
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -6998,8 +7066,158 @@
                   
 
 
-<h1 id="math-algorithms">Math Algorithms<a class="headerlink" href="#math-algorithms" title="Permanent link">&para;</a></h1>
+<h1 id="algorithms">Algorithms<a class="headerlink" href="#algorithms" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:math:algorithm</code></p>
+<p>A collection of useful and lightweight algorithms.</p>
+<h2 id="convenience-iterators">Convenience Iterators<a class="headerlink" href="#convenience-iterators" title="Permanent link">&para;</a></h2>
+<p>Inspired by Python's built-in <code>range</code> and <code>enumerate</code> functions, you can use
+<code>modm::range</code> and <code>modm::enumerate</code> in for loops:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Iterates over 0 .. 9</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MODM_LOG_INFO</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// Iterates over 10 .. 19</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MODM_LOG_INFO</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// Iterates over 20, 22, 24, 26, 28</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MODM_LOG_INFO</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Iterates over 0 .. N-1, where N = size of iterable</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MODM_LOG_INFO</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="prescaler-calculators">Prescaler Calculators<a class="headerlink" href="#prescaler-calculators" title="Permanent link">&para;</a></h2>
+<p>Peripheral output frequencies are usually generated by dividing an input clock
+with a prescaler in hardware. Finding the closest prescaler value for a desired
+output frequency can be unintuitive, therefore, these classes provide a simple
+interface for a constexpr calculator.</p>
+<p>All calculators return a <code>Result</code> struct containing desired, input, and output
+frequencies, the relative error of the output vs desired frequency, and the
+prescaler and its index. The prescaler index is typically the value to write
+to the register directly:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 16-bit linear prescaler [1, 2^16] mapped as [0, 0xffff].</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_linear</span><span class="p">(</span><span class="mi">10</span><span class="n">_MHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">input_frequency</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10</span><span class="n">_MHz</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">desired_frequency</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="n">_kHz</span><span class="p">);</span>
+<span class="c1">// Calculator finds an exact match without error</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">frequency</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="n">_kHz</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// with prescaler 1e4 = 1e7 / 1e3.</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">10&#39;000</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9&#39;999</span><span class="p">);</span>
+<span class="n">PERIPHERAL</span><span class="o">-&gt;</span><span class="n">PRESCALER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="p">;</span>
+</code></pre></div>
+<p>The index is particularly useful for non-contiguous prescalers, the most common
+being power-of-two values:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Power-of-two prescaler with 8 values between [16, 4096].</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_power</span><span class="p">(</span><span class="mi">32</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="n">_Hz</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+<span class="c1">// Calculator cannot find an exact match! Closest has -25% error!</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">frequency</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">125</span><span class="n">_Hz</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">-0.25</span><span class="p">);</span>
+<span class="c1">// Ideal Prescaler is 320, clostest is 256</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">256</span><span class="p">);</span>
+<span class="c1">// Index is 256 = 1ul &lt;&lt; (4 + 4)</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div>
+<p>Non-contiguous prescalers can also be created with a modifier function:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Only even prescalers from [2, 1024]</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_function</span><span class="p">(</span>
+<span class="w">        </span><span class="mi">110</span><span class="n">_MHz</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="n">_MHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">512</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">i</span><span class="p">){</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="c1">// Ideal prescaler is 31.4, closest is 32 with ~2% error.</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">frequency</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">3.4375</span><span class="n">_MHz</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.02</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">32</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span><span class="w"> </span><span class="c1">// 32/2 - 1</span>
+</code></pre></div>
+<p>For all other cases, prescalers can be passed as an initializer list or as any
+forward range. Note that the prescaler values <em>must</em> be sorted, otherwise
+the calculator will compute the wrong prescaler values!</p>
+<div class="highlight"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_list</span><span class="p">(</span><span class="mi">1</span><span class="n">_MHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="mi">1024</span><span class="p">});</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_range</span><span class="p">(</span><span class="mi">2</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">});</span>
+</code></pre></div>
+<p>A special case is made of two chained prescalers that are both linear
+powers-of-two. These are often called "fractional prescalers" and act as a
+single binary-scaled linear prescaler and can thus be modeled as such:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// A fractional 12.4-bit prescaler can be modeled as a single 16-bit prescaler.</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_linear</span><span class="p">(</span><span class="n">SystemClock</span><span class="o">::</span><span class="n">Usart1</span><span class="p">,</span><span class="w"> </span><span class="mi">115200</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<span class="c1">// The resulting prescaler can be written directly to the register.</span>
+<span class="n">USART1</span><span class="o">-&gt;</span><span class="n">BRR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="prescalers-with-counters">Prescalers with Counters<a class="headerlink" href="#prescalers-with-counters" title="Permanent link">&para;</a></h3>
+<p>However, often chained prescalers cannot be converted to a linear prescaler, for
+example, a timer with a set of power-of-two prescalers and a 16 or 32-bit
+counter. These must be computed with a different class:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// A prescaler with power-of-two values [4, 256] going into a 12-bit down counter.</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrescalerCounter</span><span class="o">::</span><span class="n">from_power</span><span class="p">(</span><span class="mi">32</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">_Hz</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">);</span>
+<span class="c1">// Calculator finds an exact match without error</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">frequency</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="n">_Hz</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// with prescaler 8 and counter 4&#39;000.</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4&#39;000</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>The calculator only picks the first prescaler with the lowest error, however,
+in this example, there can be multiple exact solutions:</p>
+<p>32000 = 8 × 4000 = 16 × 2000 = ... = 128 × 250 = 256 × 125</p>
+<p>If the prescaler and counter is used to generate a waveform like PWM, then it is
+beneficial to pick the combination with the largest counter value. However, if
+the use case is to preserve power, then a slow running counter requires the
+highest prescaler. Therefore the order of prescalers can be reversed:</p>
+<div class="highlight"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrescalerCounter</span><span class="o">::</span><span class="n">from_power</span><span class="p">(</span><span class="mi">32</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">_Hz</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">256</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">125</span><span class="p">);</span>
+<span class="c1">// Index is not the same!</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<p>The same applies to the <code>PrescalerCounter::from_linear()</code> and
+<code>PrescalerCounter::from_function()</code> calculators, while the order for lists and
+forward ranges can be entirely arbitrary:</p>
+<div class="highlight"><pre><span></span><code><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PrescalerCounter</span><span class="o">::</span><span class="n">from_list</span><span class="p">(</span><span class="mi">32</span><span class="n">_kHz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">_Hz</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">128</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="mi">4</span><span class="p">});</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">prescaler</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">250</span><span class="p">);</span>
+<span class="c1">// Index is relative to the list order now!</span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Time Durations</p>
+<p>While the calculator is designed for frequencies, time durations can also be
+computed by transforming the input as <code>frequency = 1.0 / duration</code> and then
+transforming the output back as <code>duration = 1.0 / frequency</code>.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Floating-Point Frequencies</p>
+<p>You can define the type used for frequency representation by using the
+<code>GenericPrescaler&lt;double&gt;</code> and <code>GenericPrescalerCounter&lt;double&gt;</code> classes.</p>
+</div>
+<h3 id="tolerance-of-prescaler-error">Tolerance of Prescaler Error<a class="headerlink" href="#tolerance-of-prescaler-error" title="Permanent link">&para;</a></h3>
+<p>Each <code>Result</code> has a signed(!), relative error attached, which can be used to
+assert on the quality of the calculation. Note that using <code>static_assert</code> on the
+error directly will only print the error values:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="n">_pct</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>error: static assertion failed
+ | static_assert(std::abs(result.error) &lt; tolerance);
+ |               ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+note: the comparison reduces to &#39;(0.10 &lt; 0.05)&#39;
+</code></pre></div></p>
+<p>However, by using a helper method, the requested and closest available
+frequencies can be displayed to the developer:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// Accidentally used kBaud instead of Baud, which cannot be generated</span>
+<span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Prescaler</span><span class="o">::</span><span class="n">from_linear</span><span class="p">(</span><span class="n">SystemClock</span><span class="o">::</span><span class="n">Usart2</span><span class="p">,</span><span class="w"> </span><span class="mi">115200</span><span class="n">_kBd</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">assertBaudrateInTolerance</span><span class="o">&lt;</span><span class="n">result</span><span class="p">.</span><span class="n">frequency</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">desired_frequency</span><span class="p">,</span><span class="w"> </span><span class="n">tolerance</span><span class="o">&gt;</span><span class="p">();</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>In instantiation of &#39;static void modm::PeripheralDriver::assertBaudrateInTolerance()
+[with long long unsigned int available = 3000000; long long unsigned int requested = 115200000; float tolerance = 0.01f]&#39;:
+error: static assertion failed: The closest available baudrate exceeds the tolerance of the requested baudrate!
+ | static_assert(modm::isValueInTolerance(requested, available, tolerance),
+ |               ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+note: &#39;modm::isValueInTolerance&lt;long long unsigned int&gt;(115200000, 3000000, 0.01f)&#39; evaluates to false
+</code></pre></div></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
