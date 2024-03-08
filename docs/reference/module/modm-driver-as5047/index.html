@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-io/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-driver-as5047/">
       
       
-        <link rel="prev" href="../modm-ide-vscode/">
+        <link rel="prev" href="../modm-driver-apa102/">
       
       
-        <link rel="next" href="../modm-lvgl/">
+        <link rel="next" href="../modm-driver-at24mac402/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:io - modm barebone embedded library</title>
+        <title>:driver:as5047 - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#inputoutput-streams" class="md-skip">
+        <a href="#as5047-14-bit-absolute-encoder-spi-driver" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :io
+              :driver:as5047
             
           </span>
         </div>
@@ -3554,11 +3554,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-as5047/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:as5047
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:as5047
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4982,93 +5023,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :io
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-io/" class="md-nav__link">
         :io
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#redirecting-iostreams" class="md-nav__link">
-    Redirecting IOStreams
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with_float" class="md-nav__link">
-    with_float
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with_long_long" class="md-nav__link">
-    with_long_long
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with_printf" class="md-nav__link">
-    with_printf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -7060,47 +7019,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#redirecting-iostreams" class="md-nav__link">
-    Redirecting IOStreams
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#with_float" class="md-nav__link">
-    with_float
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with_long_long" class="md-nav__link">
-    with_long_long
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with_printf" class="md-nav__link">
-    with_printf
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -7122,134 +7040,59 @@
                   
 
 
-<h1 id="inputoutput-streams">Input/Output Streams<a class="headerlink" href="#inputoutput-streams" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:io</code></p>
-<p>The <code>modm::IOStream</code> class contains efficient formatting that supports both
-C++ <code>std::basic_ostream</code>-like formatting via <code>operator &lt;&lt;</code> as well as
-implementing <code>printf</code> via the <code>modm:printf</code> module.</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
-<span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;format number 8: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">uint8_t</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; or as signed -100: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kt">int8_t</span><span class="p">(</span><span class="mi">-100</span><span class="p">);</span>
-<span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-<span class="n">stream</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;format number 8: %u or as signed -100: %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">-100</span><span class="p">);</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">AVR supported features</p>
-<p>All expensive features including <code>printf</code> are disabled by default to reduce
-firmware size! Please check the options.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title"><code>modm::endl</code> does NOT implicitly flush!</p>
-<p>Flushing is <em>extremely expensive</em> on embedded systems, therefore <code>modm::endl</code>
-does not implicitly flush the stream. Please call <code>modm::flush</code> explicitly.</p>
-</div>
-<h2 id="redirecting-iostreams">Redirecting IOStreams<a class="headerlink" href="#redirecting-iostreams" title="Permanent link">&para;</a></h2>
-<p>The <code>modm::IODeviceWrapper</code> transforms any peripheral device that provides static
-<code>write()</code> and <code>read()</code> functions into an <code>IODevice</code>.</p>
-<p>You have to decide what happens when the device buffer is full and you cannot
-write to it at the moment. There are two options:</p>
-<ol>
-<li>busy wait until the buffer is free, or</li>
-<li>discard the bytes that cannot be written.</li>
-</ol>
-<p>Option 1 has the advantage, that none of your data will be lost,
-however, busy-waiting can take a long time and can mess up your
-program timings.
-There is also a <strong>high risk of deadlock</strong>, when writing to a
-IODevice inside of an interrupt and then busy-waiting forever
-because the IODevice requires interrupts itself to send out
-the data.</p>
-<p>It is therefore highly recommended to use option 2, where surplus
-data will be discarded.
-You should increase the IODevice buffer size, if you experience
-missing data from your connection.
-This behavior is also deadlock safe when called from inside another
-interrupt, and your program timing is minimally affected (essentially
-only coping data into the buffer).</p>
-<p>There is no default template argument, so that you hopefully make
-a conscious decision and be aware of this behavior.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// configure a UART</span>
-<span class="k">using</span><span class="w"> </span><span class="n">Uart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Uart0</span><span class="p">;</span>
-
-<span class="c1">// wrap it into an IODevice</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">IODeviceWrapper</span><span class="o">&lt;</span><span class="n">Uart</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">IOBuffer</span><span class="o">::</span><span class="n">DiscardIfFull</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span>
-
-<span class="c1">// use this device to print a message</span>
-<span class="n">device</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-
-<span class="c1">// or create a IOStream and use the stream to print something</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
-<span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; World!&quot;</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="with_float">with_float<a class="headerlink" href="#with_float" title="Permanent link">&para;</a></h4>
-<p>Support for floating point formatting</p>
-<p>On AVRs floating point values can be printed, however, the formatting cannot be
-specified and all values are printed as <em>scientific-notation exponential floating point</em></p>
-<p>Default: <code>no</code> <em>avr</em><br />
-Default: <code>yes</code> <em>hosted, rp, sam, stm32</em><br />
-Inputs: <code>[yes, no]</code>  </p>
-<h4 id="with_long_long">with_long_long<a class="headerlink" href="#with_long_long" title="Permanent link">&para;</a></h4>
-<p>Support for 64-bit integer formatting</p>
-<p>Default: <code>no</code> <em>avr</em><br />
-Default: <code>yes</code> <em>hosted, rp, sam, stm32</em><br />
-Inputs: <code>[yes, no]</code><br />
-Input Dependency: <code>yes -&gt; modm:printf</code>  </p>
-<h4 id="with_printf">with_printf<a class="headerlink" href="#with_printf" title="Permanent link">&para;</a></h4>
-<p>Support for printf-style formatting</p>
-<p>Default: <code>no</code> <em>avr</em><br />
-Default: <code>yes</code> <em>hosted, rp, sam, stm32</em><br />
-Inputs: <code>[yes, no]</code><br />
-Input Dependency: <code>yes -&gt; modm:printf</code>  </p>
+<h1 id="as5047-14-bit-absolute-encoder-spi-driver">AS5047 14 bit Absolute Encoder SPI Driver<a class="headerlink" href="#as5047-14-bit-absolute-encoder-spi-driver" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:as5047</code></p>
+<p><a href="https://ams.com/documents/20143/36005/AS5047D_DS000394_2-00.pdf">Datasheet</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="283pt" height="135pt"
- viewBox="0.00 0.00 283.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
-<title>modm:io</title>
+<p><svg class="deps" width="361pt" height="150pt"
+ viewBox="0.00 0.00 360.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
+<title>modm:driver:as5047</title>
 <g id="node1" class="node">
-<title>modm_io</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="192,-38 127,-38 127,0 192,0 192,-38"/>
-<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">io</text>
+<title>modm_driver_as5047</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="215.5,-53 147.5,-53 147.5,0 215.5,0 215.5,-53"/>
+<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">as5047</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_accessor</title>
-<polygon fill="lightgrey" stroke="black" points="109,-127 0,-127 0,-74 109,-74 109,-127"/>
-<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-81.8" font-family="Times,serif" font-size="14.00">accessor</text>
+<title>modm_architecture_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_io&#45;&gt;modm_architecture_accessor</title>
-<path fill="none" stroke="black" d="M135.67,-38.04C124.05,-46.84 109.72,-57.69 96.35,-67.81"/>
-<polygon fill="black" stroke="black" points="94.04,-65.17 88.18,-74 98.27,-70.75 94.04,-65.17"/>
+<title>modm_driver_as5047&#45;&gt;modm_architecture_gpio</title>
+<path fill="none" stroke="black" d="M147.47,-50.81C132.96,-60.75 115.82,-72.5 100.23,-83.17"/>
+<polygon fill="black" stroke="black" points="98.03,-80.44 91.75,-88.98 101.98,-86.22 98.03,-80.44"/>
 </g>
 <g id="node3" class="node">
-<title>modm_math_utils</title>
-<polygon fill="lightgrey" stroke="black" points="192,-127 127,-127 127,-74 192,-74 192,-127"/>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="159.5" y="-81.8" font-family="Times,serif" font-size="14.00">utils</text>
+<title>modm_architecture_spi_device</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi.device</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_io&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M159.5,-38.04C159.5,-45.68 159.5,-54.86 159.5,-63.77"/>
-<polygon fill="black" stroke="black" points="156,-64 159.5,-74 163,-64 156,-64"/>
+<title>modm_driver_as5047&#45;&gt;modm_architecture_spi_device</title>
+<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
+<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
 </g>
 <g id="node4" class="node">
-<title>modm_printf</title>
-<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="275,-119.5 210,-119.5 210,-81.5 275,-81.5 275,-119.5"/>
-<text text-anchor="middle" x="242.5" y="-104.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="242.5" y="-89.3" font-family="Times,serif" font-size="14.00">printf</text>
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="352.5,-142 254.5,-142 254.5,-89 352.5,-89 352.5,-142"/>
+<text text-anchor="middle" x="303.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="303.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="303.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_io&#45;&gt;modm_printf</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M178.33,-38.04C189.5,-48.74 203.83,-62.46 216.12,-74.23"/>
-<polygon fill="black" stroke="black" points="213.81,-76.87 223.45,-81.26 218.65,-71.81 213.81,-76.87"/>
+<title>modm_driver_as5047&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M215.81,-51.97C229.24,-61.54 244.82,-72.66 259.1,-82.84"/>
+<polygon fill="black" stroke="black" points="257.15,-85.74 267.32,-88.7 261.21,-80.04 257.15,-85.74"/>
 </g>
 </g>
 </svg></p>
