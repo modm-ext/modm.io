@@ -7219,9 +7219,9 @@ Ben Hoyt, but stripped down for public release.</p>
 option, which replaces the preprocessor macros and C++ implementations of this
 and the <code>modm:processing:resumable</code> module with a fiber version.</p>
 <p>Specifically, the <code>PT_*</code> and <code>RF_*</code> macros are now forwarding their arguments
-unmodified and instead relying on <code>modm::fiber::yield()</code> for context switching:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define PT_YIELD() modm::fiber::yield()</span>
-<span class="cp">#define PT_WAIT_WHILE(cond) while(cond) { modm::fiber::yield(); }</span>
+unmodified and instead relying on <code>modm::this_fiber::yield()</code> for context switching:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define PT_YIELD() modm::this_fiber::yield()</span>
+<span class="cp">#define PT_WAIT_WHILE(cond) while(cond) { modm::this_fiber::yield(); }</span>
 <span class="cp">#define PT_CALL(func) func</span>
 </code></pre></div>
 <p>The <code>modm::pt::Protothread</code> class is implemented using <code>modm::Fiber&lt;&gt;</code> with the

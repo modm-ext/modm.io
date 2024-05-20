@@ -7320,14 +7320,14 @@ The given example is in <code>modm/examples/generic/resumable</code>.</p>
 preprocessor macros and C++ implementations of this and the
 <code>modm:processing:protothreads</code> module with a fiber version.</p>
 <p>Specifically, the <code>PT_*</code> and <code>RF_*</code> macros are now forwarding their arguments
-unmodified and instead relying on <code>modm::fiber::yield()</code> for context switching:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define RF_YIELD() modm::fiber::yield()</span>
-<span class="cp">#define RF_WAIT_WHILE(cond) while(cond) { modm::fiber::yield(); }</span>
+unmodified and instead relying on <code>modm::this_fiber::yield()</code> for context switching:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define RF_YIELD() modm::this_fiber::yield()</span>
+<span class="cp">#define RF_WAIT_WHILE(cond) while(cond) { modm::this_fiber::yield(); }</span>
 <span class="cp">#define RF_CALL(func) func</span>
 <span class="cp">#define RF_RETURN(value) return value</span>
 </code></pre></div>
 <p>You may call <code>RF_CALL_BLOCKING(resumable)</code> outside a fiber context, in which
-case the <code>modm::fiber::yield()</code> will return immediately, which is the same
+case the <code>modm::this_fiber::yield()</code> will return immediately, which is the same
 behavior as before.</p>
 <p>However, the <code>modm::ResumableResult</code>, <code>modm::Resumable</code>, and <code>modm::NestedResumable</code>
 classes are now empty implementations:</p>
