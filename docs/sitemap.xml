@@ -1126,6 +1126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-driver-as5600/</loc>
+         <lastmod>2024-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-driver-at24mac402/</loc>
          <lastmod>2024-06-17</lastmod>
          <changefreq>daily</changefreq>

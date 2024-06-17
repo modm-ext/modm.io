@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-board-disco-f051r8/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-driver-as5600/">
       
       
-        <link rel="prev" href="../modm-board-devebox-stm32h750vb/">
+        <link rel="prev" href="../modm-driver-as5047/">
       
       
-        <link rel="next" href="../modm-board-disco-f072rb/">
+        <link rel="next" href="../modm-driver-at24mac402/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:board:disco-f051r8 - modm barebone embedded library</title>
+        <title>:driver:as5600 - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stm32f0discovery" class="md-skip">
+        <a href="#as5600-10-bit-absolute-encoder-spi-driver" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :board:disco-f051r8
+              :driver:as5600
             
           </span>
         </div>
@@ -2000,52 +2000,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :board:disco-f051r8
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-board-disco-f051r8/" class="md-nav__link">
         :board:disco-f051r8
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3609,11 +3568,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-driver-as5600/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :driver:as5600
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :driver:as5600
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -7068,91 +7068,75 @@
                   
 
 
-<h1 id="stm32f0discovery">STM32F0DISCOVERY<a class="headerlink" href="#stm32f0discovery" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:board:disco-f051r8</code></p>
-<p><a href="https://www.st.com/en/evaluation-tools/stm32f0discovery.html">Discovery kit for STM32F051</a></p>
-<p><em>This module is only available for stm32f051r8t6.</em></p>
+<h1 id="as5600-10-bit-absolute-encoder-spi-driver">AS5600 10 bit absolute encoder SPI driver<a class="headerlink" href="#as5600-10-bit-absolute-encoder-spi-driver" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:driver:as5600</code></p>
+<p><a href="https://ams.com/documents/20143/36005/AS5600_DS000365_5-00.pdf">Datasheet</a></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="505pt" height="150pt"
- viewBox="0.00 0.00 505.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="464pt" height="150pt"
+ viewBox="0.00 0.00 463.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:board:disco&#45;f051r8</title>
+<title>modm:driver:as5600</title>
 <g id="node1" class="node">
-<title>modm_board_disco_f051r8</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="306.5,-53 200.5,-53 200.5,0 306.5,0 306.5,-53"/>
-<text text-anchor="middle" x="253.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="253.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
-<text text-anchor="middle" x="253.5" y="-7.8" font-family="Times,serif" font-size="14.00">disco&#45;f051r8</text>
+<title>modm_driver_as5600</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="272.5,-53 204.5,-53 204.5,0 272.5,0 272.5,-53"/>
+<text text-anchor="middle" x="238.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="238.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
+<text text-anchor="middle" x="238.5" y="-7.8" font-family="Times,serif" font-size="14.00">as5600</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_clock</title>
+<title>modm_architecture_gpio</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">clock</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_board_disco_f051r8&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M200.43,-50.7C175.2,-61.73 144.83,-75.01 118.34,-86.59"/>
-<polygon fill="black" stroke="black" points="116.91,-83.39 109.15,-90.61 119.72,-89.81 116.91,-83.39"/>
+<title>modm_driver_as5600&#45;&gt;modm_architecture_gpio</title>
+<path fill="none" stroke="black" d="M204.32,-43.66C180.13,-55.1 146.96,-70.78 117.98,-84.48"/>
+<polygon fill="black" stroke="black" points="116.28,-81.42 108.74,-88.86 119.27,-87.75 116.28,-81.42"/>
 </g>
 <g id="node3" class="node">
-<title>modm_driver_l3gd20</title>
-<polygon fill="lightgrey" stroke="black" points="193.5,-142 127.5,-142 127.5,-89 193.5,-89 193.5,-142"/>
-<text text-anchor="middle" x="160.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="160.5" y="-111.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="160.5" y="-96.8" font-family="Times,serif" font-size="14.00">l3gd20</text>
+<title>modm_architecture_i2c_device</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">i2c.device</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_board_disco_f051r8&#45;&gt;modm_driver_l3gd20</title>
-<path fill="none" stroke="black" d="M226.1,-53.13C216.54,-62.08 205.67,-72.25 195.57,-81.7"/>
-<polygon fill="black" stroke="black" points="192.94,-79.36 188.03,-88.75 197.72,-84.47 192.94,-79.36"/>
+<title>modm_driver_as5600&#45;&gt;modm_architecture_i2c_device</title>
+<path fill="none" stroke="black" d="M221.71,-53.13C216.13,-61.64 209.83,-71.25 203.91,-80.3"/>
+<polygon fill="black" stroke="black" points="200.92,-78.47 198.37,-88.75 206.78,-82.3 200.92,-78.47"/>
 </g>
 <g id="node4" class="node">
-<title>modm_platform_clock</title>
-<polygon fill="lightgrey" stroke="black" points="295,-142 212,-142 212,-89 295,-89 295,-142"/>
-<text text-anchor="middle" x="253.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="253.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="253.5" y="-96.8" font-family="Times,serif" font-size="14.00">clock</text>
+<title>modm_math_geometry</title>
+<polygon fill="lightgrey" stroke="black" points="339,-142 254,-142 254,-89 339,-89 339,-142"/>
+<text text-anchor="middle" x="296.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="296.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="296.5" y="-96.8" font-family="Times,serif" font-size="14.00">geometry</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_board_disco_f051r8&#45;&gt;modm_platform_clock</title>
-<path fill="none" stroke="black" d="M253.5,-53.13C253.5,-61.11 253.5,-70.07 253.5,-78.62"/>
-<polygon fill="black" stroke="black" points="250,-78.75 253.5,-88.75 257,-78.75 250,-78.75"/>
+<title>modm_driver_as5600&#45;&gt;modm_math_geometry</title>
+<path fill="none" stroke="black" d="M255.59,-53.13C261.26,-61.64 267.67,-71.25 273.7,-80.3"/>
+<polygon fill="black" stroke="black" points="270.87,-82.37 279.33,-88.75 276.7,-78.49 270.87,-82.37"/>
 </g>
 <g id="node5" class="node">
-<title>modm_platform_core</title>
-<polygon fill="lightgrey" stroke="black" points="396,-142 313,-142 313,-89 396,-89 396,-142"/>
-<text text-anchor="middle" x="354.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="354.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="354.5" y="-96.8" font-family="Times,serif" font-size="14.00">core</text>
+<title>modm_processing_resumable</title>
+<polygon fill="lightgrey" stroke="black" points="455.5,-142 357.5,-142 357.5,-89 455.5,-89 455.5,-142"/>
+<text text-anchor="middle" x="406.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="406.5" y="-111.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="406.5" y="-96.8" font-family="Times,serif" font-size="14.00">resumable</text>
 </g>
 <g id="edge4" class="edge">
-<title>modm_board_disco_f051r8&#45;&gt;modm_platform_core</title>
-<path fill="none" stroke="black" d="M283.26,-53.13C293.75,-62.17 305.68,-72.45 316.74,-81.97"/>
-<polygon fill="black" stroke="black" points="314.75,-84.88 324.61,-88.75 319.31,-79.57 314.75,-84.88"/>
-</g>
-<g id="node6" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="497,-142 414,-142 414,-89 497,-89 497,-142"/>
-<text text-anchor="middle" x="455.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="455.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="455.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
-</g>
-<g id="edge5" class="edge">
-<title>modm_board_disco_f051r8&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M306.74,-47.73C333.83,-58.32 367.39,-71.91 404.41,-88.62"/>
-<polygon fill="black" stroke="black" points="403.34,-91.98 413.89,-92.94 406.24,-85.61 403.34,-91.98"/>
+<title>modm_driver_as5600&#45;&gt;modm_processing_resumable</title>
+<path fill="none" stroke="black" d="M272.9,-45.32C294.62,-56.56 323.23,-71.38 348.39,-84.41"/>
+<polygon fill="black" stroke="black" points="347,-87.63 357.49,-89.12 350.22,-81.41 347,-87.63"/>
 </g>
 </g>
 </svg></p>
 <style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
-<div class="admonition warning">
-<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
-</div>
 
 
 
