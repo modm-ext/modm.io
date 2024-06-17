@@ -6511,6 +6511,19 @@
     Stack Usage
   </a>
   
+    <nav class="md-nav" aria-label="Stack Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armv8-m-stack-limit-registers" class="md-nav__link">
+    ARMv8-M Stack Limit Registers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -7291,6 +7304,19 @@
     Stack Usage
   </a>
   
+    <nav class="md-nav" aria-label="Stack Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armv8-m-stack-limit-registers" class="md-nav__link">
+    ARMv8-M Stack Limit Registers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -7569,6 +7595,32 @@ usage inside or outside the fiber:</p>
 </code></pre></div>
 <p>Note that stack usage measurement through watermarking can be inaccurate if the
 registers contain the watermark value.</p>
+<h3 id="armv8-m-stack-limit-registers">ARMv8-M Stack Limit Registers<a class="headerlink" href="#armv8-m-stack-limit-registers" title="Permanent link">&para;</a></h3>
+<p>On ARMv8-M devices, the PSPLIM register is set to the bottom of the fiber stack
+so that stack overflows are reliably detected and cause a STKOF UsageFault if
+enabled, or a HardFault if not, both on the main stack.</p>
+<p>Currently no recovery strategy is implementable, since accessing the scheduler
+is not interrupt-safe and any acquired resources of the offending fiber are not
+tracked and can thus also not be released. Therefore, no default implementation
+to handle the UsageFault is provided.</p>
+<p>Here is an example handler if you wish to experiment with solutions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Enable the UsageFault handler *before* modm::fiber::Scheduler::run();</span>
+<span class="n">SCB</span><span class="o">-&gt;</span><span class="n">SHCSR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">SCB_SHCSR_USGFAULTENA_Msk</span><span class="p">;</span>
+
+<span class="c1">// On fiber stack overflow this handler will be called</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">UsageFault_Handler</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// check if the fault is a stack overflow *from the fiber stack*</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">SCB</span><span class="o">-&gt;</span><span class="n">CFSR</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">SCB_CFSR_STKOF_Msk</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">__get_PSP</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">__get_PSPLIM</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// lower the priority of the usage fault to allow the UART interrupts to work</span>
+<span class="w">        </span><span class="n">NVIC_SetPriority</span><span class="p">(</span><span class="n">UsageFault_IRQn</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">1ul</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__NVIC_PRIO_BITS</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1ul</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// raise an assertion to report this overflow</span>
+<span class="w">        </span><span class="n">modm_assert</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fbr.stkof&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fiber stack overflow&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">get_id</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">HardFault_Handler</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
 <p>The scheduler <code>run()</code> function will suspend execution of the call site, usually
 the main function, start each fiber and continue to execute them until they all

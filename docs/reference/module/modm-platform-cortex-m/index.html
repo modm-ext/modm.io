@@ -7936,8 +7936,10 @@ Inputs: <code>[ram, rom]</code>  </p>
 <ul>
 <li><code>vector_table</code>: [position] = Full vector name (ie. <em>with</em> <code>_Handler</code> or <code>_IRQHandler</code> suffix)</li>
 <li><code>vector_table_location</code>: rom or ram</li>
+<li><code>vector_table_size</code>: in Bytes</li>
 <li><code>highest_irq</code>: highest IRQ number + 1</li>
 <li><code>core</code>: cortex-m{0,3,4,7}{,+,f,fd}</li>
+<li><code>exception_frame_size</code>: in Bytes.</li>
 </ul>
 <p>The system vectors start at -16, so you must add 16 to <code>highest_irq</code> to get
 the total number of vectors in the table!</p>
