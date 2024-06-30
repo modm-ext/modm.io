@@ -7325,8 +7325,10 @@ be used to branch to cleanup code:</p>
 <span class="w">    </span><span class="c1">// post-assert cleanup</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Additionally, these assertions are only active in debug mode. Of course they
-still evaluate and return the condition in release mode, so you can use them
+<p>Additionally, these assertions are only active in <code>profile=debug</code> (more about
+profiles: <a href="https://modm.io/reference/module/modm-build-scons/#scons">scons</a>,
+<a href="https://modm.io/reference/module/modm-build-make/#make">make</a>). Of course they
+still evaluate and return the condition in <code>profile=release</code>, so you can use them
 just as above:</p>
 <ol>
 <li><code>bool modm_assert_continue_fail_debug()</code></li>
