@@ -7112,15 +7112,17 @@
 <p>lbuild module: <code>modm:cmsis:dsp</code></p>
 <p>This module provides the CMSIS-DSP library.
 Please <a href="https://arm-software.github.io/CMSIS-DSP/latest/">see the API documentation</a> for details.</p>
-<p>Note that this module splits up the library into submodule to speed up
+<p>Note:
+- The library should be accessed through the <code>arm_math.h</code> and <code>arm_math_f16.h</code>
+headers, as these include necessary configuration options.
+- This module splits up the library into submodules to speed up
 compilation by only including the math functions you really need.
-You can enable 16-bit floating point support separately via option.</p>
+- You can enable 16-bit floating point support via the option <code>with_f16</code>.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>You can define your own configuration in the <code>&lt;arm_math_local.h&gt;</code> file which
-will automatically be included at the <em>beginning</em> of the <code>arm_math_types.h</code> file
-which is included by all CMSIS-DSP source files. This way changes to your
-CMSIS-DSP configuration will only affect its source files and not recompile your
-whole project.</p>
+will automatically be included at the <em>beginning</em> of the <code>arm_math.h</code> and
+<code>arm_math_f16.h</code> files. This way changes to your CMSIS-DSP configuration will
+only affect its source files and not recompile your whole project.</p>
 <p>Example <code>&lt;arm_math_local.h&gt;</code> configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Check the input and output sizes of matrices</span>
 <span class="cp">#define ARM_MATH_MATRIX_CHECK 1</span>
