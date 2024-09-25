@@ -12,7 +12,7 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-platform-can-stm32-g0-g4-l5-u5/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-platform-can-stm32-g0-g4-h7-l5-u5/">
       
       
         <link rel="prev" href="../modm-platform-can-stm32-f0-f1-f2-f3-f4-f7-l4/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>:platform:can (stm32{g0,g4,l5,u5}) - modm barebone embedded library</title>
+        <title>:platform:can (stm32{g0,g4,h7,l5,u5}) - modm barebone embedded library</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:can (stm32{g0,g4,l5,u5})
+              :platform:can (stm32{g0,g4,h7,l5,u5})
             
           </span>
         </div>
@@ -5344,12 +5344,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:can (stm32{g0,g4,l5,u5})
+          :platform:can (stm32{g0,g4,h7,l5,u5})
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        :platform:can (stm32{g0,g4,l5,u5})
+        :platform:can (stm32{g0,g4,h7,l5,u5})
       </a>
       
         
@@ -5391,6 +5391,20 @@
     <li class="md-nav__item">
       <a href="../modm-platform-can-common/" class="md-nav__link">
         :platform:can.common
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-platform-can-common-fdcan/" class="md-nav__link">
+        :platform:can.common.fdcan
       </a>
     </li>
   
@@ -7070,21 +7084,21 @@
 
 <h1 id="controller-area-network-with-flexible-data-rate-fdcan">Controller Area Network with Flexible Data-Rate (FDCAN)<a class="headerlink" href="#controller-area-network-with-flexible-data-rate-fdcan" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:can</code></p>
-<p><em>This module is only available for stm32{g0,g4,l5,u5}.</em></p>
+<p><em>This module is only available for stm32{g0,g4,h7,l5,u5}.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="1328pt" height="150pt"
- viewBox="0.00 0.00 1328.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="1495pt" height="150pt"
+ viewBox="0.00 0.00 1495.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:platform:can</title>
 <g id="node1" class="node">
 <title>modm_platform_can</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="783,-53 700,-53 700,0 783,0 783,-53"/>
-<text text-anchor="middle" x="741.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="741.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="741.5" y="-7.8" font-family="Times,serif" font-size="14.00">can</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="836,-53 753,-53 753,0 836,0 836,-53"/>
+<text text-anchor="middle" x="794.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="794.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="794.5" y="-7.8" font-family="Times,serif" font-size="14.00">can</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_assert</title>
@@ -7095,8 +7109,8 @@
 </g>
 <g id="edge1" class="edge">
 <title>modm_platform_can&#45;&gt;modm_architecture_assert</title>
-<path fill="none" stroke="black" d="M699.93,-27.52C600.2,-28.44 339.85,-35.94 118.99,-88.91"/>
-<polygon fill="black" stroke="black" points="118.06,-85.53 109.17,-91.3 119.71,-92.33 118.06,-85.53"/>
+<path fill="none" stroke="black" d="M752.99,-27.07C647.49,-26.86 360.91,-31.85 119.19,-88.87"/>
+<polygon fill="black" stroke="black" points="118.07,-85.54 109.16,-91.27 119.7,-92.35 118.07,-85.54"/>
 </g>
 <g id="node3" class="node">
 <title>modm_architecture_atomic</title>
@@ -7107,8 +7121,8 @@
 </g>
 <g id="edge2" class="edge">
 <title>modm_platform_can&#45;&gt;modm_architecture_atomic</title>
-<path fill="none" stroke="black" d="M699.91,-28.98C615.27,-32.78 417.19,-45.66 245.88,-88.9"/>
-<polygon fill="black" stroke="black" points="245.01,-85.51 236.19,-91.38 246.75,-92.29 245.01,-85.51"/>
+<path fill="none" stroke="black" d="M752.76,-28.3C661.55,-30.87 437.9,-41.63 246.15,-88.85"/>
+<polygon fill="black" stroke="black" points="245.03,-85.52 236.18,-91.34 246.73,-92.31 245.03,-85.52"/>
 </g>
 <g id="node4" class="node">
 <title>modm_architecture_can</title>
@@ -7119,8 +7133,8 @@
 </g>
 <g id="edge3" class="edge">
 <title>modm_platform_can&#45;&gt;modm_architecture_can</title>
-<path fill="none" stroke="black" d="M699.79,-31.41C632.4,-38.38 495.54,-55.23 373.14,-88.76"/>
-<polygon fill="black" stroke="black" points="371.92,-85.47 363.23,-91.52 373.8,-92.21 371.92,-85.47"/>
+<path fill="none" stroke="black" d="M753,-30.21C678.16,-35.82 515.82,-51.23 373.02,-88.83"/>
+<polygon fill="black" stroke="black" points="371.96,-85.49 363.21,-91.45 373.77,-92.25 371.96,-85.49"/>
 </g>
 <g id="node5" class="node">
 <title>modm_architecture_clock</title>
@@ -7131,8 +7145,8 @@
 </g>
 <g id="edge4" class="edge">
 <title>modm_platform_can&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M699.73,-36.25C652.92,-46.45 574.73,-64.69 499.89,-88.69"/>
-<polygon fill="black" stroke="black" points="498.74,-85.38 490.31,-91.8 500.9,-92.04 498.74,-85.38"/>
+<path fill="none" stroke="black" d="M752.73,-33.75C696.79,-42.64 594.48,-60.76 499.97,-88.74"/>
+<polygon fill="black" stroke="black" points="498.84,-85.43 490.27,-91.66 500.85,-92.13 498.84,-85.43"/>
 </g>
 <g id="node6" class="node">
 <title>modm_architecture_delay</title>
@@ -7143,8 +7157,8 @@
 </g>
 <g id="edge5" class="edge">
 <title>modm_platform_can&#45;&gt;modm_architecture_delay</title>
-<path fill="none" stroke="black" d="M699.98,-47.68C677.45,-58.63 649.15,-72.39 624.09,-84.56"/>
-<polygon fill="black" stroke="black" points="622.49,-81.45 615.03,-88.97 625.55,-87.75 622.49,-81.45"/>
+<path fill="none" stroke="black" d="M752.68,-42.25C720.46,-53.72 674.6,-70.27 626.43,-88.68"/>
+<polygon fill="black" stroke="black" points="625.17,-85.42 617.09,-92.27 627.68,-91.95 625.17,-85.42"/>
 </g>
 <g id="node7" class="node">
 <title>modm_architecture_interrupt</title>
@@ -7155,8 +7169,8 @@
 </g>
 <g id="edge6" class="edge">
 <title>modm_platform_can&#45;&gt;modm_architecture_interrupt</title>
-<path fill="none" stroke="black" d="M726.18,-53.13C721.15,-61.55 715.47,-71.05 710.11,-80.02"/>
-<polygon fill="black" stroke="black" points="707.02,-78.37 704.89,-88.75 713.03,-81.96 707.02,-78.37"/>
+<path fill="none" stroke="black" d="M763.56,-53.13C752.55,-62.25 740.01,-72.65 728.42,-82.25"/>
+<polygon fill="black" stroke="black" points="726.04,-79.67 720.58,-88.75 730.51,-85.07 726.04,-79.67"/>
 </g>
 <g id="node8" class="node">
 <title>modm_cmsis_device</title>
@@ -7167,8 +7181,8 @@
 </g>
 <g id="edge7" class="edge">
 <title>modm_platform_can&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M757.12,-53.13C762.24,-61.55 768.03,-71.05 773.5,-80.02"/>
-<polygon fill="black" stroke="black" points="770.62,-82.03 778.81,-88.75 776.6,-78.39 770.62,-82.03"/>
+<path fill="none" stroke="black" d="M794.5,-53.13C794.5,-61.11 794.5,-70.07 794.5,-78.62"/>
+<polygon fill="black" stroke="black" points="791,-78.75 794.5,-88.75 798,-78.75 791,-78.75"/>
 </g>
 <g id="node9" class="node">
 <title>modm_debug</title>
@@ -7178,8 +7192,8 @@
 </g>
 <g id="edge8" class="edge">
 <title>modm_platform_can&#45;&gt;modm_debug</title>
-<path fill="none" stroke="black" d="M781.57,-53.13C800.29,-65.11 822.42,-79.27 840.71,-90.97"/>
-<polygon fill="black" stroke="black" points="839.04,-94.05 849.35,-96.49 842.81,-88.16 839.04,-94.05"/>
+<path fill="none" stroke="black" d="M818.95,-53.13C829.75,-64.45 842.42,-77.73 853.2,-89.03"/>
+<polygon fill="black" stroke="black" points="850.89,-91.67 860.32,-96.49 855.95,-86.84 850.89,-91.67"/>
 </g>
 <g id="node10" class="node">
 <title>modm_platform_can_common</title>
@@ -7190,43 +7204,55 @@
 </g>
 <g id="edge9" class="edge">
 <title>modm_platform_can&#45;&gt;modm_platform_can_common</title>
-<path fill="none" stroke="black" d="M783.1,-41.12C817.28,-52.48 867.13,-69.43 919.1,-88.92"/>
-<polygon fill="black" stroke="black" points="917.89,-92.21 928.48,-92.46 920.36,-85.66 917.89,-92.21"/>
+<path fill="none" stroke="black" d="M836,-46.81C860.46,-58.19 891.88,-72.8 919.26,-85.54"/>
+<polygon fill="black" stroke="black" points="917.83,-88.74 928.37,-89.78 920.78,-82.39 917.83,-88.74"/>
 </g>
 <g id="node11" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="1136,-142 1053,-142 1053,-89 1136,-89 1136,-142"/>
-<text text-anchor="middle" x="1094.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="1094.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="1094.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_platform_can_common_fdcan</title>
+<polygon fill="lightgrey" stroke="black" points="1202,-142 1053,-142 1053,-89 1202,-89 1202,-142"/>
+<text text-anchor="middle" x="1127.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="1127.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="1127.5" y="-96.8" font-family="Times,serif" font-size="14.00">can.common.fdcan</text>
 </g>
 <g id="edge10" class="edge">
-<title>modm_platform_can&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M783.45,-32.5C842.63,-40.34 953.47,-57.93 1043.5,-89 1043.6,-89.03 1043.69,-89.07 1043.79,-89.1"/>
-<polygon fill="black" stroke="black" points="1042.26,-92.26 1052.85,-92.59 1044.78,-85.73 1042.26,-92.26"/>
+<title>modm_platform_can&#45;&gt;modm_platform_can_common_fdcan</title>
+<path fill="none" stroke="black" d="M836.09,-37.07C883.63,-48.16 964.01,-67.38 1042.8,-88.86"/>
+<polygon fill="black" stroke="black" points="1042.33,-92.36 1052.9,-91.63 1044.19,-85.61 1042.33,-92.36"/>
 </g>
 <g id="node12" class="node">
-<title>modm_platform_rcc</title>
-<polygon fill="lightgrey" stroke="black" points="1237,-142 1154,-142 1154,-89 1237,-89 1237,-142"/>
-<text text-anchor="middle" x="1195.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="1195.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="1195.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="1303,-142 1220,-142 1220,-89 1303,-89 1303,-142"/>
+<text text-anchor="middle" x="1261.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="1261.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="1261.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge11" class="edge">
-<title>modm_platform_can&#45;&gt;modm_platform_rcc</title>
-<path fill="none" stroke="black" d="M783.21,-29.46C855.9,-33.8 1010.07,-47.17 1144.28,-89"/>
-<polygon fill="black" stroke="black" points="1143.31,-92.37 1153.91,-92.06 1145.44,-85.7 1143.31,-92.37"/>
+<title>modm_platform_can&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M836.05,-29.18C910.48,-33.12 1071.1,-45.95 1210.35,-89.03"/>
+<polygon fill="black" stroke="black" points="1209.32,-92.38 1219.91,-92.05 1211.43,-85.7 1209.32,-92.38"/>
 </g>
 <g id="node13" class="node">
-<title>modm_utils</title>
-<polygon fill="lightgrey" stroke="black" points="1320,-134.5 1255,-134.5 1255,-96.5 1320,-96.5 1320,-134.5"/>
-<text text-anchor="middle" x="1287.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="1287.5" y="-104.3" font-family="Times,serif" font-size="14.00">utils</text>
+<title>modm_platform_rcc</title>
+<polygon fill="lightgrey" stroke="black" points="1404,-142 1321,-142 1321,-89 1404,-89 1404,-142"/>
+<text text-anchor="middle" x="1362.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="1362.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="1362.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
 </g>
 <g id="edge12" class="edge">
+<title>modm_platform_can&#45;&gt;modm_platform_rcc</title>
+<path fill="none" stroke="black" d="M836.14,-27.52C923.82,-28.6 1133.39,-36.65 1311.16,-89.02"/>
+<polygon fill="black" stroke="black" points="1310.35,-92.43 1320.94,-91.95 1312.37,-85.73 1310.35,-92.43"/>
+</g>
+<g id="node14" class="node">
+<title>modm_utils</title>
+<polygon fill="lightgrey" stroke="black" points="1487,-134.5 1422,-134.5 1422,-96.5 1487,-96.5 1487,-134.5"/>
+<text text-anchor="middle" x="1454.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="1454.5" y="-104.3" font-family="Times,serif" font-size="14.00">utils</text>
+</g>
+<g id="edge13" class="edge">
 <title>modm_platform_can&#45;&gt;modm_utils</title>
-<path fill="none" stroke="black" d="M783.12,-26.58C871.27,-25.91 1082.19,-31.1 1246.5,-89 1248.62,-89.75 1250.75,-90.62 1252.85,-91.58"/>
-<polygon fill="black" stroke="black" points="1251.4,-94.77 1261.89,-96.25 1254.62,-88.55 1251.4,-94.77"/>
+<path fill="none" stroke="black" d="M836.01,-29.17C956.73,-34.41 1305.89,-52.41 1413.5,-89 1415.78,-89.77 1418.06,-90.69 1420.31,-91.72"/>
+<polygon fill="black" stroke="black" points="1418.88,-94.92 1429.37,-96.41 1422.1,-88.7 1418.88,-94.92"/>
 </g>
 </g>
 </svg></p>
