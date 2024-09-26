@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-platform-dma-stm32-f0-f1-f2-f3-f4-f7-g0-g4-h7-l0-l1-l4-l5/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-platform-spi-stm32-c0-f0-f1-f2-f3-f4-f7-g0-g4-l0-l1-l4-l5/">
       
       
-        <link rel="prev" href="../modm-platform-dma-same7x-s7x-v7x/">
+        <link rel="prev" href="../modm-platform-spi-stm32h7/">
       
       
-        <link rel="next" href="../modm-platform-eth/">
+        <link rel="next" href="../modm-platform-spi-bitbang/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:platform:dma (stm32{f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5}) - modm barebone embedded library</title>
+        <title>:platform:spi (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5}) - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#direct-memory-access-dma" class="md-skip">
+        <a href="#serial-peripheral-interface-spi" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:dma (stm32{f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
+              :platform:spi (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5})
             
           </span>
         </div>
@@ -862,6 +862,20 @@
     <li class="md-nav__item">
       <a href="../../config/modm-mega-2560-pro/" class="md-nav__link">
         :mega-2560-pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/modm-nucleo-c031c6/" class="md-nav__link">
+        :nucleo-c031c6
       </a>
     </li>
   
@@ -2228,6 +2242,20 @@
     <li class="md-nav__item">
       <a href="../modm-board-mega-2560-pro/" class="md-nav__link">
         :board:mega-2560-pro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-board-nucleo-c031c6/" class="md-nav__link">
+        :board:nucleo-c031c6
       </a>
     </li>
   
@@ -5250,8 +5278,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-adc-stm32-f0-g0/" class="md-nav__link">
-        :platform:adc (stm32{f0,g0})
+      <a href="../modm-platform-adc-stm32-c0-f0-g0/" class="md-nav__link">
+        :platform:adc (stm32{c0,f0,g0})
       </a>
     </li>
   
@@ -5558,8 +5586,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-dac-stm32/" class="md-nav__link">
-        :platform:dac (stm32)
+      <a href="../modm-platform-dac-stm32-f0-f1-f2-f3-f4-f7-g0-g4-h7-l0-l1-l4-l5-u5/" class="md-nav__link">
+        :platform:dac (stm32{f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u5})
       </a>
     </li>
   
@@ -5598,52 +5626,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :platform:dma (stm32{f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        :platform:dma (stm32{f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
+    <li class="md-nav__item">
+      <a href="../modm-platform-dma-stm32-c0-f0-f1-f2-f3-f4-f7-g0-g4-h7-l0-l1-l4-l5/" class="md-nav__link">
+        :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5907,8 +5894,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-i2c-stm32-f0-f3-f7-g0-g4-h7-l0-l4-l5-u5/" class="md-nav__link">
-        :platform:i2c (stm32{f0,f3,f7,g0,g4,h7,l0,l4,l5,u5})
+      <a href="../modm-platform-i2c-stm32-c0-f0-f3-f7-g0-g4-h7-l0-l4-l5-u5/" class="md-nav__link">
+        :platform:i2c (stm32{c0,f0,f3,f7,g0,g4,h7,l0,l4,l5,u5})
       </a>
     </li>
   
@@ -6143,11 +6130,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-spi-stm32-f0-f1-f2-f3-f4-f7-g0-g4-l0-l1-l4-l5/" class="md-nav__link">
-        :platform:spi (stm32{f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5})
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :platform:spi (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5})
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        :platform:spi (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5})
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6369,8 +6397,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-usb-stm32-f0-f1-f2-f3-f4-f7-g4-h7-l0-l1-l4-l5-u5/" class="md-nav__link">
-        :platform:usb (stm32{f0,f1,f2,f3,f4,f7,g4,h7,l0,l1,l4,l5,u5})
+      <a href="../modm-platform-usb-stm32-c0-f0-f1-f2-f3-f4-f7-g4-h7-l0-l1-l4-l5-u5/" class="md-nav__link">
+        :platform:usb (stm32{c0,f0,f1,f2,f3,f4,f7,g4,h7,l0,l1,l4,l5,u5})
       </a>
     </li>
   
@@ -7082,47 +7110,95 @@
                   
 
 
-<h1 id="direct-memory-access-dma">Direct Memory Access (DMA)<a class="headerlink" href="#direct-memory-access-dma" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:dma</code></p>
-<p><em>This module is only available for stm32{f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5}.</em></p>
+<h1 id="serial-peripheral-interface-spi">Serial Peripheral Interface (SPI)<a class="headerlink" href="#serial-peripheral-interface-spi" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:spi</code></p>
+<p><em>This module is only available for stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,l0,l1,l4,l5}.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="174pt" height="150pt"
- viewBox="0.00 0.00 174.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="634pt" height="150pt"
+ viewBox="0.00 0.00 634.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:platform:dma</title>
+<title>modm:platform:spi</title>
 <g id="node1" class="node">
-<title>modm_platform_dma</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="120,-53 37,-53 37,0 120,0 120,-53"/>
-<text text-anchor="middle" x="78.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="78.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="78.5" y="-7.8" font-family="Times,serif" font-size="14.00">dma</text>
+<title>modm_platform_spi</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="375,-53 292,-53 292,0 375,0 375,-53"/>
+<text text-anchor="middle" x="333.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="333.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="333.5" y="-7.8" font-family="Times,serif" font-size="14.00">spi</text>
 </g>
 <g id="node2" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="65,-142 0,-142 0,-89 65,-89 65,-142"/>
-<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="32.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_dma&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M64.95,-53.13C60.54,-61.47 55.58,-70.86 50.88,-79.74"/>
-<polygon fill="black" stroke="black" points="47.69,-78.27 46.11,-88.75 53.88,-81.55 47.69,-78.27"/>
+<title>modm_platform_spi&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M291.68,-37.98C249.92,-48.77 183.8,-66.69 118.61,-88.74"/>
+<polygon fill="black" stroke="black" points="117.33,-85.48 109,-92.02 119.59,-92.1 117.33,-85.48"/>
 </g>
 <g id="node3" class="node">
-<title>modm_platform_rcc</title>
-<polygon fill="lightgrey" stroke="black" points="166,-142 83,-142 83,-89 166,-89 166,-142"/>
-<text text-anchor="middle" x="124.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="124.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="124.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
+<title>modm_architecture_spi</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">spi</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_platform_dma&#45;&gt;modm_platform_rcc</title>
-<path fill="none" stroke="black" d="M92.05,-53.13C96.46,-61.47 101.42,-70.86 106.12,-79.74"/>
-<polygon fill="black" stroke="black" points="103.12,-81.55 110.89,-88.75 109.31,-78.27 103.12,-81.55"/>
+<title>modm_platform_spi&#45;&gt;modm_architecture_spi</title>
+<path fill="none" stroke="black" d="M291.97,-51.27C274.36,-61.35 253.63,-73.22 234.9,-83.93"/>
+<polygon fill="black" stroke="black" points="233.12,-80.92 226.18,-88.93 236.6,-87 233.12,-80.92"/>
+</g>
+<g id="node4" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="319,-142 254,-142 254,-89 319,-89 319,-142"/>
+<text text-anchor="middle" x="286.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="286.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="286.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_spi&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M319.65,-53.13C315.15,-61.47 310.08,-70.86 305.28,-79.74"/>
+<polygon fill="black" stroke="black" points="302.08,-78.29 300.41,-88.75 308.24,-81.62 302.08,-78.29"/>
+</g>
+<g id="node5" class="node">
+<title>modm_math_algorithm</title>
+<polygon fill="lightgrey" stroke="black" points="423.5,-142 337.5,-142 337.5,-89 423.5,-89 423.5,-142"/>
+<text text-anchor="middle" x="380.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="380.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="380.5" y="-96.8" font-family="Times,serif" font-size="14.00">algorithm</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_platform_spi&#45;&gt;modm_math_algorithm</title>
+<path fill="none" stroke="black" d="M347.35,-53.13C351.85,-61.47 356.92,-70.86 361.72,-79.74"/>
+<polygon fill="black" stroke="black" points="358.76,-81.62 366.59,-88.75 364.92,-78.29 358.76,-81.62"/>
+</g>
+<g id="node6" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="525,-142 442,-142 442,-89 525,-89 525,-142"/>
+<text text-anchor="middle" x="483.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="483.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="483.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_platform_spi&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M375.28,-51.73C393.24,-62.15 414.39,-74.42 433.2,-85.33"/>
+<polygon fill="black" stroke="black" points="431.53,-88.41 441.94,-90.4 435.05,-82.35 431.53,-88.41"/>
+</g>
+<g id="node7" class="node">
+<title>modm_platform_rcc</title>
+<polygon fill="lightgrey" stroke="black" points="626,-142 543,-142 543,-89 626,-89 626,-142"/>
+<text text-anchor="middle" x="584.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="584.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="584.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
+</g>
+<g id="edge6" class="edge">
+<title>modm_platform_spi&#45;&gt;modm_platform_rcc</title>
+<path fill="none" stroke="black" d="M375.04,-37.93C414.11,-48.24 474.22,-65.39 533.27,-88.73"/>
+<polygon fill="black" stroke="black" points="532.15,-92.05 542.74,-92.53 534.76,-85.56 532.15,-92.05"/>
 </g>
 </g>
 </svg></p>
