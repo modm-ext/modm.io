@@ -5621,6 +5621,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cache-initialization" class="md-nav__link">
+    Cache Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-initialization" class="md-nav__link">
     Additional Initialization
   </a>
@@ -7330,6 +7337,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cache-initialization" class="md-nav__link">
+    Cache Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-initialization" class="md-nav__link">
     Additional Initialization
   </a>
@@ -7598,6 +7612,12 @@ stack until you've enabled its backing memory. The <code>Reset_Handler</code> th
 calls this function in Assembly without accessing the stack.</p>
 <p>It is strongly recommended to only read/write registers in this function, and
 perhaps even write this function in Assembly if deemed necessary.</p>
+<h3 id="cache-initialization">Cache Initialization<a class="headerlink" href="#cache-initialization" title="Permanent link">&para;</a></h3>
+<p>For Cortex-M7 devices, both the I-Cache and D-Cache are enabled by default with
+a write-through policy to significantly improve performance. However, it is
+important to note that manual invalidation of the caches is required on certain
+operations, such as when writing to Flash (I-Cache) or when using DMA
+(D-Cache). See the <a href="https://www.keil.com/pack/doc/CMSIS_Dev/Core/html/group__cache__functions__m7.html">CMSIS-Core documentation</a> for more info.</p>
 <h3 id="additional-initialization">Additional Initialization<a class="headerlink" href="#additional-initialization" title="Permanent link">&para;</a></h3>
 <p>A few modules need to initialize additional hardware during booting. For
 example: your device has external memories connected that you want to use for
