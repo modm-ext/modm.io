@@ -7579,7 +7579,7 @@ implemented as follows:</p>
 <li>Call <code>modm_initialize_platform()</code> to initialize the custom device hardware.</li>
 <li>Copy data to internal RAM.</li>
 <li>Zero sections in internal RAM.</li>
-<li>Initialize ARM Cortex-M core: enable FPU and relocate vector table.</li>
+<li>Initialize ARM Cortex-M core: enable FPU, caches and relocate vector table.</li>
 <li>Execute shared hardware initialization functions.</li>
 <li>Copy data to <em>external</em> RAM.</li>
 <li>Zero sections in <em>external</em> RAM.</li>
@@ -7613,11 +7613,11 @@ calls this function in Assembly without accessing the stack.</p>
 <p>It is strongly recommended to only read/write registers in this function, and
 perhaps even write this function in Assembly if deemed necessary.</p>
 <h3 id="cache-initialization">Cache Initialization<a class="headerlink" href="#cache-initialization" title="Permanent link">&para;</a></h3>
-<p>For Cortex-M7 devices, both the I-Cache and D-Cache are enabled by default with
-a write-through policy to significantly improve performance. However, it is
-important to note that manual invalidation of the caches is required on certain
-operations, such as when writing to Flash (I-Cache) or when using DMA
-(D-Cache). See the <a href="https://www.keil.com/pack/doc/CMSIS_Dev/Core/html/group__cache__functions__m7.html">CMSIS-Core documentation</a> for more info.</p>
+<p>For Cortex-M7 devices, the I-Cache is enabled by default. The D-Cache with a
+write-back write-allocate policy is only enabled if the <code>modm:platform:dma</code>
+module is NOT selected. modm currently does not support allocating DMA buffers
+in non-cachable regions or granular cache invalidation. See the
+<a href="https://www.keil.com/pack/doc/CMSIS_Dev/Core/html/group__cache__functions__m7.html">CMSIS-Core Cache API</a> for more information on cache management.</p>
 <h3 id="additional-initialization">Additional Initialization<a class="headerlink" href="#additional-initialization" title="Permanent link">&para;</a></h3>
 <p>A few modules need to initialize additional hardware during booting. For
 example: your device has external memories connected that you want to use for
