@@ -1694,6 +1694,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -7248,6 +7262,13 @@
 
 <h1 id="resumable-functions">Resumable Functions<a class="headerlink" href="#resumable-functions" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:processing:resumable</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Resumable Functions are deprecated!</p>
+<p>Unfortunately GCC12 is the last version that supported the way we
+implemented Resumables. Since GCC13 the implementation does not compile
+anymore and cannot be fixed without significant breaking changes. Please
+port your code to use <code>modm:processing:fiber</code> instead.</p>
+</div>
 <p>An implementation of lightweight resumable functions which allow for nested
 calling.</p>
 <p>This base class and its macros allows you to implement and use several resumable
@@ -7310,8 +7331,8 @@ end, you may use <code>RF_END_RETURN(value)</code>. You may also return the resu
 another resumable function using <code>RF_END_RETURN_CALL(resumable())</code>.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>Here is a (slightly over-engineered) example:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;modm/platform/platform.hpp&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;modm/processing/processing.hpp&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;modm/platform.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;modm/processing.hpp&gt;</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">Led</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GpioOutputB0</span><span class="p">;</span>
 
@@ -7386,7 +7407,7 @@ another resumable function using <code>RF_END_RETURN_CALL(resumable())</code>.</
 The given example is in <code>modm/examples/generic/resumable</code>.</p>
 <h2 id="using-fibers">Using Fibers<a class="headerlink" href="#using-fibers" title="Permanent link">&para;</a></h2>
 <p>Resumable functions can be implemented using stackful fibers by setting the
-<code>modm:processing:protothreads:use_fiber</code> option, which replaces the
+<code>modm:processing:protothread:use_fiber</code> option, which replaces the
 preprocessor macros and C++ implementations of this and the
 <code>modm:processing:protothreads</code> module with a fiber version.</p>
 <p>Specifically, the <code>PT_*</code> and <code>RF_*</code> macros are now forwarding their arguments
@@ -7410,20 +7431,19 @@ classes are now empty implementations:</p>
 </code></pre></div>
 <p>There should be no modification necessary to the resumable functions itself.</p>
 <h3 id="restrictions">Restrictions<a class="headerlink" href="#restrictions" title="Permanent link">&para;</a></h3>
-<p>There are three minor limitations with using fibers:
+<p>There is one minor limitations when using fibers:
 1) no nesting depth checking for <code>NestedResumable</code>,
-2) no mutually exclusive execution for <code>NestedResumable</code>, and
-3) no implementation of <code>(Nested)Resumable</code> class member functions.</p>
+2) stopping resumable functions is not implementable.</p>
 <p>The nesting depth is limited by the stack size of the fiber, so it would
 manifest as a stack overflow, which would need to be checked differently.</p>
-<p>The mutual exclusion of two protothreads accessing the same resumable function
-cannot be transparently implemented in fibers, it must be implemented more
-traditionally using a mutex or counting semaphore. If your code depends on this
-feature, you must refactor it.</p>
-<p>The classes member functions are not implementable using fibers, therefore they
-are only declared, but not implemented. You may stub them in you application to
-achieve the necessary behavior. If that does not work, you need to refactor
-your class to use fibers natively.</p>
+<p>The utility member functions
+- <code>Resumable::stopAllResumables()</code>,
+- <code>Resumable::stopResumable(uint8_t)</code>, and
+- <code>NestedResumable::stopResumable()</code>
+cannot be implemented using fibers as that would require the resumable to
+implement a cancellation point using <code>modm::fiber::stop_token</code>. However, since
+there is no concept of this in the original API, it is simply missing and thus
+cannot be implemented transparently.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="check_nesting_depth">check_nesting_depth<a class="headerlink" href="#check_nesting_depth" title="Permanent link">&para;</a></h4>
 <p>Check nesting call depth</p>
@@ -7447,16 +7467,16 @@ Inputs: <code>[yes, no]</code>  </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="117pt" height="150pt"
- viewBox="0.00 0.00 117.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="244pt" height="150pt"
+ viewBox="0.00 0.00 244.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:processing:resumable</title>
 <g id="node1" class="node">
 <title>modm_processing_resumable</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="103.5,-53 5.5,-53 5.5,0 103.5,0 103.5,-53"/>
-<text text-anchor="middle" x="54.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="54.5" y="-7.8" font-family="Times,serif" font-size="14.00">resumable</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="166.5,-53 68.5,-53 68.5,0 166.5,0 166.5,-53"/>
+<text text-anchor="middle" x="117.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="117.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="117.5" y="-7.8" font-family="Times,serif" font-size="14.00">resumable</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_assert</title>
@@ -7467,8 +7487,20 @@ Inputs: <code>[yes, no]</code>  </p>
 </g>
 <g id="edge1" class="edge">
 <title>modm_processing_resumable&#45;&gt;modm_architecture_assert</title>
-<path fill="none" stroke="black" d="M54.5,-53.13C54.5,-61.11 54.5,-70.07 54.5,-78.62"/>
-<polygon fill="black" stroke="black" points="51,-78.75 54.5,-88.75 58,-78.75 51,-78.75"/>
+<path fill="none" stroke="black" d="M98.94,-53.13C92.71,-61.73 85.67,-71.45 79.06,-80.58"/>
+<polygon fill="black" stroke="black" points="76.18,-78.6 73.15,-88.75 81.85,-82.7 76.18,-78.6"/>
+</g>
+<g id="node3" class="node">
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_processing_resumable&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M136.36,-53.13C142.68,-61.73 149.83,-71.45 156.55,-80.58"/>
+<polygon fill="black" stroke="black" points="153.81,-82.77 162.56,-88.75 159.45,-78.62 153.81,-82.77"/>
 </g>
 </g>
 </svg></p>

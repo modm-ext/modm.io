@@ -12,20 +12,20 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.io/reference/module/modm-driver-is31fl3733/">
+        <link rel="canonical" href="https://modm.io/reference/module/modm-architecture-fiber/">
       
       
-        <link rel="prev" href="../modm-driver-ili9341/">
+        <link rel="prev" href="../modm-architecture-delay/">
       
       
-        <link rel="next" href="../modm-driver-itg3200/">
+        <link rel="next" href="../modm-architecture-gpio/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>:driver:is31fl3733 - modm barebone embedded library</title>
+        <title>:architecture:fiber - modm barebone embedded library</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#is31fl3733-matrix-driver" class="md-skip">
+        <a href="#fiber-interface" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :driver:is31fl3733
+              :architecture:fiber
             
           </span>
         </div>
@@ -1692,11 +1692,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../modm-architecture-fiber/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          :architecture:fiber
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         :architecture:fiber
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    Identifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4086,52 +4141,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          :driver:is31fl3733
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-driver-is31fl3733/" class="md-nav__link">
         :driver:is31fl3733
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    Dependencies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -7117,6 +7131,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identifier" class="md-nav__link">
+    Identifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -7138,46 +7166,140 @@
                   
 
 
-<h1 id="is31fl3733-matrix-driver">IS31FL3733 Matrix Driver<a class="headerlink" href="#is31fl3733-matrix-driver" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:driver:is31fl3733</code></p>
+<h1 id="fiber-interface">Fiber Interface<a class="headerlink" href="#fiber-interface" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:architecture:fiber</code></p>
+<p>This module provides an interface to yield control back to a scheduler. The
+basic functionality is provided by the <code>yield()</code> function which transparently
+gives control back to the scheduler and returns afterwards. It is particularly
+important to yield in long running loops to prevent the system from locking up
+by preventing other fibers from making progress:</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// run your code here</span>
+<span class="w">    </span><span class="c1">// but always yield to other fibers whenever possible</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">yield</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>For convenience a <code>poll()</code> function is provided that can be used to yield until
+a condition is met:</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">poll</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<p>An extension of this concept is provided by the <code>poll_for()</code> and <code>poll_until()</code>
+functions, which yield until the condition is met or until a timeout occurs:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">bool</span><span class="w"> </span><span class="n">condition_met</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">poll_for</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">]{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="c1">// if (not condition_met) condition did not return true for 1s.</span>
+</code></pre></div>
+<p>If microseconds are passed for the duration, the functions use the
+<code>modm::chrono::micro_clock</code> (=<code>modm::PreciseClock</code>), otherwise they use
+<code>modm::chrono::milli_clock</code> (=<code>modm::Clock</code>). This requires that these clocks
+are already initialized and running.</p>
+<p>These basic building blocks are then used to implement the <code>sleep_for()</code> and
+<code>sleep_until()</code> convenience functions:</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h2>
+<p>The <code>yield()</code> function is implemented by the <code>modm:processing:fiber</code> module
+which provides a cooperative multitasking scheduler that is able to switch
+between multiple fiber contexts.</p>
+<p>If <code>yield()</code> is called outside of a fiber context, for example, in the <code>main()</code>
+function when the scheduler is not yet running, <code>yield()</code> will return in-place.
+This mechanism allows for a graceful fallback to a blocking API without changes
+to the code using <code>yield()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber_nonblocking</span><span class="p">([]</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">Timeout</span><span class="w"> </span><span class="n">timeout</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">);</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// non-blocking call!</span>
+<span class="p">});</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">Timeout</span><span class="w"> </span><span class="n">timeout</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">);</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// blocking call!</span>
+
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This mechanism also supports running modm on devices with very small memories
+where a stackful scheduler may be to resource intensive:
+The <code>modm:processing:fiber</code> module is strictly opt-in and if not selected the
+scheduler is not included and the <code>yield()</code> function is implemented as an empty
+stub while still allowing for the whole API to be used without changes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Lis3mdl</span><span class="o">&lt;</span><span class="n">I2cMaster1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sensor</span><span class="p">{};</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">sensor</span><span class="p">.</span><span class="n">configure</span><span class="p">();</span><span class="w"> </span><span class="c1">// blocking but works just fine</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">modm</span><span class="o">::</span><span class="n">Vector3f</span><span class="w"> </span><span class="n">magVector</span><span class="p">;</span>
+<span class="w">        </span><span class="n">sensor</span><span class="p">.</span><span class="n">readMagnetometer</span><span class="p">(</span><span class="n">magVector</span><span class="p">);</span><span class="w"> </span><span class="c1">// another blocking call</span>
+<span class="w">        </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">10</span><span class="n">ms</span><span class="p">);</span><span class="w"> </span><span class="c1">// this will wait in place</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Therefore, if you use these functions in your code, only depend on
+<code>modm:architecture:fiber</code> and let the user decide on the implementation by
+including <code>modm:processing:fiber</code> or not. This compromise allows for a seamless
+transition between different devices and scheduling strategies.</p>
+<h2 id="identifier">Identifier<a class="headerlink" href="#identifier" title="Permanent link">&para;</a></h2>
+<p>You can check what fiber your code is executed in by calling the <code>get_id()</code>
+function:</p>
+<div class="highlight"><pre><span></span><code><span class="k">auto</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">get_id</span><span class="p">();</span>
+<span class="c1">// if (id == 0) called outside a fiber</span>
+<span class="c1">// else called from inside a fiber</span>
+</code></pre></div>
+<p>The returned ID is the address of the currently running fiber object. If called
+outside of a fiber, for example, in the main function before the scheduler is
+running, the function returns <code>0</code>. The implementation ensures that all returned
+values are unique and thus allow the ID to be used for tracking ownership of
+various recursive locks, for example.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="244pt" height="150pt"
- viewBox="0.00 0.00 244.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="319pt" height="150pt"
+ viewBox="0.00 0.00 319.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:driver:is31fl3733</title>
+<title>modm:architecture:fiber</title>
 <g id="node1" class="node">
-<title>modm_driver_is31fl3733</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="163.5,-53 71.5,-53 71.5,0 163.5,0 163.5,-53"/>
-<text text-anchor="middle" x="117.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="117.5" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="117.5" y="-7.8" font-family="Times,serif" font-size="14.00">is31fl3733</text>
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="229,-53 120,-53 120,0 229,0 229,-53"/>
+<text text-anchor="middle" x="174.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="174.5" y="-22.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="174.5" y="-7.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_i2c_device</title>
+<title>modm_architecture_clock</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">i2c.device</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">clock</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_driver_is31fl3733&#45;&gt;modm_architecture_i2c_device</title>
-<path fill="none" stroke="black" d="M98.94,-53.13C92.71,-61.73 85.67,-71.45 79.06,-80.58"/>
-<polygon fill="black" stroke="black" points="76.18,-78.6 73.15,-88.75 81.85,-82.7 76.18,-78.6"/>
+<title>modm_architecture_fiber&#45;&gt;modm_architecture_clock</title>
+<path fill="none" stroke="black" d="M139.15,-53.13C126.32,-62.43 111.68,-73.05 98.22,-82.8"/>
+<polygon fill="black" stroke="black" points="96.06,-80.05 90.02,-88.75 100.17,-85.71 96.06,-80.05"/>
 </g>
 <g id="node3" class="node">
-<title>modm_architecture_register</title>
-<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
-<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
+<title>modm_processing</title>
+<polygon fill="lightgrey" stroke="black" points="221.5,-134.5 127.5,-134.5 127.5,-96.5 221.5,-96.5 221.5,-134.5"/>
+<text text-anchor="middle" x="174.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="174.5" y="-104.3" font-family="Times,serif" font-size="14.00">processing</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_driver_is31fl3733&#45;&gt;modm_architecture_register</title>
-<path fill="none" stroke="black" d="M136.36,-53.13C142.68,-61.73 149.83,-71.45 156.55,-80.58"/>
-<polygon fill="black" stroke="black" points="153.81,-82.77 162.56,-88.75 159.45,-78.62 153.81,-82.77"/>
+<title>modm_architecture_fiber&#45;&gt;modm_processing</title>
+<path fill="none" stroke="black" d="M174.5,-53.13C174.5,-63.58 174.5,-75.7 174.5,-86.39"/>
+<polygon fill="black" stroke="black" points="171,-86.49 174.5,-96.49 178,-86.49 171,-86.49"/>
+</g>
+<g id="node4" class="node">
+<title>modm_stdc++</title>
+<polygon fill="lightgrey" stroke="black" points="311,-134.5 240,-134.5 240,-96.5 311,-96.5 311,-134.5"/>
+<text text-anchor="middle" x="275.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="275.5" y="-104.3" font-family="Times,serif" font-size="14.00">stdc++</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_architecture_fiber&#45;&gt;modm_stdc++</title>
+<path fill="none" stroke="black" d="M204.26,-53.13C217.65,-64.67 233.41,-78.24 246.69,-89.68"/>
+<polygon fill="black" stroke="black" points="244.73,-92.62 254.6,-96.49 249.3,-87.32 244.73,-92.62"/>
 </g>
 </g>
 </svg></p>

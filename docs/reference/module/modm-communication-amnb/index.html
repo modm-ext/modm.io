@@ -1694,6 +1694,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -7381,9 +7395,8 @@ be called in the main loop continuously.</p>
 transmit queue, the size of which you can control. It returns false if the queue
 is full.</p>
 <p>Requests <code>node.request&lt;ReturnType=void&gt;(id, args)</code> must be made from within a
-protothread, since they can take some time. The response is a
-<code>modm::amnb::Result</code> object, which contains the result, system error and user
-error.</p>
+fiber, since they can take some time. The response is a <code>modm::amnb::Result</code>
+object, which contains the result, system error and user error.</p>
 <p>Note that if a request returns a user error type, you must define it as
 <code>node.request&lt;ReturnType, UserErrorType&gt;(id, args)</code> and then explicitly check
 for it via <code>response.hasUserError()</code>. Note that the request itself may fail at a
@@ -7395,9 +7408,9 @@ receiver will return with a <code>modm::amnb::Error::RequestAllocationFailed</co
 you must copy the result into your own storage!</p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Do not use <code>RF_CALL_BLOCKING</code> for requests!</p>
+<p class="admonition-title">Do not use requests in the main function!</p>
 <p><code>node.update()</code> must be called during requests to service the protocol and
-<code>RF_CALL_BLOCKING(node.request(...))</code> won't call it, creating a deadlock!</p>
+<code>node.request(...)</code> won't call it, creating a deadlock!</p>
 </div>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">modm</span><span class="o">::</span><span class="nn">amnb</span><span class="p">;</span>
 
@@ -7405,42 +7418,35 @@ you must copy the result into your own storage!</p>
 <span class="n">Node</span><span class="o">&lt;</span><span class="cm">/* TX msg queue size =*/</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="cm">/* max heap allocation = */</span><span class="mi">1024</span><span class="o">&gt;</span>
 <span class="w">    </span><span class="n">node</span><span class="p">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="cm">/*address=*/</span><span class="mh">0x10</span><span class="p">,</span><span class="w"> </span><span class="n">actions</span><span class="p">,</span><span class="w"> </span><span class="n">listeners</span><span class="p">);</span>
 
-
-<span class="c1">// Broadcasts are buffered in a transmit queue</span>
-<span class="n">node</span><span class="p">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">                     </span><span class="c1">// no payload</span>
-<span class="n">node</span><span class="p">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ArgumentType</span><span class="p">());</span><span class="w">     </span><span class="c1">// with argument</span>
-<span class="n">node</span><span class="p">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">data</span><span class="p">));</span><span class="w"> </span><span class="c1">// with memory buffer</span>
-
-
-<span class="c1">// Responses must be called from within a protothread</span>
-<span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PT_CALL</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">request</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
-<span class="c1">// The request may fail, in that case check the error</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">not</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">error</span><span class="p">();</span>
-
-<span class="c1">// Responses can also be called from within a resumable function</span>
-<span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RF_CALL</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">request</span><span class="o">&lt;</span><span class="n">ReturnType</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ArgumentType</span><span class="p">()));</span>
-<span class="c1">// The response is temporary, copy it before the next call to node.update()</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="n">ReturnType</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="p">;</span>
-
-<span class="c1">// User Error types must be declared</span>
-<span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RF_CALL</span><span class="p">(</span><span class="n">node</span><span class="p">.</span><span class="n">request</span><span class="o">&lt;</span><span class="n">ReturnType</span><span class="p">,</span><span class="w"> </span><span class="n">UserErrorType</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">data</span><span class="p">)));</span>
-<span class="c1">// The user error must be checked for explicitly now</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="n">ReturnType</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="p">;</span>
-<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">hasUserError</span><span class="p">())</span>
-<span class="w">    </span><span class="n">UserErrorType</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="p">.</span><span class="n">userError</span><span class="p">();</span>
-<span class="k">else</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">error</span><span class="p">();</span>
-
-
-<span class="c1">/// node.update_{transmit, receive}() must be called as often as possible!</span>
-<span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiberComms</span><span class="p">([]</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="n">update_transmit</span><span class="p">();</span>
-<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="n">update_receive</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// Broadcasts are buffered in a transmit queue</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">                     </span><span class="c1">// no payload</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ArgumentType</span><span class="p">());</span><span class="w">     </span><span class="c1">// with argument</span>
+<span class="w">    </span><span class="n">node</span><span class="p">.</span><span class="n">broadcast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">data</span><span class="p">));</span><span class="w"> </span><span class="c1">// with memory buffer</span>
 
-<span class="c1">// Alternatively you require one fiber per update function</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiberNodeTransmit</span><span class="p">([]{</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">update_transmit</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiberNodeReceive</span><span class="p">([]{</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">update_receive</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="c1">// Requests must be called from within a fiber</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">request</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// The request may fail, in that case check the error</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">not</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">error</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Responses can also be called from within a resumable function</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">request</span><span class="o">&lt;</span><span class="n">ReturnType</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ArgumentType</span><span class="p">());</span>
+<span class="w">    </span><span class="c1">// The response is temporary, copy it before the next call to node.update()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="n">ReturnType</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// User Error types must be declared</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">request</span><span class="o">&lt;</span><span class="n">ReturnType</span><span class="p">,</span><span class="w"> </span><span class="n">UserErrorType</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">data</span><span class="p">));</span>
+<span class="w">    </span><span class="c1">// The user error must be checked for explicitly now</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="n">ReturnType</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">hasUserError</span><span class="p">())</span>
+<span class="w">        </span><span class="n">UserErrorType</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">response</span><span class="p">.</span><span class="n">userError</span><span class="p">();</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="n">error</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// One fiber per update function</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiberNodeTransmit</span><span class="p">([]{</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">update_transmit</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiberNodeReceive</span><span class="p">([]{</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">update_receive</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
 </code></pre></div>
 <h2 id="wire-format">Wire Format<a class="headerlink" href="#wire-format" title="Permanent link">&para;</a></h2>
 <p>There are three message formats:</p>

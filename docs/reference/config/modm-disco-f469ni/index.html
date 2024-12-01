@@ -1742,6 +1742,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../module/modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../module/modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -7166,13 +7180,15 @@ update the display fast enough.</p>
 Call <code>Board::initializeTouchscreen()</code> to setup the peripherals.</p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f469idiscovery.html">Product Link</a></p>
 <h2 id="hardware-revisions">Hardware Revisions<a class="headerlink" href="#hardware-revisions" title="Permanent link">&para;</a></h2>
-<p>The revision B-03 has a different touch sensor address from B-01 and B-02, which is
-provided as <code>Board::ft6::TouchAddress</code>:</p>
+<p>The revision B-03 has a different touch sensor address from B-01 and B-02.
+The correct address for the revision is provided as <code>Board::ft6::TouchAddress</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">Touch</span><span class="o">::</span><span class="n">Data</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 <span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">Touch</span><span class="w"> </span><span class="nf">touchSensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">TouchAddress</span><span class="p">);</span>
 </code></pre></div>
-<p>If you have an earlier revision, you can extend your configuration from
-<code>modm:disco-f469ni:b-01</code>.</p>
+<p>If you want to provide the same code for both revisions, you can change the
+address at runtime if the device does not respond to a ping:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">not</span><span class="w"> </span><span class="n">touchSensor</span><span class="p">.</span><span class="n">ping</span><span class="p">())</span><span class="w"> </span><span class="n">touchSensor</span><span class="p">.</span><span class="n">setAddress</span><span class="p">(</span><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">TouchAddress2</span><span class="p">);</span>
+</code></pre></div>
 <p>Default: <code>b-03</code><br />
 Revisions: <code>[b-01, b-02, b-03]</code></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>

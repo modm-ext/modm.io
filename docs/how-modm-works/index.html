@@ -1761,6 +1761,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/module/modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/module/modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -7491,61 +7505,45 @@ Heap:     197240B (98.2% available)
 <h2 id="modm-does-multitasking">modm does multitasking<a class="headerlink" href="#modm-does-multitasking" title="Permanent link">&para;</a></h2>
 <!-- (⚡️ requires module documentation for protothread/resumable) -->
 
-<p>modm uses stackless cooperative multitasking, for which we have ported
-protothreads to C++ and extended them with resumable functions.
+<p>modm implements stackful, cooperative fibers and provides a concurrency
+support library based on the C++ interface.
 This enables you to split up your application into separate tasks, and use
 synchronous APIs in all of them, without sacrificing overall responsiveness.
-This works on even the most resource restricted AVRs, since each task only
-requires 2 bytes of static RAM!</p>
-<p>All our IC drivers are implemented using resumable functions, which can be
-called from within protothreads or explicitly blocking outside of them.
 Here is an example of <a href="https://github.com/modm-io/modm/blob/develop/examples/stm32f4_discovery/accelerometer/main.cpp">reading out the accelerometer</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ReaderThread</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">pt</span><span class="o">::</span><span class="n">Protothread</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// This accelerometer is connected via I2C.</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Lis3dsh</span><span class="o">&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Lis3TransportI2c</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I2cMaster</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">accelerometer</span><span class="p">;</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">filter</span><span class="o">::</span><span class="n">MovingAverage</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="o">&gt;</span><span class="w"> </span><span class="n">averageX</span><span class="p">;</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">filter</span><span class="o">::</span><span class="n">MovingAverage</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="o">&gt;</span><span class="w"> </span><span class="n">averageY</span><span class="p">;</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber_sensor</span><span class="p">([]</span>
 <span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">run</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">// The driver does several I2C transfer here to initialize and configure the</span>
+<span class="w">    </span><span class="c1">// external sensor. The CPU is free to do other things while this happens though.</span>
+<span class="w">    </span><span class="n">accelerometer</span><span class="p">.</span><span class="n">configure</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">Scale</span><span class="o">::</span><span class="n">G2</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">PT_BEGIN</span><span class="p">();</span>
-<span class="w">        </span><span class="c1">// The driver does several I2C transfer here to initialize and configure the</span>
-<span class="w">        </span><span class="c1">// external sensor. The CPU is free to do other things while this happens though.</span>
-<span class="w">        </span><span class="n">PT_CALL</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">configure</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">Scale</span><span class="o">::</span><span class="n">G2</span><span class="p">));</span>
+<span class="w">        </span><span class="c1">// More I2C transfers in the background</span>
+<span class="w">        </span><span class="n">accelerometer</span><span class="p">.</span><span class="n">readAcceleration</span><span class="p">();</span>
 
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w">    </span><span class="c1">// this feels quite similar to regular threads</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// this resumable function will defer execution back to other protothreads</span>
-<span class="w">            </span><span class="n">PT_CALL</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">readAcceleration</span><span class="p">());</span>
+<span class="w">        </span><span class="c1">// smooth out the acceleration data a little bit</span>
+<span class="w">        </span><span class="n">averageX</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">getData</span><span class="p">().</span><span class="n">getX</span><span class="p">());</span>
+<span class="w">        </span><span class="n">averageY</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">getData</span><span class="p">().</span><span class="n">getY</span><span class="p">());</span>
 
-<span class="w">            </span><span class="c1">// smooth out the acceleration data a little bit</span>
-<span class="w">            </span><span class="n">averageX</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">getData</span><span class="p">().</span><span class="n">getX</span><span class="p">());</span>
-<span class="w">            </span><span class="n">averageY</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">accelerometer</span><span class="p">.</span><span class="n">getData</span><span class="p">().</span><span class="n">getY</span><span class="p">());</span>
+<span class="w">        </span><span class="c1">// set the boards LEDs depending on the acceleration values</span>
+<span class="w">        </span><span class="n">LedUp</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="w">   </span><span class="n">averageX</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">-0.2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">LedDown</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="w"> </span><span class="n">averageX</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="mf">0.2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">LedLeft</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="w"> </span><span class="n">averageY</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">-0.2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">LedRight</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="n">averageY</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="mf">0.2</span><span class="p">);</span>
 
-<span class="w">            </span><span class="c1">// set the boards LEDs depending on the acceleration values</span>
-<span class="w">            </span><span class="n">LedUp</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="w">   </span><span class="n">averageX</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">-0.2</span><span class="p">);</span>
-<span class="w">            </span><span class="n">LedDown</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="w"> </span><span class="n">averageX</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="mf">0.2</span><span class="p">);</span>
-<span class="w">            </span><span class="n">LedLeft</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="w"> </span><span class="n">averageY</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">-0.2</span><span class="p">);</span>
-<span class="w">            </span><span class="n">LedRight</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="n">averageY</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="mf">0.2</span><span class="p">);</span>
-
-<span class="w">            </span><span class="c1">// defer back to other protothreads until the timer fires</span>
-<span class="w">            </span><span class="n">PT_WAIT_UNTIL</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">execute</span><span class="p">());</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">PT_END</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// defer back to other fiber while this one sleeps</span>
+<span class="w">        </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">5</span><span class="n">ms</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="k">private</span><span class="o">:</span>
-<span class="w">    </span><span class="c1">// This accelerometer is connected via I2C.</span>
-<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">Lis3dsh</span><span class="o">&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Lis3TransportI2c</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I2cMaster</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">accelerometer</span><span class="p">;</span>
-<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">PeriodicTimer</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">PeriodicTimer</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"> </span><span class="c1">// 5ms periodic timer.</span>
-<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">filter</span><span class="o">::</span><span class="n">MovingAverage</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="o">&gt;</span><span class="w"> </span><span class="n">averageX</span><span class="p">;</span>
-<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">filter</span><span class="o">::</span><span class="n">MovingAverage</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="o">&gt;</span><span class="w"> </span><span class="n">averageY</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="n">ReaderThread</span><span class="w"> </span><span class="n">reader</span><span class="p">;</span><span class="w">    </span><span class="c1">// Protothread is statically allocated!</span>
+<span class="p">});</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="c1">// Execution entry point.</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span><span class="w">   </span><span class="c1">// the main loop with implicit round robin cooperative scheduling.</span>
-<span class="w">        </span><span class="n">reader</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
-<span class="w">        </span><span class="n">otherProtothreads</span><span class="p">.</span><span class="n">run</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">Board</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">();</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>

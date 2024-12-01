@@ -1765,6 +1765,20 @@
   
   
     <li class="md-nav__item">
+      <a href="reference/module/modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="reference/module/modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -7244,7 +7258,6 @@ back so everyone can benefit.</p>
 </li>
 <li>Interfaces and drivers for many external I<sup>2</sup>C and SPI sensors and devices.</li>
 <li>Debug/logging system with IOStream and printf interface.</li>
-<li>Cooperative, stackless protothreads and resumable functions.</li>
 <li>Cooperative, stackful fibers and scheduler.</li>
 <li>Functional (partial) libstdc++ implementation for AVRs.</li>
 <li>Useful filter, interpolation and geometric algorithms.</li>
@@ -8052,18 +8065,18 @@ compilable as enforced by our CI.</p>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/display/siemens_s65/main.cpp">AVR: display/siemens_s65</a></td>
 </tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/fiber/main.cpp">AVR: fiber</a></td>
+<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/fiber_benchmark/main.cpp">AVR: fiber_benchmark</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/flash/main.cpp">AVR: flash</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/gpio/basic/main.cpp">AVR: gpio/basic</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/gpio/blinking/main.cpp">AVR: gpio/blinking</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/gpio/button_group/main.cpp">AVR: gpio/button_group</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/logger/main.cpp">AVR: logger</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/mega_pro/main.cpp">AVR: mega_pro</a></td>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/ports/main.cpp">AVR: ports</a></td>
 </tr><tr>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/protothread/main.cpp">AVR: protothread</a></td>
+<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/ports/main.cpp">AVR: ports</a></td>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/pwm/pca9685/main.cpp">AVR: pwm/pca9685</a></td>
 </tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/avr/qmc5883l/main.cpp">AVR: qmc5883l</a></td>
@@ -8133,174 +8146,171 @@ compilable as enforced by our CI.</p>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/fiber_overflow/main.cpp">Generic: fiber_overflow</a></td>
 </tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/i2c_multiplex/main.cpp">Generic: i2c_multiplex</a></td>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/resumable/main.cpp">Generic: resumable</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/ros/can_bridge/main.cpp">Generic: ros/can_bridge</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/ros/environment/main.cpp">Generic: ros/environment</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/ros/sub_pub/main.cpp">Generic: ros/sub_pub</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/rtc_ds1302/main.cpp">Generic: rtc_ds1302</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/generic/usb/main.cpp">Generic: usb</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/assert/main.cpp">Linux: assert</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/block_device/file/main.cpp">Linux: block_device/file</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/block_device/mirror/main.cpp">Linux: block_device/mirror</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/block_device/ram/main.cpp">Linux: block_device/ram</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/build_info/main.cpp">Linux: build_info</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/can_debugger/main.cpp">Linux: can_debugger</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/etl/main.cpp">Linux: etl</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/fiber/main.cpp">Linux: fiber</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/git/main.cpp">Linux: git</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/logger/main.cpp">Linux: logger</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/printf/main.cpp">Linux: printf</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/serial_interface/main.cpp">Linux: serial_interface</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/static_serial_interface/main.cpp">Linux: static_serial_interface</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/linux/threads/main.cpp">Linux: threads</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_c031c6/adc/main.cpp">NUCLEO-C031C6: adc</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_c031c6/adc_sequence/main.cpp">NUCLEO-C031C6: adc_sequence</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_c031c6/blink/main.cpp">NUCLEO-C031C6: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_c031c6/timer/main.cpp">NUCLEO-C031C6: timer</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f031k6/blink/main.cpp">NUCLEO-F031K6: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f031k6/sk6812/main.cpp">NUCLEO-F031K6: sk6812</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/adc/main.cpp">NUCLEO-F042K6: adc</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/blink/main.cpp">NUCLEO-F042K6: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/lis3mdl/main.cpp">NUCLEO-F042K6: lis3mdl</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/lp503x/main.cpp">NUCLEO-F042K6: lp503x</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/lsm6ds33/main.cpp">NUCLEO-F042K6: lsm6ds33</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/ms5837/main.cpp">NUCLEO-F042K6: ms5837</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/spi_dma/main.cpp">NUCLEO-F042K6: spi_dma</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/tmp12x/main.cpp">NUCLEO-F042K6: tmp12x</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f042k6/vector_table_ram/main.cpp">NUCLEO-F042K6: vector_table_ram</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f072rb/blink/main.cpp">NUCLEO-F072RB: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f072rb/iwdg/main.cpp">NUCLEO-F072RB: iwdg</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f091rc/blink/main.cpp">NUCLEO-F091RC: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f103rb/blink/main.cpp">NUCLEO-F103RB: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f103rb/hard_fault/main.cpp">NUCLEO-F103RB: hard_fault</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f103rb/itm/main.cpp">NUCLEO-F103RB: itm</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f103rb/rtos/main.cpp">NUCLEO-F103RB: rtos</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f103rb/stts22h/main.cpp">NUCLEO-F103RB: stts22h</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f103rb/undefined_irq/main.cpp">NUCLEO-F103RB: undefined_irq</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303k8/blink/main.cpp">NUCLEO-F303K8: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303k8/rtos/main.cpp">NUCLEO-F303K8: rtos</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303re/blink/main.cpp">NUCLEO-F303RE: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303re/itm/main.cpp">NUCLEO-F303RE: itm</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303re/rtos/main.cpp">NUCLEO-F303RE: rtos</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303re/spi_dma/main.cpp">NUCLEO-F303RE: spi_dma</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f303re/temperature_mcp990x/main.cpp">NUCLEO-F303RE: temperature_mcp990x</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f334r8/blink/main.cpp">NUCLEO-F334R8: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f401re/adc_dma/main.cpp">NUCLEO-F401RE: adc_dma</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f401re/blink/main.cpp">NUCLEO-F401RE: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f401re/distance_vl53l0/main.cpp">NUCLEO-F401RE: distance_vl53l0</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f401re/dw3110-communication/main.cpp">NUCLEO-F401RE: dw3110-communication</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f401re/timer_register_count/main.cpp">NUCLEO-F401RE: timer_register_count</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/blink/main.cpp">NUCLEO-F411RE: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/imu_bno055/main.cpp">NUCLEO-F411RE: imu_bno055</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/radio/nrf24-basic-comm/main.cpp">NUCLEO-F411RE: radio/nrf24-basic-comm</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/radio/nrf24-data/main.cpp">NUCLEO-F411RE: radio/nrf24-data</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/radio/nrf24-phy-test/main.cpp">NUCLEO-F411RE: radio/nrf24-phy-test</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/radio/nrf24-scanner/main.cpp">NUCLEO-F411RE: radio/nrf24-scanner</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/rtos/main.cpp">NUCLEO-F411RE: rtos</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/sx1276_rx/main.cpp">NUCLEO-F411RE: sx1276_rx</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/sx1276_tx/main.cpp">NUCLEO-F411RE: sx1276_tx</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f411re/ws2812b/main.cpp">NUCLEO-F411RE: ws2812b</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/adc_ads816x/main.cpp">NUCLEO-F429ZI: adc_ads816x</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/blink/main.cpp">NUCLEO-F429ZI: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/bayes/main.cpp">NUCLEO-F429ZI: cmsis_dsp/bayes</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/class_marks/main.cpp">NUCLEO-F429ZI: cmsis_dsp/class_marks</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/convolution/main.cpp">NUCLEO-F429ZI: cmsis_dsp/convolution</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/dotproduct/main.cpp">NUCLEO-F429ZI: cmsis_dsp/dotproduct</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/fft_bin/main.cpp">NUCLEO-F429ZI: cmsis_dsp/fft_bin</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/fir/main.cpp">NUCLEO-F429ZI: cmsis_dsp/fir</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/graphic_equalizer/main.cpp">NUCLEO-F429ZI: cmsis_dsp/graphic_equalizer</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/linear_interp/main.cpp">NUCLEO-F429ZI: cmsis_dsp/linear_interp</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/matrix/main.cpp">NUCLEO-F429ZI: cmsis_dsp/matrix</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/signal_converge/main.cpp">NUCLEO-F429ZI: cmsis_dsp/signal_converge</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/sin_cos/main.cpp">NUCLEO-F429ZI: cmsis_dsp/sin_cos</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/svm/main.cpp">NUCLEO-F429ZI: cmsis_dsp/svm</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/cmsis_dsp/variance/main.cpp">NUCLEO-F429ZI: cmsis_dsp/variance</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/ethernet/main.cpp">NUCLEO-F429ZI: ethernet</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/freertos_static/main.cpp">NUCLEO-F429ZI: freertos_static</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/imu_adis16470/main.cpp">NUCLEO-F429ZI: imu_adis16470</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/nanopb/main.cpp">NUCLEO-F429ZI: nanopb</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/pat9125el/main.cpp">NUCLEO-F429ZI: pat9125el</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/rtc_mcp7941x/main.cpp">NUCLEO-F429ZI: rtc_mcp7941x</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/spi_flash/main.cpp">NUCLEO-F429ZI: spi_flash</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/spi_flash_fatfs/main.cpp">NUCLEO-F429ZI: spi_flash_fatfs</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/spistack_flash/main.cpp">NUCLEO-F429ZI: spistack_flash</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/usb_freertos/main.cpp">NUCLEO-F429ZI: usb_freertos</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f429zi/usbfatfs/main.cpp">NUCLEO-F429ZI: usbfatfs</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f439zi/blink/main.cpp">NUCLEO-F439ZI: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f439zi/spi_dma/main.cpp">NUCLEO-F439ZI: spi_dma</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446re/blink/main.cpp">NUCLEO-F446RE: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446re/color/main.cpp">NUCLEO-F446RE: color</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446re/flash/main.cpp">NUCLEO-F446RE: flash</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446ze/blink/main.cpp">NUCLEO-F446ZE: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446ze/dac_basic/main.cpp">NUCLEO-F446ZE: dac_basic</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446ze/dac_dma/main.cpp">NUCLEO-F446ZE: dac_dma</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f446ze/usbserial/main.cpp">NUCLEO-F446ZE: usbserial</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f746zg/blink/main.cpp">NUCLEO-F746ZG: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f767zi/blink/main.cpp">NUCLEO-F767ZI: blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f767zi/ethernet/main.cpp">NUCLEO-F767ZI: ethernet</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f767zi/freertos_blink/main.cpp">NUCLEO-F767ZI: freertos_blink</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_f767zi/spi_dma/main.cpp">NUCLEO-F767ZI: spi_dma</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g070rb/adc_dma/main.cpp">NUCLEO-G070RB: adc_dma</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g070rb/blink/main.cpp">NUCLEO-G070RB: blink</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g071rb/adc/main.cpp">NUCLEO-G071RB: adc</a></td>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g071rb/amnb/main.cpp">NUCLEO-G071RB: amnb</a></td>
 </tr><tr>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g071rb/amnb_fiber/main.cpp">NUCLEO-G071RB: amnb_fiber</a></td>
+<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g071rb/amnb/main.cpp">NUCLEO-G071RB: amnb</a></td>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g071rb/apa102/main.cpp">NUCLEO-G071RB: apa102</a></td>
 </tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/nucleo_g071rb/blink/main.cpp">NUCLEO-G071RB: blink</a></td>
@@ -8538,15 +8548,15 @@ compilable as enforced by our CI.</p>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/open407v-d/touchscreen/main.cpp">STM32F4-DISCOVERY: open407v-d/touchscreen</a></td>
 </tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/pressure_ams5915/main.cpp">STM32F4-DISCOVERY: pressure_ams5915</a></td>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/protothreads/main.cpp">STM32F4-DISCOVERY: protothreads</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/sab2/main.cpp">STM32F4-DISCOVERY: sab2</a></td>
+</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/spi/main.cpp">STM32F4-DISCOVERY: spi</a></td>
-</tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/temperature_ltc2984/main.cpp">STM32F4-DISCOVERY: temperature_ltc2984</a></td>
-<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/timer/main.cpp">STM32F4-DISCOVERY: timer</a></td>
 </tr><tr>
+<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/timer/main.cpp">STM32F4-DISCOVERY: timer</a></td>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/timer_test/main.cpp">STM32F4-DISCOVERY: timer_test</a></td>
+</tr><tr>
+<td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/tmp102/main.cpp">STM32F4-DISCOVERY: tmp102</a></td>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/uart/main.cpp">STM32F4-DISCOVERY: uart</a></td>
 </tr><tr>
 <td align="left"><a href="https://github.com/modm-io/modm/tree/develop/examples/stm32f4_discovery/uart_spi/main.cpp">STM32F4-DISCOVERY: uart_spi</a></td>

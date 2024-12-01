@@ -1694,6 +1694,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -7188,83 +7202,73 @@ method for timekeeping:</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>However, for more complex use-cases, these classes are intended to be used with
-Protothreads (from module <code>modm:processing:protothread</code>) or Resumable Functions
-(from module <code>modm:processing:resumable</code>) to implement non-blocking delays.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FancyDelayEvents</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">pt</span><span class="o">::</span><span class="n">Protothread</span>
+fibers (from module <code>modm:processing:fiber</code>) to implement non-blocking delays.</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber_timeout</span><span class="p">([]</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">Timeout</span><span class="w"> </span><span class="n">timeout</span><span class="p">;</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">event</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">restart</span><span class="p">();</span><span class="w"> </span><span class="c1">// restart entire protothread</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">update</span><span class="p">()</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">PT_BEGIN</span><span class="p">();</span>
-
-<span class="w">        </span><span class="c1">// pre-delay computation</span>
-<span class="w">        </span><span class="n">timeout</span><span class="p">.</span><span class="n">restart</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">);</span>
-<span class="w">        </span><span class="n">PT_WAIT_UNTIL</span><span class="p">(</span><span class="n">timeout</span><span class="p">.</span><span class="n">isExpired</span><span class="p">());</span>
-<span class="w">        </span><span class="c1">// post-delay computation</span>
-
-<span class="w">        </span><span class="n">PT_END</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">Timeout</span><span class="w"> </span><span class="n">timeout</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">);</span>
+<span class="w">    </span><span class="n">timeout</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// NOTE: for such simple delays, use the built-in fiber sleep function!</span>
+<span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
 <p>For periodic timeouts, you could simply restart the timeout, however, the
 <code>restart()</code> method schedules a timeout from the <em>current</em> time onwards:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Timeout</span><span class="w"> </span><span class="nf">timeout</span><span class="p">(</span><span class="mi">100</span><span class="n">ms</span><span class="p">);</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber_timeout</span><span class="p">([]</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">timeout</span><span class="p">.</span><span class="n">execute</span><span class="p">())</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// delayed code</span>
+<span class="w">        </span><span class="n">timeout</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// yields fiber until timeout</span>
+<span class="w">        </span><span class="c1">// delayed code introduces latency</span>
 <span class="w">        </span><span class="n">timeout</span><span class="p">.</span><span class="n">restart</span><span class="p">();</span><span class="w"> </span><span class="c1">// restarts but with *current* time!!!</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
 <p>This can lead to longer period than required, particularly in a system that has
 a lot to do and cannot service every timeout immediately. The solution is to use
-a <code>modm::PeriodicTimer</code>, which only reimplements the <code>execute()</code> method to
+a <code>modm::PeriodicTimer</code>, which only reimplements the <code>wait()</code> method to
 automatically restart the timer, by adding the interval to the <em>old</em> time, thus
 keeping the period accurate:</p>
 <div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">PeriodicTimer</span><span class="w"> </span><span class="n">timer</span><span class="p">{</span><span class="mi">100</span><span class="n">ms</span><span class="p">};</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber_timer</span><span class="p">([]</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">execute</span><span class="p">())</span><span class="w"> </span><span class="c1">// automatically restarts</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// blink an LED or something</span>
+<span class="w">        </span><span class="n">timer</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="c1">// automatically restarts</span>
+<span class="w">        </span><span class="c1">// code can take up to 100ms, but timer period won&#39;t drift</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
-<p>The <code>execute()</code> method actually returns the number of missed periods, so that in
-a heavily congested system you do not need to keep track of time yourself. This
-can be particularly useful when dealing with soft-time physical systems like LED
-animations or control loops:</p>
+<p>The <code>wait()</code> method actually returns the number of missed periods, so that in a
+heavily congested system you do not need to keep track of time yourself. This
+can be particularly useful when dealing with soft real-time physical systems
+like LED animations or control loops:</p>
 <div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">PeriodicTimer</span><span class="w"> </span><span class="n">timer</span><span class="p">{</span><span class="mi">1</span><span class="n">ms</span><span class="p">};</span><span class="w"> </span><span class="c1">// render at 1kHz ideally</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">()</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber_timer</span><span class="p">([]</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="c1">// call only once regarless of the number of periods</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">periods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">timer</span><span class="p">.</span><span class="n">execute</span><span class="p">();</span><span class="w"> </span><span class="n">periods</span><span class="p">)</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">animation</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="n">periods</span><span class="p">);</span><span class="w"> </span><span class="c1">// still compute the missing steps</span>
-<span class="w">        </span><span class="n">animation</span><span class="p">.</span><span class="n">render</span><span class="p">();</span><span class="w">      </span><span class="c1">// but only render once please</span>
+<span class="w">        </span><span class="c1">// call only once regardless of the number of periods</span>
+<span class="w">        </span><span class="n">animation</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">wait</span><span class="p">());</span><span class="w"> </span><span class="c1">// still compute the missing steps</span>
+<span class="w">        </span><span class="n">animation</span><span class="p">.</span><span class="n">render</span><span class="p">();</span><span class="w">           </span><span class="c1">// but only render once please</span>
+
+<span class="w">        </span><span class="c1">// or alternatively to call the code the number of missed periods</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">periods</span><span class="p">{</span><span class="n">timer</span><span class="p">.</span><span class="n">wait</span><span class="p">()};</span><span class="w"> </span><span class="n">periods</span><span class="p">;</span><span class="w"> </span><span class="n">periods</span><span class="o">--</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// periods is decreasing!</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// This is fine, since execute() is evaluated only once!</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">periods</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">range</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">wait</span><span class="p">()))</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// periods is increasing!</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// THIS WILL NOT WORK, since execute() reschedules itself immediately!</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">periods</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"> </span><span class="n">periods</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">timer</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span><span class="w"> </span><span class="n">periods</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// called at most only once!!! periods == 0 always!</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// or alternatively to call the code the number of missed periods</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">periods</span><span class="p">{</span><span class="n">timer</span><span class="p">.</span><span class="n">execute</span><span class="p">()};</span><span class="w"> </span><span class="n">periods</span><span class="p">;</span><span class="w"> </span><span class="n">periods</span><span class="o">--</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// periods is decreasing!</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// This is fine, since execute() is evaluated only once!</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">periods</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">range</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">execute</span><span class="p">()))</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// periods is increasing!</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// THIS WILL NOT WORK, since execute() reschedules itself immediately!</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">periods</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"> </span><span class="n">periods</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">timer</span><span class="p">.</span><span class="n">execute</span><span class="p">();</span><span class="w"> </span><span class="n">periods</span><span class="o">++</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// called at most only once!!! periods == 0 always!</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">DO NOT use for hard real time systems!</p>
@@ -7297,16 +7301,16 @@ duration. Duration Zero will expire the timer immediately</p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="327pt" height="150pt"
- viewBox="0.00 0.00 327.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="454pt" height="150pt"
+ viewBox="0.00 0.00 454.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:processing:timer</title>
 <g id="node1" class="node">
 <title>modm_processing_timer</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="230.5,-53 132.5,-53 132.5,0 230.5,0 230.5,-53"/>
-<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">timer</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="293.5,-53 195.5,-53 195.5,0 293.5,0 293.5,-53"/>
+<text text-anchor="middle" x="244.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="244.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="244.5" y="-7.8" font-family="Times,serif" font-size="14.00">timer</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_assert</title>
@@ -7317,8 +7321,8 @@ duration. Duration Zero will expire the timer immediately</p>
 </g>
 <g id="edge1" class="edge">
 <title>modm_processing_timer&#45;&gt;modm_architecture_assert</title>
-<path fill="none" stroke="black" d="M144.08,-53.13C130.38,-62.52 114.72,-73.25 100.37,-83.08"/>
-<polygon fill="black" stroke="black" points="98.36,-80.21 92.09,-88.75 102.32,-85.99 98.36,-80.21"/>
+<path fill="none" stroke="black" d="M195.08,-50.13C171.68,-60.85 143.44,-73.77 118.44,-85.22"/>
+<polygon fill="black" stroke="black" points="116.66,-82.19 109.03,-89.53 119.58,-88.55 116.66,-82.19"/>
 </g>
 <g id="node3" class="node">
 <title>modm_architecture_clock</title>
@@ -7329,20 +7333,32 @@ duration. Duration Zero will expire the timer immediately</p>
 </g>
 <g id="edge2" class="edge">
 <title>modm_processing_timer&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
-<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
+<path fill="none" stroke="black" d="M225.94,-53.13C219.71,-61.73 212.67,-71.45 206.06,-80.58"/>
+<polygon fill="black" stroke="black" points="203.18,-78.6 200.15,-88.75 208.85,-82.7 203.18,-78.6"/>
 </g>
 <g id="node4" class="node">
-<title>modm_math_utils</title>
-<polygon fill="lightgrey" stroke="black" points="319,-142 254,-142 254,-89 319,-89 319,-142"/>
-<text text-anchor="middle" x="286.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="286.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="286.5" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
+<text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="edge3" class="edge">
+<title>modm_processing_timer&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M263.36,-53.13C269.68,-61.73 276.83,-71.45 283.55,-80.58"/>
+<polygon fill="black" stroke="black" points="280.81,-82.77 289.56,-88.75 286.45,-78.62 280.81,-82.77"/>
+</g>
+<g id="node5" class="node">
+<title>modm_math_utils</title>
+<polygon fill="lightgrey" stroke="black" points="446,-142 381,-142 381,-89 446,-89 446,-142"/>
+<text text-anchor="middle" x="413.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="413.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="413.5" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
+</g>
+<g id="edge4" class="edge">
 <title>modm_processing_timer&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M212.44,-53.13C223.45,-62.25 235.99,-72.65 247.58,-82.25"/>
-<polygon fill="black" stroke="black" points="245.49,-85.07 255.42,-88.75 249.96,-79.67 245.49,-85.07"/>
+<path fill="none" stroke="black" d="M293.75,-49.64C315.65,-59.83 341.8,-72.48 371.62,-88.68"/>
+<polygon fill="black" stroke="black" points="370.11,-91.85 380.56,-93.59 373.48,-85.71 370.11,-91.85"/>
 </g>
 </g>
 </svg></p>

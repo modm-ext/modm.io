@@ -1694,6 +1694,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-architecture-fiber/" class="md-nav__link">
+        :architecture:fiber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-architecture-gpio/" class="md-nav__link">
         :architecture:gpio
       </a>
@@ -6492,6 +6506,19 @@
     Customization
   </a>
   
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subclassing" class="md-nav__link">
+    Subclassing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -7286,6 +7313,19 @@
     Customization
   </a>
   
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subclassing" class="md-nav__link">
+    Subclassing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -7575,6 +7615,33 @@ task in combination with the <code>modm_section()</code> macros and its speciali
 <span class="c1">// But keep the task control structure in internal memory</span>
 <span class="n">modm_fastdata</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">fiber</span><span class="p">(</span><span class="n">large_stack</span><span class="p">,</span><span class="w"> </span><span class="n">big_function</span><span class="p">);</span>
 </code></pre></div>
+<h3 id="subclassing">Subclassing<a class="headerlink" href="#subclassing" title="Permanent link">&para;</a></h3>
+<p>You can inherit from the <code>modm::Fiber</code> class to extend a fiber with a proper
+object interface. This is useful for providing a more expressive interface to a
+fiber by means of shared memory.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CustomFiber</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">CustomFiber</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Fiber</span><span class="p">([</span><span class="k">this</span><span class="p">]{</span><span class="w"> </span><span class="n">run</span><span class="p">();</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="c1">// called from another fiber</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">trigger</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">trigger_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">trigger_</span><span class="p">{</span><span class="nb">false</span><span class="p">};</span><span class="w"> </span><span class="c1">// shared memory between fibers</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="kr">inline</span>
+<span class="w">    </span><span class="n">run</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">poll</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">trigger_</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">            </span><span class="n">trigger_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">            </span><span class="c1">// long running response to the trigger</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
 <h2 id="concurrency-support">Concurrency Support<a class="headerlink" href="#concurrency-support" title="Permanent link">&para;</a></h2>
 <p>The <code>modm::fiber</code> namespace provides several standard concurrency primitives to
 synchronize fibers based on the <a href="https://en.cppreference.com/w/cpp/thread"><code>std::thread</code> interface behavior</a>.
@@ -7738,16 +7805,16 @@ and task into the core-affine memory:</p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="454pt" height="150pt"
- viewBox="0.00 0.00 454.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="670pt" height="150pt"
+ viewBox="0.00 0.00 670.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:processing:fiber</title>
 <g id="node1" class="node">
 <title>modm_processing_fiber</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="293.5,-53 195.5,-53 195.5,0 293.5,0 293.5,-53"/>
-<text text-anchor="middle" x="244.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="244.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="244.5" y="-7.8" font-family="Times,serif" font-size="14.00">fiber</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="420.5,-53 322.5,-53 322.5,0 420.5,0 420.5,-53"/>
+<text text-anchor="middle" x="371.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="371.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="371.5" y="-7.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_assert</title>
@@ -7758,8 +7825,8 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge1" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_assert</title>
-<path fill="none" stroke="black" d="M195.08,-50.13C171.68,-60.85 143.44,-73.77 118.44,-85.22"/>
-<polygon fill="black" stroke="black" points="116.66,-82.19 109.03,-89.53 119.58,-88.55 116.66,-82.19"/>
+<path fill="none" stroke="black" d="M322.21,-37.19C272.72,-47.41 194.24,-64.99 118.94,-88.69"/>
+<polygon fill="black" stroke="black" points="117.76,-85.39 109.3,-91.77 119.89,-92.06 117.76,-85.39"/>
 </g>
 <g id="node3" class="node">
 <title>modm_architecture_atomic</title>
@@ -7770,8 +7837,8 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge2" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_atomic</title>
-<path fill="none" stroke="black" d="M225.94,-53.13C219.71,-61.73 212.67,-71.45 206.06,-80.58"/>
-<polygon fill="black" stroke="black" points="203.18,-78.6 200.15,-88.75 208.85,-82.7 203.18,-78.6"/>
+<path fill="none" stroke="black" d="M322.08,-50.13C298.68,-60.85 270.44,-73.77 245.44,-85.22"/>
+<polygon fill="black" stroke="black" points="243.66,-82.19 236.03,-89.53 246.58,-88.55 243.66,-82.19"/>
 </g>
 <g id="node4" class="node">
 <title>modm_architecture_clock</title>
@@ -7782,20 +7849,43 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge3" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M263.36,-53.13C269.68,-61.73 276.83,-71.45 283.55,-80.58"/>
-<polygon fill="black" stroke="black" points="280.81,-82.77 289.56,-88.75 286.45,-78.62 280.81,-82.77"/>
+<path fill="none" stroke="black" d="M352.94,-53.13C346.71,-61.73 339.67,-71.45 333.06,-80.58"/>
+<polygon fill="black" stroke="black" points="330.18,-78.6 327.15,-88.75 335.85,-82.7 330.18,-78.6"/>
 </g>
 <g id="node5" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="446,-142 381,-142 381,-89 446,-89 446,-142"/>
-<text text-anchor="middle" x="413.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="413.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="413.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" points="490,-142 381,-142 381,-89 490,-89 490,-142"/>
+<text text-anchor="middle" x="435.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="435.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="435.5" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="edge4" class="edge">
+<title>modm_processing_fiber&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M390.36,-53.13C396.68,-61.73 403.83,-71.45 410.55,-80.58"/>
+<polygon fill="black" stroke="black" points="407.81,-82.77 416.56,-88.75 413.45,-78.62 407.81,-82.77"/>
+</g>
+<g id="node6" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="573,-142 508,-142 508,-89 573,-89 573,-142"/>
+<text text-anchor="middle" x="540.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="540.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="540.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge5" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M293.75,-49.64C315.65,-59.83 341.8,-72.48 371.62,-88.68"/>
-<polygon fill="black" stroke="black" points="370.11,-91.85 380.56,-93.59 373.48,-85.71 370.11,-91.85"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M420.75,-49.64C442.65,-59.83 468.8,-72.48 498.62,-88.68"/>
+<polygon fill="black" stroke="black" points="497.11,-91.85 507.56,-93.59 500.48,-85.71 497.11,-91.85"/>
+</g>
+<g id="node7" class="node">
+<title>modm_stdc++</title>
+<polygon fill="lightgrey" stroke="black" points="662,-134.5 591,-134.5 591,-96.5 662,-96.5 662,-134.5"/>
+<text text-anchor="middle" x="626.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="626.5" y="-104.3" font-family="Times,serif" font-size="14.00">stdc++</text>
+</g>
+<g id="edge6" class="edge">
+<title>modm_processing_fiber&#45;&gt;modm_stdc++</title>
+<path fill="none" stroke="black" d="M420.85,-38.3C464.37,-48.66 529.01,-66.1 582.5,-89 584.54,-89.88 586.61,-90.82 588.68,-91.83"/>
+<polygon fill="black" stroke="black" points="587.17,-94.99 597.66,-96.47 590.39,-88.77 587.17,-94.99"/>
 </g>
 </g>
 </svg></p>

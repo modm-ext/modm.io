@@ -456,6 +456,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-architecture-fiber/</loc>
+         <lastmod>2024-12-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-architecture-gpio-expander/</loc>
          <lastmod>2024-12-01</lastmod>
          <changefreq>daily</changefreq>
