@@ -2169,6 +2169,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-weact-c011f6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    :weact-c011f6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4240,6 +4261,27 @@
   
   <span class="md-ellipsis">
     :board:thingplus-rp2040
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module/modm-board-weact-c011f6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    :board:weact-c011f6
   </span>
   
 
@@ -10585,7 +10627,7 @@
 <p>lbuild config: <code>modm:black-pill-f401</code></p>
 <p>STM32F401CCU "Mini-F401" Minimum System Development Board</p>
 <p>Cheap and bread-board-friendly board for STM32F401 series.
-Sold for less than 4 USD on well known Internet shops from China.
+Sold for less than 4 USD on Aliexpress.
 Attention: There are two variants: Mini-F411 and the cheaper Mini-F401.</p>
 <p><a href="https://stm32-base.org/boards/STM32F401CEU6-WeAct-Black-Pill-V3.0">https://stm32-base.org/boards/STM32F401CEU6-WeAct-Black-Pill-V3.0</a></p>
 <h2 id="programming">Programming<a class="headerlink" href="#programming" title="Permanent link">&para;</a></h2>
@@ -10593,19 +10635,6 @@ Attention: There are two variants: Mini-F411 and the cheaper Mini-F401.</p>
 you must use DFU (Device Firmware Update (via USB)) to program the board.
 A DFU command is integrated into the <code>modm:build:scons</code> tool and can be called as follows:</p>
 <div class="highlight"><pre><span></span><code>scons program-dfu
-</code></pre></div>
-<p>Alternatively you can go for an external programmer
-and <em>specify</em> which one you're using in a custom <code>openocd.cfg</code> file:</p>
-<div class="highlight"><pre><span></span><code># Replace this with your custom programmer
-source [find interface/stlink-v2.cfg]
-</code></pre></div>
-<p>Then include this file in your build options like so:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
-<span class="w">  </span><span class="nt">&lt;extends&gt;</span>modm:black-pill-f401<span class="nt">&lt;/extends&gt;</span>
-<span class="w">  </span><span class="nt">&lt;options&gt;</span>
-<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:build:openocd.cfg&quot;</span><span class="nt">&gt;</span>openocd.cfg<span class="nt">&lt;/option&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/options&gt;</span>
-<span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>

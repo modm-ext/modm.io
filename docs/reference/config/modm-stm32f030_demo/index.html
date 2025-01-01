@@ -2122,15 +2122,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#programming" class="md-nav__link">
-    <span class="md-ellipsis">
-      Programming
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration
@@ -2160,6 +2151,27 @@
   
   <span class="md-ellipsis">
     :thingplus-rp2040
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-weact-c011f6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    :weact-c011f6
   </span>
   
 
@@ -4240,6 +4252,27 @@
   
   <span class="md-ellipsis">
     :board:thingplus-rp2040
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module/modm-board-weact-c011f6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    :board:weact-c011f6
   </span>
   
 
@@ -10549,15 +10582,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#programming" class="md-nav__link">
-    <span class="md-ellipsis">
-      Programming
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Configuration
@@ -10585,26 +10609,8 @@
 <p>lbuild config: <code>modm:stm32f030_demo</code></p>
 <p>STM32F030F4P6 Minimum System Development Board.</p>
 <p>Cheap and bread-board-friendly board for STM32 F0 series.
-Sold for less than 1.5 USD on well known Internet shops from China.</p>
+Sold for less than 1.5 USD on Aliexpress.</p>
 <p><a href="https://stm32-base.org/boards/STM32F030F4P6-STM32F030-DEMO-BOARD-V1.1">https://stm32-base.org/boards/STM32F030F4P6-STM32F030-DEMO-BOARD-V1.1</a></p>
-<h2 id="programming">Programming<a class="headerlink" href="#programming" title="Permanent link">&para;</a></h2>
-<p>Since the board doesn't have a programmer on-board, you need to use your
-own and <em>specify</em> which one you're using in a custom <code>openocd.cfg</code> file:</p>
-<div class="highlight"><pre><span></span><code># Replace this with your custom programmer
-source [find interface/stlink-v2.cfg]
-
-# To select a specific programmer you can specify its serial number
-#hla_serial &quot;\\x53\\x3f\\x6f\\x06\\x51\\x77\\x50\\x57\\x12\\x17\\x13\\x3f&quot;
-# You can discover the serial via `stlink --hla-serial` or `st-info --hla-serial`.
-</code></pre></div>
-<p>Then include this file in your build options like so:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
-<span class="w">  </span><span class="nt">&lt;extends&gt;</span>modm:stm32f030_demo<span class="nt">&lt;/extends&gt;</span>
-<span class="w">  </span><span class="nt">&lt;options&gt;</span>
-<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:build:openocd.cfg&quot;</span><span class="nt">&gt;</span>openocd.cfg<span class="nt">&lt;/option&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/options&gt;</span>
-<span class="nt">&lt;/library&gt;</span>
-</code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>
