@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://modm.io/reference/module/modm-board-disco-f746ng/">
       
       
-        <link rel="prev" href="../modm-board-disco-f469ni/">
+        <link rel="prev" href="../modm-board-disco-f723ie/">
       
       
         <link rel="next" href="../modm-board-disco-f769ni/">
@@ -987,6 +987,27 @@
   
   <span class="md-ellipsis">
     :disco-f469ni
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/modm-disco-f723ie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    :disco-f723ie
   </span>
   
 
@@ -3090,6 +3111,27 @@
   
   <span class="md-ellipsis">
     :board:disco-f469ni
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-board-disco-f723ie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    :board:disco-f723ie
   </span>
   
 
@@ -10635,23 +10677,13 @@ however, you can reassign it to HS via this option:</p>
 <span class="w">  </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:device:port&quot;</span><span class="nt">&gt;</span>hs<span class="nt">&lt;/option&gt;</span>
 <span class="nt">&lt;/options&gt;</span>
 </code></pre></div>
-<p>Remember to initialize the HS instead of the FS port via the BSP:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Board</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
-<span class="n">Board</span><span class="o">::</span><span class="n">initializeUsbHs</span><span class="p">();</span>
-</code></pre></div>
 <p>Note that can use TinyUSB with both the device and host classes at the same time
 if you assign them to different ports:</p>
-<div class="highlight"><pre><span></span><code>```xml
-<span class="nt">&lt;options&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;options&gt;</span>
 <span class="w">  </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:config&quot;</span><span class="nt">&gt;</span>device.cdc,device.msc<span class="nt">&lt;/option&gt;</span>
 <span class="w">  </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:device:port&quot;</span><span class="nt">&gt;</span>fs<span class="nt">&lt;/option&gt;</span>
 <span class="w">  </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:tinyusb:host:port&quot;</span><span class="nt">&gt;</span>hs<span class="nt">&lt;/option&gt;</span>
 <span class="nt">&lt;/options&gt;</span>
-</code></pre></div>
-<p>You must initialize both ports via the BSP:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Board</span><span class="o">::</span><span class="n">initialize</span><span class="p">();</span>
-<span class="n">Board</span><span class="o">::</span><span class="n">initializeUsbFs</span><span class="p">();</span>
-<span class="n">Board</span><span class="o">::</span><span class="n">initializeUsbHs</span><span class="p">();</span>
 </code></pre></div>
 <p><em>This module is only available for stm32f746ngh6.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
