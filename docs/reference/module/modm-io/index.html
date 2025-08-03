@@ -8265,6 +8265,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#iodevice-buffer-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      IODevice Buffer Behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       Options
@@ -11664,6 +11673,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#iodevice-buffer-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      IODevice Buffer Behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       Options
@@ -11753,35 +11771,12 @@ does not implicitly flush the stream. Please call <code>modm::flush</code> expli
 </div>
 <h2 id="redirecting-iostreams">Redirecting IOStreams<a class="headerlink" href="#redirecting-iostreams" title="Permanent link">&para;</a></h2>
 <p>The <code>modm::IODeviceWrapper</code> transforms any peripheral device that provides static
-<code>write()</code> and <code>read()</code> functions into an <code>IODevice</code>.</p>
-<p>You have to decide what happens when the device buffer is full and you cannot
-write to it at the moment. There are two options:</p>
-<ol>
-<li>busy wait until the buffer is free, or</li>
-<li>discard the bytes that cannot be written.</li>
-</ol>
-<p>Option 1 has the advantage, that none of your data will be lost,
-however, busy-waiting can take a long time and can mess up your
-program timings.
-There is also a <strong>high risk of deadlock</strong>, when writing to a
-IODevice inside of an interrupt and then busy-waiting forever
-because the IODevice requires interrupts itself to send out
-the data.</p>
-<p>It is therefore highly recommended to use option 2, where surplus
-data will be discarded.
-You should increase the IODevice buffer size, if you experience
-missing data from your connection.
-This behavior is also deadlock safe when called from inside another
-interrupt, and your program timing is minimally affected (essentially
-only coping data into the buffer).</p>
-<p>There is no default template argument, so that you hopefully make
-a conscious decision and be aware of this behavior.</p>
-<p>Example:</p>
+<code>write()</code> and <code>read()</code> functions into an <code>IODevice</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// configure a UART</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Uart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Uart0</span><span class="p">;</span>
 
 <span class="c1">// wrap it into an IODevice</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">IODeviceWrapper</span><span class="o">&lt;</span><span class="n">Uart</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">IOBuffer</span><span class="o">::</span><span class="n">DiscardIfFull</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">IODeviceWrapper</span><span class="o">&lt;</span><span class="n">Uart</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">IOBuffer</span><span class="o">::</span><span class="n">BlockIfFull</span><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="p">;</span>
 
 <span class="c1">// use this device to print a message</span>
 <span class="n">device</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
@@ -11790,6 +11785,17 @@ a conscious decision and be aware of this behavior.</p>
 <span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="n">device</span><span class="p">);</span>
 <span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; World!&quot;</span><span class="p">;</span>
 </code></pre></div>
+<h2 id="iodevice-buffer-behavior">IODevice Buffer Behavior<a class="headerlink" href="#iodevice-buffer-behavior" title="Permanent link">&para;</a></h2>
+<p>The <code>modm::IODeviceWrapper</code> can be configured to discard or block in case the
+device is full. Discarding data is always non-blocking, however, blocking on
+write involves waiting in a loop until the device has space. This can cause a
+deadlock when called inside an interrupt!</p>
+<p>If compiled with the <code>modm:processing:fiber</code> module, the blocking behavior
+allows the fiber to yield while waiting for the device. To prevent interlaced
+output from different fibers, the <code>write(char)</code> function is protected by a
+mutex that releases when a newline character <code>\n</code> is written. The <code>flush()</code>
+function is also mutex protected to allow one fiber to reliably flush the
+stream without having other fibers push data into the device.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="with_float">with_float<a class="headerlink" href="#with_float" title="Permanent link">&para;</a></h4>
 <p>Support for floating point formatting</p>
@@ -11814,15 +11820,15 @@ Input Dependency: <code>yes -&gt; modm:printf</code>  </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="283pt" height="135pt"
- viewBox="0.00 0.00 283.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="410pt" height="135pt"
+ viewBox="0.00 0.00 410.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
 <title>modm:io</title>
 <g id="node1" class="node">
 <title>modm_io</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="192,-38 127,-38 127,0 192,0 192,-38"/>
-<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">io</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="266,-38 201,-38 201,0 266,0 266,-38"/>
+<text text-anchor="middle" x="233.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="233.5" y="-7.8" font-family="Times,serif" font-size="14.00">io</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_accessor</title>
@@ -11833,31 +11839,43 @@ Input Dependency: <code>yes -&gt; modm:printf</code>  </p>
 </g>
 <g id="edge1" class="edge">
 <title>modm_io&#45;&gt;modm_architecture_accessor</title>
-<path fill="none" stroke="black" d="M135.67,-38.04C124.05,-46.84 109.72,-57.69 96.35,-67.81"/>
-<polygon fill="black" stroke="black" points="94.04,-65.17 88.18,-74 98.27,-70.75 94.04,-65.17"/>
+<path fill="none" stroke="black" d="M200.67,-34.58C177.73,-44.77 146.35,-58.71 118.54,-71.06"/>
+<polygon fill="black" stroke="black" points="116.98,-67.92 109.27,-75.18 119.83,-74.32 116.98,-67.92"/>
 </g>
 <g id="node3" class="node">
-<title>modm_math_utils</title>
-<polygon fill="lightgrey" stroke="black" points="192,-127 127,-127 127,-74 192,-74 192,-127"/>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="159.5" y="-81.8" font-family="Times,serif" font-size="14.00">utils</text>
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" points="236,-127 127,-127 127,-74 236,-74 236,-127"/>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-81.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_io&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M159.5,-38.04C159.5,-45.68 159.5,-54.86 159.5,-63.77"/>
-<polygon fill="black" stroke="black" points="156,-64 159.5,-74 163,-64 156,-64"/>
+<title>modm_io&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M221.7,-38.04C216.38,-46.18 209.91,-56.07 203.73,-65.51"/>
+<polygon fill="black" stroke="black" points="200.73,-63.71 198.18,-74 206.58,-67.54 200.73,-63.71"/>
 </g>
 <g id="node4" class="node">
-<title>modm_printf</title>
-<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="275,-119.5 210,-119.5 210,-81.5 275,-81.5 275,-119.5"/>
-<text text-anchor="middle" x="242.5" y="-104.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="242.5" y="-89.3" font-family="Times,serif" font-size="14.00">printf</text>
+<title>modm_math_utils</title>
+<polygon fill="lightgrey" stroke="black" points="319,-127 254,-127 254,-74 319,-74 319,-127"/>
+<text text-anchor="middle" x="286.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="286.5" y="-96.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="286.5" y="-81.8" font-family="Times,serif" font-size="14.00">utils</text>
 </g>
 <g id="edge3" class="edge">
+<title>modm_io&#45;&gt;modm_math_utils</title>
+<path fill="none" stroke="black" d="M245.53,-38.04C250.95,-46.18 257.54,-56.07 263.84,-65.51"/>
+<polygon fill="black" stroke="black" points="261.04,-67.62 269.5,-74 266.86,-63.74 261.04,-67.62"/>
+</g>
+<g id="node5" class="node">
+<title>modm_printf</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="402,-119.5 337,-119.5 337,-81.5 402,-81.5 402,-119.5"/>
+<text text-anchor="middle" x="369.5" y="-104.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="369.5" y="-89.3" font-family="Times,serif" font-size="14.00">printf</text>
+</g>
+<g id="edge4" class="edge">
 <title>modm_io&#45;&gt;modm_printf</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M178.33,-38.04C189.5,-48.74 203.83,-62.46 216.12,-74.23"/>
-<polygon fill="black" stroke="black" points="213.81,-76.87 223.45,-81.26 218.65,-71.81 213.81,-76.87"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M266.22,-38.18C284.62,-48.51 307.96,-61.78 328.5,-74 329.59,-74.65 330.7,-75.31 331.82,-75.99"/>
+<polygon fill="black" stroke="black" points="330.11,-79.04 340.47,-81.25 333.75,-73.06 330.11,-79.04"/>
 </g>
 </g>
 </svg></p>
