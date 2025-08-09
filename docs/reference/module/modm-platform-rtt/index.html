@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#real-time-transfer-rtt" class="md-skip">
+        <a href="#uart-over-rtt" class="md-skip">
           Skip to content
         </a>
       
@@ -9958,48 +9958,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accessing-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Accessing Data
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Options
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bufferrx" class="md-nav__link">
-    <span class="md-ellipsis">
-      buffer.rx
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffertx" class="md-nav__link">
-    <span class="md-ellipsis">
-      buffer.tx
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       Dependencies
@@ -10789,6 +10747,29 @@
   
   <span class="md-ellipsis">
     :ros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-rtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    :rtt
     
   </span>
   
@@ -11646,48 +11627,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accessing-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Accessing Data
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Options
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bufferrx" class="md-nav__link">
-    <span class="md-ellipsis">
-      buffer.rx
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buffertx" class="md-nav__link">
-    <span class="md-ellipsis">
-      buffer.tx
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       Dependencies
@@ -11712,130 +11651,75 @@
 
 
 
-<h1 id="real-time-transfer-rtt">Real Time Transfer (RTT)<a class="headerlink" href="#real-time-transfer-rtt" title="Permanent link">&para;</a></h1>
+<h1 id="uart-over-rtt">UART over RTT<a class="headerlink" href="#uart-over-rtt" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:rtt</code></p>
-<p>This module implements the RTT protocol compatible with OpenOCD. RTT works by
-placing multiple ring-buffers in RAM which the debugger read and writes using
-background memory accesses via SWD. It therefore works on any Cortex-M devices
-without extra pins except for the SWDCLK and SWDIO.</p>
-<p>See <a href="https://www.segger.com/jlink-rtt.html">https://www.segger.com/jlink-rtt.html</a></p>
 <p>The RTT channels are exposed as a UART interface which you can use like so:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">platform</span><span class="o">::</span><span class="n">Rtt</span><span class="w"> </span><span class="nf">rtt</span><span class="p">(</span><span class="cm">/* channel= */</span><span class="mi">0</span><span class="p">);</span>
-<span class="c1">// Access data directly via UART interface: eg. loop back</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="n">rtt</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">rtt</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
-<span class="c1">// Or wrap into an IOStream for printing</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">IODeviceObjectWrapper</span><span class="o">&lt;</span><span class="n">modm</span><span class="o">::</span><span class="n">platform</span><span class="o">::</span><span class="n">Rtt</span><span class="p">,</span>
-<span class="w">                            </span><span class="n">modm</span><span class="o">::</span><span class="n">IOBuffer</span><span class="o">::</span><span class="n">DiscardIfFull</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rtt_device</span><span class="p">(</span><span class="n">rtt</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Access data via static methods</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Rtt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">platform</span><span class="o">::</span><span class="n">Rtt</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">// Create a software loopback</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="n">Rtt</span><span class="o">::</span><span class="n">read</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Rtt</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// Wrap into an IOStream</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">IODeviceWrapper</span><span class="o">&lt;</span><span class="n">Rtt</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">IOBuffer</span><span class="o">::</span><span class="n">BlockIfFull</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rtt_device</span><span class="p">;</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="n">rtt_device</span><span class="p">);</span>
+<span class="c1">// Writing data</span>
 <span class="n">stream</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="c1">// Reading is more annoying</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
-<span class="n">stream</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="o">::</span><span class="n">eof</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* process new data */</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>You can define the number of channels and their buffer size by setting the
-<code>buffer.tx</code> and <code>buffer.rx</code> set options. Note that you can define <em>multiple</em>
-buffer sizes indexed by channel. Here is an example of three channels:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Channel0: TX only with 256B buffer --&gt;</span>
-<span class="cm">&lt;!-- Channel1: RX only with 128B buffer --&gt;</span>
-<span class="cm">&lt;!-- Channel2: TX with 512B and RX with 64B buffer --&gt;</span>
-<span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:platform:rtt:buffer.tx&quot;</span><span class="nt">&gt;</span>256,<span class="w"> </span>0,<span class="w"> </span>512<span class="nt">&lt;/option&gt;</span>
-<span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:platform:rtt:buffer.rx&quot;</span><span class="nt">&gt;</span>0,<span class="w"> </span>128,<span class="w"> </span>64<span class="nt">&lt;/option&gt;</span>
-</code></pre></div>
-<p>You can set the buffer size to <code>0</code> if you don't want to use this channel
-direction. This won't allocate a buffer and save a little RAM.</p>
-<h2 id="accessing-data">Accessing Data<a class="headerlink" href="#accessing-data" title="Permanent link">&para;</a></h2>
-<p><a href="http://openocd.org/doc/html/General-Commands.html#Real-Time-Transfer-_0028RTT_0029">OpenOCD has built-in support for RTT</a> and modm generates a config that
-opens each RTT channel as a TCP port starting at 9090 (ie. 9090=channel 0,
-9091=channel 1, etc).</p>
-<div class="highlight"><pre><span></span><code>openocd<span class="w"> </span>-f<span class="w"> </span>modm/openocd.cfg<span class="w"> </span>-c<span class="w"> </span>modm_rtt
-</code></pre></div>
-<p>You can also call this from inside GDB via the <code>monitor</code> command:</p>
-<div class="highlight"><pre><span></span><code>(gdb) monitor modm_rtt
-rtt: Searching for control block &#39;SEGGER RTT&#39;
-rtt: Control block found at 0x20001024
-Listening on port 9090 for rtt connections
-(gdb) continue&amp;
-</code></pre></div>
-<p>You can then use for example <code>telnet 127.0.0.1 9090</code> to connect to the stream.</p>
-<p>Note that this connection does not halt the target, you should therefore be able
-to use this at any point during program execution.</p>
-<p>A simple telnet client is integrated into the build system generator, however,
-it can only connect to one stream at a time (disconnect with Ctrl+D).</p>
-<div class="highlight"><pre><span></span><code> $ scons log-rtt
-╭───OpenOCD───&gt; Real Time Transfer
-╰─────RTT────── stm32f103rbt
-Info : rtt: Searching for control block &#39;SEGGER RTT&#39;
-Info : rtt: Control block found at 0x20000008
-Listening on port 9090 for rtt connections
-loop 51
-loop 52
-loop 53
-^D
 
- $ make log-rtt channel=0
-Info : rtt: Searching for control block &#39;SEGGER RTT&#39;
-Info : rtt: Control block found at 0x20000008
-Listening on port 9090 for rtt connections
-loop 58
-loop 60
-loop 61
+<span class="c1">// Reading data from an IOStream</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">IOStream</span><span class="o">::</span><span class="n">eof</span><span class="p">)</span>
+<span class="p">{</span><span class="w"> </span><span class="cm">/* process new data */</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<p>If you want to use this as a proper communication channel with a custom protocol
-you should implement the OpenOCD config yourself (with different ports).</p>
-<p>You can also use JLink to access the RTT data, which may be significantly faster
-than OpenOCD if the debug probe has hardware support for the protocol.</p>
-<div class="highlight"><pre><span></span><code> $ scons log-rtt-jlink
-╭────JLink────&gt; Real Time Transfer
-╰─────RTT────── stm32l476rgt6
-
-SEGGER J-Link V7.84f - Real time terminal output
-RTT Demo on Nucleo-64
-loop: 0
-loop: 1
-loop: 2
-loop: 3
-loop: 4
-loop: 5
-loop: 6
-loop: 7
-</code></pre></div>
+<p>To configure the number and size of RTT channels, see the <code>modm:rtt</code> module.</p>
 <p><em>This module is only available for rp, sam, stm32.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="bufferrx">buffer.rx<a class="headerlink" href="#bufferrx" title="Permanent link">&para;</a></h4>
-<p>Receive buffer sizes</p>
-<p>Default: <code>[0]</code><br />
-Inputs: <code>[0 ... 64Ki]</code>  </p>
-<h4 id="buffertx">buffer.tx<a class="headerlink" href="#buffertx" title="Permanent link">&para;</a></h4>
-<p>Transmit buffer sizes</p>
-<p>Default: <code>[512]</code><br />
-Inputs: <code>[0 ... 64Ki]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="117pt" height="150pt"
- viewBox="0.00 0.00 117.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="327pt" height="150pt"
+ viewBox="0.00 0.00 327.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:platform:rtt</title>
 <g id="node1" class="node">
 <title>modm_platform_rtt</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="96,-53 13,-53 13,0 96,0 96,-53"/>
-<text text-anchor="middle" x="54.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="54.5" y="-7.8" font-family="Times,serif" font-size="14.00">rtt</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="223,-53 140,-53 140,0 223,0 223,-53"/>
+<text text-anchor="middle" x="181.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="181.5" y="-7.8" font-family="Times,serif" font-size="14.00">rtt</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_uart</title>
+<title>modm_architecture_fiber</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">uart</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="edge1" class="edge">
+<title>modm_platform_rtt&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M144.08,-53.13C130.38,-62.52 114.72,-73.25 100.37,-83.08"/>
+<polygon fill="black" stroke="black" points="98.36,-80.21 92.09,-88.75 102.32,-85.99 98.36,-80.21"/>
+</g>
+<g id="node3" class="node">
+<title>modm_architecture_uart</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">uart</text>
+</g>
+<g id="edge2" class="edge">
 <title>modm_platform_rtt&#45;&gt;modm_architecture_uart</title>
-<path fill="none" stroke="black" d="M54.5,-53.13C54.5,-61.11 54.5,-70.07 54.5,-78.62"/>
-<polygon fill="black" stroke="black" points="51,-78.75 54.5,-88.75 58,-78.75 51,-78.75"/>
+<path fill="none" stroke="black" d="M181.5,-53.13C181.5,-61.11 181.5,-70.07 181.5,-78.62"/>
+<polygon fill="black" stroke="black" points="178,-78.75 181.5,-88.75 185,-78.75 178,-78.75"/>
+</g>
+<g id="node4" class="node">
+<title>modm_rtt</title>
+<polygon fill="lightgrey" stroke="black" points="319,-134.5 254,-134.5 254,-96.5 319,-96.5 319,-134.5"/>
+<text text-anchor="middle" x="286.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="286.5" y="-104.3" font-family="Times,serif" font-size="14.00">rtt</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_rtt&#45;&gt;modm_rtt</title>
+<path fill="none" stroke="black" d="M212.44,-53.13C226.49,-64.78 243.05,-78.5 256.94,-90.01"/>
+<polygon fill="black" stroke="black" points="254.83,-92.81 264.77,-96.49 259.3,-87.42 254.83,-92.81"/>
 </g>
 </g>
 </svg></p>

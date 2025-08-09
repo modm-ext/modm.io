@@ -11106,6 +11106,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-rtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    :rtt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-stdc/" class="md-nav__link">
         
   
@@ -12652,8 +12675,8 @@ CPU frequency.
 <h4 id="make-log-rtt">make log-rtt<a class="headerlink" href="#make-log-rtt" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make log-rtt [channel={int}]
 </code></pre></div>
-<p>Configures OpenOCD in RTT mode to output the chosen channel (default 0) via a
-simple telnet client. Disconnect with Ctrl+D.
+<p>Configures OpenOCD in RTT mode to output the chosen channel (default 0) via
+netcat. Stop listening with Ctrl+C.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <div class="highlight"><pre><span></span><code> $ make log-rtt
 Info : rtt: Searching for control block &#39;SEGGER RTT&#39;
@@ -12668,8 +12691,8 @@ loop: 61
 <h4 id="make-log-rtt-jlink">make log-rtt-jlink<a class="headerlink" href="#make-log-rtt-jlink" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make log-rtt-jlink [channel={int}]
 </code></pre></div>
-<p>Configures JLink in RTT mode to output the chosen channel (default 0) via a
-simple telnet client. Disconnect with Ctrl+D.
+<p>Configures JLink in RTT mode to output the chosen channel (default 0) via
+netcat. Stop listening with Ctrl+C.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-library">make library<a class="headerlink" href="#make-library" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make library profile={debug|release}

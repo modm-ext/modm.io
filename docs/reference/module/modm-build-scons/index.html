@@ -11223,6 +11223,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-rtt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    :rtt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-stdc/" class="md-nav__link">
         
   
@@ -12940,8 +12963,8 @@ CPU frequency.
 <h4 id="scons-log-rtt">scons log-rtt<a class="headerlink" href="#scons-log-rtt" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons log-rtt [channel={int}]
 </code></pre></div>
-<p>Configures OpenOCD in RTT mode to output the chosen channel (default 0) via a
-simple telnet client. Disconnect with Ctrl+D.
+<p>Configures OpenOCD in RTT mode to output the chosen channel (default 0) via
+netcat. Stop listening with Ctrl+C.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <div class="highlight"><pre><span></span><code> $ scons log-rtt
 ╭───OpenOCD───&gt; Real Time Transfer
@@ -12958,8 +12981,8 @@ loop: 61
 <h4 id="scons-log-rtt-jlink">scons log-rtt-jlink<a class="headerlink" href="#scons-log-rtt-jlink" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons log-rtt-jlink [channel={int}]
 </code></pre></div>
-<p>Configures JLink in RTT mode to output the chosen channel (default 0) via a
-simple telnet client. Disconnect with Ctrl+D.
+<p>Configures JLink in RTT mode to output the chosen channel (default 0) via
+netcat. Stop listening with Ctrl+C.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-library">scons library<a class="headerlink" href="#scons-library" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons library profile={debug|release}
