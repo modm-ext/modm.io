@@ -11655,12 +11655,15 @@
 <p>lbuild config: <code>modm:stm32f030_demo</code></p>
 <p>STM32F030F4P6 Minimum System Development Board.</p>
 <p>Cheap and bread-board-friendly board for STM32 F0 series.
-Sold for less than 1.5 USD on Aliexpress.</p>
-<p><a href="https://stm32-base.org/boards/STM32F030F4P6-STM32F030-DEMO-BOARD-V1.1">https://stm32-base.org/boards/STM32F030F4P6-STM32F030-DEMO-BOARD-V1.1</a></p>
+<a href="https://stm32-base.org/boards/STM32F030F4P6-STM32F030-DEMO-BOARD-V1.1">https://stm32-base.org/boards/STM32F030F4P6-STM32F030-DEMO-BOARD-V1.1</a></p>
+<p>This board has no serial port and logs via RTT instead.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>
 <span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:target&quot;</span><span class="nt">&gt;</span>stm32f030f4p6<span class="nt">&lt;/option&gt;</span>
+<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:rtt:buffer.tx&quot;</span><span class="nt">&gt;</span>256<span class="nt">&lt;/option&gt;</span>
+<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:rtt:buffer.rx&quot;</span><span class="nt">&gt;</span>16<span class="nt">&lt;/option&gt;</span>
+<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:platform:cortex-m:main_stack_size&quot;</span><span class="nt">&gt;</span>1Ki<span class="nt">&lt;/option&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/options&gt;</span>
 <span class="w">  </span><span class="nt">&lt;modules&gt;</span>
 <span class="w">    </span><span class="nt">&lt;module&gt;</span>modm:board:stm32f030_demo<span class="nt">&lt;/module&gt;</span>

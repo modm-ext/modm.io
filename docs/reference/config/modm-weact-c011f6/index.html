@@ -11654,10 +11654,13 @@
 <h1 id="weact-studio-stm32c011f6-core-board">WeAct Studio STM32C011F6 Core Board<a class="headerlink" href="#weact-studio-stm32c011f6-core-board" title="Permanent link">&para;</a></h1>
 <p>lbuild config: <code>modm:weact-c011f6</code></p>
 <p><a href="https://github.com/WeActStudio/WeActStudio.STM32G0xxC0xxCoreBoard">Documentation</a></p>
+<p>This board has no serial port and logs via RTT instead.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>
 <span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:target&quot;</span><span class="nt">&gt;</span>stm32c011f6p6<span class="nt">&lt;/option&gt;</span>
+<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:rtt:buffer.tx&quot;</span><span class="nt">&gt;</span>256<span class="nt">&lt;/option&gt;</span>
+<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:rtt:buffer.rx&quot;</span><span class="nt">&gt;</span>16<span class="nt">&lt;/option&gt;</span>
 <span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:platform:cortex-m:main_stack_size&quot;</span><span class="nt">&gt;</span>1Ki<span class="nt">&lt;/option&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/options&gt;</span>
 <span class="w">  </span><span class="nt">&lt;modules&gt;</span>

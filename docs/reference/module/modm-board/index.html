@@ -3021,6 +3021,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#customization" class="md-nav__link">
     <span class="md-ellipsis">
       Customization
@@ -11687,6 +11696,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#customization" class="md-nav__link">
     <span class="md-ellipsis">
       Customization
@@ -11818,11 +11836,11 @@ Blue Pill and Black Pill), you can only use one module, since all define the
 same functions resulting in naming conflicts.</p>
 </div>
 <h2 id="programming">Programming<a class="headerlink" href="#programming" title="Permanent link">&para;</a></h2>
-<p>Most development boards have a programmer on-board and the BSPs are configured
+<p>Most development boards have a debug probe on-board and the BSPs are configured
 to use them automatically.</p>
-<p>However, for development boards without a programmer on-board, you need to use
-your own and <em>specify</em> which one you're using. For simple configuration, adding
-a collector is enough:</p>
+<p>However, for development boards without a debug probe, you need to use an
+external debug probe (like an STLinkv3) and <em>specify</em> which one you're using.
+For simple configuration, adding a collector is enough:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;collectors&gt;</span>
 <span class="w">    </span><span class="nt">&lt;collect</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;modm:build:openocd.source&quot;</span><span class="nt">&gt;</span>interface/stlink.cfg<span class="nt">&lt;/collect&gt;</span>
@@ -11844,6 +11862,27 @@ a collector is enough:</p>
 <span class="w">  </span><span class="nt">&lt;/options&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>Most development boards have a dedicated serial port for logging connected to
+the on-board debug probe. In that case you can open the serial port
+independently using the program of your choice, for example <code>picocom</code>:</p>
+<div class="highlight"><pre><span></span><code>picocom<span class="w"> </span>--imap<span class="w"> </span>lfcrlf<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>/dev/tty.usbmodem1142101
+</code></pre></div>
+<p>In case that the on-board debug probe does not have a dedicated serial port or
+there is no debug probe at all, the modm boards use RTT as a fallback solution.
+This requires you to run the debug probe to receive logging data.</p>
+<div class="highlight"><pre><span></span><code> $ scons log-rtt
+╭───OpenOCD───&gt; Real Time Transfer
+╰─────RTT────── stm32f103rbt
+Info : rtt: Searching for control block &#39;SEGGER RTT&#39;
+Info : rtt: Control block found at 0x20000008
+Listening on port 9090 for rtt connections
+loop 51
+loop 52
+loop 53
+^C
+</code></pre></div>
+<p>See the <code>modm:rtt</code> module for more options.</p>
 <h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h2>
 <p>The BSPs contain an opinionated set of pre-defined functionality and settings.
 This is great for just quickly prototyping something, however, when you want to

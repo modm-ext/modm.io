@@ -11667,93 +11667,94 @@ target option in your <code>project.xml</code>:</p>
 <span class="w">  </span><span class="nt">&lt;/options&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
+<p>This board has no serial port and logs via RTT instead.</p>
 <p><em>This module is only available for stm32h7.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="604pt" height="165pt"
- viewBox="0.00 0.00 604.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="578pt" height="165pt"
+ viewBox="0.00 0.00 578.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
 <title>modm:board:devebox&#45;stm32h750vb</title>
 <g id="node1" class="node">
 <title>modm_board_devebox_stm32h750vb</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="390.5,-53 212.5,-53 212.5,0 390.5,0 390.5,-53"/>
-<text text-anchor="middle" x="301.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="301.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
-<text text-anchor="middle" x="301.5" y="-7.8" font-family="Times,serif" font-size="14.00">devebox&#45;stm32h750vb</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="364.5,-53 186.5,-53 186.5,0 364.5,0 364.5,-53"/>
+<text text-anchor="middle" x="275.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="275.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
+<text text-anchor="middle" x="275.5" y="-7.8" font-family="Times,serif" font-size="14.00">devebox&#45;stm32h750vb</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_clock</title>
-<polygon fill="lightgrey" stroke="black" points="109,-149.5 0,-149.5 0,-96.5 109,-96.5 109,-149.5"/>
-<text text-anchor="middle" x="54.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-119.3" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
+<title>modm_debug</title>
+<polygon fill="lightgrey" stroke="black" points="65,-142 0,-142 0,-104 65,-104 65,-142"/>
+<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">debug</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M215.71,-53.03C184.39,-63.17 148.95,-75.61 117.5,-89 115.16,-89.99 112.8,-91.04 110.42,-92.13"/>
-<polygon fill="black" stroke="black" points="108.78,-89.03 101.23,-96.47 111.77,-95.36 108.78,-89.03"/>
+<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_debug</title>
+<path fill="none" stroke="black" d="M186.36,-46.77C150.11,-56.58 108.58,-70.44 73.5,-89 68.87,-91.45 64.26,-94.45 59.9,-97.64"/>
+<polygon fill="black" stroke="black" points="57.59,-95 51.86,-103.91 61.9,-100.52 57.59,-95"/>
 </g>
 <g id="node3" class="node">
-<title>modm_debug</title>
-<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-104 192,-104 192,-142"/>
-<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">debug</text>
+<title>modm_platform_clock</title>
+<polygon fill="lightgrey" stroke="black" points="166,-149.5 83,-149.5 83,-96.5 166,-96.5 166,-149.5"/>
+<text text-anchor="middle" x="124.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="124.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="124.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_debug</title>
-<path fill="none" stroke="black" d="M256.7,-53.07C238.88,-63.68 218.39,-76.43 200.5,-89 196.59,-91.74 192.57,-94.74 188.65,-97.78"/>
-<polygon fill="black" stroke="black" points="186.47,-95.04 180.8,-103.99 190.81,-100.53 186.47,-95.04"/>
+<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_clock</title>
+<path fill="none" stroke="black" d="M232.53,-53.19C214.51,-64.09 193.4,-77.02 174.5,-89 173.56,-89.6 172.6,-90.21 171.64,-90.82"/>
+<polygon fill="black" stroke="black" points="169.41,-88.1 162.9,-96.45 173.2,-93.98 169.41,-88.1"/>
 </g>
 <g id="node4" class="node">
-<title>modm_platform_clock</title>
-<polygon fill="lightgrey" stroke="black" points="293,-149.5 210,-149.5 210,-96.5 293,-96.5 293,-149.5"/>
-<text text-anchor="middle" x="251.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="251.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="251.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
+<title>modm_platform_core</title>
+<polygon fill="lightgrey" stroke="black" points="267,-149.5 184,-149.5 184,-96.5 267,-96.5 267,-149.5"/>
+<text text-anchor="middle" x="225.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="225.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="225.5" y="-104.3" font-family="Times,serif" font-size="14.00">core</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_clock</title>
-<path fill="none" stroke="black" d="M287.84,-53.32C282.33,-63.74 275.88,-75.92 269.96,-87.11"/>
-<polygon fill="black" stroke="black" points="266.73,-85.73 265.15,-96.21 272.92,-89.01 266.73,-85.73"/>
+<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_core</title>
+<path fill="none" stroke="black" d="M261.84,-53.32C256.33,-63.74 249.88,-75.92 243.96,-87.11"/>
+<polygon fill="black" stroke="black" points="240.73,-85.73 239.15,-96.21 246.92,-89.01 240.73,-85.73"/>
 </g>
 <g id="node5" class="node">
-<title>modm_platform_core</title>
-<polygon fill="lightgrey" stroke="black" points="394,-149.5 311,-149.5 311,-96.5 394,-96.5 394,-149.5"/>
-<text text-anchor="middle" x="352.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="352.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="352.5" y="-104.3" font-family="Times,serif" font-size="14.00">core</text>
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="368,-149.5 285,-149.5 285,-96.5 368,-96.5 368,-149.5"/>
+<text text-anchor="middle" x="326.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="326.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="326.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge4" class="edge">
-<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_core</title>
-<path fill="none" stroke="black" d="M315.44,-53.32C321.06,-63.74 327.63,-75.92 333.67,-87.11"/>
-<polygon fill="black" stroke="black" points="330.75,-89.07 338.58,-96.21 336.91,-85.75 330.75,-89.07"/>
+<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M289.44,-53.32C295.06,-63.74 301.63,-75.92 307.67,-87.11"/>
+<polygon fill="black" stroke="black" points="304.75,-89.07 312.58,-96.21 310.91,-85.75 304.75,-89.07"/>
 </g>
 <g id="node6" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="495,-149.5 412,-149.5 412,-96.5 495,-96.5 495,-149.5"/>
-<text text-anchor="middle" x="453.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="453.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="453.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_platform_rtt</title>
+<polygon fill="lightgrey" stroke="black" points="469,-149.5 386,-149.5 386,-96.5 469,-96.5 469,-149.5"/>
+<text text-anchor="middle" x="427.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="427.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="427.5" y="-104.3" font-family="Times,serif" font-size="14.00">rtt</text>
 </g>
 <g id="edge5" class="edge">
-<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M344.92,-53.15C363.12,-64.04 384.44,-76.97 403.5,-89 404.45,-89.6 405.4,-90.2 406.36,-90.81"/>
-<polygon fill="black" stroke="black" points="404.81,-93.98 415.11,-96.44 408.59,-88.09 404.81,-93.98"/>
+<title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_rtt</title>
+<path fill="none" stroke="black" d="M318.92,-53.15C337.12,-64.04 358.44,-76.97 377.5,-89 378.45,-89.6 379.4,-90.2 380.36,-90.81"/>
+<polygon fill="black" stroke="black" points="378.81,-93.98 389.11,-96.44 382.59,-88.09 378.81,-93.98"/>
 </g>
 <g id="node7" class="node">
 <title>modm_platform_uart_1</title>
-<polygon fill="lightgrey" stroke="black" points="596,-157 513,-157 513,-89 596,-89 596,-157"/>
-<text text-anchor="middle" x="554.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="554.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="554.5" y="-111.8" font-family="Times,serif" font-size="14.00">uart:</text>
-<text text-anchor="middle" x="554.5" y="-96.8" font-family="Times,serif" font-size="14.00">1</text>
+<polygon fill="lightgrey" stroke="black" points="570,-157 487,-157 487,-89 570,-89 570,-157"/>
+<text text-anchor="middle" x="528.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="528.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="528.5" y="-111.8" font-family="Times,serif" font-size="14.00">uart:</text>
+<text text-anchor="middle" x="528.5" y="-96.8" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <g id="edge6" class="edge">
 <title>modm_board_devebox_stm32h750vb&#45;&gt;modm_platform_uart_1</title>
-<path fill="none" stroke="black" d="M390.75,-48.53C424.39,-57.87 462.75,-70.25 503.45,-88.87"/>
-<polygon fill="black" stroke="black" points="502.18,-92.14 512.72,-93.2 505.14,-85.79 502.18,-92.14"/>
+<path fill="none" stroke="black" d="M364.75,-48.53C398.39,-57.87 436.75,-70.25 477.45,-88.87"/>
+<polygon fill="black" stroke="black" points="476.18,-92.14 486.72,-93.2 479.14,-85.79 476.18,-92.14"/>
 </g>
 </g>
 </svg></p>
