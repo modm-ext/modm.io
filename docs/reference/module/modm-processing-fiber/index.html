@@ -12099,7 +12099,7 @@
 <p>lbuild module: <code>modm:processing:fiber</code></p>
 <p>This module provides a lightweight stackful fiber implementation including a
 simple round-robin scheduler. Here is a minimal example that blinks an LED:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber</span><span class="p">([]</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Board</span><span class="o">::</span><span class="n">LedBlue</span><span class="o">::</span><span class="n">setOutput</span><span class="p">();</span>
 <span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
@@ -12116,9 +12116,9 @@ simple round-robin scheduler. Here is a minimal example that blinks an LED:</p>
 </code></pre></div>
 <h2 id="construction">Construction<a class="headerlink" href="#construction" title="Permanent link">&para;</a></h2>
 <p>You can construct a fiber from any function without return type or arguments:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber</span><span class="p">([]{});</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([]{});</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber2</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber2</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
 </code></pre></div>
 <p>To call objects with arguments, wrap the data into a lambda closure and
 pass it to fiber. The closure will be constructed at the top of the stack and
@@ -12128,7 +12128,7 @@ allows the lambda wrapper to call your function with an argument:</p>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">member_function</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arg</span><span class="p">);</span>
 <span class="p">}</span><span class="w"> </span><span class="n">object</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">{</span><span class="mi">42</span><span class="p">};</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">object</span><span class="p">.</span><span class="n">member_function</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
 <span class="p">});</span>
@@ -12137,7 +12137,7 @@ allows the lambda wrapper to call your function with an argument:</p>
 want to call. You can <code>std::move()</code> already constructed objects into the
 capture, or construct them in the capture directly, if they would get destroyed
 after fiber construction. You may need to mark the lambda mutable:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber2</span><span class="p">([</span><span class="n">obj</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">object</span><span class="p">),</span><span class="w"> </span><span class="n">obj2</span><span class="o">=</span><span class="n">DataObject</span><span class="p">()]</span><span class="w"> </span><span class="k">mutable</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber2</span><span class="p">([</span><span class="n">obj</span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">object</span><span class="p">),</span><span class="w"> </span><span class="n">obj2</span><span class="o">=</span><span class="n">DataObject</span><span class="p">()]</span><span class="w"> </span><span class="k">mutable</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">obj</span><span class="p">.</span><span class="n">member_function</span><span class="p">(</span><span class="mi">24</span><span class="p">);</span>
 <span class="w">    </span><span class="n">obj2</span><span class="p">.</span><span class="n">member_function</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
@@ -12151,7 +12151,7 @@ and will lead to a stack overflow.</p>
 </div>
 <p>A fiber can be passed a <code>modm::fiber::stop_token</code> to allow the fiber to be
 stopped cooperatively.</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber</span><span class="p">([](</span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">stop_token</span><span class="w"> </span><span class="n">stoken</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([](</span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">stop_token</span><span class="w"> </span><span class="n">stoken</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// set up</span>
 <span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n">stoken</span><span class="p">.</span><span class="n">stop_requested</span><span class="p">())</span>
@@ -12173,9 +12173,9 @@ scheduler is run. You can disable this behavior by setting <code>start</code> to
 <code>modm::fiber::Start::Later</code> during construction and manually starting the fiber
 when it is ready, also from another fiber:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// fiber does not automatically start executing</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber2</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Start</span><span class="o">::</span><span class="n">Later</span><span class="p">);</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber2</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Start</span><span class="o">::</span><span class="n">Later</span><span class="p">);</span>
 <span class="c1">// fiber2 is automatically executing</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber1</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber1</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">);</span>
 <span class="w">    </span><span class="n">fiber2</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
@@ -12189,7 +12189,7 @@ which will call the closure again from the beginning. Note, that the lambda
 capture is not destructed and reconstructed, but remains unchanged between
 restarts. If you need a fiber that is only callable once, you can implement this
 behavior manually with a boolean in the capture:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber</span><span class="p">([</span><span class="n">ran</span><span class="o">=</span><span class="nb">false</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([</span><span class="n">ran</span><span class="o">=</span><span class="nb">false</span><span class="p">]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ran</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <span class="w">    </span><span class="n">ran</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
@@ -12205,7 +12205,7 @@ behavior manually with a boolean in the capture:</p>
 increase your program size, as the <code>.data</code> section would. You may also place
 the fibers into the <code>.faststack</code> section, which is not zeroed and thus saves a
 bit of time on startup:</p>
-<div class="highlight"><pre><span></span><code><span class="n">modm_faststack</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="n">function</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">modm_faststack</span><span class="w"> </span><span class="nf">modm::Fiber</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="n">function</span><span class="p">);</span>
 </code></pre></div>
 <p>However, it may be desirable to control the placement of the fiber task
 structure and especially the stack, depending on the types of memories
@@ -12315,15 +12315,13 @@ memory required for the limited functionality:</p>
 </ul>
 <p>Counts are implemented as 16-bits.</p>
 <h2 id="stack-usage">Stack Usage<a class="headerlink" href="#stack-usage" title="Permanent link">&para;</a></h2>
-<p>To measure the stack usage of a fiber, you need to explicitly watermark the
-stack <em>before</em> running the fiber, then you may query the stack usage inside or
-outside the fiber:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// You must watermark the stack *before* running the fiber!</span>
-<span class="n">fiber1</span><span class="p">.</span><span class="n">stack_watermark</span><span class="p">();</span>
-<span class="c1">// now you can run the fibers via the scheduler</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">();</span>
-<span class="c1">// can be called from inside or outside the fiber, before or after running!</span>
-<span class="kt">size_t</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber</span><span class="p">.</span><span class="n">stack_usage</span><span class="p">();</span>
+<p>To measure the stack usage of a fiber, you need to start the scheduler with the
+<code>AutoWatermark</code> option, then you may query the stack usage inside or outside
+the fiber:</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">(</span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">AutoWatermark</span><span class="p">);</span>
+<span class="c1">// can be called from anywhere at any time!</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber</span><span class="p">.</span><span class="n">stack_size</span><span class="p">();</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber</span><span class="p">.</span><span class="n">stack_usage</span><span class="p">();</span>
 </code></pre></div>
 <p>Note that stack usage measurement through watermarking can be inaccurate if the
 registers contain the watermark value.</p>
@@ -12383,9 +12381,9 @@ starting it, and when executing on the other core, <code>start()</code> it in th
 <p>Here is an example for the RP2040 device, which additionally allocates the stack
 and task into the core-affine memory:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// allocate into core0 memory</span>
-<span class="n">modm_faststack_core0</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber0</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
+<span class="n">modm_faststack_core0</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber0</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
 <span class="c1">// allocate into core1 memory but DO NOT start yet!</span>
-<span class="n">modm_faststack_core1</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber1</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Start</span><span class="o">::</span><span class="n">Later</span><span class="p">);</span>
+<span class="n">modm_faststack_core1</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber1</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Start</span><span class="o">::</span><span class="n">Later</span><span class="p">);</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">core1_main</span><span class="p">()</span>
 <span class="p">{</span>
