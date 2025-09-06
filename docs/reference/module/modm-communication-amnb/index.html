@@ -11899,12 +11899,12 @@ error type. Not returning anything still sends an implicit (good) Response.</p>
 
 <span class="n">Action</span><span class="w"> </span><span class="n">actions</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">[]()</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">[]</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// request without payload, automatic good reponse</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">[]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Response</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Response</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="c1">// return user error or response without payloads</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">failure</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ErrorReponse</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Response</span><span class="p">();</span>
