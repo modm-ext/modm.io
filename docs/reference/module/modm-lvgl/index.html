@@ -11964,6 +11964,9 @@ will automatically be included at the <em>beginning</em> of our <code>lv_conf.h<
 <p>modm will call <code>lv_init()</code> as a constructor with priority 1000 and then set the
 required callbacks for the modm port to work. Static constructors are called
 afterwards therefore can already use the LVGL functions.</p>
+<p>Calling the <code>lv_timer_handler()</code> may require a few kB of stack, so increasing
+the main stack size via the <code>modm:platform:cortex-m:main_stack_size</code> option or
+a fiber stack size via the template parameter may be necessary.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
