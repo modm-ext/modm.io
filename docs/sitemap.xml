@@ -289,6 +289,10 @@
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/config/modm-nucleo-u083rc/</loc>
+         <lastmod>2026-01-11</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/config/modm-nucleo-u575zi-q/</loc>
          <lastmod>2026-01-11</lastmod>
     </url>
@@ -706,6 +710,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-board-nucleo-l552ze-q/</loc>
+         <lastmod>2026-01-11</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-board-nucleo-u083rc/</loc>
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
@@ -1569,7 +1577,7 @@
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-platform-dac-stm32-f0-f1-f2-f3-f4-f7-g0-g4-h5-h7-l0-l1-l4-l5-u5/</loc>
+         <loc>https://modm.io/reference/module/modm-platform-dac-stm32-f0-f1-f2-f3-f4-f7-g0-g4-h5-h7-l0-l1-l4-l5-u0-u5/</loc>
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
@@ -1729,7 +1737,7 @@
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-platform-spi-stm32-c0-f0-f1-f2-f3-f4-f7-g0-g4-l0-l1-l4-l5/</loc>
+         <loc>https://modm.io/reference/module/modm-platform-spi-stm32-c0-f0-f1-f2-f3-f4-f7-g0-g4-l0-l1-l4-l5-u0/</loc>
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
@@ -1758,6 +1766,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-platform-uart-lpuart2/</loc>
+         <lastmod>2026-01-11</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-platform-uart-lpuart3/</loc>
          <lastmod>2026-01-11</lastmod>
     </url>
     <url>
