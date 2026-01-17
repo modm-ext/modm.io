@@ -12222,7 +12222,7 @@
 
 
 <h1 id="stm32f469idiscovery">STM32F469IDISCOVERY<a class="headerlink" href="#stm32f469idiscovery" title="Permanent link">&para;</a></h1>
-<p>lbuild config: <code>modm:disco-f469ni:b-03</code></p>
+<p>lbuild config: <code>modm:disco-f469ni:c-01</code></p>
 <p>Discovery kit with STM32F469NI MCU.</p>
 <p>This BSPs <code>Board::initialize()</code> sets the board up with these settings:</p>
 <ul>
@@ -12258,8 +12258,8 @@ The correct address for the revision is provided as <code>Board::ft6::TouchAddre
 address at runtime if the device does not respond to a ping:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n">touchSensor</span><span class="p">.</span><span class="n">ping</span><span class="p">())</span><span class="w"> </span><span class="n">touchSensor</span><span class="p">.</span><span class="n">setAddress</span><span class="p">(</span><span class="n">Board</span><span class="o">::</span><span class="n">ft6</span><span class="o">::</span><span class="n">TouchAddress2</span><span class="p">);</span>
 </code></pre></div>
-<p>Default: <code>b-03</code><br />
-Revisions: <code>[b-01, b-02, b-03]</code></p>
+<p>Default: <code>c-01</code><br />
+Revisions: <code>[b-01, b-02, b-03, b-08, c-01]</code></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>
