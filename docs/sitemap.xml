@@ -293,6 +293,10 @@
          <lastmod>2026-01-18</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/config/modm-nucleo-u385rg-q/</loc>
+         <lastmod>2026-01-18</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/config/modm-nucleo-u575zi-q/</loc>
          <lastmod>2026-01-18</lastmod>
     </url>
@@ -714,6 +718,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-board-nucleo-u083rc/</loc>
+         <lastmod>2026-01-18</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-board-nucleo-u385rg-q/</loc>
          <lastmod>2026-01-18</lastmod>
     </url>
     <url>
@@ -1517,7 +1525,7 @@
          <lastmod>2026-01-18</lastmod>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-platform-can-stm32-c0-g0-g4-h5-h7-l5-u5/</loc>
+         <loc>https://modm.io/reference/module/modm-platform-can-stm32-c0-g0-g4-h5-h7-l5-u3-u5/</loc>
          <lastmod>2026-01-18</lastmod>
     </url>
     <url>
@@ -1577,7 +1585,7 @@
          <lastmod>2026-01-18</lastmod>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-platform-dac-stm32-f0-f1-f2-f3-f4-f7-g0-g4-h5-h7-l0-l1-l4-l5-u0-u5/</loc>
+         <loc>https://modm.io/reference/module/modm-platform-dac-stm32-f0-f1-f2-f3-f4-f7-g0-g4-h5-h7-l0-l1-l4-l5-u0-u3-u5/</loc>
          <lastmod>2026-01-18</lastmod>
     </url>
     <url>
