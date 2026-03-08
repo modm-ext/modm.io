@@ -149,6 +149,18 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/config/modm-nrf51422-dk/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/config/modm-nrf52840-dk/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/config/modm-nrf5340-dk/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/config/modm-nucleo-c031c6/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
@@ -589,6 +601,18 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-board-nrf51422-dk/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-board-nrf52840-dk/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-board-nrf5340-dk/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-board-nucleo-c031c6/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
@@ -846,6 +870,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-cmsis-core/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-cmsis-device-nrf/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
@@ -1521,6 +1549,10 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-platform-adc-nrf-52-53/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-platform-adc-rp2040/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
@@ -1573,7 +1605,7 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-platform-clock-rp--sam--stm32/</loc>
+         <loc>https://modm.io/reference/module/modm-platform-clock-nrf--rp--sam--stm32/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
@@ -1594,6 +1626,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-platform-core-hosted/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-platform-core-nrf/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
@@ -1673,6 +1709,10 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-platform-gpio-nrf/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-platform-gpio-rp2040/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
@@ -1689,7 +1729,11 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
-         <loc>https://modm.io/reference/module/modm-platform-heap-rp--sam--stm32/</loc>
+         <loc>https://modm.io/reference/module/modm-platform-heap-nrf--rp--sam--stm32/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-platform-hfclk/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
@@ -1730,6 +1774,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-platform-multicore/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-platform-power/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
@@ -1813,6 +1861,10 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-platform-uart-nrf51/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-platform-uart-rp2040/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
@@ -1833,6 +1885,10 @@
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
+         <loc>https://modm.io/reference/module/modm-platform-uarte/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
          <loc>https://modm.io/reference/module/modm-platform-usart/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
@@ -1842,6 +1898,10 @@
     </url>
     <url>
          <loc>https://modm.io/reference/module/modm-platform-usb-hs/</loc>
+         <lastmod>2026-03-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.io/reference/module/modm-platform-usb-nrf-52-53/</loc>
          <lastmod>2026-03-08</lastmod>
     </url>
     <url>
