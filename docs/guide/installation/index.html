@@ -13134,7 +13134,7 @@ with modm:</p>
 <li><a href="https://github.com/modm-io/lbuild">Library Builder</a>.</li>
 <li>AVR toolchain: <a href="https://www.nongnu.org/avr-libc">avr-gcc</a> and <a href="https://www.nongnu.org/avrdude">avrdude</a>.</li>
 <li>ARM toolchain: <a href="https://xpack.github.io/dev-tools/arm-none-eabi-gcc/">toolchain-arm-xpack</a> and <a href="http://openocd.org">OpenOCD</a> (at least v0.12!).</li>
-<li>Optional: <a href="https://www.copperspice.com/documentation-doxypress.html">Doxypress</a>.</li>
+<li>Optional: <a href="http://www.doxygen.nl">Doxygen</a>.</li>
 <li>Optional: <a href="https://www.gdbgui.com">gdbgui</a> for IDE-independent debugging.</li>
 </ul>
 <p>Note that the modm examples use the SCons build system by default, however,
@@ -13172,12 +13172,8 @@ Add the following line to the end of your <code>~/.bashrc</code> file:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </code></pre></div>
 </div>
-<p>We use <a href="https://download.copperspice.com/doxypress/binary/">Doxypress</a> to generate the API documentation:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>/opt/doxypress
-wget<span class="w"> </span>-O-<span class="w"> </span>https://github.com/copperspice/doxypress/releases/download/dp-2.0.0/doxypress-2.0.0-ubuntu24.04-x64.tar.bz2<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>xj<span class="w"> </span>-C<span class="w"> </span>/opt/doxypress
-</code></pre></div>
-<p>Add the directory to your <code>PATH</code> variable in <code>~/.bashrc</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/opt/doxypress:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<p>We use Doxygen to generate the API documentation:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>doxygen
 </code></pre></div>
 <h4 id="arm-cortex-m">ARM Cortex-M<a class="headerlink" href="#arm-cortex-m" title="Permanent link">&para;</a></h4>
 <p>Install the GNU toolchain for <code>arm-none-eabi</code> target in version 12 (or higher).
@@ -13233,10 +13229,6 @@ In that case, you can add this line to your <code>.bashrc</code> or <code>.zshrc
 <p>We recommend using a graphical frontend for GDB called <a href="https://www.gdbgui.com">gdbgui</a>:</p>
 <div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>gdbgui
 </code></pre></div>
-<p>We use <a href="https://www.copperspice.com/documentation-doxypress.html">Doxypress</a> to generate the API documentation:</p>
-<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>tap<span class="w"> </span>modm-ext/modm
-brew<span class="w"> </span>install<span class="w"> </span>doxypress
-</code></pre></div>
 <h4 id="arm-cortex-m_1">ARM Cortex-M<a class="headerlink" href="#arm-cortex-m_1" title="Permanent link">&para;</a></h4>
 <p>Install the <a href="https://github.com/osx-cross/homebrew-arm">pre-built ARM toolchain</a>:</p>
 <div class="highlight"><pre><span></span><code>brew<span class="w"> </span>tap<span class="w"> </span>osx-cross/arm
@@ -13283,8 +13275,8 @@ to PATH</strong> during installation!</p>
 <div class="highlight"><pre><span></span><code>lbuild<span class="w"> </span>--version
 scons<span class="w"> </span>--version
 </code></pre></div>
-<p>We use <a href="https://www.copperspice.com/documentation-doxypress.html">Doxypress</a> to generate the API documentation.
-Download and run the <a href="https://download.copperspice.com/doxypress/binary/">Installer</a>.</p>
+<p>We use <a href="http://www.doxygen.nl">Doxygen</a> to generate the API documentation.
+Download and run the <a href="https://www.doxygen.nl/download.html">Installer</a>.</p>
 <p>Please use the free and open-source <a href="https://www.7-zip.org">7-Zip file archiver</a> to extract the
 files in the next steps.</p>
 <h4 id="arm-cortex-m_2">ARM Cortex-M<a class="headerlink" href="#arm-cortex-m_2" title="Permanent link">&para;</a></h4>
