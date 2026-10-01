@@ -18,7 +18,7 @@
         <link rel="prev" href="../modm-tinyusb-device-hid/">
       
       
-        <link rel="next" href="../modm-tinyusb-device-msc/">
+        <link rel="next" href="../modm-tinyusb-device-midi2/">
       
       
         
@@ -15143,6 +15143,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-midi2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :tinyusb:device:midi2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-tinyusb-device-msc/" class="md-nav__link">
         
   
@@ -15207,6 +15235,34 @@
     
   
     :tinyusb:device:ncm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-printer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :tinyusb:device:printer
   
 
     
@@ -15367,34 +15423,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :tinyusb:host:cdc_rndis
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../modm-tinyusb-host-hid/" class="md-nav__link">
         
   
@@ -15451,14 +15479,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-host-msc/" class="md-nav__link">
+      <a href="../modm-tinyusb-host-midi2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :tinyusb:host:msc
+    :tinyusb:host:midi2
   
 
     
@@ -15479,14 +15507,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-host-vendor/" class="md-nav__link">
+      <a href="../modm-tinyusb-host-msc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :tinyusb:host:vendor
+    :tinyusb:host:msc
   
 
     
@@ -15993,7 +16021,8 @@
 <p>lbuild module: <code>modm:tinyusb:device:midi</code></p>
 <p>Configuration options:</p>
 <ul>
-<li><code>CFG_TUD_MIDI_EP_BUFSIZE</code> = 64/512 (fs/hs)</li>
+<li><code>CFG_TUD_MIDI_RX_EPSIZE</code> = 64/512 (fs/hs)</li>
+<li><code>CFG_TUD_MIDI_TX_EPSIZE</code> = 64/512 (fs/hs)</li>
 <li><code>CFG_TUD_MIDI_RX_BUFSIZE</code> = [undef] modm default: 64/512 (fs/hs)</li>
 <li><code>CFG_TUD_MIDI_TX_BUFSIZE</code> = [undef] modm default: 64/512 (fs/hs)</li>
 </ul>
@@ -16001,41 +16030,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="170pt" height="180pt"
- viewBox="0.00 0.00 170.00 180.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 176)">
+<p><svg class="deps" width="82pt" height="150pt"
+ viewBox="0.00 0.00 82.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:tinyusb:device:midi</title>
 <g id="node1" class="node">
 <title>modm_tinyusb_device_midi</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="117,-68 43,-68 43,0 117,0 117,-68"/>
-<text text-anchor="middle" x="80" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="80" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
-<text text-anchor="middle" x="80" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
-<text text-anchor="middle" x="80" y="-7.8" font-family="Times,serif" font-size="14.00">midi</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="74,-68 0,-68 0,0 74,0 74,-68"/>
+<text text-anchor="middle" x="37" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="37" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
+<text text-anchor="middle" x="37" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
+<text text-anchor="middle" x="37" y="-7.8" font-family="Times,serif" font-size="14.00">midi</text>
 </g>
 <g id="node2" class="node">
 <title>modm_tinyusb</title>
-<polygon fill="lightgrey" stroke="black" points="70,-157 0,-157 0,-119 70,-119 70,-157"/>
-<text text-anchor="middle" x="35" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="35" y="-126.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
+<polygon fill="lightgrey" stroke="black" points="72,-142 2,-142 2,-104 72,-104 72,-142"/>
+<text text-anchor="middle" x="37" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="37" y="-111.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
 </g>
 <g id="edge1" class="edge">
 <title>modm_tinyusb_device_midi&#45;&gt;modm_tinyusb</title>
-<path fill="none" stroke="black" d="M65.39,-68.12C59.46,-81.56 52.69,-96.9 47.05,-109.69"/>
-<polygon fill="black" stroke="black" points="43.82,-108.33 42.99,-118.89 50.23,-111.16 43.82,-108.33"/>
-</g>
-<g id="node3" class="node">
-<title>modm_tinyusb_device_audio</title>
-<polygon fill="lightgrey" stroke="black" points="162,-172 88,-172 88,-104 162,-104 162,-172"/>
-<text text-anchor="middle" x="125" y="-156.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="125" y="-141.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
-<text text-anchor="middle" x="125" y="-126.8" font-family="Times,serif" font-size="14.00">device:</text>
-<text text-anchor="middle" x="125" y="-111.8" font-family="Times,serif" font-size="14.00">audio</text>
-</g>
-<g id="edge2" class="edge">
-<title>modm_tinyusb_device_midi&#45;&gt;modm_tinyusb_device_audio</title>
-<path fill="none" stroke="black" d="M94.61,-68.12C98.3,-76.49 102.32,-85.6 106.19,-94.37"/>
-<polygon fill="black" stroke="black" points="103.07,-95.96 110.31,-103.7 109.47,-93.14 103.07,-95.96"/>
+<path fill="none" stroke="black" d="M37,-68.39C37,-76.78 37,-85.71 37,-93.83"/>
+<polygon fill="black" stroke="black" points="33.5,-93.91 37,-103.91 40.5,-93.91 33.5,-93.91"/>
 </g>
 </g>
 </svg></p>

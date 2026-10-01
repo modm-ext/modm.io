@@ -12,13 +12,13 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-tinyusb-host-vendor/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-tinyusb-device-midi2/">
       
       
-        <link rel="prev" href="../modm-tinyusb-host-msc/">
+        <link rel="prev" href="../modm-tinyusb-device-midi/">
       
       
-        <link rel="next" href="../modm-tlsf/">
+        <link rel="next" href="../modm-tinyusb-device-msc/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>:tinyusb:host:vendor - modm barebone embedded library</title>
+        <title>:tinyusb:device:midi2 - modm barebone embedded library</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#host-class-vendor" class="md-skip">
+        <a href="#device-class-midi2" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :tinyusb:host:vendor
+              :tinyusb:device:midi2
             
           </span>
         </div>
@@ -15082,6 +15082,92 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :tinyusb:device:midi2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :tinyusb:device:midi2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -15149,6 +15235,34 @@
     
   
     :tinyusb:device:ncm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-device-printer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :tinyusb:device:printer
   
 
     
@@ -15309,34 +15423,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-host-cdc_rndis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :tinyusb:host:cdc_rndis
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../modm-tinyusb-host-hid/" class="md-nav__link">
         
   
@@ -15393,14 +15479,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tinyusb-host-msc/" class="md-nav__link">
+      <a href="../modm-tinyusb-host-midi2/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :tinyusb:host:msc
+    :tinyusb:host:midi2
   
 
     
@@ -15418,44 +15504,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :tinyusb:host:vendor
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-tinyusb-host-msc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :tinyusb:host:vendor
+    :tinyusb:host:msc
   
 
     
@@ -15464,37 +15523,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -15989,8 +16017,8 @@
 
 
 
-<h1 id="host-class-vendor">Host class VENDOR<a class="headerlink" href="#host-class-vendor" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:tinyusb:host:vendor</code></p>
+<h1 id="device-class-midi2">Device class MIDI2<a class="headerlink" href="#device-class-midi2" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:tinyusb:device:midi2</code></p>
 <p>Please consult the TinyUSB docs for configuration options.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -15999,14 +16027,14 @@
 <p><svg class="deps" width="82pt" height="150pt"
  viewBox="0.00 0.00 82.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:tinyusb:host:vendor</title>
+<title>modm:tinyusb:device:midi2</title>
 <g id="node1" class="node">
-<title>modm_tinyusb_host_vendor</title>
+<title>modm_tinyusb_device_midi2</title>
 <polygon fill="lightgrey" stroke="black" stroke-width="2" points="74,-68 0,-68 0,0 74,0 74,-68"/>
 <text text-anchor="middle" x="37" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="37" y="-37.8" font-family="Times,serif" font-size="14.00">tinyusb:</text>
-<text text-anchor="middle" x="37" y="-22.8" font-family="Times,serif" font-size="14.00">host:</text>
-<text text-anchor="middle" x="37" y="-7.8" font-family="Times,serif" font-size="14.00">vendor</text>
+<text text-anchor="middle" x="37" y="-22.8" font-family="Times,serif" font-size="14.00">device:</text>
+<text text-anchor="middle" x="37" y="-7.8" font-family="Times,serif" font-size="14.00">midi2</text>
 </g>
 <g id="node2" class="node">
 <title>modm_tinyusb</title>
@@ -16015,7 +16043,7 @@
 <text text-anchor="middle" x="37" y="-111.8" font-family="Times,serif" font-size="14.00">tinyusb</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_tinyusb_host_vendor&#45;&gt;modm_tinyusb</title>
+<title>modm_tinyusb_device_midi2&#45;&gt;modm_tinyusb</title>
 <path fill="none" stroke="black" d="M37,-68.39C37,-76.78 37,-85.71 37,-93.83"/>
 <polygon fill="black" stroke="black" points="33.5,-93.91 37,-103.91 40.5,-93.91 33.5,-93.91"/>
 </g>

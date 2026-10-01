@@ -2073,6 +2073,10 @@
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
+         <loc>https://modm.dev/reference/module/modm-tinyusb-device-midi2/</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
          <loc>https://modm.dev/reference/module/modm-tinyusb-device-msc/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
@@ -2082,6 +2086,10 @@
     </url>
     <url>
          <loc>https://modm.dev/reference/module/modm-tinyusb-device-ncm/</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.dev/reference/module/modm-tinyusb-device-printer/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
@@ -2105,10 +2113,6 @@
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
-         <loc>https://modm.dev/reference/module/modm-tinyusb-host-cdc_rndis/</loc>
-         <lastmod>2026-10-01</lastmod>
-    </url>
-    <url>
          <loc>https://modm.dev/reference/module/modm-tinyusb-host-hid/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
@@ -2117,11 +2121,11 @@
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
-         <loc>https://modm.dev/reference/module/modm-tinyusb-host-msc/</loc>
+         <loc>https://modm.dev/reference/module/modm-tinyusb-host-midi2/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
-         <loc>https://modm.dev/reference/module/modm-tinyusb-host-vendor/</loc>
+         <loc>https://modm.dev/reference/module/modm-tinyusb-host-msc/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
