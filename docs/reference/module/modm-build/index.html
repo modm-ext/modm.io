@@ -7116,6 +7116,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#openocdcfg" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17334,6 +17345,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#openocdcfg" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -18307,6 +18329,23 @@ Inputs: <code>[yes, no]</code>  </p>
 </ul>
 <p>Default: <code>Disabled</code><br />
 Inputs: <code>[Disabled, Info, Info+Status]</code>  </p>
+<h4 id="lto">lto<a class="headerlink" href="#lto" title="Permanent link">&para;</a></h4>
+<p>Enable Link-Time Optimization</p>
+<p>Compiles with <code>-flto=auto</code>, which defers code generation to link time so that
+the optimizer can inline and eliminate code across translation units. This
+typically shrinks the binary noticeably at the cost of a slower link step.</p>
+<div class="admonition warning">
+<p class="admonition-title">LTO cannot see references from the linkerscript or inline assembly</p>
+<p>The optimizer decides what is reachable <em>before</em> the linkerscript is
+applied, so <code>KEEP()</code> does not protect a symbol from being deleted. Anything
+that is only referenced by the hardware (like the vector table), by the
+linkerscript, from an inline assembly string, or only from a precompiled
+library like newlib or libgcc (<code>_sbrk_r</code>, <code>__malloc_lock</code>, <code>__wrap_*</code>,
+<code>__atomic_*</code>) must be marked <code>modm_used</code>. modm does this for its own
+symbols, but you must do it for your own implementations of them.</p>
+</div>
+<p>Default: <code>no</code><br />
+Inputs: <code>[yes, no]</code>  </p>
 <h4 id="openocdcfg">openocd.cfg<a class="headerlink" href="#openocdcfg" title="Permanent link">&para;</a></h4>
 <p>Path to a custom OpenOCD configuration file</p>
 <p>If you have a custom configuration file for your target, it will get included

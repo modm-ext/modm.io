@@ -16454,7 +16454,7 @@ to place you heap. You can print this table at runtime to get a feel for it:</p>
 implementation of the <code>sbrk</code> function. A simple implementation for a
 [<code>heap_begin</code>, <code>heap_end</code>] memory region looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">heap_top</span><span class="p">{</span><span class="n">heap_begin</span><span class="p">};</span>
-<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">_sbrk_r</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">_reent</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="kt">ptrdiff_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="n">modm_used</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">_sbrk_r</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">_reent</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="kt">ptrdiff_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="k">const</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap_top</span><span class="p">;</span>
 <span class="w">    </span><span class="n">heap_top</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
@@ -16488,22 +16488,22 @@ linker by adding this to your project configuration:</p>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
 <p>And then implement the following functions with your custom allocator:</p>
-<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="n">modm_used</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span>
 <span class="n">__wrap__malloc_r</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">_reent</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">allocator</span><span class="p">.</span><span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="n">modm_used</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span>
 <span class="n">__wrap__calloc_r</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">_reent</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">allocator</span><span class="p">.</span><span class="n">calloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="n">modm_used</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span>
 <span class="n">__wrap__realloc_r</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">_reent</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">allocator</span><span class="p">.</span><span class="n">realloc</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span>
+<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="n">modm_used</span><span class="w"> </span><span class="kt">void</span>
 <span class="n">__wrap__free_r</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">_reent</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">allocator</span><span class="p">.</span><span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
@@ -16511,6 +16511,12 @@ linker by adding this to your project configuration:</p>
 </code></pre></div>
 <p>This is particularly recommended if you need a thread-safe malloc, which you
 implement here via the <code>_reent</code> struct. Consult newlib docs for details.</p>
+<div class="admonition warning">
+<p class="admonition-title">Mark these functions as <code>modm_used</code></p>
+<p>These functions and <code>_sbrk_r</code> are only called from the precompiled newlib,
+so with the <code>modm:build:lto</code> option enabled, the optimizer removes them
+unless they are marked <code>modm_used</code>.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">sbrk is not called anymore</p>
 <p>When wrapping these malloc functions, <code>_sbrk_r</code> is not called anymore, and
