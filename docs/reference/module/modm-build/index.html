@@ -7496,6 +7496,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pathincludesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path.include.system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pathlibrary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17703,6 +17714,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pathincludesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path.include.system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pathlibrary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -18480,6 +18502,12 @@ source files into a separate folder and add it as a search path:</p>
 <p>Inputs: <code>[Path]</code></p>
 <h4 id="pathinclude">path.include<a class="headerlink" href="#pathinclude" title="Permanent link">&para;</a></h4>
 <p>Search path for header files</p>
+<p>Inputs: <code>[Path]</code></p>
+<h4 id="pathincludesystem">path.include.system<a class="headerlink" href="#pathincludesystem" title="Permanent link">&para;</a></h4>
+<p>Search path for system header files</p>
+<p>Same as <code>path.include</code>, but the compiler does not emit any warnings for header
+files found in these paths. Use this for external code whose headers you cannot
+or do not want to fix.</p>
 <p>Inputs: <code>[Path]</code></p>
 <h4 id="pathlibrary">path.library<a class="headerlink" href="#pathlibrary" title="Permanent link">&para;</a></h4>
 <p>Search path for static libraries</p>
