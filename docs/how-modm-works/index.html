@@ -4937,6 +4937,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/module/modm-board-hosted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :board:hosted
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/module/modm-board-mega-2560-pro/" class="md-nav__link">
         
   
@@ -16424,7 +16452,7 @@ modm:platform:uart:1:buffer.tx = 250  [0 ... 64Ki-2]
 <p>We transparently show you how much static memory your application is using,
 so you get an idea of how much certain functionality costs you in resources.
 This is the size of the accelerometer example on the STM32F4 discovery board:</p>
-<div class="highlight"><pre><span></span><code> $ cd examples/stm32f4_discovery/accelerometer
+<div class="highlight"><pre><span></span><code> $ cd examples/i2c/accelerometer
  $ scons
 ...
 Memory usage··· build/stm32f4_discovery/accelerometer/project.elf
@@ -16448,7 +16476,7 @@ Heap:     197240B (98.2% available)
 support library based on the C++ interface.
 This enables you to split up your application into separate tasks, and use
 synchronous APIs in all of them, without sacrificing overall responsiveness.
-Here is an example of <a href="https://github.com/modm-io/modm/blob/develop/examples/stm32f4_discovery/accelerometer/main.cpp">reading out the accelerometer</a>:</p>
+Here is an example of <a href="https://github.com/modm-io/modm/blob/develop/examples/i2c/accelerometer/main.cpp">reading out the accelerometer</a>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// This accelerometer is connected via I2C.</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">Lis3dsh</span><span class="o">&lt;</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Lis3TransportI2c</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I2cMaster</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">accelerometer</span><span class="p">;</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">filter</span><span class="o">::</span><span class="n">MovingAverage</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="o">&gt;</span><span class="w"> </span><span class="n">averageX</span><span class="p">;</span>

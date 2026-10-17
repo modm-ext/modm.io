@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hosted-target-for-linux-macos-and-windows" class="md-skip">
+        <a href="#hosted" class="md-skip">
           Skip to content
         </a>
       
@@ -4875,6 +4875,34 @@
     
   
     :board:feather-rp2040
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module/modm-board-hosted/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :board:hosted
   
 
     
@@ -16045,8 +16073,12 @@
 
 
 
-<h1 id="hosted-target-for-linux-macos-and-windows">Hosted target for Linux, macOS and Windows<a class="headerlink" href="#hosted-target-for-linux-macos-and-windows" title="Permanent link">&para;</a></h1>
+<h1 id="hosted">Hosted<a class="headerlink" href="#hosted" title="Permanent link">&para;</a></h1>
 <p>lbuild config: <code>modm:hosted:linux-x86_64</code></p>
+<p>Board support for Linux, macOS and Windows, so that examples can use the same
+<code>Board</code> interface as on a microcontroller. <code>Board::initialize()</code> does nothing,
+the logger prints to the standard output, and the LEDs and the button are
+unused pins.</p>
 <p>Default: <code>linux-x86_64</code><br />
 Revisions: <code>[darwin-arm64, darwin-x86_64, linux-arm64, linux-x86_64, windows]</code></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
@@ -16054,6 +16086,9 @@ Revisions: <code>[darwin-arm64, darwin-x86_64, linux-arm64, linux-x86_64, window
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>
 <span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:target"</span><span class="nt">&gt;</span>hosted-linux<span class="nt">&lt;/option&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/options&gt;</span>
+<span class="w">  </span><span class="nt">&lt;modules&gt;</span>
+<span class="w">    </span><span class="nt">&lt;module&gt;</span>modm:board:hosted<span class="nt">&lt;/module&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/modules&gt;</span>
 <span class="nt">&lt;/library&gt;</span>
 </code></pre></div>
 
