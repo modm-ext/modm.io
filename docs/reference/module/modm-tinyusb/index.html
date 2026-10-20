@@ -16376,7 +16376,8 @@ list option:</p>
 <li><code>device.cdc</code>: Serial connection (uses <strong>two</strong> endpoints!)</li>
 <li><code>device.msc</code>: Mass Storage class.</li>
 <li><code>device.midi</code>: MIDI device.</li>
-<li><code>device.vendor</code>: WebUSB device.</li>
+<li><code>device.vendor</code>: WebUSB device. Windows binds the WinUSB driver to these
+  interfaces via the Microsoft OS 2.0 descriptors, which requires <code>bcdUSB = 0x0210</code>.</li>
 <li><code>device.dfu_rt</code>: DFU runtime.</li>
 </ul>
 <p>Note that you can add multiple devices at the same time, as long as there are
