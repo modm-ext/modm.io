@@ -16165,14 +16165,21 @@ debugger UI.</p>
 uploading and code completion into the IDE:</p>
 <ul>
 <li><code>.vscode/tasks.json</code>: If the <code>modm:build:scons</code> and <code>modm:build:make</code> module
-  are included, this file wraps the building and uploading commands by profile.
-  You can invoke them by Ctl+Shift+B (macOS: Cmd+Shift+B).</li>
+  are included, this file wraps the building, uploading and cleaning commands
+  by profile. The first build task is the default build task, so
+  Ctl+Shift+B (macOS: Cmd+Shift+B) builds the release profile, and uploading
+  builds the selected profile first. If both build systems are included, the
+  tasks are also distinguished by their build system.</li>
 <li><code>.vscode/c_cpp_properties.json</code>: Configures IntelliSense for better code
   completion and for using the correct system headers. You need the
   <a href="https://github.com/Microsoft/vscode-cpptools">C/C++ extension</a> installed.</li>
 <li><code>.vscode/launch.json</code>: Configures the <a href="https://github.com/Marus/cortex-debug#readme">Cortex-Debug</a> extension to start the
-  debugger with a single click from the IDE.</li>
+  debugger with a single click from the IDE. It builds the selected profile
+  before flashing and passes the toolchain path, so that the debugger is found
+  even when it is not on the <code>PATH</code> of VSCode.</li>
 </ul>
+<p>All generated files are valid JSON, so that other editors and tools do not
+report errors.</p>
 <p>Note that not all build system features are provided in the IDE, only the most
 common. You can call all build system tools from the command line.
 In addition, the <code>modm:build:cmake</code> module is supported natively by the
@@ -16180,7 +16187,7 @@ In addition, the <code>modm:build:cmake</code> module is supported natively by t
 <p>We recommend adding this module from the command line so that you don't
 accidentally overwrite your modified files later: <code>lbuild build -m ::vscode</code>.</p>
 <p>Note that some configuration options may be specific to your environment (such
-as the compiler path) and may not work in other environments.</p>
+as the compiler toolchain path) and may not work in other environments.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"

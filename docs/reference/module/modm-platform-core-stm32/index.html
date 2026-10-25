@@ -16452,6 +16452,9 @@ STM32-specific startup code and linkerscripts.</p>
 <h2 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h2>
 <p>The <code>__modm_initialize_platform()</code> callback enables the clock to <code>SYSCFG</code> or
 <code>AFIO</code> and the clock to all internal SRAMs.</p>
+<p>It must not access the RAM: On STM32H7 for example, write accesses to RAM are
+forbidden until the supply configuration is written. The H7 boards do this in
+<code>modm_initialize_platform()</code>, which is called directly afterwards.</p>
 <h2 id="linkerscript">Linkerscript<a class="headerlink" href="#linkerscript" title="Permanent link">&para;</a></h2>
 <p>For each target a specific linkerscript is generated out of a template, which
 move some sections into special RAMs depending on their purpose. You can place
