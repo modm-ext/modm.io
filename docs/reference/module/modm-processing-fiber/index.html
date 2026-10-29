@@ -14775,6 +14775,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#customization" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16446,6 +16457,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#customization" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16790,33 +16812,62 @@ stopped cooperatively.</p>
 <p>Note that the fiber destructor requests to stop and joins automatically.
 The interface and behavior is similar to the C++20 <code>std::jthread</code>.</p>
 <h2 id="delayed-start">Delayed Start<a class="headerlink" href="#delayed-start" title="Permanent link">&para;</a></h2>
-<p>Fiber are added to the scheduler automatically and start execution when the
-scheduler is run. You can disable this behavior by setting <code>start</code> to
-<code>modm::fiber::Start::Later</code> during construction and manually starting the fiber
-when it is ready, also from another fiber:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// fiber does not automatically start executing</span>
-<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber2</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Start</span><span class="o">::</span><span class="n">Later</span><span class="p">);</span>
-<span class="c1">// fiber2 is automatically executing</span>
+<p>Similar to <code>std::thread</code>, a fiber constructed with a function is added to the
+scheduler automatically and starts execution when the scheduler is run. A fiber
+constructed without a function is not started and can be started with a function
+later when it is ready, also from another fiber:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// fiber2 does not execute anything yet</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber2</span><span class="p">;</span>
+<span class="c1">// fiber1 is automatically executing</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber1</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">this_fiber</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">);</span>
-<span class="w">    </span><span class="n">fiber2</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber2</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
 <span class="p">});</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">();</span>
 <span class="c1">// fiber1 waits 1s, then starts fiber2 and exits</span>
 </code></pre></div>
+<p>Calling <code>start()</code> without a function on a fiber that has never been given one
+does nothing and returns <code>false</code>.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>modm::fiber::Start::Later</code> is deprecated</p>
+<p>The <code>modm::fiber::Start</code> argument is deprecated, construct the fiber without
+a function and call <code>start(function)</code> instead.</p>
+</div>
 <p>Fibers can end by returning from their wrapper, after which they will be removed
 from the scheduler. A fiber can then be restarted again by calling <code>start()</code>,
 which will call the closure again from the beginning. Note, that the lambda
 capture is not destructed and reconstructed, but remains unchanged between
-restarts. If you need a fiber that is only callable once, you can implement this
-behavior manually with a boolean in the capture:</p>
+restarts. The closure is only destructed when the fiber is started with a new
+function or when the fiber object is destructed. If you need a fiber that is
+only callable once, you can implement this behavior manually with a boolean
+in the capture:</p>
 <div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([</span><span class="n">ran</span><span class="o">=</span><span class="nb">false</span><span class="p">]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ran</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 <span class="w">    </span><span class="n">ran</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">// only called once.</span>
 <span class="p">});</span>
+</code></pre></div>
+<h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h2>
+<p>Similar to <code>std::thread</code>, the fiber function can take arguments, which are
+copied into the fiber stack next to the lambda capture. A
+<code>modm::fiber::stop_token</code> can still be the first parameter:</p>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="nf">fiber</span><span class="p">([](</span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">stop_token</span><span class="w"> </span><span class="n">stoken</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">position</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">test</span><span class="p">(</span><span class="n">position</span><span class="p">);</span>
+<span class="p">},</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="c1">// With a delayed start</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;</span><span class="mi">1024</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fiber2</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber2</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div>
+<p>The arguments are passed to the function as lvalues so that they remain valid
+when the fiber is restarted. Use a reference parameter for move-only types.</p>
+<p>Starting a fiber with a new function and arguments destructs the old ones and
+constructs the new ones on the stack. Like <code>start()</code>, this returns <code>false</code>
+without changing anything while the fiber is running:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// later, once fiber.isRunning() is false</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber</span><span class="p">.</span><span class="n">start</span><span class="p">([](</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">position</span><span class="p">);</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h2>
 <p>The most important customization is the fiber stack size expressed in bytes:</p>
@@ -16998,19 +17049,20 @@ not increase the fiber stack size at all.</p>
 <p>When using this module in combination with the <code>modm:platform:multicore</code> module,
 each core gets its own fiber scheduler, which will internally be selected based
 on the CPU ID. Since the scheduler is not thread-safe, you cannot add fibers
-from one core to the other. Instead you must construct the fiber without
-starting it, and when executing on the other core, <code>start()</code> it in that context.</p>
+from one core to the other. Instead you must construct the fiber without a
+function, and when executing on the other core, <code>start(function)</code> it in that
+context.</p>
 <p>Here is an example for the RP2040 device, which additionally allocates the stack
 and task into the core-affine memory:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// allocate into core0 memory</span>
 <span class="n">modm_faststack_core0</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber0</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
 <span class="c1">// allocate into core1 memory but DO NOT start yet!</span>
-<span class="n">modm_faststack_core1</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber1</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Start</span><span class="o">::</span><span class="n">Later</span><span class="p">);</span>
+<span class="n">modm_faststack_core1</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="w"> </span><span class="n">fiber1</span><span class="p">;</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">core1_main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="c1">// start fiber1 in the core1 context!</span>
-<span class="w">    </span><span class="n">fiber1</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="w">    </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">fiber1</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">function</span><span class="p">);</span>
 <span class="w">    </span><span class="n">modm</span><span class="o">::</span><span class="n">fiber</span><span class="o">::</span><span class="n">Scheduler</span><span class="o">::</span><span class="n">run</span><span class="p">();</span>
 <span class="p">}</span>
 
