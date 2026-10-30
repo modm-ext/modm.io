@@ -8169,6 +8169,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../modm-driver-adxl345/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :driver:adxl345
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../modm-driver-ams5915/" class="md-nav__link">
         
   
@@ -16236,7 +16264,7 @@
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Definition of the supporting points. The first type is the</span>
 <span class="c1">// input type, the second the output type</span>
-<span class="k">using</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="kt">int8_t</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int8_t</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// Create a array of supporting points describing the curve.</span>
 <span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">supportingPoints</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
@@ -16257,7 +16285,7 @@
 </code></pre></div>
 <p>Example with supporting points read from flash:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Definition of a supporting point</span>
-<span class="k">using</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="kt">int8_t</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int8_t</span><span class="p">,</span><span class="w"> </span><span class="kt">int16_t</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// Array of supporting points in flash</span>
 <span class="n">FLASH_STORAGE</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="n">supportingPoints</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span><span class="w"> </span><span class="o">=</span>
@@ -16281,7 +16309,7 @@
 </code></pre></div>
 <h2 id="lagrange-interpolation">Lagrange Interpolation<a class="headerlink" href="#lagrange-interpolation" title="Permanent link">&para;</a></h2>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">Pair</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="c1">// interpolate x^2 over the range of 1 &lt;= x &lt;= 3</span>
 <span class="n">Point</span><span class="w"> </span><span class="n">points</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span>
@@ -16299,7 +16327,7 @@
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Only floating points types are allowed as second type of <code>modm::Pair</code>,
+<p>Only floating points types are allowed as second type of <code>std::pair</code>,
 otherwise the calculation will deliver wrong results!</p>
 </div>
 <p>See <a href="http://en.wikipedia.org/wiki/Lagrange_interpolation">Wikipedia</a>.</p>

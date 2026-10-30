@@ -7809,17 +7809,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generic-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generic Interface
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8218,6 +8207,34 @@
     
   
     :driver:ads868x
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-driver-adxl345/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :driver:adxl345
   
 
     
@@ -16169,17 +16186,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generic-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generic Interface
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16209,84 +16215,71 @@
 
 <h1 id="containers">Containers<a class="headerlink" href="#containers" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:container</code></p>
-<p>A container is a holder object that stores a collection other objects (its
-elements). They are implemented as class templates, which allows a great
-flexibility in the types supported as elements.</p>
-<p>Many containers have several member functions in common, and share
-functionalities. The decision of which type of container to use for a specific
-need does not generally depend only on the functionality offered by the
-container, but also on the efficiency of some of its members (complexity).
-This is especially true for sequence containers, which offer different
-trade-offs in complexity between inserting/removing elements and accessing
-them.</p>
-<p><code>modm::Stack</code> and <code>modm::Queue</code> are implemented as container adapters. Container
-adapters are not full container classes, but classes that provide a specific
-interface relying on an object of one of the container classes (such as
-<code>modm::BoundedDeque</code> or <code>modm::LinkedList</code>) to handle the elements.
-The underlying container is encapsulated in such a way that its elements are
-accessed by the members of the container class independently of the underlying
-container class used.</p>
-<p>Sequence containers:</p>
+<p>modm uses the containers of the C++ standard library, which are available on
+all targets including AVRs. This module only provides containers that are
+missing from the standard library:</p>
 <ul>
-<li><code>modm::DynamicArray</code></li>
-<li><code>modm::LinkedList</code></li>
-<li><code>modm::DoublyLinkedList</code></li>
-<li><code>modm::BoundedDeque</code></li>
+<li><code>modm::BoundedDeque</code>: A double ended queue with a fixed capacity, which is
+  organized as a ring buffer and does not use the heap. Its interface follows
+  <code>std::deque</code>, so it can also be used with <code>std::queue</code> and <code>std::stack</code>.</li>
+<li><code>modm::SmartPointer</code>: A reference counted buffer used by XPCC.</li>
 </ul>
-<p>Container adapters:</p>
-<ul>
-<li><code>modm::Queue</code></li>
-<li><code>modm::Stack</code></li>
-<li><code>modm::BoundedStack</code></li>
-<li><code>modm::BoundedQueue</code></li>
-</ul>
-<p>Other:</p>
-<ul>
-<li><code>modm::SmartPointer</code></li>
-<li><code>modm::Pair</code></li>
-</ul>
+<div class="highlight"><pre><span></span><code><span class="n">modm</span><span class="o">::</span><span class="n">BoundedDeque</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deque</span><span class="p">;</span>
+<span class="n">deque</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">not</span><span class="w"> </span><span class="n">deque</span><span class="p">.</span><span class="n">full</span><span class="p">())</span><span class="w"> </span><span class="n">deque</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="c1">// or check and push in one step</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">success</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deque</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">BoundedDeque</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">queue</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">stack</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="n">modm</span><span class="o">::</span><span class="n">BoundedDeque</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">stack</span><span class="p">;</span>
+</code></pre></div>
+<p>The following containers are deprecated and will be removed:</p>
+<table>
+<thead>
+<tr>
+<th>Deprecated</th>
+<th>Replacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>modm::DynamicArray</code></td>
+<td><code>std::vector</code></td>
+</tr>
+<tr>
+<td><code>modm::LinkedList</code></td>
+<td><code>std::list</code></td>
+</tr>
+<tr>
+<td><code>modm::DoublyLinkedList</code></td>
+<td><code>std::list</code></td>
+</tr>
+<tr>
+<td><code>modm::Pair</code></td>
+<td><code>std::pair</code></td>
+</tr>
+<tr>
+<td><code>modm::Queue</code></td>
+<td><code>std::queue</code></td>
+</tr>
+<tr>
+<td><code>modm::Stack</code></td>
+<td><code>std::stack</code></td>
+</tr>
+<tr>
+<td><code>modm::BoundedQueue</code></td>
+<td><code>std::queue&lt;T, modm::BoundedDeque&lt;T, N&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><code>modm::BoundedStack</code></td>
+<td><code>std::stack&lt;T, modm::BoundedDeque&lt;T, N&gt;&gt;</code></td>
+</tr>
+</tbody>
+</table>
 <p>The <code>modm:architecture:atomic</code> module also provides <code>modm::atomic::Queue</code>, a
 lock-free single-producer single-consumer queue for exchanging data between an
 interrupt and the main program. Use <code>std::atomic</code> to access single objects from
 both.</p>
-<h2 id="generic-interface">Generic Interface<a class="headerlink" href="#generic-interface" title="Permanent link">&para;</a></h2>
-<p>All implementation share a common set of function. Not every container implement
-every one of it, only a subset which is sufficient for the container.</p>
-<ul>
-<li>append</li>
-<li>prepend</li>
-<li>(insert)</li>
-<li>removeFront</li>
-<li>removeBack</li>
-<li>(remove)</li>
-<li>getFront</li>
-<li>
-<p>getBack</p>
-</li>
-<li>
-<p>push (only Stack and Queue)</p>
-</li>
-<li>pop (only Stack and Queue)</li>
-<li>
-<p>get (only Stack and Queue)</p>
-</li>
-<li>
-<p>at</p>
-</li>
-<li>
-<p>operator[]</p>
-</li>
-<li>
-<p>clear</p>
-</li>
-<li>
-<p>isEmpty</p>
-</li>
-<li>isFull</li>
-<li>getSize</li>
-<li>getMaxSize</li>
-<li>getCapacity</li>
-</ul>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
