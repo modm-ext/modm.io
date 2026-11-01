@@ -13491,14 +13491,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module/modm-platform-i2c-stm32-c0-f0-f3-f7-g0-g4-h5-h7-l0-l4-l5-u5/" class="md-nav__link">
+      <a href="../../module/modm-platform-i2c-stm32-c0-f0-f3-f7-g0-g4-h5-h7-l0-l4-l5-u0-u3-u5/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:i2c (stm32{c0,f0,f3,f7,g0,g4,h5,h7,l0,l4,l5,u5})
+    :platform:i2c (stm32{c0,f0,f3,f7,g0,g4,h5,h7,l0,l4,l5,u0,u3,u5})
   
 
     
@@ -16219,7 +16219,7 @@
 <p>This BSP supports both cores and <code>Board::initialize()</code> configures the selected
 core with these settings:</p>
 <ul>
-<li>Application core target: <code>nrf5340-xxaa@app</code></li>
+<li>Application core target: <code>nrf5340-qkaa@app</code></li>
 <li>128MHz CPU clock frequency.</li>
 <li>MODM_LOGGER initialized at 115.2kBaud on UARTE1 (<code>P1.01</code> TX, <code>P1.00</code> RX).</li>
 <li>Owns LED1/LED2 and Button1/Button2.</li>
@@ -16227,22 +16227,22 @@ core with these settings:</p>
 <p>Transfers selected GPIO ownership to the network core.</p>
 </li>
 <li>
-<p>Network core target: <code>nrf5340-xxaa@net</code></p>
+<p>Network core target: <code>nrf5340-qkaa@net</code></p>
 </li>
 <li>64MHz CPU clock frequency.</li>
 <li>MODM_LOGGER initialized at 115.2kBaud on UARTE0 (<code>P0.20</code> TX, <code>P0.22</code> RX).</li>
 <li>Owns LED3/LED4 and Button3/Button4.</li>
 </ul>
 <p>The default board core in <a href="src/modm/board/nrf5340_dk/board.xml">board.xml</a>
-is the application core (<code>nrf5340-xxaa@app</code>). To use this board with the network
+is the application core (<code>nrf5340-qkaa@app</code>). To use this board with the network
 core you must inherit and then overwrite the the <code>modm:target</code> with
-<code>nrf5340-xxaa@net</code>.</p>
+<code>nrf5340-qkaa@net</code>.</p>
 <p><a href="https://www.nordicsemi.com/Products/Development-hardware/nRF5340-DK">Product Link</a></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
 <span class="w">  </span><span class="nt">&lt;options&gt;</span>
-<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:target"</span><span class="nt">&gt;</span>nrf5340-xxaa@app<span class="nt">&lt;/option&gt;</span>
-<span class="w">    </span><span class="cm">&lt;!-- &lt;option name="modm:target"&gt;nrf5340-xxaa@net&lt;/option&gt; --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:target"</span><span class="nt">&gt;</span>nrf5340-qkaa@app<span class="nt">&lt;/option&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- &lt;option name="modm:target"&gt;nrf5340-qkaa@net&lt;/option&gt; --&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/options&gt;</span>
 <span class="w">  </span><span class="nt">&lt;modules&gt;</span>
 <span class="w">    </span><span class="nt">&lt;module&gt;</span>modm:board:nrf5340-dk<span class="nt">&lt;/module&gt;</span>
