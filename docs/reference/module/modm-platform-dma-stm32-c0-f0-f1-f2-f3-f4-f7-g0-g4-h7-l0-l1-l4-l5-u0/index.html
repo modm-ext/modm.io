@@ -12,7 +12,7 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-dma-stm32-c0-f0-f1-f2-f3-f4-f7-g0-g4-h7-l0-l1-l4-l5/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-dma-stm32-c0-f0-f1-f2-f3-f4-f7-g0-g4-h7-l0-l1-l4-l5-u0/">
       
       
         <link rel="prev" href="../modm-platform-dma-same7x-s7x-v7x/">
@@ -29,7 +29,7 @@
     
     
       
-        <title>:platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5}) - modm barebone embedded library</title>
+        <title>:platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u0}) - modm barebone embedded library</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
+              :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u0})
             
           </span>
         </div>
@@ -12833,7 +12833,7 @@
   <span class="md-ellipsis">
     
   
-    :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
+    :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u0})
   
 
     
@@ -12851,7 +12851,7 @@
   <span class="md-ellipsis">
     
   
-    :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5})
+    :platform:dma (stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u0})
   
 
     
@@ -16243,45 +16243,81 @@
 
 <h1 id="direct-memory-access-dma">Direct Memory Access (DMA)<a class="headerlink" href="#direct-memory-access-dma" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:dma</code></p>
-<p><em>This module is only available for stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5}.</em></p>
+<p><em>This module is only available for stm32{c0,f0,f1,f2,f3,f4,f7,g0,g4,h7,l0,l1,l4,l5,u0}.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="174pt" height="150pt"
- viewBox="0.00 0.00 174.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="555pt" height="150pt"
+ viewBox="0.00 0.00 555.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:platform:dma</title>
 <g id="node1" class="node">
 <title>modm_platform_dma</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="120,-53 37,-53 37,0 120,0 120,-53"/>
-<text text-anchor="middle" x="78.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="78.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="78.5" y="-7.8" font-family="Times,serif" font-size="14.00">dma</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="350,-53 267,-53 267,0 350,0 350,-53"/>
+<text text-anchor="middle" x="308.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="308.5" y="-7.8" font-family="Times,serif" font-size="14.00">dma</text>
 </g>
 <g id="node2" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="65,-142 0,-142 0,-89 65,-89 65,-142"/>
-<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="32.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_assert</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">assert</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_dma&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M64.95,-53.13C60.54,-61.47 55.58,-70.86 50.88,-79.74"/>
-<polygon fill="black" stroke="black" points="47.69,-78.27 46.11,-88.75 53.88,-81.55 47.69,-78.27"/>
+<title>modm_platform_dma&#45;&gt;modm_architecture_assert</title>
+<path fill="none" stroke="black" d="M266.85,-39.95C230.08,-51.15 174.87,-68.5 118.78,-88.62"/>
+<polygon fill="black" stroke="black" points="117.26,-85.45 109.04,-92.14 119.64,-92.03 117.26,-85.45"/>
 </g>
 <g id="node3" class="node">
-<title>modm_platform_rcc</title>
-<polygon fill="lightgrey" stroke="black" points="166,-142 83,-142 83,-89 166,-89 166,-142"/>
-<text text-anchor="middle" x="124.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="124.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="124.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
+<title>modm_architecture_interrupt</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">interrupt</text>
 </g>
 <g id="edge2" class="edge">
+<title>modm_platform_dma&#45;&gt;modm_architecture_interrupt</title>
+<path fill="none" stroke="black" d="M271.08,-53.13C257.38,-62.52 241.72,-73.25 227.37,-83.08"/>
+<polygon fill="black" stroke="black" points="225.36,-80.21 219.09,-88.75 229.32,-85.99 225.36,-80.21"/>
+</g>
+<g id="node4" class="node">
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
+<text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_dma&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M308.5,-53.13C308.5,-61.11 308.5,-70.07 308.5,-78.62"/>
+<polygon fill="black" stroke="black" points="305,-78.75 308.5,-88.75 312,-78.75 305,-78.75"/>
+</g>
+<g id="node5" class="node">
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="446,-142 381,-142 381,-89 446,-89 446,-142"/>
+<text text-anchor="middle" x="413.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="413.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="413.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_platform_dma&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M339.44,-53.13C350.45,-62.25 362.99,-72.65 374.58,-82.25"/>
+<polygon fill="black" stroke="black" points="372.49,-85.07 382.42,-88.75 376.96,-79.67 372.49,-85.07"/>
+</g>
+<g id="node6" class="node">
+<title>modm_platform_rcc</title>
+<polygon fill="lightgrey" stroke="black" points="547,-142 464,-142 464,-89 547,-89 547,-142"/>
+<text text-anchor="middle" x="505.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="505.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="505.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
+</g>
+<g id="edge5" class="edge">
 <title>modm_platform_dma&#45;&gt;modm_platform_rcc</title>
-<path fill="none" stroke="black" d="M92.05,-53.13C96.46,-61.47 101.42,-70.86 106.12,-79.74"/>
-<polygon fill="black" stroke="black" points="103.12,-81.55 110.89,-88.75 109.31,-78.27 103.12,-81.55"/>
+<path fill="none" stroke="black" d="M350.05,-43.91C377.61,-55.01 414.69,-70.37 454.74,-88.75"/>
+<polygon fill="black" stroke="black" points="453.33,-91.96 463.87,-92.97 456.27,-85.6 453.33,-91.96"/>
 </g>
 </g>
 </svg></p>
