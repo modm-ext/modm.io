@@ -18466,6 +18466,8 @@ Compiler: g++-10 10.2.0
 <p>You can also reset the target:</p>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>modm_tools.jlink<span class="w"> </span>-device<span class="w"> </span>STM32F469NI<span class="w"> </span>--reset
 </code></pre></div>
+<p>With several J-Links connected, select one by its serial number with
+<code>-serial 001050033691</code>.</p>
 <p>You can set the <code>MODM_JLINK_BINARY</code> environment variable to point this script to
 a specific <code>JLinkGDBServer</code> binary:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">MODM_JLINK_BINARY</span><span class="o">=</span>/path/to/other/JLinkGDBServer

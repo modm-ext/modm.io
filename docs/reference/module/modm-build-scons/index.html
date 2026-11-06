@@ -17572,11 +17572,13 @@ running on your own computer (<code>host=":3333"</code>) or somewhere else. You 
 connect to JLink (<code>host=":2331"</code>) or Black Magic Probe (<code>host="/dev/tty.usbserial"</code>).
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-program-jlink">scons program-jlink<a class="headerlink" href="#scons-program-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons program-jlink profile={debug|release} [firmware={hash or file}]
+<div class="highlight"><pre><span></span><code>scons program-jlink profile={debug|release} [firmware={hash or file}] [serial={J-Link serial number}]
 </code></pre></div>
 <p>Writes the executable onto your target via JLink.
 This is a convenience wrapper around the programming options and methods
 defined in the <code>modm:build</code> module.
+With several J-Links connected, <code>serial</code> selects the one with this serial
+number, which is printed on the probe and shown by <code>JLinkExe</code> as <code>S/N</code>.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <p>Example for a STM32 target:</p>
 <div class="highlight"><pre><span></span><code> $ scons program-jlink
@@ -17620,7 +17622,7 @@ scons: done building targets.
 <code>scons program-remote</code> or <code>scons debug-remote</code>).
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-jlink">scons jlink<a class="headerlink" href="#scons-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons jlink
+<div class="highlight"><pre><span></span><code>scons jlink [serial={J-Link serial number}]
 </code></pre></div>
 <p>Starts a JLinkGDBServer process to attach a remote debugger to (e.g. with
 <code>scons program-remote</code> or <code>scons debug-remote</code>).
@@ -17661,7 +17663,7 @@ or Black Magic Probe (<code>host="/dev/tty.usbserial"</code>).
 <p>Launches GDB to debug via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-debug-jlink">scons debug-jlink<a class="headerlink" href="#scons-debug-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons debug-jlink profile={debug|release} ui={tui|gdbgui} [firmware={hash or file}]
+<div class="highlight"><pre><span></span><code>scons debug-jlink profile={debug|release} ui={tui|gdbgui} [firmware={hash or file}] [serial={J-Link serial number}]
 </code></pre></div>
 <p>Launches GDB to debug via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
@@ -17694,7 +17696,7 @@ artifact store (see <code>scons artifact</code>).
 <p>Creates a coredump via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-coredump-jlink">scons coredump-jlink<a class="headerlink" href="#scons-coredump-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons coredump-jlink
+<div class="highlight"><pre><span></span><code>scons coredump-jlink [serial={J-Link serial number}]
 </code></pre></div>
 <p>Creates a coredump via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
@@ -17709,7 +17711,7 @@ artifact store (see <code>scons artifact</code>).
 <p>Resets the executable via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-reset-jlink">scons reset-jlink<a class="headerlink" href="#scons-reset-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons reset-jlink
+<div class="highlight"><pre><span></span><code>scons reset-jlink [serial={J-Link serial number}]
 </code></pre></div>
 <p>Resets the executable via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
@@ -17765,7 +17767,7 @@ loop: 61
 </code></pre></div>
 <p>See the <code>modm:platform:rtt</code> module for details how to use RTT for data transfer.</p>
 <h4 id="scons-log-rtt-jlink">scons log-rtt-jlink<a class="headerlink" href="#scons-log-rtt-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons log-rtt-jlink [channel={int}]
+<div class="highlight"><pre><span></span><code>scons log-rtt-jlink [channel={int}] [serial={J-Link serial number}]
 </code></pre></div>
 <p>Configures JLink in RTT mode to output the chosen channel (default 0) via
 netcat. Stop listening with Ctrl+C.
