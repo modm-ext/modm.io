@@ -17631,7 +17631,7 @@ scons: done building targets.
 <p>Compiles and executes your program on your computer.
 (* <em>only Hosted targets</em>)</p>
 <h4 id="scons-debug">scons debug<a class="headerlink" href="#scons-debug" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons debug profile={debug|release} ui={tui|gdbgui} [firmware={hash or file}]
+<div class="highlight"><pre><span></span><code>scons debug profile={debug|release} ui={tui|gdbgui} [firmware={hash or file}] [gdb_port={int}]
 </code></pre></div>
 <p>Launches OpenOCD in the background, then launches GDB in foreground with the
 correct executable with text-based or <a href="https://www.gdbgui.com">web-based GDBGUI</a> UI. When GDB
@@ -17640,6 +17640,9 @@ exits, it stops the OpenOCD process.
 <p>This is just a convenience wrapper for the debug functionality defined in the
 <code>modm:build</code> module. To use GDBGUI you must have it installed via
 <code>pip install gdbgui</code>.</p>
+<p>With <code>gdb_port={int}</code>, OpenOCD serves GDB on this port instead of 3333, telnet
+on port + 1 and Tcl on port + 2, so that several boards can be debugged at the
+same time. <code>log-rtt</code> and <code>log-itm</code> take it too.</p>
 <div class="admonition tip">
 <p class="admonition-title">Choose the correct profile</p>
 <p>When debugging, make sure to select the correct compilation profile. The
@@ -17663,7 +17666,7 @@ or Black Magic Probe (<code>host="/dev/tty.usbserial"</code>).
 <p>Launches GDB to debug via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-debug-jlink">scons debug-jlink<a class="headerlink" href="#scons-debug-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons debug-jlink profile={debug|release} ui={tui|gdbgui} [firmware={hash or file}] [serial={J-Link serial number}]
+<div class="highlight"><pre><span></span><code>scons debug-jlink profile={debug|release} ui={tui|gdbgui} [firmware={hash or file}] [serial={J-Link serial number}] [gdb_port={int}]
 </code></pre></div>
 <p>Launches GDB to debug via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
@@ -17723,7 +17726,7 @@ artifact store (see <code>scons artifact</code>).
 or Black Magic Probe (<code>host="/dev/tty.usbserial"</code>).
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-log-itm">scons log-itm<a class="headerlink" href="#scons-log-itm" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons log-itm fcpu={HCLK in Hz}
+<div class="highlight"><pre><span></span><code>scons log-itm fcpu={HCLK in Hz} [baudrate={int}] [gdb_port={int}]
 </code></pre></div>
 <p>Configures OpenOCD in tracing mode to output ITM channel 0 on SWO pin and
 displays the serial output stream.
@@ -17749,10 +17752,12 @@ output.</p>
 CPU frequency.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="scons-log-rtt">scons log-rtt<a class="headerlink" href="#scons-log-rtt" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons log-rtt [channel={int}]
+<div class="highlight"><pre><span></span><code>scons log-rtt [channel={int}] [rtt_port={int}] [gdb_port={int}]
 </code></pre></div>
 <p>Configures OpenOCD in RTT mode to output the chosen channel (default 0) via
-netcat. Stop listening with Ctrl+C.
+netcat. Stop listening with Ctrl+C. With <code>rtt_port={int}</code>, OpenOCD serves
+channel N on this port + N instead of 9090 + N, so that several boards can log
+at the same time.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <div class="highlight"><pre><span></span><code> $ scons log-rtt
 ╭───OpenOCD───&gt; Real Time Transfer
@@ -17767,7 +17772,7 @@ loop: 61
 </code></pre></div>
 <p>See the <code>modm:platform:rtt</code> module for details how to use RTT for data transfer.</p>
 <h4 id="scons-log-rtt-jlink">scons log-rtt-jlink<a class="headerlink" href="#scons-log-rtt-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>scons log-rtt-jlink [channel={int}] [serial={J-Link serial number}]
+<div class="highlight"><pre><span></span><code>scons log-rtt-jlink [channel={int}] [serial={J-Link serial number}] [rtt_port={int}] [gdb_port={int}]
 </code></pre></div>
 <p>Configures JLink in RTT mode to output the chosen channel (default 0) via
 netcat. Stop listening with Ctrl+C.

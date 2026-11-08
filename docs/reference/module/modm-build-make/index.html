@@ -17312,7 +17312,7 @@ Transfer rate: 4265 KB/sec, 624 bytes/write.
 Resetting target
 </code></pre></div>
 <h4 id="make-debug">make debug<a class="headerlink" href="#make-debug" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make debug profile={debug|release} ui={tui|gdbgui}
+<div class="highlight"><pre><span></span><code>make debug profile={debug|release} ui={tui|gdbgui} [gdb_port={int}]
 </code></pre></div>
 <p>Launches OpenOCD in the background, then launches GDB in foreground with the
 correct executable with text-based or <a href="https://www.gdbgui.com">web-based GDBGUI</a> UI. When GDB
@@ -17337,7 +17337,7 @@ program profile=debug</code> and try <code>make debug profile=debug</code> again
 <p>Launches GDB to debug via Black Magic Probe.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-debug-jlink">make debug-jlink<a class="headerlink" href="#make-debug-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make debug-jlink profile={debug|release} ui={tui|gdbgui}
+<div class="highlight"><pre><span></span><code>make debug-jlink profile={debug|release} ui={tui|gdbgui} [gdb_port={int}]
 </code></pre></div>
 <p>Launches GDB to debug via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
@@ -17383,7 +17383,7 @@ coredump any firmware whose ELF file is currently unavailable.
 <p>Resets the executable via JLink.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-log-itm">make log-itm<a class="headerlink" href="#make-log-itm" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make log-itm fcpu={HCLK in Hz}
+<div class="highlight"><pre><span></span><code>make log-itm fcpu={HCLK in Hz} [baudrate={int}]
 </code></pre></div>
 <p>Configures OpenOCD in tracing mode to output ITM channel 0 on SWO pin and
 displays the serial output stream.
@@ -17407,7 +17407,7 @@ output.</p>
 CPU frequency.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="make-log-rtt">make log-rtt<a class="headerlink" href="#make-log-rtt" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make log-rtt [channel={int}]
+<div class="highlight"><pre><span></span><code>make log-rtt [channel={int}] [rtt_port={int}]
 </code></pre></div>
 <p>Configures OpenOCD in RTT mode to output the chosen channel (default 0) via
 netcat. Stop listening with Ctrl+C.
@@ -17423,7 +17423,7 @@ loop: 61
 </code></pre></div>
 <p>See the <code>modm:platform:rtt</code> module for details how to use RTT for data transfer.</p>
 <h4 id="make-log-rtt-jlink">make log-rtt-jlink<a class="headerlink" href="#make-log-rtt-jlink" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>make log-rtt-jlink [channel={int}]
+<div class="highlight"><pre><span></span><code>make log-rtt-jlink [channel={int}] [rtt_port={int}] [gdb_port={int}]
 </code></pre></div>
 <p>Configures JLink in RTT mode to output the chosen channel (default 0) via
 netcat. Stop listening with Ctrl+C.
