@@ -12,13 +12,11 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-tlsf/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-zephyr-heap/">
       
       
-        <link rel="prev" href="../modm-tinyusb-host-msc/">
+        <link rel="prev" href="../modm-vl53-vl53lmz/">
       
-      
-        <link rel="next" href="../modm-ui/">
       
       
         
@@ -29,7 +27,7 @@
     
     
       
-        <title>:tlsf - modm barebone embedded library</title>
+        <title>:zephyr-heap - modm barebone embedded library</title>
       
     
     
@@ -82,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tlsf-allocator" class="md-skip">
+        <a href="#zephyr-heap" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :tlsf
+              :zephyr-heap
             
           </span>
         </div>
@@ -8365,34 +8363,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-driver-block-allocator/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :driver:block.allocator
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../modm-driver-block-device/" class="md-nav__link">
         
   
@@ -11873,6 +11843,34 @@
     
   
     :nlohmann-json
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-o1heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :o1heap
   
 
     
@@ -15698,164 +15696,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :tlsf
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :tlsf
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Caveats
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        History
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#minimum_pool_size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        minimum_pool_size
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subdivisions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        subdivisions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -16244,6 +16084,92 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :zephyr-heap
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :zephyr-heap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -16286,85 +16212,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Dependencies
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Caveats
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        History
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#minimum_pool_size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        minimum_pool_size
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subdivisions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        subdivisions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -16385,166 +16239,48 @@
 
 
 
-<h1 id="tlsf-allocator">TLSF Allocator<a class="headerlink" href="#tlsf-allocator" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:tlsf</code></p>
-<p>Two-Level Segregated Fit memory allocator implementation.
-Written by Matthew Conte (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#116;&#116;&#64;&#98;&#97;&#105;&#115;&#111;&#107;&#117;&#46;&#111;&#114;&#103;">&#109;&#97;&#116;&#116;&#64;&#98;&#97;&#105;&#115;&#111;&#107;&#117;&#46;&#111;&#114;&#103;</a>).
-Released under the BSD license.
-<a href="https://github.com/mattconte/tlsf">https://github.com/mattconte/tlsf</a></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<ul>
-<li>O(1) cost for malloc, free, realloc, memalign</li>
-<li>Extremely low overhead per allocation (4 bytes)</li>
-<li>Low overhead per TLSF management of pools (~3kB)</li>
-<li>Low fragmentation</li>
-<li>Compiles to only a few kB of code and data</li>
-<li>Support for adding and removing memory pool regions on the fly</li>
-</ul>
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Currently, assumes architecture can make 4-byte aligned accesses</li>
-<li>Not designed to be thread safe; the user must provide this</li>
-</ul>
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
-<p>This code was based on the TLSF 1.4 spec and documentation found at:</p>
-<div class="codehilite"><pre><span></span><code>http://rtportal.upv.es/rtmalloc/allocators/tlsf/index.shtml
-</code></pre></div>
-
-<p>It also leverages the TLSF 2.0 improvement to shrink the per-block overhead from 8 to 4 bytes.</p>
-<h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">&para;</a></h2>
-<p>2016/04/10 - v3.1
-  * Code moved to github
-  * tlsfbits.h rolled into tlsf.c
-  * License changed to BSD</p>
-<p>2014/02/08 - v3.0
-  * This version is based on improvements from 3DInteractive GmbH
-  * Interface changed to allow more than one memory pool
-  * Separated pool handling from control structure (adding, removing, debugging)
-  * Control structure and pools can still be constructed in the same memory block
-  * Memory blocks for control structure and pools are checked for alignment
-  * Added functions to retrieve control structure size, alignment size, min and max block size, overhead of pool structure, and overhead of a single allocation
-  * Minimal Pool size is tlsf_block_size_min() + tlsf_pool_overhead()
-  * Pool must be empty when it is removed, in order to allow O(1) removal</p>
-<p>2011/10/20 - v2.0
-  * 64-bit support
-  * More compiler intrinsics for ffs/fls
-  * ffs/fls verification during TLSF creation in debug builds</p>
-<p>2008/04/04 - v1.9
-  * Add tlsf_heap_check, a heap integrity check
-  * Support a predefined tlsf_assert macro
-  * Fix realloc case where block should shrink; if adjacent block is in use, execution would go down the slow path</p>
-<p>2007/02/08 - v1.8
-  * Fix for unnecessary reallocation in tlsf_realloc</p>
-<p>2007/02/03 - v1.7
-  * tlsf_heap_walk takes a callback
-  * tlsf_realloc now returns NULL on failure
-  * tlsf_memalign optimization for 4-byte alignment
-  * Usage of size_t where appropriate</p>
-<p>2006/11/21 - v1.6
-  * ffs/fls broken out into tlsfbits.h
-  * tlsf_overhead queries per-pool overhead</p>
-<p>2006/11/07 - v1.5
-  * Smart realloc implementation
-  * Smart memalign implementation</p>
-<p>2006/10/11 - v1.4
-  * Add some ffs/fls implementations
-  * Minor code footprint reduction</p>
-<p>2006/09/14 - v1.3
-  * Profiling indicates heavy use of blocks of size 1-128, so implement small block handling
-  * Reduce pool overhead by about 1kb
-  * Reduce minimum block size from 32 to 12 bytes
-  * Realloc bug fix</p>
-<p>2006/09/09 - v1.2
-  * Add tlsf_block_size
-  * Static assertion mechanism for invariants
-  * Minor bugfixes</p>
-<p>2006/09/01 - v1.1
-  * Add tlsf_realloc
-  * Add tlsf_walk_heap</p>
-<p>2006/08/25 - v1.0
-  * First release</p>
+<h1 id="zephyr-heap">Zephyr Heap<a class="headerlink" href="#zephyr-heap" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:zephyr-heap</code></p>
+<p>The <code>sys_heap</code> allocator of the Zephyr RTOS: memory is managed in 8 byte chunks
+with power-of-two size buckets and immediate coalescing. Allocation searches a
+bounded number of buckets (<code>CONFIG_SYS_HEAP_ALLOC_LOOPS</code>), so its execution
+time is bounded, while the fragmentation stays close to a best-fit allocator.
+Aligned allocations and in-place reallocation are supported natively.</p>
+<p>Heaps below 256 kB use 4 byte chunk headers, larger heaps 8 byte headers.</p>
+<p>This module only provides the library with a small replacement for the Zephyr
+headers. Use the <code>modm:platform:heap</code> module with <code>allocator=zephyr</code> to use it
+for <code>malloc()</code> and <code>new</code>.</p>
+<p>See <a href="https://docs.zephyrproject.org/latest/kernel/memory_management/heap.html">https://docs.zephyrproject.org/latest/kernel/memory_management/heap.html</a>.</p>
 <p><em>This module is only available for nrf, rp, sam, stm32.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="minimum_pool_size">minimum_pool_size<a class="headerlink" href="#minimum_pool_size" title="Permanent link">&para;</a></h4>
-<p>Minimum pool size in byte</p>
-<p>Default: <code>1024Ki (1048576)</code> <em>stm32h7</em><br />
-Default: <code>10Ki (10240)</code> <em>stm32{f1,l1}</em><br />
-Default: <code>128Ki (131072)</code> <em>nrf52, samd5x/e5x, stm32{f2,f4,l4}</em><br />
-Default: <code>12Ki (12288)</code> <em>stm32{c0,f3,u0}</em><br />
-Default: <code>144Ki (147456)</code> <em>stm32g0</em><br />
-Default: <code>1536Ki (1572864)</code> <em>stm32h5</em><br />
-Default: <code>160Ki (163840)</code> <em>samg5x</em><br />
-Default: <code>16Ki (16384)</code> <em>nrf51, samd1x/d2x/dax, stm32{f0,f3,l1}</em><br />
-Default: <code>18Ki (18432)</code> <em>stm32g0</em><br />
-Default: <code>192Ki (196608)</code> <em>samd5x/e5x, stm32{f4,u3}</em><br />
-Default: <code>20Ki (20480)</code> <em>stm32{f1,l0}</em><br />
-Default: <code>22Ki (22528)</code> <em>stm32g4</em><br />
-Default: <code>2496Ki (2555904)</code> <em>stm32u5</em><br />
-Default: <code>24Ki (24576)</code> <em>nrf52, stm32{c0,f1}</em><br />
-Default: <code>256Ki (262144)</code> <em>nrf52, sam{d5x/e5x,e7x/s7x/v7x}, stm32{f4,f7,l4,l5,u3,u5}</em><br />
-Default: <code>264Ki (270336)</code> <em>rp2040</em><br />
-Default: <code>272Ki (278528)</code> <em>stm32h5</em><br />
-Default: <code>2Ki (2048)</code> <em>stm32l0</em><br />
-Default: <code>3008Ki (3080192)</code> <em>stm32u5</em><br />
-Default: <code>304Ki (311296)</code> <em>stm32h5</em><br />
-Default: <code>30Ki (30720)</code> <em>stm32c0</em><br />
-Default: <code>320Ki (327680)</code> <em>stm32{f4,f7,h7}</em><br />
-Default: <code>32Ki (32768)</code> <em>nrf{51,52}, samd1x/d2x/dax, stm32{f0,f1,f3,f4,h5,l1,l4}</em><br />
-Default: <code>36Ki (36864)</code> <em>stm32{c0,g0}</em><br />
-Default: <code>384Ki (393216)</code> <em>same7x/s7x/v7x, stm32{h7,l4}</em><br />
-Default: <code>40Ki (40960)</code> <em>stm32{f3,u0}</em><br />
-Default: <code>456Ki (466944)</code> <em>stm32h7</em><br />
-Default: <code>48Ki (49152)</code> <em>stm32{f1,l1,l4}</em><br />
-Default: <code>4Ki (4096)</code> <em>samd1x/d2x/dax, stm32{f0,f1,l1}</em><br />
-Default: <code>512Ki (524288)</code> <em>nrf53, stm32{f7,h7}</em><br />
-Default: <code>640Ki (655360)</code> <em>stm32{h5,u3}</em><br />
-Default: <code>64Ki (65536)</code> <em>nrf{52,53}, stm32{f1,f2,f3,f4}</em><br />
-Default: <code>6Ki (6144)</code> <em>stm32{c0,f0,f1}</em><br />
-Default: <code>768Ki (786432)</code> <em>stm32u5</em><br />
-Default: <code>80Ki (81920)</code> <em>stm32{l1,u3}</em><br />
-Default: <code>8Ki (8192)</code> <em>samd1x/d2x/dax, stm32{f0,f1,g0,l0,l1}</em><br />
-Default: <code>96Ki (98304)</code> <em>stm32{f2,f4,g4,l4}</em><br />
-Inputs: <code>[4Ki .. 1024Ki .. 512Mi]</code> <em>stm32h7</em><br />
-Inputs: <code>[4Ki .. 10Ki .. 512Mi]</code> <em>stm32{f1,l1}</em><br />
-Inputs: <code>[4Ki .. 128Ki .. 512Mi]</code> <em>nrf52, samd5x/e5x, stm32{f2,f4,l4}</em><br />
-Inputs: <code>[4Ki .. 12Ki .. 512Mi]</code> <em>stm32{c0,f3,u0}</em><br />
-Inputs: <code>[4Ki .. 144Ki .. 512Mi]</code> <em>stm32g0</em><br />
-Inputs: <code>[4Ki .. 1536Ki .. 512Mi]</code> <em>stm32h5</em><br />
-Inputs: <code>[4Ki .. 160Ki .. 512Mi]</code> <em>samg5x</em><br />
-Inputs: <code>[4Ki .. 16Ki .. 512Mi]</code> <em>nrf51, samd1x/d2x/dax, stm32{f0,f3,l1}</em><br />
-Inputs: <code>[4Ki .. 18Ki .. 512Mi]</code> <em>stm32g0</em><br />
-Inputs: <code>[4Ki .. 192Ki .. 512Mi]</code> <em>samd5x/e5x, stm32{f4,u3}</em><br />
-Inputs: <code>[4Ki .. 20Ki .. 512Mi]</code> <em>stm32{f1,l0}</em><br />
-Inputs: <code>[4Ki .. 22Ki .. 512Mi]</code> <em>stm32g4</em><br />
-Inputs: <code>[4Ki .. 2496Ki .. 512Mi]</code> <em>stm32u5</em><br />
-Inputs: <code>[4Ki .. 24Ki .. 512Mi]</code> <em>nrf52, stm32{c0,f1}</em><br />
-Inputs: <code>[4Ki .. 256Ki .. 512Mi]</code> <em>nrf52, sam{d5x/e5x,e7x/s7x/v7x}, stm32{f4,f7,l4,l5,u3,u5}</em><br />
-Inputs: <code>[4Ki .. 264Ki .. 512Mi]</code> <em>rp2040</em><br />
-Inputs: <code>[4Ki .. 272Ki .. 512Mi]</code> <em>stm32h5</em><br />
-Inputs: <code>[4Ki .. 2Ki .. 512Mi]</code> <em>stm32l0</em><br />
-Inputs: <code>[4Ki .. 3008Ki .. 512Mi]</code> <em>stm32u5</em><br />
-Inputs: <code>[4Ki .. 304Ki .. 512Mi]</code> <em>stm32h5</em><br />
-Inputs: <code>[4Ki .. 30Ki .. 512Mi]</code> <em>stm32c0</em><br />
-Inputs: <code>[4Ki .. 320Ki .. 512Mi]</code> <em>stm32{f4,f7,h7}</em><br />
-Inputs: <code>[4Ki .. 32Ki .. 512Mi]</code> <em>nrf{51,52}, samd1x/d2x/dax, stm32{f0,f1,f3,f4,h5,l1,l4}</em><br />
-Inputs: <code>[4Ki .. 36Ki .. 512Mi]</code> <em>stm32{c0,g0}</em><br />
-Inputs: <code>[4Ki .. 384Ki .. 512Mi]</code> <em>same7x/s7x/v7x, stm32{h7,l4}</em><br />
-Inputs: <code>[4Ki .. 40Ki .. 512Mi]</code> <em>stm32{f3,u0}</em><br />
-Inputs: <code>[4Ki .. 456Ki .. 512Mi]</code> <em>stm32h7</em><br />
-Inputs: <code>[4Ki .. 48Ki .. 512Mi]</code> <em>stm32{f1,l1,l4}</em><br />
-Inputs: <code>[4Ki .. 512Ki .. 512Mi]</code> <em>nrf53, stm32{f7,h7}</em><br />
-Inputs: <code>[4Ki .. 640Ki .. 512Mi]</code> <em>stm32{h5,u3}</em><br />
-Inputs: <code>[4Ki .. 64Ki .. 512Mi]</code> <em>nrf{52,53}, stm32{f1,f2,f3,f4}</em><br />
-Inputs: <code>[4Ki .. 6Ki .. 512Mi]</code> <em>stm32{c0,f0,f1}</em><br />
-Inputs: <code>[4Ki .. 768Ki .. 512Mi]</code> <em>stm32u5</em><br />
-Inputs: <code>[4Ki .. 80Ki .. 512Mi]</code> <em>stm32{l1,u3}</em><br />
-Inputs: <code>[4Ki .. 8Ki .. 512Mi]</code> <em>samd1x/d2x/dax, stm32{f0,f1,g0,l0,l1}</em><br />
-Inputs: <code>[4Ki .. 96Ki .. 512Mi]</code> <em>stm32{f2,f4,g4,l4}</em><br />
-Inputs: <code>[4Ki ... 512Mi]</code> <em>samd1x/d2x/dax, stm32{f0,f1,l1}</em>  </p>
-<h4 id="subdivisions">subdivisions<a class="headerlink" href="#subdivisions" title="Permanent link">&para;</a></h4>
-<p>Number of subdivisions per memory pool</p>
-<p>Default: <code>16</code><br />
-Inputs: <code>[16, 32]</code>  </p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<p><svg class="deps" width="117pt" height="135pt"
+ viewBox="0.00 0.00 117.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
+<title>modm:zephyr&#45;heap</title>
+<g id="node1" class="node">
+<title>modm_zephyr_heap</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="106.5,-38 2.5,-38 2.5,0 106.5,0 106.5,-38"/>
+<text text-anchor="middle" x="54.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-7.8" font-family="Times,serif" font-size="14.00">zephyr&#45;heap</text>
+</g>
+<g id="node2" class="node">
+<title>modm_architecture_assert</title>
+<polygon fill="lightgrey" stroke="black" points="109,-127 0,-127 0,-74 109,-74 109,-127"/>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-81.8" font-family="Times,serif" font-size="14.00">assert</text>
+</g>
+<g id="edge1" class="edge">
+<title>modm_zephyr_heap&#45;&gt;modm_architecture_assert</title>
+<path fill="none" stroke="black" d="M54.5,-38.04C54.5,-45.68 54.5,-54.86 54.5,-63.77"/>
+<polygon fill="black" stroke="black" points="51,-64 54.5,-74 58,-64 51,-64"/>
+</g>
+</g>
+</svg></p>
+<style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
 <div class="admonition warning">
 <p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
 </div>

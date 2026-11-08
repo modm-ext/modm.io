@@ -12,13 +12,13 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-driver-block-allocator/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-o1heap/">
       
       
-        <link rel="prev" href="../modm-driver-at24mac402/">
+        <link rel="prev" href="../modm-nlohmann-json/">
       
       
-        <link rel="next" href="../modm-driver-block-device/">
+        <link rel="next" href="../modm-platform/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>:driver:block.allocator - modm barebone embedded library</title>
+        <title>:o1heap - modm barebone embedded library</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#block-allocator" class="md-skip">
+        <a href="#o1-heap" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :driver:block.allocator
+              :o1heap
             
           </span>
         </div>
@@ -8362,92 +8362,6 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :driver:block.allocator
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :driver:block.allocator
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
@@ -11939,6 +11853,92 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :o1heap
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :o1heap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -15759,34 +15759,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-tlsf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :tlsf
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../modm-ui/" class="md-nav__link">
         
   
@@ -16172,6 +16144,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-zephyr-heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :zephyr-heap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -16241,49 +16241,50 @@
 
 
 
-<h1 id="block-allocator">Block Allocator<a class="headerlink" href="#block-allocator" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:driver:block.allocator</code></p>
+<h1 id="o1-heap">O(1) Heap<a class="headerlink" href="#o1-heap" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:o1heap</code></p>
+<p>A constant-complexity memory allocator for hard real-time systems: allocation
+and deallocation take a constant, very low number of cycles, independent of the
+heap state, and the worst-case fragmentation is known in advance.</p>
+<p>Blocks are rounded up to the next power of two, so up to half the memory can be
+lost to internal fragmentation and the largest block is the largest power of two
+that fits into the arena.</p>
+<p>This module only provides the library. Use the <code>modm:platform:heap</code> module with
+<code>allocator=o1heap</code> to use it for <code>malloc()</code> and <code>new</code>.</p>
+<p>See <a href="https://github.com/pavel-kirienko/o1heap">https://github.com/pavel-kirienko/o1heap</a>.</p>
+<p><em>This module is only available for nrf, rp, sam, stm32.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="196pt" height="150pt"
- viewBox="0.00 0.00 195.50 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:driver:block.allocator</title>
+<p><svg class="deps" width="117pt" height="135pt"
+ viewBox="0.00 0.00 117.00 135.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 131)">
+<title>modm:o1heap</title>
 <g id="node1" class="node">
-<title>modm_driver_block_allocator</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="163.5,-53 42.5,-53 42.5,0 163.5,0 163.5,-53"/>
-<text text-anchor="middle" x="103" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="103" y="-22.8" font-family="Times,serif" font-size="14.00">driver:</text>
-<text text-anchor="middle" x="103" y="-7.8" font-family="Times,serif" font-size="14.00">block.allocator</text>
+<title>modm_o1heap</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="88.5,-38 20.5,-38 20.5,0 88.5,0 88.5,-38"/>
+<text text-anchor="middle" x="54.5" y="-22.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-7.8" font-family="Times,serif" font-size="14.00">o1heap</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture</title>
-<polygon fill="lightgrey" stroke="black" points="104,-134.5 0,-134.5 0,-96.5 104,-96.5 104,-134.5"/>
-<text text-anchor="middle" x="52" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="52" y="-104.3" font-family="Times,serif" font-size="14.00">architecture</text>
+<title>modm_architecture_assert</title>
+<polygon fill="lightgrey" stroke="black" points="109,-127 0,-127 0,-74 109,-74 109,-127"/>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-81.8" font-family="Times,serif" font-size="14.00">assert</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_driver_block_allocator&#45;&gt;modm_architecture</title>
-<path fill="none" stroke="black" d="M87.97,-53.13C81.59,-64.02 74.15,-76.71 67.7,-87.72"/>
-<polygon fill="black" stroke="black" points="64.59,-86.1 62.56,-96.49 70.63,-89.64 64.59,-86.1"/>
-</g>
-<g id="node3" class="node">
-<title>modm_math_utils</title>
-<polygon fill="lightgrey" stroke="black" points="187.5,-142 122.5,-142 122.5,-89 187.5,-89 187.5,-142"/>
-<text text-anchor="middle" x="155" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="155" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
-<text text-anchor="middle" x="155" y="-96.8" font-family="Times,serif" font-size="14.00">utils</text>
-</g>
-<g id="edge2" class="edge">
-<title>modm_driver_block_allocator&#45;&gt;modm_math_utils</title>
-<path fill="none" stroke="black" d="M118.32,-53.13C123.35,-61.55 129.03,-71.05 134.39,-80.02"/>
-<polygon fill="black" stroke="black" points="131.47,-81.96 139.61,-88.75 137.48,-78.37 131.47,-81.96"/>
+<title>modm_o1heap&#45;&gt;modm_architecture_assert</title>
+<path fill="none" stroke="black" d="M54.5,-38.04C54.5,-45.68 54.5,-54.86 54.5,-63.77"/>
+<polygon fill="black" stroke="black" points="51,-64 54.5,-74 58,-64 51,-64"/>
 </g>
 </g>
 </svg></p>
 <style>@media(prefers-color-scheme:dark){svg.deps{filter:invert(100%);}}</style>
+<div class="admonition warning">
+<p class="admonition-title">Limited availability: Check with 'lbuild discover' if this module is available for your target!</p>
+</div>
 
 
 

@@ -1117,10 +1117,6 @@
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://modm.dev/reference/module/modm-driver-block-allocator/</loc>
-         <lastmod>2026-11-08</lastmod>
-    </url>
-    <url>
          <loc>https://modm.dev/reference/module/modm-driver-block-device-file/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
@@ -1622,6 +1618,10 @@
     </url>
     <url>
          <loc>https://modm.dev/reference/module/modm-nlohmann-json/</loc>
+         <lastmod>2026-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.dev/reference/module/modm-o1heap/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
@@ -2169,10 +2169,6 @@
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://modm.dev/reference/module/modm-tlsf/</loc>
-         <lastmod>2026-11-08</lastmod>
-    </url>
-    <url>
          <loc>https://modm.dev/reference/module/modm-ui-animation/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
@@ -2226,6 +2222,10 @@
     </url>
     <url>
          <loc>https://modm.dev/reference/module/modm-vl53/</loc>
+         <lastmod>2026-11-08</lastmod>
+    </url>
+    <url>
+         <loc>https://modm.dev/reference/module/modm-zephyr-heap/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
 </urlset>
