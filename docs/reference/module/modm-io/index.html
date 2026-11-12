@@ -16457,10 +16457,13 @@ write involves waiting in a loop until the device has space. This can cause a
 deadlock when called inside an interrupt!</p>
 <p>If compiled with the <code>modm:processing:fiber</code> module, the blocking behavior
 allows the fiber to yield while waiting for the device. To prevent interlaced
-output from different fibers, the <code>write(char)</code> function is protected by a
-mutex that releases when a newline character <code>\n</code> is written. The <code>flush()</code>
-function is also mutex protected to allow one fiber to reliably flush the
-stream without having other fibers push data into the device.</p>
+output from different fibers, a line belongs to the fiber that writes it until
+the newline character <code>\n</code>, and other fibers wait while this fiber waits for
+the device. If the fiber yields for another reason in the middle of its line,
+for example it sleeps or returns, the next fiber that writes first ends this
+line with a newline. The <code>flush()</code> function also waits for a fiber that waits
+for the device, and allows one fiber to reliably flush the stream without
+having other fibers push data into the device.</p>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <h4 id="with_float">with_float<a class="headerlink" href="#with_float" title="Permanent link">&para;</a></h4>
 <p>Support for floating point formatting</p>

@@ -17052,7 +17052,9 @@ memory required for the limited functionality:</p>
 <ul>
 <li><code>once_flag</code> and <code>call_once</code>.</li>
 </ul>
-<p>Implemented using interrupt-safe atomic flag.</p>
+<p>Implemented using an interrupt-safe atomic state. Other callers wait until the
+active call returned, so do not call it from an interrupt while a fiber may be
+inside the call.</p>
 <h3 id="condition-variables">Condition Variables<a class="headerlink" href="#condition-variables" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>condition_variable</code> and <code>condition_variable_any</code>.</li>
@@ -17081,7 +17083,9 @@ the fiber:</p>
 <span class="kt">size_t</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fiber</span><span class="p">.</span><span class="n">stack_usage</span><span class="p">();</span>
 </code></pre></div>
 <p>Note that stack usage measurement through watermarking can be inaccurate if the
-registers contain the watermark value.</p>
+registers contain the watermark value. To be fast, the search compares only
+every 8<sup>th</sup> word from the bottom, so it can miss used stack that is narrower than
+8 words and lies between two unused areas.</p>
 <h2 id="stack-overflow">Stack Overflow<a class="headerlink" href="#stack-overflow" title="Permanent link">&para;</a></h2>
 <p>Each context switch checks if the stack overflowed, in which case the scheduler
 will abandon execution and trigger an assertion on the main stack with the
