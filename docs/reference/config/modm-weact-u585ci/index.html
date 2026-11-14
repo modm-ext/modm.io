@@ -3537,6 +3537,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16544,6 +16555,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16580,6 +16602,13 @@
 you must use DFU (Device Firmware Update (via USB)) to program the board.
 A DFU command is integrated into the <code>modm:build:scons</code> tool:</p>
 <div class="highlight"><pre><span></span><code>scons program-dfu
+</code></pre></div>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>To log via RTT attach a debugger to the SWD port and select the RTT option:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:board:weact-u585ci:with_rtt"</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
+<p>Then log using:</p>
+<div class="highlight"><pre><span></span><code>scons<span class="w"> </span>log-rtt
 </code></pre></div>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
