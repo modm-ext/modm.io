@@ -12,7 +12,7 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-flash-stm32-f1-f4-g0-g4-h7/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-flash-stm32/">
       
       
         <link rel="prev" href="../modm-platform-flash-rp2040/">
@@ -29,7 +29,7 @@
     
     
       
-        <title>:platform:flash (stm32{f1,f4,g0,g4,h7}) - modm barebone embedded library</title>
+        <title>:platform:flash (stm32) - modm barebone embedded library</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flash-memory" class="md-skip">
+        <a href="#internal-flash-memory" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:flash (stm32{f1,f4,g0,g4,h7})
+              :platform:flash (stm32)
             
           </span>
         </div>
@@ -13365,7 +13365,7 @@
   <span class="md-ellipsis">
     
   
-    :platform:flash (stm32{f1,f4,g0,g4,h7})
+    :platform:flash (stm32)
   
 
     
@@ -13383,7 +13383,7 @@
   <span class="md-ellipsis">
     
   
-    :platform:flash (stm32{f1,f4,g0,g4,h7})
+    :platform:flash (stm32)
   
 
     
@@ -13407,6 +13407,45 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interrupts-during-flash-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interrupts during flash operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        write_size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
@@ -16522,6 +16561,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#interrupts-during-flash-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interrupts during flash operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write_size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        write_size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16549,71 +16627,228 @@
 
 
 
-<h1 id="flash-memory">Flash Memory<a class="headerlink" href="#flash-memory" title="Permanent link">&para;</a></h1>
+<h1 id="internal-flash-memory">Internal Flash Memory<a class="headerlink" href="#internal-flash-memory" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:flash</code></p>
-<p><em>This module is only available for stm32{f1,f4,g0,g4,h7}.</em></p>
+<p>Erases and programs the internal flash memory. The STM32 families use nine
+different flash controllers, each with its own implementation:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Controller</th>
+<th style="text-align: left;">Families</th>
+<th style="text-align: left;">Erase unit</th>
+<th style="text-align: left;">Program unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">F1</td>
+<td style="text-align: left;">F0, F1, F3</td>
+<td style="text-align: left;">1 or 2 KiB pages</td>
+<td style="text-align: left;">16-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">F4</td>
+<td style="text-align: left;">F2, F4, F7</td>
+<td style="text-align: left;">16 KiB to 256 KiB sectors</td>
+<td style="text-align: left;">8, 16 or 32-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">L0</td>
+<td style="text-align: left;">L0, L1</td>
+<td style="text-align: left;">128 or 256 byte pages</td>
+<td style="text-align: left;">32-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">L4</td>
+<td style="text-align: left;">C0, G0, G4, L4, U0, WB, WL</td>
+<td style="text-align: left;">2, 4 or 8 KiB pages</td>
+<td style="text-align: left;">64-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">U5</td>
+<td style="text-align: left;">L5, U3, U5</td>
+<td style="text-align: left;">2, 4 or 8 KiB pages</td>
+<td style="text-align: left;">64 or 128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">H5</td>
+<td style="text-align: left;">H5</td>
+<td style="text-align: left;">8 KiB sectors</td>
+<td style="text-align: left;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">H7</td>
+<td style="text-align: left;">H7</td>
+<td style="text-align: left;">8 or 128 KiB sectors</td>
+<td style="text-align: left;">128 or 256-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">H7RS</td>
+<td style="text-align: left;">H7R, H7S</td>
+<td style="text-align: left;">8 KiB sectors</td>
+<td style="text-align: left;">128-bit</td>
+</tr>
+<tr>
+<td style="text-align: left;">WB0</td>
+<td style="text-align: left;">WB0, WL3</td>
+<td style="text-align: left;">2 KiB pages</td>
+<td style="text-align: left;">32-bit</td>
+</tr>
+</tbody>
+</table>
+<p>All controllers share the same interface: <code>Flash::unlock()</code> before any
+operation, <code>Flash::getPage(addr)</code> or <code>Flash::getSector(addr)</code> to find the
+erase unit of an address, <code>Flash::erase(index)</code> and
+<code>Flash::program(addr, Flash::MaxWordType)</code>. The functions return the error
+flags of the controller, zero on success. Pages and sectors are numbered
+continuously over all banks. All addresses are absolute, only
+<code>Flash::getOffset(index)</code> returns the offset from <code>Flash::OriginAddr</code>.
+<code>Flash::MinPageSize</code> and <code>Flash::MaxPageSize</code> are the smallest and largest
+page or sector of all flash organizations of the device, independent of the
+dual-bank option bits. If they are equal, all pages have the same size.</p>
+<h2 id="interrupts-during-flash-operations">Interrupts during flash operations<a class="headerlink" href="#interrupts-during-flash-operations" title="Permanent link">&para;</a></h2>
+<p>Erasing and programming stall every read of the same flash bank, including
+the fetch of interrupt vectors and handlers, and a core stalled on such a fetch
+takes no other interrupt either, not even one with a higher priority. Only the
+register sequence of each operation therefore runs from RAM (<code>modm_ramcode</code>),
+and interrupts are masked during operations on the bank of the program:</p>
+<ul>
+<li>By default all interrupts are masked, and the <code>SysTick_Handler</code>, which this
+  module places in RAM, is called by the flash driver while waiting, so that
+  <code>modm::Clock</code> keeps counting.</li>
+<li>On cores with BASEPRI (not the Cortex-M0(+)) and with the vector table in RAM
+  (<code>modm:platform:cortex-m:vector_table_location = ram</code>, the default on devices
+  with DTCM or executable CCM), only interrupts with priority 0 may run instead,
+  which includes the SysTick.</li>
+<li>The half-page programming of the STM32L1 always masks all interrupts, since
+  any instruction fetch from flash causes a bus error until it finishes.</li>
+</ul>
+<p>All other interrupts are delayed until the operation finishes, which can take
+seconds for a large sector. If an application needs an interrupt during flash
+operations, it must use a core with BASEPRI, put the vector table into RAM,
+place the handler and all code it calls into RAM with <code>modm_ramcode</code>, and set
+its priority to 0 before the flash operation (and back afterwards). Whether an application can miss
+interrupts while writing the internal flash is a decision only it can make.</p>
+<p>Operations on the other bank of dual-bank devices do not mask interrupts.</p>
+<p>On dual-bank devices, an operation on a bank that contains none of the program
+image sleeps for the typical duration of the operation from the datasheet and
+then polls until it finished, so other fibers run meanwhile and the second bank
+can be used as runtime storage without stalling the application. Sleeping needs
+the <code>modm:platform:clock</code> module, otherwise the fiber only polls.
+<code>Flash::program(addr, data, size)</code> yields between units on all devices. Only one
+fiber may use the flash at a time, and no fiber may read the bank that is being
+erased or programmed.</p>
+<p><code>Flash::program(addr, data, size)</code> programs a buffer with the fastest mode of
+the controller: half-page programming on the L0/L1 (16x/32x faster than single
+words), 128 byte bursts on the U5 and U3 (2.5x/1.7x faster) and 32-bit words on
+the F2/F4/F7. The fast programming of the L4 controller is not used, since it
+requires a mass erase before.</p>
+<p>Units whose data has only erased bytes (<code>0xff</code>, <code>0x00</code> on the L0 and L1) are
+skipped by <code>Flash::program(addr, data, size)</code>: programming them does not change
+the content, but the L4 and U5 controllers refuse to program such a unit again
+(PROGERR), although it still reads as erased. This also applies to the single
+word <code>Flash::program(addr, word)</code>, which programs whatever it is given.</p>
+<p><code>Flash::WriteSize</code> is the smallest unit that <code>program()</code> can write, which
+must be erased before. Most controllers protect each write unit with an ECC
+and do not allow writing it twice.</p>
+<p>A reset or power loss during programming can leave a flash word with a double
+ECC error, which raises an NMI (C0 excluded: L4 and U5 controller, H5) or a
+bus error (H7, H7RS) on every read. <code>Flash::read(addr, buffer, size)</code> copies
+the flash without faulting and returns non-zero if it found such a word: the
+NMI vector is redirected during the copy, or bus errors are ignored with
+<code>FAULTMASK</code> and <code>SCB_CCR_BFHFNMIGN</code> (which also blocks all interrupts during
+the copy). With the vector table in flash, this module defines the
+<code>NMI_Handler</code> on these devices (other NMIs go to the default handler), so the
+application may only define its own with the vector table in RAM. Tested by resetting during <code>program()</code> on the G071, G474, L476,
+L552, U385, U575, H563, H723 and H743. A half-programmed word does not always
+cause a double ECC error though: some read back with wrong data and no error
+or with a "corrected" single error, so storage on top must use checksums.</p>
+<p>Erased flash reads as <code>0xff</code>, except on the L0 and L1, where it reads as <code>0x00</code>.</p>
+<p>Devices with a dual-bank option byte (F42x/F43x 1 MiB, F76x/F77x, G0B1, G4,
+L4, L4+, L5, U3, U5) select the geometry from the option byte at runtime.
+Bank swapping is not supported: the bank swap option must be cleared.
+On the STM32WB the second core must not access the flash during operations.</p>
+<p><em>This module is only available for stm32.</em></p>
+<h2 id="queries">Queries<a class="headerlink" href="#queries" title="Permanent link">&para;</a></h2>
+<h4 id="write_size">write_size<a class="headerlink" href="#write_size" title="Permanent link">&para;</a></h4>
+<p>The smallest number of bytes that can be programmed at once, the value of
+<code>Flash::WriteSize</code> for configuring storage libraries in the preprocessor.</p>
+<p>:returns: write size in bytes</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="402pt" height="150pt"
- viewBox="0.00 0.00 402.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="555pt" height="150pt"
+ viewBox="0.00 0.00 555.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:platform:flash</title>
 <g id="node1" class="node">
 <title>modm_platform_flash</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="247,-53 164,-53 164,0 247,0 247,-53"/>
-<text text-anchor="middle" x="205.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="205.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="205.5" y="-7.8" font-family="Times,serif" font-size="14.00">flash</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="350,-53 267,-53 267,0 350,0 350,-53"/>
+<text text-anchor="middle" x="308.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="308.5" y="-7.8" font-family="Times,serif" font-size="14.00">flash</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_register</title>
+<title>modm_architecture_atomic</title>
 <polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
 <text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
 <text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">atomic</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_flash&#45;&gt;modm_architecture_register</title>
-<path fill="none" stroke="black" d="M163.84,-51.5C146.51,-61.49 126.18,-73.2 107.78,-83.8"/>
-<polygon fill="black" stroke="black" points="105.85,-80.88 98.93,-88.9 109.34,-86.94 105.85,-80.88"/>
+<title>modm_platform_flash&#45;&gt;modm_architecture_atomic</title>
+<path fill="none" stroke="black" d="M266.85,-39.95C230.08,-51.15 174.87,-68.5 118.78,-88.62"/>
+<polygon fill="black" stroke="black" points="117.26,-85.45 109.04,-92.14 119.64,-92.03 117.26,-85.45"/>
 </g>
 <g id="node3" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="192,-142 127,-142 127,-89 192,-89 192,-142"/>
-<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_platform_flash&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" d="M191.95,-53.13C187.54,-61.47 182.58,-70.86 177.88,-79.74"/>
-<polygon fill="black" stroke="black" points="174.69,-78.27 173.11,-88.75 180.88,-81.55 174.69,-78.27"/>
+<title>modm_platform_flash&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M271.08,-53.13C257.38,-62.52 241.72,-73.25 227.37,-83.08"/>
+<polygon fill="black" stroke="black" points="225.36,-80.21 219.09,-88.75 229.32,-85.99 225.36,-80.21"/>
 </g>
 <g id="node4" class="node">
-<title>modm_platform_cortex_m</title>
-<polygon fill="lightgrey" stroke="black" points="293,-142 210,-142 210,-89 293,-89 293,-142"/>
-<text text-anchor="middle" x="251.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="251.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="251.5" y="-96.8" font-family="Times,serif" font-size="14.00">cortex&#45;m</text>
+<title>modm_architecture_register</title>
+<polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
+<text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">register</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_platform_flash&#45;&gt;modm_platform_cortex_m</title>
-<path fill="none" stroke="black" d="M219.05,-53.13C223.46,-61.47 228.42,-70.86 233.12,-79.74"/>
-<polygon fill="black" stroke="black" points="230.12,-81.55 237.89,-88.75 236.31,-78.27 230.12,-81.55"/>
+<title>modm_platform_flash&#45;&gt;modm_architecture_register</title>
+<path fill="none" stroke="black" d="M308.5,-53.13C308.5,-61.11 308.5,-70.07 308.5,-78.62"/>
+<polygon fill="black" stroke="black" points="305,-78.75 308.5,-88.75 312,-78.75 305,-78.75"/>
 </g>
 <g id="node5" class="node">
-<title>modm_platform_rcc</title>
-<polygon fill="lightgrey" stroke="black" points="394,-142 311,-142 311,-89 394,-89 394,-142"/>
-<text text-anchor="middle" x="352.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="352.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="352.5" y="-96.8" font-family="Times,serif" font-size="14.00">rcc</text>
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="446,-142 381,-142 381,-89 446,-89 446,-142"/>
+<text text-anchor="middle" x="413.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="413.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="413.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
 </g>
 <g id="edge4" class="edge">
-<title>modm_platform_flash&#45;&gt;modm_platform_rcc</title>
-<path fill="none" stroke="black" d="M247.23,-52.2C264.37,-62.34 284.37,-74.18 302.3,-84.79"/>
-<polygon fill="black" stroke="black" points="300.53,-87.81 310.92,-89.89 304.1,-81.79 300.53,-87.81"/>
+<title>modm_platform_flash&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" d="M339.44,-53.13C350.45,-62.25 362.99,-72.65 374.58,-82.25"/>
+<polygon fill="black" stroke="black" points="372.49,-85.07 382.42,-88.75 376.96,-79.67 372.49,-85.07"/>
+</g>
+<g id="node6" class="node">
+<title>modm_platform_cortex_m</title>
+<polygon fill="lightgrey" stroke="black" points="547,-142 464,-142 464,-89 547,-89 547,-142"/>
+<text text-anchor="middle" x="505.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="505.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="505.5" y="-96.8" font-family="Times,serif" font-size="14.00">cortex&#45;m</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_platform_flash&#45;&gt;modm_platform_cortex_m</title>
+<path fill="none" stroke="black" d="M350.05,-43.91C377.61,-55.01 414.69,-70.37 454.74,-88.75"/>
+<polygon fill="black" stroke="black" points="453.33,-91.96 463.87,-92.97 456.27,-85.6 453.33,-91.96"/>
 </g>
 </g>
 </svg></p>
