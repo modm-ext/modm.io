@@ -15490,6 +15490,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#thread-local-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thread-Local Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thread-Local Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arm-cortex-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arm Cortex-M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AVR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scheduling" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -15513,7 +15552,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avr" class="md-nav__link">
+  <a href="#avr_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         AVR
@@ -15524,7 +15563,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#arm-cortex-m" class="md-nav__link">
+  <a href="#arm-cortex-m_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Arm Cortex-M
@@ -15550,6 +15589,34 @@
     <span class="md-ellipsis">
       
         Multi-Core Scheduling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thread_local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        thread_local
       
     </span>
   </a>
@@ -17200,6 +17267,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#thread-local-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thread-Local Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thread-Local Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arm-cortex-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arm Cortex-M
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AVR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scheduling" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17223,7 +17329,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avr" class="md-nav__link">
+  <a href="#avr_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         AVR
@@ -17234,7 +17340,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#arm-cortex-m" class="md-nav__link">
+  <a href="#arm-cortex-m_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Arm Cortex-M
@@ -17260,6 +17366,34 @@
     <span class="md-ellipsis">
       
         Multi-Core Scheduling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thread_local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        thread_local
       
     </span>
   </a>
@@ -17569,6 +17703,70 @@ identifier <code>fbr.stkof</code> and the fiber pointer as context. Note that th
 is executed on the main stack and not on the fiber stack that overflowed!</p>
 <p>On ARMv8-M devices, the stack overflow is checked in hardware via the PSPLIM
 register, therefore the context switch is a little faster.</p>
+<h2 id="thread-local-storage">Thread-Local Storage<a class="headerlink" href="#thread-local-storage" title="Permanent link">&para;</a></h2>
+<p>With the <code>modm:processing:fiber:thread_local</code> option on Cortex-M and AVR, each
+fiber has its own copy of all <code>thread_local</code> variables, while code outside of
+fibers uses its own copy:</p>
+<div class="highlight"><pre><span></span><code><span class="k">thread_local</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span><span class="w">  </span><span class="c1">// one per fiber</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber1</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+<span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber2</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<p>The thread-local storage is placed on the fiber stack directly below the
+closure and is initialized every time the fiber is started. Objects with dynamic
+initialization are constructed on first use in each fiber, together with all
+other such objects of the same translation unit. Declare plain data <code>constinit</code>
+to avoid the initialization check on every access.</p>
+<p>The option is disabled by default. Without it, using <code>thread_local</code> on Cortex-M
+and AVR fails to link with an error that names the option.</p>
+<div class="admonition warning">
+<p class="admonition-title">Destructors of <code>thread_local</code> objects are never called</p>
+<p>Neither when a fiber returns or is restarted, nor for the main context.
+GCC discards them without a warning, since modm compiles with
+<code>-fno-use-cxa-atexit</code>. Restarting a fiber initializes its storage again,
+so any resource owned by the previous objects, like heap memory or a
+registration somewhere else, is leaked. Use only trivially destructible
+types, or keep the object as a local variable of the fiber function and
+store a pointer to it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">constinit</span><span class="w"> </span><span class="k">thread_local</span><span class="w"> </span><span class="n">Context</span><span class="w"> </span><span class="o">*</span><span class="n">context</span><span class="p">{</span><span class="nb">nullptr</span><span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">worker</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Context</span><span class="w"> </span><span class="n">local</span><span class="p">;</span><span class="w">    </span><span class="c1">// destroyed when the fiber function returns</span>
+<span class="w">    </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">local</span><span class="p">;</span><span class="w"> </span><span class="c1">// accessible to all functions this fiber calls</span>
+<span class="w">    </span><span class="n">process</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<p>Further limitations:</p>
+<ul>
+<li>Every fiber reserves storage for <em>all</em> <code>thread_local</code> variables of the
+  program, even the ones it never uses, which reduces the usable stack size of
+  every fiber.</li>
+<li>Interrupts use the thread-local storage of the interrupted fiber or of the
+  main context.</li>
+<li>A pointer to the thread-local storage of a fiber is only valid until the
+  fiber returns. The next fiber started on the same stack reuses the memory.</li>
+<li>With <code>modm:platform:multicore</code>, the main contexts of all cores share one copy
+  of the <code>thread_local</code> variables, only fibers have their own.</li>
+</ul>
+<h3 id="arm-cortex-m">Arm Cortex-M<a class="headerlink" href="#arm-cortex-m" title="Permanent link">&para;</a></h3>
+<p>GCC accesses <code>thread_local</code> variables by calling <code>__aeabi_read_tp()</code>, which
+derives the thread pointer from the top of the stack of the current fiber, so
+the scheduler does not need to switch anything. Code outside of fibers uses the
+copy in the <code>.tdata</code> and <code>.tbss</code> sections. Each access costs a function call of
+~15-25 cycles and each fiber start copies the storage with ~1.1 cycles per byte.</p>
+<h3 id="avr">AVR<a class="headerlink" href="#avr" title="Permanent link">&para;</a></h3>
+<p>AVR has no native thread-local storage, so GCC emulates it by calling
+<code>__emutls_get_address()</code> with a control object per variable. The linker sorts
+input sections by name (<code>--sort-section=name</code>) to collect these objects into a
+table, which assigns each variable an offset at startup. Code outside of fibers
+uses a copy at the top of the main stack. Each access costs a function call of
+~35 cycles and each fiber start ~120 cycles per variable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Variables are limited to 255 bytes on AVR</p>
+<p>GCC stores the size of each variable in the 8-bit word mode of AVR, so
+larger <code>thread_local</code> variables are silently truncated by the compiler.</p>
+</div>
 <h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
 <p>The scheduler <code>run()</code> function will suspend execution of the call site, usually
 the main function, start each fiber and continue to execute them until they all
@@ -17594,12 +17792,12 @@ running, it simply returns in-place, since there is nowhere to switch to.</p>
 switching to a new stack and restoring callee registers from this stack.
 The static <code>modm::this_fiber::yield()</code> function wraps this functionality in a
 transparent way.</p>
-<h3 id="avr">AVR<a class="headerlink" href="#avr" title="Permanent link">&para;</a></h3>
+<h3 id="avr_1">AVR<a class="headerlink" href="#avr_1" title="Permanent link">&para;</a></h3>
 <p>On AVRs the fiber stack is shared with the currently active interrupt.
 This requires the fiber stack size to include the worst case stack size of all
 interrupts. Fortunately on AVRs interrupts cannot be nested.</p>
 <p>Therefore the default stack size is a fairly large <strong>512B</strong>.</p>
-<h3 id="arm-cortex-m">Arm Cortex-M<a class="headerlink" href="#arm-cortex-m" title="Permanent link">&para;</a></h3>
+<h3 id="arm-cortex-m_1">Arm Cortex-M<a class="headerlink" href="#arm-cortex-m_1" title="Permanent link">&para;</a></h3>
 <p>On Cortex-M, the main function is entered using the MSP in Handler mode. After
 calling <code>modm::fiber::Scheduler::run()</code> the PSP is used as a Fiber stack
 pointer in Thread mode. Therefore all interrupts are using the main stack whose
@@ -17638,20 +17836,28 @@ and task into the core-affine memory:</p>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="thread_local">thread_local<a class="headerlink" href="#thread_local" title="Permanent link">&para;</a></h4>
+<p>Thread-local storage per fiber</p>
+<p>Gives each fiber its own copy of all <code>thread_local</code> variables.
+Their destructors are never called.</p>
+<p><em>This option is only available for avr, nrf, rp, sam, stm32.</em></p>
+<p>Default: <code>no</code><br />
+Inputs: <code>[yes, no]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="670pt" height="150pt"
- viewBox="0.00 0.00 670.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="797pt" height="150pt"
+ viewBox="0.00 0.00 797.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
 <title>modm:processing:fiber</title>
 <g id="node1" class="node">
 <title>modm_processing_fiber</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="420.5,-53 322.5,-53 322.5,0 420.5,0 420.5,-53"/>
-<text text-anchor="middle" x="371.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="371.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
-<text text-anchor="middle" x="371.5" y="-7.8" font-family="Times,serif" font-size="14.00">fiber</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="484.5,-53 386.5,-53 386.5,0 484.5,0 484.5,-53"/>
+<text text-anchor="middle" x="435.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="435.5" y="-22.8" font-family="Times,serif" font-size="14.00">processing:</text>
+<text text-anchor="middle" x="435.5" y="-7.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="node2" class="node">
 <title>modm_architecture_assert</title>
@@ -17662,8 +17868,8 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge1" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_assert</title>
-<path fill="none" stroke="black" d="M322.21,-37.19C272.72,-47.41 194.24,-64.99 118.94,-88.69"/>
-<polygon fill="black" stroke="black" points="117.76,-85.39 109.3,-91.77 119.89,-92.06 117.76,-85.39"/>
+<path fill="none" stroke="black" d="M386.31,-33.99C325.24,-42.72 217.97,-60.21 119.1,-88.73"/>
+<polygon fill="black" stroke="black" points="117.86,-85.44 109.25,-91.61 119.83,-92.16 117.86,-85.44"/>
 </g>
 <g id="node3" class="node">
 <title>modm_architecture_atomic</title>
@@ -17674,8 +17880,8 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge2" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_atomic</title>
-<path fill="none" stroke="black" d="M322.08,-50.13C298.68,-60.85 270.44,-73.77 245.44,-85.22"/>
-<polygon fill="black" stroke="black" points="243.66,-82.19 236.03,-89.53 246.58,-88.55 243.66,-82.19"/>
+<path fill="none" stroke="black" d="M386.49,-42.2C349.91,-53.42 298.53,-69.68 245.59,-88.69"/>
+<polygon fill="black" stroke="black" points="244.26,-85.45 236.04,-92.14 246.64,-92.03 244.26,-85.45"/>
 </g>
 <g id="node4" class="node">
 <title>modm_architecture_clock</title>
@@ -17686,8 +17892,8 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge3" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M352.94,-53.13C346.71,-61.73 339.67,-71.45 333.06,-80.58"/>
-<polygon fill="black" stroke="black" points="330.18,-78.6 327.15,-88.75 335.85,-82.7 330.18,-78.6"/>
+<path fill="none" stroke="black" d="M398.08,-53.13C384.38,-62.52 368.72,-73.25 354.37,-83.08"/>
+<polygon fill="black" stroke="black" points="352.36,-80.21 346.09,-88.75 356.32,-85.99 352.36,-80.21"/>
 </g>
 <g id="node5" class="node">
 <title>modm_architecture_fiber</title>
@@ -17698,31 +17904,43 @@ and task into the core-affine memory:</p>
 </g>
 <g id="edge4" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_architecture_fiber</title>
-<path fill="none" stroke="black" d="M390.36,-53.13C396.68,-61.73 403.83,-71.45 410.55,-80.58"/>
-<polygon fill="black" stroke="black" points="407.81,-82.77 416.56,-88.75 413.45,-78.62 407.81,-82.77"/>
+<path fill="none" stroke="black" d="M435.5,-53.13C435.5,-61.11 435.5,-70.07 435.5,-78.62"/>
+<polygon fill="black" stroke="black" points="432,-78.75 435.5,-88.75 439,-78.75 432,-78.75"/>
 </g>
 <g id="node6" class="node">
-<title>modm_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="573,-142 508,-142 508,-89 573,-89 573,-142"/>
-<text text-anchor="middle" x="540.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="540.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="540.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_interrupt</title>
+<polygon fill="lightgrey" stroke="black" points="617,-142 508,-142 508,-89 617,-89 617,-142"/>
+<text text-anchor="middle" x="562.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="562.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="562.5" y="-96.8" font-family="Times,serif" font-size="14.00">interrupt</text>
 </g>
 <g id="edge5" class="edge">
-<title>modm_processing_fiber&#45;&gt;modm_cmsis_device</title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M420.75,-49.64C442.65,-59.83 468.8,-72.48 498.62,-88.68"/>
-<polygon fill="black" stroke="black" points="497.11,-91.85 507.56,-93.59 500.48,-85.71 497.11,-91.85"/>
+<title>modm_processing_fiber&#45;&gt;modm_architecture_interrupt</title>
+<path fill="none" stroke="black" d="M472.92,-53.13C486.62,-62.52 502.28,-73.25 516.63,-83.08"/>
+<polygon fill="black" stroke="black" points="514.68,-85.99 524.91,-88.75 518.64,-80.21 514.68,-85.99"/>
 </g>
 <g id="node7" class="node">
-<title>modm_stdc++</title>
-<polygon fill="lightgrey" stroke="black" points="662,-134.5 591,-134.5 591,-96.5 662,-96.5 662,-134.5"/>
-<text text-anchor="middle" x="626.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="626.5" y="-104.3" font-family="Times,serif" font-size="14.00">stdc++</text>
+<title>modm_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="700,-142 635,-142 635,-89 700,-89 700,-142"/>
+<text text-anchor="middle" x="667.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="667.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="667.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
 </g>
 <g id="edge6" class="edge">
+<title>modm_processing_fiber&#45;&gt;modm_cmsis_device</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M484.62,-39.74C521.73,-49.78 573.74,-65.55 625.46,-88.9"/>
+<polygon fill="black" stroke="black" points="624.22,-92.18 634.77,-93.18 627.15,-85.82 624.22,-92.18"/>
+</g>
+<g id="node8" class="node">
+<title>modm_stdc++</title>
+<polygon fill="lightgrey" stroke="black" points="789,-134.5 718,-134.5 718,-96.5 789,-96.5 789,-134.5"/>
+<text text-anchor="middle" x="753.5" y="-119.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="753.5" y="-104.3" font-family="Times,serif" font-size="14.00">stdc++</text>
+</g>
+<g id="edge7" class="edge">
 <title>modm_processing_fiber&#45;&gt;modm_stdc++</title>
-<path fill="none" stroke="black" d="M420.85,-38.3C464.37,-48.66 529.01,-66.1 582.5,-89 584.54,-89.88 586.61,-90.82 588.68,-91.83"/>
-<polygon fill="black" stroke="black" points="587.17,-94.99 597.66,-96.47 590.39,-88.77 587.17,-94.99"/>
+<path fill="none" stroke="black" d="M484.58,-33.91C540.46,-42.25 633.79,-59.37 709.5,-89 711.64,-89.84 713.8,-90.77 715.95,-91.76"/>
+<polygon fill="black" stroke="black" points="714.75,-95.08 725.25,-96.46 717.9,-88.83 714.75,-95.08"/>
 </g>
 </g>
 </svg></p>
