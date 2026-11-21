@@ -4516,6 +4516,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spi-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPI Flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_rtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        with_rtt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16659,6 +16709,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-zms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :zms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -16712,6 +16790,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spi-flash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPI Flash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_rtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        with_rtt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16752,82 +16880,108 @@ you must use DFU (Device Firmware Update (via USB)) to program the board.
 A DFU command is integrated into the <code>modm:build:scons</code> tool and can be called as follows:</p>
 <div class="highlight"><pre><span></span><code>scons program-dfu
 </code></pre></div>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>To log via RTT attach a debugger to the SWD port and select the RTT option:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:board:black-pill-f401:with_rtt"</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
+<h2 id="spi-flash">SPI Flash<a class="headerlink" href="#spi-flash" title="Permanent link">&para;</a></h2>
+<p>The footprint of a W25QxxJV SPI flash on the back is not populated. A soldered
+flash is connected to SPI1 with the pins in <code>Board::flash</code>.</p>
 <p><em>This module is only available for stm32f401ccu6.</em></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="with_rtt">with_rtt<a class="headerlink" href="#with_rtt" title="Permanent link">&para;</a></h4>
+<p>Log using RTT</p>
+<p>Default: <code>no</code><br />
+Inputs: <code>[yes, no]</code><br />
+Input Dependency: <code>yes -&gt; [modm:platform:rtt, modm:debug]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="521pt" height="165pt"
- viewBox="0.00 0.00 521.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="632pt" height="165pt"
+ viewBox="0.00 0.00 632.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
 <title>modm:board:black&#45;pill&#45;f401</title>
 <g id="node1" class="node">
 <title>modm_board_black_pill_f401</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="328.5,-53 210.5,-53 210.5,0 328.5,0 328.5,-53"/>
-<text text-anchor="middle" x="269.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="269.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
-<text text-anchor="middle" x="269.5" y="-7.8" font-family="Times,serif" font-size="14.00">black&#45;pill&#45;f401</text>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="388.5,-53 270.5,-53 270.5,0 388.5,0 388.5,-53"/>
+<text text-anchor="middle" x="329.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="329.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
+<text text-anchor="middle" x="329.5" y="-7.8" font-family="Times,serif" font-size="14.00">black&#45;pill&#45;f401</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_clock</title>
-<polygon fill="lightgrey" stroke="black" points="109,-149.5 0,-149.5 0,-96.5 109,-96.5 109,-149.5"/>
-<text text-anchor="middle" x="54.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-119.3" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
+<title>[modm_platform_rtt__modm_debug]</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="93,-157 0,-157 0,-89 93,-89 93,-157"/>
+<text text-anchor="middle" x="46.5" y="-141.8" font-family="Times,serif" font-size="14.00">[modm:</text>
+<text text-anchor="middle" x="46.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="46.5" y="-111.8" font-family="Times,serif" font-size="14.00">rtt, modm:</text>
+<text text-anchor="middle" x="46.5" y="-96.8" font-family="Times,serif" font-size="14.00">debug]</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_board_black_pill_f401&#45;&gt;modm_architecture_clock</title>
-<path fill="none" stroke="black" d="M210.46,-49.83C182.07,-60.96 147.73,-75.01 117.5,-89 115.45,-89.95 113.37,-90.93 111.28,-91.93"/>
-<polygon fill="black" stroke="black" points="109.5,-88.91 102.07,-96.46 112.59,-95.19 109.5,-88.91"/>
+<title>modm_board_black_pill_f401&#45;&gt;[modm_platform_rtt__modm_debug]</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M270.38,-38.73C225.75,-48.27 163.24,-63.88 102.49,-88.92"/>
+<polygon fill="black" stroke="black" points="101.01,-85.74 93.15,-92.85 103.73,-92.19 101.01,-85.74"/>
 </g>
 <g id="node3" class="node">
-<title>modm_platform_clock</title>
-<polygon fill="lightgrey" stroke="black" points="210,-149.5 127,-149.5 127,-96.5 210,-96.5 210,-149.5"/>
-<text text-anchor="middle" x="168.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="168.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="168.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
+<title>modm_architecture_clock</title>
+<polygon fill="lightgrey" stroke="black" points="220,-149.5 111,-149.5 111,-96.5 220,-96.5 220,-149.5"/>
+<text text-anchor="middle" x="165.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="165.5" y="-119.3" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="165.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_board_black_pill_f401&#45;&gt;modm_platform_clock</title>
-<path fill="none" stroke="black" d="M242.17,-53.07C230.15,-64.31 215.91,-77.64 203.16,-89.57"/>
-<polygon fill="black" stroke="black" points="200.76,-87.02 195.85,-96.41 205.55,-92.13 200.76,-87.02"/>
+<title>modm_board_black_pill_f401&#45;&gt;modm_architecture_clock</title>
+<path fill="none" stroke="black" d="M285.12,-53.07C264.61,-64.89 240.09,-79.02 218.61,-91.4"/>
+<polygon fill="black" stroke="black" points="216.83,-88.38 209.92,-96.41 220.33,-94.45 216.83,-88.38"/>
 </g>
 <g id="node4" class="node">
-<title>modm_platform_core</title>
-<polygon fill="lightgrey" stroke="black" points="311,-149.5 228,-149.5 228,-96.5 311,-96.5 311,-149.5"/>
-<text text-anchor="middle" x="269.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="269.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="269.5" y="-104.3" font-family="Times,serif" font-size="14.00">core</text>
+<title>modm_platform_clock</title>
+<polygon fill="lightgrey" stroke="black" points="321,-149.5 238,-149.5 238,-96.5 321,-96.5 321,-149.5"/>
+<text text-anchor="middle" x="279.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="279.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="279.5" y="-104.3" font-family="Times,serif" font-size="14.00">clock</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_board_black_pill_f401&#45;&gt;modm_platform_core</title>
-<path fill="none" stroke="black" d="M269.5,-53.32C269.5,-63.43 269.5,-75.19 269.5,-86.1"/>
-<polygon fill="black" stroke="black" points="266,-86.21 269.5,-96.21 273,-86.21 266,-86.21"/>
+<title>modm_board_black_pill_f401&#45;&gt;modm_platform_clock</title>
+<path fill="none" stroke="black" d="M315.84,-53.32C310.33,-63.74 303.88,-75.92 297.96,-87.11"/>
+<polygon fill="black" stroke="black" points="294.73,-85.73 293.15,-96.21 300.92,-89.01 294.73,-85.73"/>
 </g>
 <g id="node5" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="412,-149.5 329,-149.5 329,-96.5 412,-96.5 412,-149.5"/>
-<text text-anchor="middle" x="370.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="370.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="370.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_platform_core</title>
+<polygon fill="lightgrey" stroke="black" points="422,-149.5 339,-149.5 339,-96.5 422,-96.5 422,-149.5"/>
+<text text-anchor="middle" x="380.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="380.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="380.5" y="-104.3" font-family="Times,serif" font-size="14.00">core</text>
 </g>
 <g id="edge4" class="edge">
-<title>modm_board_black_pill_f401&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M296.83,-53.07C308.85,-64.31 323.09,-77.64 335.84,-89.57"/>
-<polygon fill="black" stroke="black" points="333.45,-92.13 343.15,-96.41 338.24,-87.02 333.45,-92.13"/>
+<title>modm_board_black_pill_f401&#45;&gt;modm_platform_core</title>
+<path fill="none" stroke="black" d="M343.44,-53.32C349.06,-63.74 355.63,-75.92 361.67,-87.11"/>
+<polygon fill="black" stroke="black" points="358.75,-89.07 366.58,-96.21 364.91,-85.75 358.75,-89.07"/>
 </g>
 <g id="node6" class="node">
-<title>modm_platform_usb_fs</title>
-<polygon fill="lightgrey" stroke="black" points="513,-157 430,-157 430,-89 513,-89 513,-157"/>
-<text text-anchor="middle" x="471.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="471.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="471.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb:</text>
-<text text-anchor="middle" x="471.5" y="-96.8" font-family="Times,serif" font-size="14.00">fs</text>
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="523,-149.5 440,-149.5 440,-96.5 523,-96.5 523,-149.5"/>
+<text text-anchor="middle" x="481.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="481.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="481.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
 </g>
 <g id="edge5" class="edge">
+<title>modm_board_black_pill_f401&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M372.92,-53.15C391.12,-64.04 412.44,-76.97 431.5,-89 432.45,-89.6 433.4,-90.2 434.36,-90.81"/>
+<polygon fill="black" stroke="black" points="432.81,-93.98 443.11,-96.44 436.59,-88.09 432.81,-93.98"/>
+</g>
+<g id="node7" class="node">
+<title>modm_platform_usb_fs</title>
+<polygon fill="lightgrey" stroke="black" points="624,-157 541,-157 541,-89 624,-89 624,-157"/>
+<text text-anchor="middle" x="582.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="582.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="582.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb:</text>
+<text text-anchor="middle" x="582.5" y="-96.8" font-family="Times,serif" font-size="14.00">fs</text>
+</g>
+<g id="edge6" class="edge">
 <title>modm_board_black_pill_f401&#45;&gt;modm_platform_usb_fs</title>
-<path fill="none" stroke="black" d="M328.83,-48.36C355.09,-58.32 386.28,-71.13 420.59,-88.79"/>
-<polygon fill="black" stroke="black" points="419.37,-92.11 429.86,-93.65 422.62,-85.91 419.37,-92.11"/>
+<path fill="none" stroke="black" d="M388.91,-40.67C427.95,-50.41 479.88,-65.43 531.44,-88.88"/>
+<polygon fill="black" stroke="black" points="530.18,-92.15 540.72,-93.2 533.13,-85.81 530.18,-92.15"/>
 </g>
 </g>
 </svg></p>
