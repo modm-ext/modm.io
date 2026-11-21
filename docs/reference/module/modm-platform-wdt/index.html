@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#watchdog-timer" class="md-skip">
+        <a href="#watchdog-timer-wdt" class="md-skip">
           Skip to content
         </a>
       
@@ -16745,8 +16745,27 @@
 
 
 
-<h1 id="watchdog-timer">Watchdog Timer<a class="headerlink" href="#watchdog-timer" title="Permanent link">&para;</a></h1>
+<h1 id="watchdog-timer-wdt">Watchdog Timer (WDT)<a class="headerlink" href="#watchdog-timer-wdt" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:platform:wdt</code></p>
+<p><code>Wdt::initialize()</code> configures and starts the watchdog. Call it once after
+reset, when the application is ready to call <code>Wdt::trigger()</code> periodically:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Wdt</span><span class="o">::</span><span class="n">initialize</span><span class="o">&lt;</span><span class="n">SystemClock</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="n">s</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">do_work</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Wdt</span><span class="o">::</span><span class="n">trigger</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Measured on the nRF5340, the running watchdog behaves as follows:</p>
+<ul>
+<li>The timeout is locked: calling <code>initialize()</code> again keeps the first timeout.</li>
+<li>A soft reset does <strong>not</strong> stop it, including <code>NVIC_SystemReset()</code> and the
+  reset of most debuggers. The new firmware then runs with the old timeout and
+  is reset unless it triggers the watchdog in time.</li>
+<li>A pin reset or the watchdog reset itself stops it. For this reason,
+  <code>modm_tools.jlink</code> programs and resets the nRF53 application core via the pin.</li>
+</ul>
+<p>Use <code>Wdt::isRunning()</code> after reset to detect a watchdog left running.</p>
 <p><em>This module is only available for nrf.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
