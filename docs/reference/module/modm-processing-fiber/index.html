@@ -15523,6 +15523,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#hosted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosted
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -15574,7 +15585,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hosted" class="md-nav__link">
+  <a href="#hosted_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hosted
@@ -17300,6 +17311,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#hosted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosted
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -17351,7 +17373,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hosted" class="md-nav__link">
+  <a href="#hosted_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hosted
@@ -17704,9 +17726,9 @@ is executed on the main stack and not on the fiber stack that overflowed!</p>
 <p>On ARMv8-M devices, the stack overflow is checked in hardware via the PSPLIM
 register, therefore the context switch is a little faster.</p>
 <h2 id="thread-local-storage">Thread-Local Storage<a class="headerlink" href="#thread-local-storage" title="Permanent link">&para;</a></h2>
-<p>With the <code>modm:processing:fiber:thread_local</code> option on Cortex-M and AVR, each
-fiber has its own copy of all <code>thread_local</code> variables, while code outside of
-fibers uses its own copy:</p>
+<p>With the <code>modm:processing:fiber:thread_local</code> option on Cortex-M and AVR, and
+always on hosted targets, each fiber has its own copy of all <code>thread_local</code>
+variables, while code outside of fibers uses its own copy:</p>
 <div class="highlight"><pre><span></span><code><span class="k">thread_local</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">counter</span><span class="p">;</span><span class="w">  </span><span class="c1">// one per fiber</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber1</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
 <span class="n">modm</span><span class="o">::</span><span class="n">Fiber</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">fiber2</span><span class="p">([]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
@@ -17719,7 +17741,7 @@ to avoid the initialization check on every access.</p>
 <p>The option is disabled by default. Without it, using <code>thread_local</code> on Cortex-M
 and AVR fails to link with an error that names the option.</p>
 <div class="admonition warning">
-<p class="admonition-title">Destructors of <code>thread_local</code> objects are never called</p>
+<p class="admonition-title">Destructors of <code>thread_local</code> objects are never called on Cortex-M and AVR</p>
 <p>Neither when a fiber returns or is restarted, nor for the main context.
 GCC discards them without a warning, since modm compiles with
 <code>-fno-use-cxa-atexit</code>. Restarting a fiber initializes its storage again,
@@ -17737,7 +17759,7 @@ store a pointer to it:</p>
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<p>Further limitations:</p>
+<p>Further limitations on Cortex-M and AVR:</p>
 <ul>
 <li>Every fiber reserves storage for <em>all</em> <code>thread_local</code> variables of the
   program, even the ones it never uses, which reduces the usable stack size of
@@ -17767,6 +17789,15 @@ uses a copy at the top of the main stack. Each access costs a function call of
 <p>GCC stores the size of each variable in the 8-bit word mode of AVR, so
 larger <code>thread_local</code> variables are silently truncated by the compiler.</p>
 </div>
+<h3 id="hosted">Hosted<a class="headerlink" href="#hosted" title="Permanent link">&para;</a></h3>
+<p>The option does not exist on hosted targets, since every fiber is a thread with
+its own <code>thread_local</code> variables. A restarted fiber gets new variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Destructors of <code>thread_local</code> objects are called on hosted targets</p>
+<p>They run when the fiber ends and before the next fiber continues, unlike on
+Cortex-M and AVR, so code that relies on them works on hosted targets but
+leaks on embedded ones. A <code>yield()</code> inside of them does not switch fibers.</p>
+</div>
 <h2 id="scheduling">Scheduling<a class="headerlink" href="#scheduling" title="Permanent link">&para;</a></h2>
 <p>The scheduler <code>run()</code> function will suspend execution of the call site, usually
 the main function, start each fiber and continue to execute them until they all
@@ -17788,9 +17819,9 @@ threads from interrupt context is a bad idea!</p>
 running, it simply returns in-place, since there is nowhere to switch to.</p>
 </div>
 <h2 id="platforms">Platforms<a class="headerlink" href="#platforms" title="Permanent link">&para;</a></h2>
-<p>Fibers are implemented by saving callee registers to the current stack, then
-switching to a new stack and restoring callee registers from this stack.
-The static <code>modm::this_fiber::yield()</code> function wraps this functionality in a
+<p>On embedded targets, fibers are implemented by saving callee registers to the
+current stack, then switching to a new stack and restoring callee registers from
+this stack. The static <code>modm::this_fiber::yield()</code> function wraps this functionality in a
 transparent way.</p>
 <h3 id="avr_1">AVR<a class="headerlink" href="#avr_1" title="Permanent link">&para;</a></h3>
 <p>On AVRs the fiber stack is shared with the currently active interrupt.
@@ -17804,9 +17835,23 @@ pointer in Thread mode. Therefore all interrupts are using the main stack whose
 size is defined by the <code>modm:platform:cortex-m:main_stack_size</code> option and will
 not increase the fiber stack size at all.</p>
 <p>The default stack size is <strong>1KiB</strong>.</p>
-<h3 id="hosted">Hosted<a class="headerlink" href="#hosted" title="Permanent link">&para;</a></h3>
-<p>Two implementations for x86_64 and ARM64 are provided.</p>
-<p>The default stack size is <strong>1MiB</strong>.</p>
+<h3 id="hosted_1">Hosted<a class="headerlink" href="#hosted_1" title="Permanent link">&para;</a></h3>
+<p>Each fiber is an OS thread. The scheduler is the same as on all other targets
+and the context switch hands execution from one thread to the next, so that only
+one fiber per scheduler is running and fibers are scheduled in exactly the same
+order as on the embedded targets. Therefore <code>thread_local</code> variables, <code>errno</code>
+and exceptions are per fiber without any further support.</p>
+<p>Every thread that calls <code>modm::fiber::Scheduler::run()</code> has its own scheduler,
+and fibers started from a fiber belong to its scheduler. Schedulers and other
+threads run in parallel and are never blocked by each other. They can share the
+synchronization primitives, except for <code>modm::fiber::recursive_mutex</code> and
+<code>modm::fiber::barrier</code>, which only work within one scheduler.</p>
+<div class="admonition warning">
+<p class="admonition-title">Threads use the stack of the operating system</p>
+<p>The fiber stack only stores the closure, so its size does not limit the
+fiber, <code>stack_usage()</code> always returns zero, and a stack overflow crashes in
+the guard page of the thread instead of the <code>fbr.stkof</code> assertion.</p>
+</div>
 <h3 id="multi-core-scheduling">Multi-Core Scheduling<a class="headerlink" href="#multi-core-scheduling" title="Permanent link">&para;</a></h3>
 <p>When using this module in combination with the <code>modm:platform:multicore</code> module,
 each core gets its own fiber scheduler, which will internally be selected based
