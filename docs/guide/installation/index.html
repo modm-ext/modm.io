@@ -17089,6 +17089,8 @@ Otherwise, including Ubuntu 24.04, we recommend using the <a href="https://xpack
 some targets (STM32L5, STM32U5). You can manually install an up-to-date
 version of OpenOCD by <a href="https://github.com/rleh/openocd-build">following the instructions here</a>.</p>
 </div>
+<p>To program the RP2040 via PICOBOOT, install <code>picotool</code> from your distribution or
+the <a href="https://github.com/raspberrypi/pico-sdk-tools/releases">pre-built binaries</a>, and its <a href="https://github.com/raspberrypi/picotool/blob/master/udev/60-picotool.rules">udev rules</a>.</p>
 <h4 id="microchip-avr">Microchip AVR<a class="headerlink" href="#microchip-avr" title="Permanent link">&para;</a></h4>
 <p>Download and extract the <a href="https://github.com/modm-io/avr-gcc">pre-built AVR toolchain</a>:</p>
 <div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-O-<span class="w"> </span>https://github.com/modm-io/avr-gcc/releases/download/v14.2.0/modm-avr-gcc.tar.bz2<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tar<span class="w"> </span>xj<span class="w"> </span>-C<span class="w"> </span>/opt
@@ -17133,6 +17135,9 @@ brew<span class="w"> </span>link<span class="w"> </span>--force<span class="w"> 
 </code></pre></div>
 <p>To program Microchip SAM devices via the bootloader, install the <code>bossac</code> tool:</p>
 <div class="highlight"><pre><span></span><code>brew<span class="w"> </span>cask<span class="w"> </span>install<span class="w"> </span>bossa
+</code></pre></div>
+<p>To program the RP2040 via PICOBOOT, install the <code>picotool</code> tool:</p>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>picotool
 </code></pre></div>
 <h4 id="microchip-avr_1">Microchip AVR<a class="headerlink" href="#microchip-avr_1" title="Permanent link">&para;</a></h4>
 <p>Install the <a href="https://github.com/osx-cross/homebrew-avr">AVR toolchain from source</a>:</p>
@@ -17190,6 +17195,9 @@ Open PowerShell to add the <code>\bin</code> folder to the <code>Path</code>:</p
 <p>Close the PowerShell and open a new command prompt to test openocd:</p>
 <div class="highlight"><pre><span></span><code>openocd<span class="w"> </span>--version
 </code></pre></div>
+<p>To program the RP2040 via PICOBOOT, add the <a href="https://github.com/raspberrypi/pico-sdk-tools/releases">pre-built <code>picotool</code></a>
+to your path and use <a href="https://zadig.akeo.ie">Zadig</a> to install the WinUSB driver for
+<code>RP2 Boot (Interface 1)</code>.</p>
 <h4 id="microchip-avr_2">Microchip AVR<a class="headerlink" href="#microchip-avr_2" title="Permanent link">&para;</a></h4>
 <p>Download the <a href="https://github.com/ZakKemble/avr-gcc-build/releases">pre-built AVR toolchain</a> and unpack the <code>.zip</code> file using
 the context menu <code>7-Zip &gt; Extract to "avr-gcc-14.2.0-..."</code>

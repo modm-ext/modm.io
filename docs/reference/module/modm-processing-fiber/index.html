@@ -17844,8 +17844,7 @@ and exceptions are per fiber without any further support.</p>
 <p>Every thread that calls <code>modm::fiber::Scheduler::run()</code> has its own scheduler,
 and fibers started from a fiber belong to its scheduler. Schedulers and other
 threads run in parallel and are never blocked by each other. They can share the
-synchronization primitives, except for <code>modm::fiber::recursive_mutex</code> and
-<code>modm::fiber::barrier</code>, which only work within one scheduler.</p>
+synchronization primitives.</p>
 <div class="admonition warning">
 <p class="admonition-title">Threads use the stack of the operating system</p>
 <p>The fiber stack only stores the closure, so its size does not limit the

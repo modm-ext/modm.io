@@ -3101,6 +3101,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PICOBOOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#openocd" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16780,6 +16791,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PICOBOOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#openocd" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16833,6 +16855,10 @@ See <a href="https://www.raspberrypi.com/products/raspberry-pi-pico">https://www
 <p>To upload your application, connect the RP2040 via USB, convert the ELF to UF2
 format by calling <code>scons uf2</code> or <code>make uf2</code> and copy the generated <code>.uf2</code> file
 to the mounted virtual disk.</p>
+<h3 id="picoboot">PICOBOOT<a class="headerlink" href="#picoboot" title="Permanent link">&para;</a></h3>
+<p>With <a href="https://github.com/raspberrypi/picotool"><code>picotool</code></a> installed, call
+<code>scons program-picoboot</code> or <code>make program-picoboot</code> to program, verify and start
+your application on a device in BOOTSEL mode without using the virtual disk.</p>
 <h3 id="openocd">OpenOCD<a class="headerlink" href="#openocd" title="Permanent link">&para;</a></h3>
 <p>Another option is to use Picoprobe and custom version of OpenOCD provided by RPi.</p>
 <p>You would need to build and program one of the boards with the Picoprobe firmware,

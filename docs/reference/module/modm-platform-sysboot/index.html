@@ -14607,6 +14607,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leaving-the-bootloader-on-stm32h5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leaving the Bootloader on STM32H5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16762,6 +16773,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leaving-the-bootloader-on-stm32h5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leaving the Bootloader on STM32H5
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16831,8 +16853,25 @@ TinyUSB can still answer the <code>DFU_DETACH</code> request:</p>
   bank 2 instead. Disable the dual bank boot option first.</li>
 <li>On devices with TrustZone the jump only works with TZEN=0.</li>
 <li>The bootloader configures its own clocks and leaves some peripherals enabled
-  when it exits via the Go command. Reset the device to leave the bootloader.</li>
+  when it exits via the Go command, including the DFU leave request. Reset the
+  device to leave the bootloader, except on the STM32H5, see below.</li>
 </ul>
+<h2 id="leaving-the-bootloader-on-stm32h5">Leaving the Bootloader on STM32H5<a class="headerlink" href="#leaving-the-bootloader-on-stm32h5" title="Permanent link">&para;</a></h2>
+<p>The STM32H5 bootloader exits by jumping to the application instead of resetting
+the device. After a start through the BOOT0 pin, the secure firmware (SFSP) has
+mapped only the resources of the bootloader into the non-secure domain, so that
+"a jump from the BL to an application using other resources does not work"
+(AN2606 §4.10, Boot_V3_2). On the STM32H563 the application then hangs during
+its startup. So on the STM32H5 this module checks the reset flags first: the
+bootloader clears them and every real reset sets at least one, so without a flag
+the module resets the device once, before anything else is initialized.</p>
+<p>An application that is started by your own bootloader sees the same condition if
+that bootloader clears the reset flags. It then starts after at most two extra
+resets, which a value in <code>.noinit</code> counts, so that this cannot become a loop.
+The bootloader may overwrite that value, which only means one more reset.</p>
+<p>A wake-up from Standby sets no reset flag either, so the module does not reset
+while the <code>SBF</code> flag in <code>PWR_PMSR</code> is set. This flag survives resets: clear it
+with <code>CSSF</code> after a wake-up, otherwise the next bootloader exit is not detected.</p>
 <p><em>This module is only available for stm32{c0,c5,f0,f1,f2,f3,f4,f7,g0,g4,h5,h7,l0,l1,l4,l5,u0,u3,u5}.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>

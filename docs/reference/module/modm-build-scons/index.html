@@ -7394,6 +7394,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scons-program-picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scons program-picoboot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scons-program-bmp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17364,6 +17375,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scons-program-picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scons program-picoboot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#scons-program-bmp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -18031,6 +18053,13 @@ File downloaded successfully
 Transitioning to dfuMANIFEST state
 scons: done building targets.
 </code></pre></div>
+<h4 id="scons-program-picoboot">scons program-picoboot<a class="headerlink" href="#scons-program-picoboot" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>scons program-picoboot profile={debug|release} [firmware={hash or file}] [serial={flash-id}]
+</code></pre></div>
+<p>Writes, verifies and starts the executable on a device in BOOTSEL mode via
+<code>picotool</code>. Hold the BOOTSEL button during reset to enter this mode. To select
+one of several devices, set <code>serial</code> to its flash ID from <code>picotool info -d</code>.
+(* <em>only RP2040 targets</em>)</p>
 <h4 id="scons-program-bmp">scons program-bmp<a class="headerlink" href="#scons-program-bmp" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>scons program-bmp profile={debug|release} port={serial-port} [firmware={hash or file}]
 </code></pre></div>

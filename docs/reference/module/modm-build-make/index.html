@@ -7377,6 +7377,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-program-picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make program-picoboot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-program-bmp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17232,6 +17243,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#make-program-picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make program-picoboot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#make-program-bmp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17733,6 +17755,13 @@ File downloaded successfully
    Poll timeout 0 ms
 Transitioning to dfuMANIFEST state
 </code></pre></div>
+<h4 id="make-program-picoboot">make program-picoboot<a class="headerlink" href="#make-program-picoboot" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>make program-picoboot profile={debug|release} [serial={flash-id}]
+</code></pre></div>
+<p>Writes, verifies and starts the executable on a device in BOOTSEL mode via
+<code>picotool</code>. Hold the BOOTSEL button during reset to enter this mode. To select
+one of several devices, set <code>serial</code> to its flash ID from <code>picotool info -d</code>.
+(* <em>only RP2040 targets</em>)</p>
 <h4 id="make-program-bmp">make program-bmp<a class="headerlink" href="#make-program-bmp" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>make program-bmp profile={debug|release} port={serial-port}
 </code></pre></div>
