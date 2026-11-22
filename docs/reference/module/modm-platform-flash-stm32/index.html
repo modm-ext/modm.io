@@ -16944,12 +16944,14 @@ different flash controllers, each with its own implementation:</p>
 </tbody>
 </table>
 <p>All controllers share the same interface: <code>Flash::unlock()</code> before any
-operation, <code>Flash::getPage(addr)</code> or <code>Flash::getSector(addr)</code> to find the
-erase unit of an address, <code>Flash::erase(index)</code> and
+operation, <code>Flash::getPage(ptr)</code> or <code>Flash::getSector(ptr)</code> to find the
+erase unit of a pointer into the flash, <code>Flash::erase(index)</code> and
 <code>Flash::program(addr, Flash::MaxWordType)</code>. The functions return the error
 flags of the controller, zero on success. Pages and sectors are numbered
 continuously over all banks. All addresses are absolute, only
 <code>Flash::getOffset(index)</code> returns the offset from <code>Flash::OriginAddr</code>.
+The overloads of <code>getPage()</code> and <code>getSector()</code> taking an integer offset from
+<code>Flash::OriginAddr</code> are deprecated, use <code>Flash::getPage(Flash::Origin + offset)</code>.
 <code>Flash::MinPageSize</code> and <code>Flash::MaxPageSize</code> are the smallest and largest
 page or sector of all flash organizations of the device, independent of the
 dual-bank option bits. If they are equal, all pages have the same size.</p>
