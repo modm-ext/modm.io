@@ -7333,6 +7333,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#program-dfu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        program-dfu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17146,6 +17157,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#program-dfu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        program-dfu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17413,6 +17435,18 @@ your IDE.</p>
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="program-jlink">program-jlink<a class="headerlink" href="#program-jlink" title="Permanent link">&para;</a></h4>
 <p>Writes the executable onto your target via JLink.
+(* <em>only ARM Cortex-M targets</em>)</p>
+<h4 id="program-dfu">program-dfu<a class="headerlink" href="#program-dfu" title="Permanent link">&para;</a></h4>
+<ul>
+<li>option <code>MODM_DFU_DELAY=5</code> in seconds.</li>
+<li>option <code>MODM_DFU_SERIAL</code> as string, empty by default.</li>
+</ul>
+<p>Writes the executable onto your target via Device Firmware Update (DFU) over
+USB with <code>dfu-util</code>. Some DFU devices require additional delay to re-enumerate,
+which you can specify with <code>MODM_DFU_DELAY</code>.</p>
+<p>With several DFU devices connected, select one with <code>MODM_DFU_SERIAL</code>. A device
+that runs its firmware is detached into its bootloader first, which may report
+another serial number: give both as <code>{firmware},{bootloader}</code>.
 (* <em>only ARM Cortex-M targets</em>)</p>
 <h4 id="debug">debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h4>
 <ul>

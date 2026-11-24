@@ -14204,6 +14204,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#system-bootloader-serial-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Bootloader Serial Number
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linkerscript" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16985,6 +16996,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#system-bootloader-serial-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Bootloader Serial Number
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linkerscript" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17155,6 +17177,59 @@ STM32-specific startup code and linkerscripts.</p>
 <p>It must not access the RAM: On STM32H7 for example, write accesses to RAM are
 forbidden until the supply configuration is written. The H7 boards do this in
 <code>modm_initialize_platform()</code>, which is called directly afterwards.</p>
+<h2 id="system-bootloader-serial-number">System Bootloader Serial Number<a class="headerlink" href="#system-bootloader-serial-number" title="Permanent link">&para;</a></h2>
+<p>Most STM32 system bootloaders report a USB serial number of 12 hexadecimal
+digits derived from the 96-bit unique device ID (UID):</p>
+<div class="highlight"><pre><span></span><code>UID_BASE + 0x0  UID0 ─┐
+                      ├─ add (wraps) ─► 8 hex digits ─┐
+UID_BASE + 0x8  UID2 ─┘                               ├─► 12 digit serial
+UID_BASE + 0x4  UID1 ──── &gt;&gt; 16 ────► 4 hex digits ───┘
+</code></pre></div>
+<p>On STM32L0 and STM32L1 the third UID word is at offset <code>0x14</code> instead of <code>0x8</code>.</p>
+<p>The bootloaders of some devices do not report a unique serial number:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Device</th>
+<th style="text-align: left;">Serial number</th>
+<th style="text-align: left;">Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">STM32F722/F723</td>
+<td style="text-align: left;"><code>STM32FxSTM32</code></td>
+<td style="text-align: left;">Default string, the UID is not read</td>
+</tr>
+<tr>
+<td style="text-align: left;">STM32F746</td>
+<td style="text-align: left;"><code>00000008FFFF</code></td>
+<td style="text-align: left;">Reads the STM32F4 UID address <code>0x1FFF7A10</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">STM32H743</td>
+<td style="text-align: left;"><code>100364500000</code></td>
+<td style="text-align: left;">Reads <code>DBGMCU</code> instead of the UID</td>
+</tr>
+<tr>
+<td style="text-align: left;">STM32H745</td>
+<td style="text-align: left;"><code>200364500000</code></td>
+<td style="text-align: left;">Reads <code>DBGMCU</code> instead of the UID</td>
+</tr>
+<tr>
+<td style="text-align: left;">STM32H7A3</td>
+<td style="text-align: left;"><code>FFFFFFFEFFFF</code></td>
+<td style="text-align: left;">Reads the erased address <code>0x1FF1E800</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">STM32L152</td>
+<td style="text-align: left;">not unique</td>
+<td style="text-align: left;">Skips the third UID word at offset <code>0x14</code></td>
+</tr>
+</tbody>
+</table>
+<p>The serial numbers of STM32H743 and STM32H745 depend on the silicon revision and
+end in <code>0070</code> instead of <code>0000</code> with a debugger attached.</p>
 <h2 id="linkerscript">Linkerscript<a class="headerlink" href="#linkerscript" title="Permanent link">&para;</a></h2>
 <p>For each target a specific linkerscript is generated out of a template, which
 move some sections into special RAMs depending on their purpose. You can place
