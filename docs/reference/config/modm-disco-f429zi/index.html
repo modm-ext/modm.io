@@ -1269,6 +1269,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#external-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tinyusb" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16891,6 +16902,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#external-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tinyusb" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16933,8 +16955,21 @@
 <p>lbuild config: <code>modm:disco-f429zi</code></p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f429idiscovery.html">Discovery kit for STM32F429</a></p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
-<p>To use the logging, you need to close SB11 and SB15 and upgrade the STLINK/V2-B
-firmware! See Section 6.3 "Embedded ST-LINK/V2-B" of UM1670.</p>
+<p>The logger uses USART1, which is connected to the virtual COM port of the
+STLINK/V2-B on the STM32F429I-DISC1 (MB1075E). On older boards you need to
+close SB11 and SB15 and upgrade the STLINK/V2-B firmware! See Section 6.3
+"Embedded ST-LINK/V2-B" of UM1670.</p>
+<p>Alternatively, log via RTT, which works with any ST-LINK and needs no solder
+bridges:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:board:disco-f429zi:with_rtt"</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
+<p>Then log using:</p>
+<div class="highlight"><pre><span></span><code>scons<span class="w"> </span>log-rtt
+</code></pre></div>
+<h2 id="external-memory">External Memory<a class="headerlink" href="#external-memory" title="Permanent link">&para;</a></h2>
+<p>The 8MB SDRAM on the FMC is configured before <code>main()</code> and added to the heap.
+You can allocate from it with <code>new (modm::MemoryExternal) T</code> or place objects
+into it with the <code>.data_sdram</code>, <code>.bss_sdram</code> or <code>.noinit_sdram</code> sections.</p>
 <h2 id="tinyusb">TinyUSB<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
 <p>To use the USB port, you must configure TinyUSB to use the HS port in FS mode:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:ext:tinyusb:max-speed"</span><span class="nt">&gt;</span>full<span class="nt">&lt;/option&gt;</span>

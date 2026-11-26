@@ -4953,6 +4953,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#external-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tinyusb" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16869,6 +16880,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#external-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tinyusb" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16910,6 +16932,14 @@
 <h1 id="stm32f7discovery">STM32F7DISCOVERY<a class="headerlink" href="#stm32f7discovery" title="Permanent link">&para;</a></h1>
 <p>lbuild module: <code>modm:board:disco-f746ng</code></p>
 <p><a href="https://www.st.com/en/evaluation-tools/32f746gdiscovery.html">Discovery kit for STM32F746</a></p>
+<h2 id="external-memory">External Memory<a class="headerlink" href="#external-memory" title="Permanent link">&para;</a></h2>
+<p>The SDRAM on the FMC is configured before <code>main()</code> and added to the heap. Only
+16 of its 32 data bits are connected, so 8MB of its 16MB are accessible. You can
+allocate from it with <code>new (modm::MemoryExternal) T</code> or place objects into it
+with the <code>.data_sdram</code>, <code>.bss_sdram</code> or <code>.noinit_sdram</code> sections.</p>
+<p>The Cortex-M7 treats 0xC0000000 as device memory, which does not allow unaligned
+accesses, so the MPU maps the SDRAM as normal memory. It is not cacheable, so
+that the CPU and DMAs always see the same data.</p>
 <h2 id="tinyusb">TinyUSB<a class="headerlink" href="#tinyusb" title="Permanent link">&para;</a></h2>
 <p>This board has two USB ports: one with Full Speed support and another with true
 High Speed support. By default, TinyUSB runs the device classes on the FS port,
