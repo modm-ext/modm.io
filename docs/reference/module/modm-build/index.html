@@ -19012,6 +19012,9 @@ Data:<span class="w">      </span><span class="m">3</span>.0<span class="w"> </s
 Heap:<span class="w">     </span><span class="m">17</span>.0<span class="w"> </span>KiB<span class="w"> </span>/<span class="w">  </span><span class="m">20</span>.0<span class="w"> </span>KiB<span class="w"> </span><span class="o">(</span><span class="m">84</span>.9%<span class="w"> </span>available<span class="o">)</span>
 <span class="o">(</span>.heap1<span class="o">)</span>
 </code></pre></div>
+<p>Writable sections outside of these memories are in external memory, for example
+an SDRAM that the board adds to the linker script and fills up with heap. They
+are added to the heap total.</p>
 <p>(* <em>only ARM Cortex-M targets</em>)</p>
 <h3 id="information-tool">Information Tool<a class="headerlink" href="#information-tool" title="Permanent link">&para;</a></h3>
 <p>This tool generates a set of source files containing information about the
