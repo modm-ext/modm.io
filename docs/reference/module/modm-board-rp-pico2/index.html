@@ -12,13 +12,13 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-ext-cmsis-device-rp2040/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-board-rp-pico2/">
       
       
-        <link rel="prev" href="../modm-ext-cmsis-device-nrf/">
+        <link rel="prev" href="../modm-board-rp-pico/">
       
       
-        <link rel="next" href="../modm-ext-cmsis-device-sam/">
+        <link rel="next" href="../modm-board-samd21-mini/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>:ext:cmsis:device (rp2040) - modm barebone embedded library</title>
+        <title>:board:rp-pico2 - modm barebone embedded library</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#modmextcmsisdevice" class="md-skip">
+        <a href="#raspberry-pi-pico-2" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :ext:cmsis:device (rp2040)
+              :board:rp-pico2
             
           </span>
         </div>
@@ -3052,6 +3052,34 @@
     
   
     :rp-pico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/modm-rp-pico2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :rp-pico2
   
 
     
@@ -6673,6 +6701,181 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :board:rp-pico2
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :board:rp-pico2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uf2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UF2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PICOBOOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenOCD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        logger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -11134,44 +11337,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :ext:cmsis:device (rp2040)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-ext-cmsis-device-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :ext:cmsis:device (rp2040)
+    :ext:cmsis:device (rp)
   
 
     
@@ -11180,37 +11356,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -13519,14 +13664,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-adc-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-adc-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:adc (rp2040)
+    :platform:adc (rp)
   
 
     
@@ -13967,14 +14112,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-clockgen-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-clockgen-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:clockgen (rp2040)
+    :platform:clockgen (rp)
   
 
     
@@ -14135,14 +14280,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-core-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-core-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:core (rp2040)
+    :platform:core (rp)
   
 
     
@@ -14303,14 +14448,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-dma-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-dma-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:dma (rp2040)
+    :platform:dma (rp)
   
 
     
@@ -14499,14 +14644,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-extint-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-extint-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:extint (rp2040)
+    :platform:extint (rp)
   
 
     
@@ -14583,14 +14728,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-flash-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-flash-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:flash (rp2040)
+    :platform:flash (rp)
   
 
     
@@ -14779,14 +14924,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-gpio-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-gpio-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:gpio (rp2040)
+    :platform:gpio (rp)
   
 
     
@@ -14975,14 +15120,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-i2c-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-i2c-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:i2c (rp2040)
+    :platform:i2c (rp)
   
 
     
@@ -15479,14 +15624,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-spi-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-spi-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:spi (rp2040)
+    :platform:spi (rp)
   
 
     
@@ -15815,14 +15960,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-uart-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-uart-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:uart (rp2040)
+    :platform:uart (rp)
   
 
     
@@ -16151,14 +16296,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-usb-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-usb-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:usb (rp2040)
+    :platform:usb (rp)
   
 
     
@@ -16858,6 +17003,95 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Programming
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uf2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UF2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picoboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PICOBOOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openocd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenOCD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        logger
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -16885,37 +17119,144 @@
 
 
 
-<h1 id="modmextcmsisdevice">modm:ext:cmsis:device<a class="headerlink" href="#modmextcmsisdevice" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:ext:cmsis:device</code></p>
-<p><em>This module is only available for rp2040.</em></p>
+<h1 id="raspberry-pi-pico-2">Raspberry Pi Pico 2<a class="headerlink" href="#raspberry-pi-pico-2" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:board:rp-pico2</code></p>
+<p>RP2350A Official System Development Board with 4MiB flash.
+See <a href="https://www.raspberrypi.com/products/raspberry-pi-pico-2">https://www.raspberrypi.com/products/raspberry-pi-pico-2</a></p>
+<h2 id="programming">Programming<a class="headerlink" href="#programming" title="Permanent link">&para;</a></h2>
+<h3 id="uf2">UF2<a class="headerlink" href="#uf2" title="Permanent link">&para;</a></h3>
+<p>The RP2350 ships with a <a href="https://github.com/microsoft/uf2">UF2 bootloader in ROM</a>.</p>
+<p>To upload your application, connect the RP2350 via USB while holding the
+BOOTSEL button, convert the ELF to UF2 format by calling <code>scons uf2</code> or
+<code>make uf2</code> and copy the generated <code>.uf2</code> file to the mounted virtual disk.</p>
+<h3 id="picoboot">PICOBOOT<a class="headerlink" href="#picoboot" title="Permanent link">&para;</a></h3>
+<p>With <a href="https://github.com/raspberrypi/picotool"><code>picotool</code></a> installed, call
+<code>scons program-picoboot</code> or <code>make program-picoboot</code> to program, verify and start
+your application on a device in BOOTSEL mode without using the virtual disk.</p>
+<h3 id="openocd">OpenOCD<a class="headerlink" href="#openocd" title="Permanent link">&para;</a></h3>
+<p>Connect a CMSIS-DAP probe, for example the Raspberry Pi Debug Probe, to the SWD
+header and call <code>scons program</code> or <code>make program</code>. OpenOCD supports the RP2350
+since v0.12.0+dev with <code>target/rp2350.cfg</code>.</p>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>To log via RTT attach a debugger to the SWD port and select the RTT option:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:board:rp-pico2:logger"</span><span class="nt">&gt;</span>RTT<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
+<p>Then log using:</p>
+<div class="highlight"><pre><span></span><code>scons<span class="w"> </span>log-rtt
+</code></pre></div>
+<p>To log via UART, attach a serial adapter to GPIO0 (TX, 115200 baud) and select
+the UART option:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:board:rp-pico2:logger"</span><span class="nt">&gt;</span>UART<span class="nt">&lt;/option&gt;</span>
+</code></pre></div>
+<p><em>This module is only available for rp2350a.</em></p>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h4 id="logger">logger<a class="headerlink" href="#logger" title="Permanent link">&para;</a></h4>
+<p>Logging mechanism</p>
+<p>Default: <code>Disabled</code><br />
+Inputs: <code>[Disabled, RTT, UART]</code><br />
+Input Dependency: <code>RTT -&gt; [modm:platform:rtt, modm:debug]</code><br />
+Input Dependency: <code>UART -&gt; [modm:platform:uart:0, modm:debug]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="73pt" height="180pt"
- viewBox="0.00 0.00 73.00 180.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<p><svg class="deps" width="721pt" height="180pt"
+ viewBox="0.00 0.00 721.00 180.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 176)">
-<title>modm:ext:cmsis:device</title>
+<title>modm:board:rp&#45;pico2</title>
 <g id="node1" class="node">
-<title>modm_ext_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="65,-68 0,-68 0,0 65,0 65,-68"/>
-<text text-anchor="middle" x="32.5" y="-52.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-37.8" font-family="Times,serif" font-size="14.00">ext:</text>
-<text text-anchor="middle" x="32.5" y="-22.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="32.5" y="-7.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_board_rp_pico2</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="406,-53 331,-53 331,0 406,0 406,-53"/>
+<text text-anchor="middle" x="368.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="368.5" y="-22.8" font-family="Times,serif" font-size="14.00">board:</text>
+<text text-anchor="middle" x="368.5" y="-7.8" font-family="Times,serif" font-size="14.00">rp&#45;pico2</text>
 </g>
 <g id="node2" class="node">
-<title>modm_ext_cmsis_core</title>
-<polygon fill="lightgrey" stroke="black" points="65,-172 0,-172 0,-104 65,-104 65,-172"/>
-<text text-anchor="middle" x="32.5" y="-156.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="32.5" y="-141.8" font-family="Times,serif" font-size="14.00">ext:</text>
-<text text-anchor="middle" x="32.5" y="-126.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="32.5" y="-111.8" font-family="Times,serif" font-size="14.00">core</text>
+<title>[modm_platform_rtt__modm_debug]</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="93,-164.5 0,-164.5 0,-96.5 93,-96.5 93,-164.5"/>
+<text text-anchor="middle" x="46.5" y="-149.3" font-family="Times,serif" font-size="14.00">[modm:</text>
+<text text-anchor="middle" x="46.5" y="-134.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="46.5" y="-119.3" font-family="Times,serif" font-size="14.00">rtt, modm:</text>
+<text text-anchor="middle" x="46.5" y="-104.3" font-family="Times,serif" font-size="14.00">debug]</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_ext_cmsis_device&#45;&gt;modm_ext_cmsis_core</title>
-<path fill="none" stroke="black" d="M32.5,-68.12C32.5,-76.22 32.5,-85.02 32.5,-93.53"/>
-<polygon fill="black" stroke="black" points="29,-93.7 32.5,-103.7 36,-93.7 29,-93.7"/>
+<title>modm_board_rp_pico2&#45;&gt;[modm_platform_rtt__modm_debug]</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M330.67,-31.31C277.47,-37.73 178.44,-53.66 101.5,-89 99.91,-89.73 98.31,-90.51 96.73,-91.34"/>
+<polygon fill="black" stroke="black" points="94.69,-88.47 87.74,-96.46 98.16,-94.55 94.69,-88.47"/>
+</g>
+<g id="node3" class="node">
+<title>[modm_platform_uart_0__modm_debug]</title>
+<polygon fill="lightgrey" stroke="black" stroke-dasharray="5,2" points="194,-172 111,-172 111,-89 194,-89 194,-172"/>
+<text text-anchor="middle" x="152.5" y="-156.8" font-family="Times,serif" font-size="14.00">[modm:</text>
+<text text-anchor="middle" x="152.5" y="-141.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="152.5" y="-126.8" font-family="Times,serif" font-size="14.00">uart:</text>
+<text text-anchor="middle" x="152.5" y="-111.8" font-family="Times,serif" font-size="14.00">0, modm:</text>
+<text text-anchor="middle" x="152.5" y="-96.8" font-family="Times,serif" font-size="14.00">debug]</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_board_rp_pico2&#45;&gt;[modm_platform_uart_0__modm_debug]</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M330.98,-37.79C296.55,-48.07 244.76,-65.7 203.5,-89 203.2,-89.17 202.91,-89.34 202.61,-89.51"/>
+<polygon fill="black" stroke="black" points="200.71,-86.57 194.07,-94.83 204.41,-92.51 200.71,-86.57"/>
+</g>
+<g id="node4" class="node">
+<title>modm_platform_clock_timer</title>
+<polygon fill="lightgrey" stroke="black" points="308.5,-157 212.5,-157 212.5,-104 308.5,-104 308.5,-157"/>
+<text text-anchor="middle" x="260.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="260.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="260.5" y="-111.8" font-family="Times,serif" font-size="14.00">clock.timer</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_board_rp_pico2&#45;&gt;modm_platform_clock_timer</title>
+<path fill="none" stroke="black" d="M341.25,-53.24C327.31,-66.41 310.18,-82.58 295.3,-96.64"/>
+<polygon fill="black" stroke="black" points="292.61,-94.36 287.74,-103.77 297.42,-99.45 292.61,-94.36"/>
+</g>
+<g id="node5" class="node">
+<title>modm_platform_clockgen</title>
+<polygon fill="lightgrey" stroke="black" points="410,-157 327,-157 327,-104 410,-104 410,-157"/>
+<text text-anchor="middle" x="368.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="368.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="368.5" y="-111.8" font-family="Times,serif" font-size="14.00">clockgen</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_board_rp_pico2&#45;&gt;modm_platform_clockgen</title>
+<path fill="none" stroke="black" d="M368.5,-53.24C368.5,-65.44 368.5,-80.22 368.5,-93.51"/>
+<polygon fill="black" stroke="black" points="365,-93.77 368.5,-103.77 372,-93.77 365,-93.77"/>
+</g>
+<g id="node6" class="node">
+<title>modm_platform_core</title>
+<polygon fill="lightgrey" stroke="black" points="511,-157 428,-157 428,-104 511,-104 511,-157"/>
+<text text-anchor="middle" x="469.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="469.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="469.5" y="-111.8" font-family="Times,serif" font-size="14.00">core</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_board_rp_pico2&#45;&gt;modm_platform_core</title>
+<path fill="none" stroke="black" d="M393.99,-53.24C407.02,-66.41 423.04,-82.58 436.96,-96.64"/>
+<polygon fill="black" stroke="black" points="434.5,-99.13 444.02,-103.77 439.47,-94.2 434.5,-99.13"/>
+</g>
+<g id="node7" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="612,-157 529,-157 529,-104 612,-104 612,-157"/>
+<text text-anchor="middle" x="570.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="570.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="570.5" y="-111.8" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge6" class="edge">
+<title>modm_board_rp_pico2&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M406.18,-39.25C437.85,-49.93 483.71,-67.32 520.5,-89 524.96,-91.63 529.44,-94.63 533.79,-97.78"/>
+<polygon fill="black" stroke="black" points="531.87,-100.72 541.95,-103.98 536.1,-95.15 531.87,-100.72"/>
+</g>
+<g id="node8" class="node">
+<title>modm_platform_usb</title>
+<polygon fill="lightgrey" stroke="black" points="713,-157 630,-157 630,-104 713,-104 713,-157"/>
+<text text-anchor="middle" x="671.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="671.5" y="-126.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="671.5" y="-111.8" font-family="Times,serif" font-size="14.00">usb</text>
+</g>
+<g id="edge7" class="edge">
+<title>modm_board_rp_pico2&#45;&gt;modm_platform_usb</title>
+<path fill="none" stroke="black" d="M406.29,-31.42C457.36,-37.87 550.2,-53.71 621.5,-89 626.44,-91.45 631.34,-94.46 636.02,-97.72"/>
+<polygon fill="black" stroke="black" points="634.08,-100.64 644.19,-103.8 638.26,-95.02 634.08,-100.64"/>
 </g>
 </g>
 </svg></p>

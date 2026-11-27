@@ -12,13 +12,13 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-core-rp2040/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-i2c-rp/">
       
       
-        <link rel="prev" href="../modm-platform-core-nrf/">
+        <link rel="prev" href="../modm-platform-i2c-avr/">
       
       
-        <link rel="next" href="../modm-platform-core-sam/">
+        <link rel="next" href="../modm-platform-i2c-same7x-s7x-v7x/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>:platform:core (rp2040) - modm barebone embedded library</title>
+        <title>:platform:i2c (rp) - modm barebone embedded library</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rp2040-core-module" class="md-skip">
+        <a href="#inter-integrated-circuit-i2c" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:core (rp2040)
+              :platform:i2c (rp)
             
           </span>
         </div>
@@ -3052,6 +3052,34 @@
     
   
     :rp-pico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/modm-rp-pico2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :rp-pico2
   
 
     
@@ -6665,6 +6693,34 @@
     
   
     :board:rp-pico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-board-rp-pico2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :board:rp-pico2
   
 
     
@@ -11137,14 +11193,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-ext-cmsis-device-rp2040/" class="md-nav__link">
+      <a href="../modm-ext-cmsis-device-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :ext:cmsis:device (rp2040)
+    :ext:cmsis:device (rp)
   
 
     
@@ -13461,14 +13517,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-adc-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-adc-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:adc (rp2040)
+    :platform:adc (rp)
   
 
     
@@ -13909,14 +13965,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-clockgen-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-clockgen-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:clockgen (rp2040)
+    :platform:clockgen (rp)
   
 
     
@@ -14074,44 +14130,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :platform:core (rp2040)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-platform-core-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:core (rp2040)
+    :platform:core (rp)
   
 
     
@@ -14120,115 +14149,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#startup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Startup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkerscript" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Linkerscript
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Linkerscript">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dual-core-static-ram-sram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dual-Core Static RAM (SRAM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#boot2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        boot2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#boot2_size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        boot2_size
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -14381,14 +14301,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-dma-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-dma-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:dma (rp2040)
+    :platform:dma (rp)
   
 
     
@@ -14577,14 +14497,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-extint-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-extint-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:extint (rp2040)
+    :platform:extint (rp)
   
 
     
@@ -14661,14 +14581,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-flash-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-flash-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:flash (rp2040)
+    :platform:flash (rp)
   
 
     
@@ -14857,14 +14777,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-gpio-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-gpio-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:gpio (rp2040)
+    :platform:gpio (rp)
   
 
     
@@ -15050,17 +14970,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-i2c-rp2040/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :platform:i2c (rp)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:i2c (rp2040)
+    :platform:i2c (rp)
   
 
     
@@ -15069,6 +15016,37 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -15557,14 +15535,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-spi-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-spi-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:spi (rp2040)
+    :platform:spi (rp)
   
 
     
@@ -15893,14 +15871,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-uart-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-uart-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:uart (rp2040)
+    :platform:uart (rp)
   
 
     
@@ -16229,14 +16207,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-usb-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-usb-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:usb (rp2040)
+    :platform:usb (rp)
   
 
     
@@ -16936,84 +16914,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#startup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Startup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkerscript" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Linkerscript
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Linkerscript">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dual-core-static-ram-sram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dual-Core Static RAM (SRAM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#boot2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        boot2
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#boot2_size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        boot2_size
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -17041,132 +16941,72 @@
 
 
 
-<h1 id="rp2040-core-module">RP2040 core module<a class="headerlink" href="#rp2040-core-module" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:core</code></p>
-<p>This module specializes the generic <code>modm:platform:cortex-m</code> module with
-RP2040-specific startup code and linkerscripts.</p>
-<div class="admonition note">
-<p class="admonition-title">Second-stage Bootloader</p>
-<p>The external Flash memory requires additional setup, which is provided by
-the second-stage bootloader called boot2. You can select a pre-defined
-configuration via the <code>modm:platform:core:boot2</code> option.</p>
-</div>
-<h2 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h2>
-<p>The <code>__modm_initialize_platform()</code> callback resets all hardware to a known
-initial state.</p>
-<h2 id="linkerscript">Linkerscript<a class="headerlink" href="#linkerscript" title="Permanent link">&para;</a></h2>
-<p>The RP2040 currently only has one linkerscript template for internal SRAM and
-external Flash. You can place static objects in sections via the
-<code>modm_section</code> attribute:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// .data sections get copied from flash to RAM during startup</span>
-<span class="n">modm_section</span><span class="p">(</span><span class="s">".data_core0"</span><span class="p">)</span>
-<span class="kt">uint64_t</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1234567812345678ull</span><span class="p">;</span>
-
-<span class="c1">// .bss sections are not stored in flash but get zeroed during startup</span>
-<span class="n">modm_section</span><span class="p">(</span><span class="s">".bss_core0"</span><span class="p">)</span>
-<span class="kt">uint8_t</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
-
-<span class="c1">// .noinit sections are left uninitialized</span>
-<span class="n">modm_section</span><span class="p">(</span><span class="s">".noinit"</span><span class="p">)</span>
-<span class="kt">uint8_t</span><span class="w"> </span><span class="n">display_buffer</span><span class="p">[</span><span class="mi">480</span><span class="p">][</span><span class="mi">320</span><span class="p">];</span>
-</code></pre></div>
-<h3 id="dual-core-static-ram-sram">Dual-Core Static RAM (SRAM)<a class="headerlink" href="#dual-core-static-ram-sram" title="Permanent link">&para;</a></h3>
-<p>The RP2040 memory map consists out of the main RAM (SRAM0-3 with striped bank
-access) and the dedicated memories for each core (SRAM4-5).
-Note that the stack size for both cores is the same and can be changed with the
-<code>modm:platform:cortex-m:main_stack_size</code> option, however, the main stack for
-CPU1 is only added if modm is build with the <code>modm:platform:multicore</code> module
-to free up the unused memory.</p>
-<div class="highlight"><pre><span></span><code>            ┌────────────────────────┐◄ __core0_end
-            │  .noinit_core0         │
-            │  .bss_core0            │
-            │  .data_core0           │
-   CORE0    │  +MAIN_STACK_SIZE      │◄ __main_stack_top
-0x2004 1000 ├────────────────────────┤◄ __core1_end, __core0_start
-            │  .noinit_core1         │
-            │  .bss_core1            │
-            │  .data_core1           │
-   CORE1    │ (+MAIN_STACK_SIZE)     │◄ __main1_stack_top (only with :platform:multicore)
-0x2004 0000 ├────────────────────────┤◄ __ram_end, __core1_start
-            │  +HEAP_RAM             │
-            │  .noinit_ram           │
-            │  .noinit               │
-            │  .faststack            │
-            │  .bss_ram              │
-            │  .bss                  │
-            │  .data_ram             │
-            │  .data                 │
-            │  .fastdata             │
-            │  .fastcode             │
-    RAM     │ (.vector_ram)          │◄ only if remapped into RAM
-0x2000 0000 └────────────────────────┘◄ __ram_start
-
-            ┌────────────────────────┐◄ __flash_end
-            │        (unused)        │
-            ├────────────────────────┤◄ __rom_end
-            │  .table.heap           │
-            │  .table.copy.extern    │
-   tables   │  .table.zero.extern    │
-            │  .table.copy.intern    │
-            │  .table.zero.intern    │
-            │                        │
-            │  .data_core1           │
-            │  .data_core0           │
-    copy    │  .data_ram             │
-    only    │  .data                 │
-            │  .fastcode             │
-            │  .fastdata             │
-            │                        │
-            │  .note.gnu.build-id    │
-            │  .assertion            │
-            │  .hardware_init        │
-            │ (.eh_frame)            │
-    read    │ (.ARM.exidx)           │  only with C++ exceptions enabled
-    only    │ (.ARM.extab)           │
-            │  .init_array           │
-            │  .init                 │
-            │  .rodata               │
-            │  .text                 │
-            │  .vector_rom           │
-   FLASH    │  .boot2                │◄ see :platform:core:boot2 option
-0x1000 0000 └────────────────────────┘◄ __rom_start, __flash_start
-</code></pre></div>
-<p><em>This module is only available for rp2040.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="boot2">boot2<a class="headerlink" href="#boot2" title="Permanent link">&para;</a></h4>
-<p>Second-stage bootloader variant</p>
-<p>Default: <code>generic_03h</code><br />
-Inputs: <code>[at25sf128a, generic_03h, is25lp080, w25q080, w25x10cl]</code>  </p>
-<h4 id="boot2_size">boot2_size<a class="headerlink" href="#boot2_size" title="Permanent link">&para;</a></h4>
-<p>Specify the size of external QSPI FLASH chip</p>
-<p>Default: <code>2Mi (2097152)</code><br />
-Inputs: <code>[0 .. 2Mi .. 16Mi]</code>  </p>
+<h1 id="inter-integrated-circuit-i2c">Inter-Integrated Circuit (I²C)<a class="headerlink" href="#inter-integrated-circuit-i2c" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:i2c</code></p>
+<p><em>This module is only available for rp.</em></p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="91pt" height="150pt"
- viewBox="0.00 0.00 91.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
-<title>modm:platform:core</title>
+<p><svg class="deps" width="406pt" height="165pt"
+ viewBox="0.00 0.00 406.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
+<title>modm:platform:i2c</title>
 <g id="node1" class="node">
-<title>modm_platform_core</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="83,-53 0,-53 0,0 83,0 83,-53"/>
-<text text-anchor="middle" x="41.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="41.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="41.5" y="-7.8" font-family="Times,serif" font-size="14.00">core</text>
+<title>modm_platform_i2c</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="248,-53 165,-53 165,0 248,0 248,-53"/>
+<text text-anchor="middle" x="206.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="206.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="206.5" y="-7.8" font-family="Times,serif" font-size="14.00">i2c</text>
 </g>
 <g id="node2" class="node">
-<title>modm_platform_cortex_m</title>
-<polygon fill="lightgrey" stroke="black" points="83,-142 0,-142 0,-89 83,-89 83,-142"/>
-<text text-anchor="middle" x="41.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="41.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="41.5" y="-96.8" font-family="Times,serif" font-size="14.00">cortex&#45;m</text>
+<title>modm_architecture_i2c</title>
+<polygon fill="lightgrey" stroke="black" points="109,-149.5 0,-149.5 0,-96.5 109,-96.5 109,-149.5"/>
+<text text-anchor="middle" x="54.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-119.3" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-104.3" font-family="Times,serif" font-size="14.00">i2c</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_core&#45;&gt;modm_platform_cortex_m</title>
-<path fill="none" stroke="black" d="M41.5,-53.13C41.5,-61.11 41.5,-70.07 41.5,-78.62"/>
-<polygon fill="black" stroke="black" points="38,-78.75 41.5,-88.75 45,-78.75 38,-78.75"/>
+<title>modm_platform_i2c&#45;&gt;modm_architecture_i2c</title>
+<path fill="none" stroke="black" d="M165.37,-53.07C146.53,-64.79 124.04,-78.77 104.25,-91.07"/>
+<polygon fill="black" stroke="black" points="102.31,-88.15 95.67,-96.41 106.01,-94.1 102.31,-88.15"/>
+</g>
+<g id="node3" class="node">
+<title>modm_ext_cmsis_device</title>
+<polygon fill="lightgrey" stroke="black" points="192,-157 127,-157 127,-89 192,-89 192,-157"/>
+<text text-anchor="middle" x="159.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">ext:</text>
+<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
+<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+</g>
+<g id="edge2" class="edge">
+<title>modm_platform_i2c&#45;&gt;modm_ext_cmsis_device</title>
+<path fill="none" stroke="black" d="M193.66,-53.32C189.62,-61.43 185.06,-70.62 180.61,-79.56"/>
+<polygon fill="black" stroke="black" points="177.36,-78.24 176.04,-88.75 183.62,-81.35 177.36,-78.24"/>
+</g>
+<g id="node4" class="node">
+<title>modm_math_algorithm</title>
+<polygon fill="lightgrey" stroke="black" points="296.5,-149.5 210.5,-149.5 210.5,-96.5 296.5,-96.5 296.5,-149.5"/>
+<text text-anchor="middle" x="253.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="253.5" y="-119.3" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="253.5" y="-104.3" font-family="Times,serif" font-size="14.00">algorithm</text>
+</g>
+<g id="edge3" class="edge">
+<title>modm_platform_i2c&#45;&gt;modm_math_algorithm</title>
+<path fill="none" stroke="black" d="M219.34,-53.32C224.52,-63.74 230.58,-75.92 236.15,-87.11"/>
+<polygon fill="black" stroke="black" points="233.09,-88.81 240.67,-96.21 239.35,-85.7 233.09,-88.81"/>
+</g>
+<g id="node5" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="398,-149.5 315,-149.5 315,-96.5 398,-96.5 398,-149.5"/>
+<text text-anchor="middle" x="356.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="356.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="356.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_platform_i2c&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M248.03,-53.06C265.78,-64.05 286.7,-77.08 305.5,-89 306.44,-89.59 307.38,-90.19 308.33,-90.8"/>
+<polygon fill="black" stroke="black" points="306.7,-93.91 317.01,-96.35 310.47,-88.01 306.7,-93.91"/>
 </g>
 </g>
 </svg></p>

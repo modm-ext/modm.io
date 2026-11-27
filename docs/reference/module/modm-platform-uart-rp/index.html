@@ -12,13 +12,13 @@
         <meta name="author" content="Niklas Hauser">
       
       
-        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-extint-rp2040/">
+        <link rel="canonical" href="https://modm.dev/reference/module/modm-platform-uart-rp/">
       
       
-        <link rel="prev" href="../modm-platform-exti/">
+        <link rel="prev" href="../modm-platform-uart-nrf51/">
       
       
-        <link rel="next" href="../modm-platform-extint-samd1x-d2x-dax/">
+        <link rel="next" href="../modm-platform-uart-same7x-s7x-v7x/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>:platform:extint (rp2040) - modm barebone embedded library</title>
+        <title>:platform:uart (rp) - modm barebone embedded library</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#external-interrupt-handler" class="md-skip">
+        <a href="#universal-asynchronous-receiver-transmitter-uart" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              :platform:extint (rp2040)
+              :platform:uart (rp)
             
           </span>
         </div>
@@ -3052,6 +3052,34 @@
     
   
     :rp-pico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../config/modm-rp-pico2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :rp-pico2
   
 
     
@@ -6665,6 +6693,34 @@
     
   
     :board:rp-pico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modm-board-rp-pico2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :board:rp-pico2
   
 
     
@@ -11137,14 +11193,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-ext-cmsis-device-rp2040/" class="md-nav__link">
+      <a href="../modm-ext-cmsis-device-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :ext:cmsis:device (rp2040)
+    :ext:cmsis:device (rp)
   
 
     
@@ -13461,14 +13517,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-adc-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-adc-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:adc (rp2040)
+    :platform:adc (rp)
   
 
     
@@ -13909,14 +13965,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-clockgen-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-clockgen-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:clockgen (rp2040)
+    :platform:clockgen (rp)
   
 
     
@@ -14077,14 +14133,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-core-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-core-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:core (rp2040)
+    :platform:core (rp)
   
 
     
@@ -14245,14 +14301,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-dma-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-dma-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:dma (rp2040)
+    :platform:dma (rp)
   
 
     
@@ -14438,44 +14494,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    :platform:extint (rp2040)
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../modm-platform-extint-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:extint (rp2040)
+    :platform:extint (rp)
   
 
     
@@ -14484,109 +14513,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#multicore-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multicore mode
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#callbacks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Callbacks
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#irq-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IRQ Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gpio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        gpio
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#qspi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        qspi
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -14655,14 +14581,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-flash-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-flash-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:flash (rp2040)
+    :platform:flash (rp)
   
 
     
@@ -14851,14 +14777,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-gpio-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-gpio-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:gpio (rp2040)
+    :platform:gpio (rp)
   
 
     
@@ -15047,14 +14973,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-i2c-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-i2c-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:i2c (rp2040)
+    :platform:i2c (rp)
   
 
     
@@ -15551,14 +15477,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-spi-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-spi-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:spi (rp2040)
+    :platform:spi (rp)
   
 
     
@@ -15884,17 +15810,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../modm-platform-uart-rp2040/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    :platform:uart (rp)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:uart (rp2040)
+    :platform:uart (rp)
   
 
     
@@ -15903,6 +15856,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instance-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instance Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bufferrx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        buffer.rx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffertx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        buffer.tx
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -16223,14 +16246,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../modm-platform-usb-rp2040/" class="md-nav__link">
+      <a href="../modm-platform-usb-rp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    :platform:usb (rp2040)
+    :platform:usb (rp)
   
 
     
@@ -16930,55 +16953,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#multicore-mode" class="md-nav__link">
+  <a href="#instance-options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Multicore mode
+        Instance Options
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#callbacks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Callbacks
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#irq-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IRQ Types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
+    <nav class="md-nav" aria-label="Instance Options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gpio" class="md-nav__link">
+  <a href="#bufferrx" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gpio
+        buffer.rx
       
     </span>
   </a>
@@ -16986,10 +16976,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#qspi" class="md-nav__link">
+  <a href="#buffertx" class="md-nav__link">
     <span class="md-ellipsis">
       
-        qspi
+        buffer.tx
       
     </span>
   </a>
@@ -17029,107 +17019,103 @@
 
 
 
-<h1 id="external-interrupt-handler">External Interrupt Handler<a class="headerlink" href="#external-interrupt-handler" title="Permanent link">&para;</a></h1>
-<p>lbuild module: <code>modm:platform:extint</code></p>
-<p>This driver provides an API for configuring all IRQ lines via register access.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Powers on the LED on the low-&gt;high transition, and off on high-&gt;low.</span>
-<span class="n">GpioInput0</span><span class="o">::</span><span class="n">setInput</span><span class="p">();</span>
-<span class="n">IntHandler</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioInput0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">BothEdges</span><span class="p">,</span>
-<span class="w">                                </span><span class="p">[](</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger_t</span><span class="w"> </span><span class="n">triggers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                                    </span><span class="n">Led</span><span class="o">::</span><span class="n">set</span><span class="p">(</span><span class="o">!!</span><span class="p">(</span><span class="n">triggers</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">RisingEdge</span><span class="p">));</span>
-<span class="w">                                </span><span class="p">});</span>
-
-<span class="c1">// Toggles LED each time gpio input is at the high level.</span>
-<span class="n">GpioInput1</span><span class="o">::</span><span class="n">setInput</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputType</span><span class="o">::</span><span class="n">PullDown</span><span class="p">);</span>
-<span class="n">IntHandler</span><span class="o">::</span><span class="n">connect</span><span class="o">&lt;</span><span class="n">GpioInput1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger</span><span class="o">::</span><span class="n">HighLevel</span><span class="p">,</span>
-<span class="w">                                </span><span class="p">[](</span><span class="n">Gpio</span><span class="o">::</span><span class="n">InputTrigger_t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Led</span><span class="o">::</span><span class="n">toggle</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
-</code></pre></div>
-<h2 id="multicore-mode">Multicore mode<a class="headerlink" href="#multicore-mode" title="Permanent link">&para;</a></h2>
-<p>Each core can register callbacks in the same IntHandler,
-but for the different pins (current implementation's constraint).</p>
-<p>Also, enable/disable and connect/disconnect calls
-affect the NVIC of the executing core only.</p>
-<h2 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h2>
-<p>The callback is implemented using <code>modm::inplace_function</code>, therefore uses no
-heap, but has a fixed storage size of <code>sizeof(void*)</code> by default.
-You can increase this storage size by defining a new global storage size
-<code>MODM_EXTINT_HANDLER_STORAGE=bytes</code> in your <code>project.xml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
-<span class="w">  </span><span class="nt">&lt;collectors&gt;</span>
-<span class="w">    </span><span class="nt">&lt;collect</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:build:cppdefines"</span><span class="nt">&gt;</span>MODM_EXTINT_HANDLER_STORAGE=12<span class="nt">&lt;/collect&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/collectors&gt;</span>
-<span class="nt">&lt;/library&gt;</span>
-</code></pre></div>
-<h2 id="irq-types">IRQ Types<a class="headerlink" href="#irq-types" title="Permanent link">&para;</a></h2>
-<p>You can explicitly enable or disable handling of the specific IRQ type in your <code>project.xml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;library&gt;</span>
-<span class="w">  </span><span class="nt">&lt;options&gt;</span>
-<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:platform:extint:gpio"</span><span class="nt">&gt;</span>no<span class="nt">&lt;/option&gt;</span>
-<span class="w">    </span><span class="nt">&lt;option</span><span class="w"> </span><span class="na">name=</span><span class="s">"modm:platform:extint:qspi"</span><span class="nt">&gt;</span>yes<span class="nt">&lt;/option&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/options&gt;</span>
-<span class="nt">&lt;/library&gt;</span>
-</code></pre></div>
-<p><em>This module is only available for rp2040.</em></p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<h4 id="gpio">gpio<a class="headerlink" href="#gpio" title="Permanent link">&para;</a></h4>
-<p>Enable IRQ support for GPIO</p>
-<p>Default: <code>yes</code><br />
-Inputs: <code>[yes, no]</code>  </p>
-<h4 id="qspi">qspi<a class="headerlink" href="#qspi" title="Permanent link">&para;</a></h4>
-<p>Enable IRQ support for QSPI</p>
-<p>Default: <code>no</code><br />
-Inputs: <code>[yes, no]</code>  </p>
+<h1 id="universal-asynchronous-receiver-transmitter-uart">Universal Asynchronous Receiver Transmitter (UART)<a class="headerlink" href="#universal-asynchronous-receiver-transmitter-uart" title="Permanent link">&para;</a></h1>
+<p>lbuild module: <code>modm:platform:uart</code></p>
+<p><em>This module is only available for rp.</em></p>
+<h2 id="instance-options">Instance Options<a class="headerlink" href="#instance-options" title="Permanent link">&para;</a></h2>
+<p>These options are available for each instance of this module.</p>
+<h4 id="bufferrx">buffer.rx<a class="headerlink" href="#bufferrx" title="Permanent link">&para;</a></h4>
+<p>Default: <code>32</code><br />
+Inputs: <code>[32 ... 64Ki-2]</code>  </p>
+<h4 id="buffertx">buffer.tx<a class="headerlink" href="#buffertx" title="Permanent link">&para;</a></h4>
+<p>Default: <code>32</code><br />
+Inputs: <code>[32 ... 64Ki-2]</code>  </p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<p><svg class="deps" width="301pt" height="165pt"
- viewBox="0.00 0.00 301.00 165.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 161)">
-<title>modm:platform:extint</title>
+<p><svg class="deps" width="678pt" height="150pt"
+ viewBox="0.00 0.00 678.00 150.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph deps" transform="scale(1 1) rotate(0) translate(4 146)">
+<title>modm:platform:uart</title>
 <g id="node1" class="node">
-<title>modm_platform_extint</title>
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="201,-53 118,-53 118,0 201,0 201,-53"/>
-<text text-anchor="middle" x="159.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="159.5" y="-7.8" font-family="Times,serif" font-size="14.00">extint</text>
+<title>modm_platform_uart</title>
+<polygon fill="lightgrey" stroke="black" stroke-width="2" points="408,-53 325,-53 325,0 408,0 408,-53"/>
+<text text-anchor="middle" x="366.5" y="-37.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="366.5" y="-22.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="366.5" y="-7.8" font-family="Times,serif" font-size="14.00">uart</text>
 </g>
 <g id="node2" class="node">
-<title>modm_architecture_interrupt</title>
-<polygon fill="lightgrey" stroke="black" points="109,-149.5 0,-149.5 0,-96.5 109,-96.5 109,-149.5"/>
-<text text-anchor="middle" x="54.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="54.5" y="-119.3" font-family="Times,serif" font-size="14.00">architecture:</text>
-<text text-anchor="middle" x="54.5" y="-104.3" font-family="Times,serif" font-size="14.00">interrupt</text>
+<title>modm_architecture_fiber</title>
+<polygon fill="lightgrey" stroke="black" points="109,-142 0,-142 0,-89 109,-89 109,-142"/>
+<text text-anchor="middle" x="54.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="54.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="54.5" y="-96.8" font-family="Times,serif" font-size="14.00">fiber</text>
 </g>
 <g id="edge1" class="edge">
-<title>modm_platform_extint&#45;&gt;modm_architecture_interrupt</title>
-<path fill="none" stroke="black" d="M131.09,-53.07C118.6,-64.31 103.78,-77.64 90.53,-89.57"/>
-<polygon fill="black" stroke="black" points="88.03,-87.12 82.94,-96.41 92.71,-92.32 88.03,-87.12"/>
+<title>modm_platform_uart&#45;&gt;modm_architecture_fiber</title>
+<path fill="none" stroke="black" d="M324.58,-35.94C276.72,-46 196.05,-64.23 119.15,-88.62"/>
+<polygon fill="black" stroke="black" points="117.75,-85.39 109.31,-91.78 119.9,-92.05 117.75,-85.39"/>
 </g>
 <g id="node3" class="node">
-<title>modm_ext_cmsis_device</title>
-<polygon fill="lightgrey" stroke="black" points="192,-157 127,-157 127,-89 192,-89 192,-157"/>
-<text text-anchor="middle" x="159.5" y="-141.8" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="159.5" y="-126.8" font-family="Times,serif" font-size="14.00">ext:</text>
-<text text-anchor="middle" x="159.5" y="-111.8" font-family="Times,serif" font-size="14.00">cmsis:</text>
-<text text-anchor="middle" x="159.5" y="-96.8" font-family="Times,serif" font-size="14.00">device</text>
+<title>modm_architecture_interrupt</title>
+<polygon fill="lightgrey" stroke="black" points="236,-142 127,-142 127,-89 236,-89 236,-142"/>
+<text text-anchor="middle" x="181.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="181.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="181.5" y="-96.8" font-family="Times,serif" font-size="14.00">interrupt</text>
 </g>
 <g id="edge2" class="edge">
-<title>modm_platform_extint&#45;&gt;modm_ext_cmsis_device</title>
-<path fill="none" stroke="black" d="M159.5,-53.32C159.5,-61.18 159.5,-70.04 159.5,-78.71"/>
-<polygon fill="black" stroke="black" points="156,-78.75 159.5,-88.75 163,-78.75 156,-78.75"/>
+<title>modm_platform_uart&#45;&gt;modm_architecture_interrupt</title>
+<path fill="none" stroke="black" d="M324.98,-47.02C301.44,-58.09 271.5,-72.18 245.06,-84.61"/>
+<polygon fill="black" stroke="black" points="243.44,-81.51 235.88,-88.93 246.41,-87.84 243.44,-81.51"/>
 </g>
 <g id="node4" class="node">
-<title>modm_platform_gpio</title>
-<polygon fill="lightgrey" stroke="black" points="293,-149.5 210,-149.5 210,-96.5 293,-96.5 293,-149.5"/>
-<text text-anchor="middle" x="251.5" y="-134.3" font-family="Times,serif" font-size="14.00">modm:</text>
-<text text-anchor="middle" x="251.5" y="-119.3" font-family="Times,serif" font-size="14.00">platform:</text>
-<text text-anchor="middle" x="251.5" y="-104.3" font-family="Times,serif" font-size="14.00">gpio</text>
+<title>modm_architecture_uart</title>
+<polygon fill="lightgrey" stroke="black" points="363,-142 254,-142 254,-89 363,-89 363,-142"/>
+<text text-anchor="middle" x="308.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="308.5" y="-111.8" font-family="Times,serif" font-size="14.00">architecture:</text>
+<text text-anchor="middle" x="308.5" y="-96.8" font-family="Times,serif" font-size="14.00">uart</text>
 </g>
 <g id="edge3" class="edge">
-<title>modm_platform_extint&#45;&gt;modm_platform_gpio</title>
-<path fill="none" stroke="black" d="M184.64,-53.32C195.29,-64.26 207.83,-77.14 219.16,-88.78"/>
-<polygon fill="black" stroke="black" points="216.91,-91.48 226.39,-96.21 221.92,-86.6 216.91,-91.48"/>
+<title>modm_platform_uart&#45;&gt;modm_architecture_uart</title>
+<path fill="none" stroke="black" d="M349.41,-53.13C343.74,-61.64 337.33,-71.25 331.3,-80.3"/>
+<polygon fill="black" stroke="black" points="328.3,-78.49 325.67,-88.75 334.13,-82.37 328.3,-78.49"/>
+</g>
+<g id="node5" class="node">
+<title>modm_math_algorithm</title>
+<polygon fill="lightgrey" stroke="black" points="467.5,-142 381.5,-142 381.5,-89 467.5,-89 467.5,-142"/>
+<text text-anchor="middle" x="424.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="424.5" y="-111.8" font-family="Times,serif" font-size="14.00">math:</text>
+<text text-anchor="middle" x="424.5" y="-96.8" font-family="Times,serif" font-size="14.00">algorithm</text>
+</g>
+<g id="edge4" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_math_algorithm</title>
+<path fill="none" stroke="black" d="M383.59,-53.13C389.26,-61.64 395.67,-71.25 401.7,-80.3"/>
+<polygon fill="black" stroke="black" points="398.87,-82.37 407.33,-88.75 404.7,-78.49 398.87,-82.37"/>
+</g>
+<g id="node6" class="node">
+<title>modm_platform_clockgen</title>
+<polygon fill="lightgrey" stroke="black" points="569,-142 486,-142 486,-89 569,-89 569,-142"/>
+<text text-anchor="middle" x="527.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="527.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="527.5" y="-96.8" font-family="Times,serif" font-size="14.00">clockgen</text>
+</g>
+<g id="edge5" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_platform_clockgen</title>
+<path fill="none" stroke="black" d="M408.38,-50.13C429.34,-61.46 454.89,-75.26 476.94,-87.18"/>
+<polygon fill="black" stroke="black" points="475.37,-90.31 485.83,-91.98 478.7,-84.15 475.37,-90.31"/>
+</g>
+<g id="node7" class="node">
+<title>modm_platform_gpio</title>
+<polygon fill="lightgrey" stroke="black" points="670,-142 587,-142 587,-89 670,-89 670,-142"/>
+<text text-anchor="middle" x="628.5" y="-126.8" font-family="Times,serif" font-size="14.00">modm:</text>
+<text text-anchor="middle" x="628.5" y="-111.8" font-family="Times,serif" font-size="14.00">platform:</text>
+<text text-anchor="middle" x="628.5" y="-96.8" font-family="Times,serif" font-size="14.00">gpio</text>
+</g>
+<g id="edge6" class="edge">
+<title>modm_platform_uart&#45;&gt;modm_platform_gpio</title>
+<path fill="none" stroke="black" d="M408.31,-37.14C449.53,-47.19 514.25,-64.43 577.09,-88.69"/>
+<polygon fill="black" stroke="black" points="576.17,-92.09 586.75,-92.48 578.72,-85.57 576.17,-92.09"/>
 </g>
 </g>
 </svg></p>
